@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![ATELIER Banner](https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80)
-
 **A luxury streetwear digital storefront built with a modern React stack.**  
 Editorial aesthetics. AI-driven curation. Zero compromise.
 
