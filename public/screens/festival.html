@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Festival Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #fbf9f9;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .perspective-1000 { perspective: 1000px; }
+        .parallax-bg { background-attachment: fixed; background-position: center; background-size: cover; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#e2e2e2",
+                      "surface-variant": "#e3e2e2",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#444748",
+                      "secondary-container": "#6c98ff",
+                      "on-secondary-fixed": "#001946",
+                      "surface-dim": "#dbdad9",
+                      "surface-container-high": "#e9e8e7",
+                      "on-surface": "#1b1c1c",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-tint": "#5f5e5e",
+                      "secondary-fixed": "#dae2ff",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f5f3f3",
+                      "surface-bright": "#fbf9f9",
+                      "on-tertiary-container": "#838484",
+                      "on-background": "#1b1c1c",
+                      "surface-container": "#efeded",
+                      "surface": "#fbf9f9",
+                      "surface-container-highest": "#e3e2e2",
+                      "secondary": "#2559bd",
+                      "primary-container": "#1c1b1b",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "outline": "#747878",
+                      "on-primary-container": "#858383",
+                      "on-secondary-fixed-variant": "#00419e",
+                      "inverse-primary": "#c8c6c5",
+                      "inverse-surface": "#303031",
+                      "tertiary-container": "#1a1c1c",
+                      "on-secondary-container": "#002f76",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "outline-variant": "#c4c7c7",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#b1c5ff",
+                      "primary-fixed": "#e5e2e1",
+                      "primary": "#000000",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "background": "#fbf9f9",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#000000",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-primary-fixed-variant": "#474746",
+                      "inverse-on-surface": "#f2f0f0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "lg": "48px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "title-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</div>
+<div class="hidden lg:flex items-center space-x-lg">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1" href="#">Collections</a>
+</div>
+<div class="flex items-center space-x-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors duration-200" data-icon="person">person</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors duration-200" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors duration-200" data-icon="shopping_bag">shopping_bag</button>
+</div>
+</div>
+</nav>
+<!-- Main Stage Hero Section -->
+<section class="relative w-full h-[921px] overflow-hidden bg-primary flex items-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-80 scale-105" data-alt="A high-fashion editorial portrait of a model in expressive, neon-accented streetwear standing amidst a vibrant music festival crowd at sunset. The lighting is cinematic and golden-hour focused, with soft lens flares and a deep professional depth of field. The aesthetic is clean luxury meets raw festival energy, utilizing a primary black and white palette with sharp blue electric accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqAXAlHFYuD3VU-uJuOcvzNIv-7yJFDTwkndiNI0knnhi0iI_9c6xSii-aLXPNcBNJ3CfSEar-0cKosye07-9-JoOK-Z7XsNhOq-cB6hLJMbc43O4pefelfO8QL-YU1siEvC31NxcpVUe-c6Nnrd6E18x45fFhLk6G5oBuoOzdddCF7dwofbUJxqKRTQ-pcbVu8WE_EjRY9JcTHrecGxgNQPAhhWszd2Co_oLubJTTv3Sg3hZP3yo9hJbhctXJ9i9HQG9jjPbvPoJh"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-margin-desktop text-white">
+<p class="font-label-md text-label-md tracking-[0.2em] mb-sm text-secondary-fixed">SUMMER '24 RELEASE</p>
+<h1 class="font-display-lg text-[84px] leading-tight mb-md max-w-3xl">MAIN STAGE <br/> STATEMENT</h1>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="h-[48px] px-lg bg-[#0047AB] text-white font-label-md text-label-md flex items-center justify-center hover:bg-secondary transition-all">SHOP THE DROP</button>
+<button class="h-[48px] px-lg border border-white text-white font-label-md text-label-md flex items-center justify-center hover:bg-white hover:text-primary transition-all">VIEW LOOKBOOK</button>
+</div>
+</div>
+</section>
+<!-- Weatherproof Tech Section -->
+<section class="py-xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div class="order-2 lg:order-1">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-sm block">Engineered for the Elements</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">All-Terrain Technicality</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed max-w-xl">
+                        Festival environments are unpredictable. Our Weatherproof Capsule combines high-density ripstop fabrics with water-repellent coatings, ensuring you remain focused on the performance, not the forecast.
+                    </p>
+<div class="grid grid-cols-2 gap-gutter mb-lg">
+<div class="border-l-2 border-secondary pl-md">
+<span class="block font-headline-md text-headline-md text-primary">01</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">3-Layer Shell</span>
+</div>
+<div class="border-l-2 border-secondary pl-md">
+<span class="block font-headline-md text-headline-md text-primary">02</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Heat Sealed Seams</span>
+</div>
+</div>
+<button class="h-[48px] px-lg border border-primary text-primary font-label-md text-label-md flex items-center justify-center hover:bg-primary hover:text-white transition-all">EXPLORE TECH SPEC</button>
+</div>
+<div class="order-1 lg:order-2 grid grid-cols-12 gap-sm">
+<div class="col-span-8 h-[500px]">
+<img class="w-full h-full object-cover grayscale-[0.3]" data-alt="A detailed close-up shot of a high-tech weatherproof streetwear jacket being struck by water droplets which are beading perfectly on the surface. The material is a fine matte-black ripstop texture. The lighting is cold and professional, showcasing the precision and premium quality of the technical fabric. Clean, minimalist aesthetic with a focus on functional luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG-ZNCicrm8HN3OZ3WZleQwt_RvdD3xUztImfQFoW78Ye9-osk0DTJ-HIv--J2sktj2jwsEepkUh87wD2fs3huGvy_CKwiJWi3H6FosL39xist3PVHq924v7o9yujRzYBUfS7m9-2EJ8nQ0Y5Rjw65XdbVsqiNh9viw4fUgHh9bC4ahaTq3fpXOJw_9bU8Rxb1LAjEmgGUtVcQ72t9NMzPySvgaepmpiYjJvYimKbwBi1OOWHr-AmK1-_xVjYGt3TMDbADDcMsOvmO"/>
+</div>
+<div class="col-span-4 h-[500px] flex flex-col gap-sm">
+<div class="h-1/2">
+<img class="w-full h-full object-cover" data-alt="A minimalist studio product shot of technical streetwear pants displayed against a light gray background. The focus is on the tactical pockets and high-quality stitching. Professional product lighting with soft shadows, maintaining a clean and premium corporate fashion aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAihHRiLI9_3_iJ_D9YkzEWLevwrugGEedrlRl80gXAtA8lxEz18no7VjIB91TCQlt2pIC39-Dkr6AWPQASQuz6F8465yZnOMX-9w-B2mTgHUNy8yrmzNVeDz3mfmYpLwsrdvQs3D-cMhAu17Bn874U9zmnLswVMh0-Q5mCERRzY7F-3p-UwDE3gC9TUjTY_ORNZrvfcS0-hGbxP7SmfeC3yKF9olyfM1EhfyANUkXCFbKNBvCZ2Uiyil3lXGAIcjrk-UwDQDdZZozj"/>
+</div>
+<div class="h-1/2 bg-secondary flex items-center justify-center p-md text-center">
+<p class="text-white font-label-md text-label-md leading-tight">STAY DRY. <br/> STAY FOCUSED.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Accessories Bento Grid -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Survival Suite</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Essentials for the 12-hour marathon.</p>
+</div>
+<a class="font-label-md text-label-md text-primary underline underline-offset-4 hover:text-secondary transition-all" href="#">Browse All Accessories</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-sm h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-white p-base group overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional studio shot of a modular tech-wear chest rig in black with premium metallic buckles. The item is displayed on a minimalist white background with architectural soft lighting. The vibe is sophisticated, urban, and luxury performance-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSbeV48dHRpDVPut8V_GzzUZ8VsDbgIIOd2XN1377NdghvFkmG9Zkf9EqpbtOQ781LSZmdGtlPNsuvbRuX1AGiAuxBt7azSRmZoX53G1Vr4Mvm4ythGAv2z4Juw1flXGhFxrtKDWUz8m8XD0lUC5EGPHo9d_oYnKZK0uuv7F4u_tTJR5LVfUPqpcPGWeuEY1czbhqvMx6JmhUV47brUR7sKR3hU3_-_nyvs2lscZCkTUumBXVbw3fJDrxX3Ke88Jsxj8kvAr4b7DEJ"/>
+<div class="absolute bottom-md left-md bg-white p-sm border border-outline-variant">
+<p class="font-label-md text-label-md text-primary">Modular Chest Rig</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">$185.00</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-white border border-outline-variant flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 p-md flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-secondary uppercase mb-xs">Limited Edition</span>
+<h3 class="font-title-lg text-title-lg mb-sm">Carbon Eyewear</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">UVA/B Protection with indestructible frames.</p>
+<button class="h-[40px] px-md border border-primary text-primary font-label-md text-label-md w-fit hover:bg-primary hover:text-white transition-all">Quick Add</button>
+</div>
+<div class="w-full md:w-1/2">
+<img class="w-full h-full object-cover" data-alt="Detailed close up of premium black designer sunglasses on a clean surface. The lighting emphasizes the sleek carbon fiber texture and reflective blue lenses. This professional fashion photography evokes a sense of high-end craftsmanship and modern professional luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3DyjV1oi_01-ezoy6uPpwf3w2p7yPjkO8ma3C5okj6Vp-kP3EllTnWiozU4MuH-rexevlRFPRl6YpUBPYYTdlMqxbij0Vhbjm7ZYeieekT9t3Uko67Gke4vOOUUUCy3LlYU9soPixmJMpi2wDxZLET4AxRTZ30dVZCPK0eQDPAlXVgWPPQCzWLxkVPm0Zf9QfgoRKvs1IU5qXOFVvZmB_oz8cn9BE-6x9OD-gCi386rN5tI0laWeYYz7zWQUVD7ZlRztEQvTeowMT"/>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-base relative overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-all" data-alt="Minimalist luxury leather utility belt bag in charcoal gray. The hardware is brushed nickel, shown in a clean studio setting with professional top-down lighting. The mood is sophisticated and utilitarian." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG_ysg4uVrS_LlbSmPKYuHDrE63g6BXugbBITFXBUnjBVA4VZeA-UckPI2k3vfwXz28m0GhzrZtlHtXNFZawQC2jH6T1U16ZJ9LfWyOn_u0jK3Dc8M-Xi8owi02x0TORLErY-vSWVnvWJACX2w0I4asr4PGNI3crbHfvazxqWK8i_mHjrI0V3VM7gf_v_RcwkMareYpICiOgjBxMmOVurMvu1iEMxoHGOy3kbNIixpMsp2Z1HVqK3GqEkfbUovDjZxCE6qps83D8Ez"/>
+</div>
+<div class="bg-primary text-white p-md flex flex-col justify-end border border-outline-variant">
+<span class="material-symbols-outlined text-[32px] mb-md" data-icon="bolt">bolt</span>
+<h4 class="font-headline-md text-headline-md leading-tight mb-xs">Fast Charge Hub</h4>
+<p class="font-label-sm text-label-sm opacity-70">Coming Next Week</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Influencer 'Festival Fit' Gallery -->
+<section class="py-xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Festival Fits</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Seen on the world's most creative stages. Join the collective @ATELIER_OFFICIAL</p>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="space-y-gutter">
+<div class="relative overflow-hidden aspect-[3/4] border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="A fashion-forward influencer posing in a vibrant neon festival outfit against an architectural urban background. The lighting is high-key and professional, capturing the dynamic energy and premium textures of the streetwear. The color palette is clean with bright pops of electric blue and yellow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ0bEPwgHll6CVOIJ3AZzcASALo06fP-C0huow9YCKtZijGZ0v5yUinEa2URJoySJpA79DR25tukOQcZ7ozE6fknn3VUBmpcSMF_7j0o35chpIriXNmrzM3TedadQl4eyKoPK_uCbi3ob1Moodyn_7kXZzxyhin4j9FYc6BYkxTagRW58iAHJWPEu2hQxjwoFCbnjHxuDkDc_Qn1TrgmwLew7IgVaitA-3M1DpjoXUSkX3If-AJDjagEz9-Hqu5zQQepe_Uev1mjPh"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+<div class="relative overflow-hidden aspect-square border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="A cinematic portrait of an influencer at a festival, wearing statement technical gear and large sunglasses. The setting is a blurry, energetic crowd at dusk, lit by vibrant stage lights. The photography is professional and editorial, with a sharp focus on the model and high-fashion luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaPWktdY2jIDoWLPgnCebBZ3q3nI9y-DN6VwMWcB8z6CgRUFcXd3oL0xM-ofupCEWcoI2lBDcMPjRSmEVz4XP_CuzMjqaN6kIp_uJJEog7jhDXwCQYt1ECtp0vt4fRWmudneCcFNVxa9Kc00QOm3JIEHJboYcHZyibUJQHLjlItfgQRUg0P9FWjgzGrE-YSlEB_XwuCa7hisW-zLkMPWXbIQwk8i69eqvLQ7EjGsFlYzsDUccA8TlrIDnLBR8ZzvIiQlGPYlpMnfge"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+</div>
+<div class="space-y-gutter pt-xl">
+<div class="relative overflow-hidden aspect-square border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="Street style photography of a male influencer wearing ATELIER technical vest and cargo pants at a modern music festival. The backdrop features geometric stage design. The lighting is bright and clean, emphasizing a professional luxury streetwear look with a cool tonal palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw1NkgBEjgZ3oDrU7JK68leBcR5mktPRnY5UgFa_zOrMPP3sOOeWHSe4Q-oGJ8LhkBv-gIHX4dQEl-njdbpRcFHmwEZw1sE9VZ8IY3jFjBKhFnVw1xUUb2L7LmEv7Po8RgOeTw_57NaW4-T1qZrPtkhbMn0pz2HE9sNBGVF9DNVgM3NNznq_2dBK9CSNvjmx2kFSrH765JxlbT5qWQLc-tUdJ3IKPXVpuVTd2vwg4jI4YEh3TB_Gpn31KMkIL9ADtV02UkIYnnFO5i"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+<div class="relative overflow-hidden aspect-[3/4] border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="An editorial shot of a model at a summer festival, wearing a minimal but expressive streetwear outfit including reflective accessories. The background is a golden hour wash of warm light and soft Bokeh of the festival grounds. The overall aesthetic is clean, professional, and sophisticatedly cool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0UIgbOvsXhy1XjOgMraUBzLQZwDdgnHym-Z04S_HhRnog5a5HKTcxz9REfyQiHGCp8iJqan2lNR0_OKNsRK9MUHAscpKngh2oOP5pMkfBFBids9ag8K7g8D0ocTEX-KxeQNS8JL1CyK23ndhuSmwnjSGFq6E68ECok0lBzqOTA3XPnfX_Fs_s4u2UEw28UvFm1dCA8JYIOX5lemrYbSvCnQNWNx58ru4IcNaNZSF6UNXfa40aV4I-eEP5emDolq4Lff-OkC7I_r38"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+</div>
+<div class="space-y-gutter">
+<div class="relative overflow-hidden aspect-[3/4] border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="A portrait of a stylish festival attendee wearing oversized layered streetwear. The setting is a minimalist industrial space near a festival venue. High-end fashion photography style with disciplined lighting and a focus on clean silhouettes and quality material." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC35iicsEAMXnWBi8SB--hZwOdPDTC0GnDzCDn_e3GlU09SId-QhCvwXcwYyatkCC6nOl-qJwpzx6JOMtMGCan82NKEh1wTBae4iWDWES7VF4sDPffChcx9vVxUdRr6hWHoaPk0HhFeDSVOWx3vFq3xABlp5twC1qyzqUHvs4u24NlpeUvsOGugxO1zAAv6cqFlQaiIEL0orEMGdQWF3k0llXC-IWDSozI7QJvUNAR5EU3jMYcXwFFAgBGcL2DfZaizFdQ6xw8LcBID"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+<div class="relative overflow-hidden aspect-square border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="Creative editorial shot of models in a group setting at a high-end music festival. They are wearing cohesive ATELIER collections. The lighting is bright and airy with high-key professional rendering. The style is sophisticated, organized, and effortlessly luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0aJtQJP6TSxC4stqqVTl8HcQ5C2h65mqEUQl2dtZwL-0King7Itqg6QUfoV-nUKnSXwEj6OMgp1q7rI4Gp2ttsuFkgktME2jb728AzyBirHaN2ffr-PDDg7w-9JuIrDFufiOzChGvNxqUtrCjNEqIsYQxUVHHwuLaUd4uKeTHn8vHwu3JiQrmOVH-VYMErJt8qSxY8YWcQby2HEEmry4FyX2oEmjfAv28sZMg_XzG3BsMW23dtkCCGPoUiL593lHjfQpd3nXydW1d"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+</div>
+<div class="space-y-gutter pt-xl">
+<div class="relative overflow-hidden aspect-square border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="A close up portrait of an influencer showing off ATELIER accessories and makeup. The background is a blur of blue and purple neon festival lights. The shot is high-end, clean, and professionally executed with a focus on skin texture and accessory details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNxwOanXH2myQVKu4ZR5We5iPqHkaI-ACkiBV2pWz5DDMGHMPE37E0-yR8sHR2svnAaOBwFL920O54JzBOvVY6YWxzHWXp8IrU3rtpw2p5esWw94EFBrgwxkOG7ZB019sopIMkhYmJCWnoLqlVN-pauJT8QeVKVnUX1bUgM3QWPbKQHCj80jZk3tyI7QAr4eb4yAWXLkWtaPbZbxfZo3lhvR6SK-qhYVUj-bSrEko3dWPdWJk8L8iYujQa1QzijBbg17fY3UTQnVA1"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+<div class="relative overflow-hidden aspect-[3/4] border border-outline-variant group">
+<img class="w-full h-full object-cover" data-alt="A wide-angle lifestyle shot of a model walking through a minimalist modern festival pavilion. The outfit is a monochromatic white tech-wear ensemble. The lighting is soft, daylight studio quality. The aesthetic is clean, professional luxury fashion with a futuristic twist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL1Q7JZVsnQ0N1-WOrn0txZsO0LKc4jlUN5UfP7RGRO2N7BnjBeEEpzS4Giekw1kTSjloseJhCyS2-e5Q9syxayRruYSglEWC0WiQiV4Yxz77E6Xx7ZDGc2sMR0a9TXOIRwiTzpEdFOvpGTnmc7LJOCRUbGT2r3yzUbARe0lfPwxlnZSHBsgsdwbmj2HMfYNlWFkaVRM8cbuqJ7F8nNszSiwNGWGVSz57d7TbI-zCqQaJBz6tqqBJGJWhVZQpU5GTEr3p6izlgEftT"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white font-label-md text-label-md border border-white px-md py-sm">Shop Look</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline full-width mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="flex flex-col space-y-md">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">ATELIER</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-xs">Elevating the standards of modern streetwear through technical precision and luxury craftsmanship.</p>
+</div>
+<div class="flex flex-col space-y-sm">
+<span class="font-label-md text-label-md text-primary font-bold mb-xs">Shop</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Men's Collection</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Women's Collection</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Accessories</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">New Arrivals</a>
+</div>
+<div class="flex flex-col space-y-sm">
+<span class="font-label-md text-label-md text-primary font-bold mb-xs">Information</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Sustainability</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Shipping</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Brand Stories</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col space-y-md">
+<span class="font-label-md text-label-md text-primary font-bold">Newsletter</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Join the community for exclusive early access.</p>
+<div class="flex border-b border-primary py-xs">
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md" placeholder="Email Address" type="email"/>
+<button class="material-symbols-outlined text-primary" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant max-w-7xl mx-auto">
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant opacity-100 hover:opacity-80 transition-opacity">© 2024 ATELIER. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hero image parallax
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('section img');
+            if(heroImg) {
+                heroImg.style.transform = `scale(1.05) translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // Sticky Nav shrink effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-xs');
+                nav.classList.remove('py-base');
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('py-xs');
+                nav.classList.add('py-base');
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

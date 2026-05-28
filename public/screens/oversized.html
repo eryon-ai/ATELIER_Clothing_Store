@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | The Architecture of Fit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#e3e2e2",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444748",
+                    "secondary-container": "#6c98ff",
+                    "on-secondary-fixed": "#001946",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary-container": "#838484",
+                    "on-background": "#1b1c1c",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f9",
+                    "surface-container-highest": "#e3e2e2",
+                    "secondary": "#2559bd",
+                    "primary-container": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#747878",
+                    "on-primary-container": "#858383",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "inverse-primary": "#c8c6c5",
+                    "inverse-surface": "#303031",
+                    "tertiary-container": "#1a1c1c",
+                    "on-secondary-container": "#002f76",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "primary-fixed": "#e5e2e1",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#fbf9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .horizontal-scroll-mask {
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-outline-variant/30 transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-md mx-auto">
+<div class="font-display-lg text-display-lg font-bold tracking-tighter text-primary">ATELIER</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary pb-1" href="#">New Arrivals</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Collections</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Editorial</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Archive</a>
+</div>
+<div class="flex items-center space-x-md">
+<button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity duration-300" data-icon="shopping_bag">shopping_bag</button>
+<button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity duration-300" data-icon="person">person</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden px-margin-desktop">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover grayscale opacity-90" data-alt="A high-fashion editorial shot of a male model wearing an oversized heavyweight charcoal cotton hoodie against a stark white architectural background. The lighting is crisp and high-contrast, emphasizing the structural folds and heavy drape of the fabric. The aesthetic is clean and professional luxury, with a focus on geometric silhouettes and a monochrome palette of black, white, and gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2_xgd8c5qpK1rxMMedW8llydMBSozNG7cOVYcui5KToKBQQ1RzpYmDL-g3Kiu7hfiLywPQzxxP1b0KR-xDnjex0zw7gO4Ezvo30kFMOAzgKEM_mvOLxsg-RakrhjGHTb7FF96PLX5YrwDgsc_QzFJyt8obLMqit-OhW5guCpu6l3S6Fgempsfx_zd9jzDRm5T86b9rwjnTB7tWTpuNJdLe30PC1C2VakUL8tmfylqYQuee6b2JImbbsoQY94STuZP820rocqAYm8t"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background/40"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl reveal-on-scroll">
+<span class="font-label-md text-label-md uppercase tracking-[0.3em] text-secondary mb-sm block">Oversized Series</span>
+<h1 class="font-display-lg text-display-lg md:text-[80px] md:leading-[88px] mb-md text-primary">THE ARCHITECTURE OF FIT</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-xl mx-auto">Exploring the intersection of structural volume and effortless silhouette. Engineered for the modern professional.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-md">
+<button class="bg-primary text-on-primary px-xl py-md font-label-md uppercase tracking-widest hover:opacity-90 transition-all w-full md:w-auto">Shop Collection</button>
+<button class="border border-primary text-primary px-xl py-md font-label-md uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all w-full md:w-auto">Explore Fit Guide</button>
+</div>
+</div>
+</section>
+<!-- Material Focus (Heavyweight Cotton) -->
+<section class="py-xl px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="reveal-on-scroll">
+<h2 class="font-headline-lg text-headline-lg mb-md">450 GSM HEAVYWEIGHT COTTON</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md leading-relaxed">Our signature oversized silhouettes are anchored by the choice of material. We use a custom-developed, high-density French Terry that provides the structural integrity required to hold its shape throughout the day.</p>
+<div class="flex flex-col gap-sm border-l-2 border-outline-variant pl-md">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-widest block text-primary">Pre-Shrunk</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Maintains architectural dimensions through every wash.</span>
+</div>
+<div>
+<span class="font-label-md text-label-md uppercase tracking-widest block text-primary">Looped Interior</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Superior breathability paired with substantial weight.</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter reveal-on-scroll">
+<img alt="" class="w-full aspect-[3/4] object-cover" data-alt="A macro close-up photography of a high-quality heavyweight cotton fabric in a light cream color. The texture of the weave is clearly visible, showing the professional luxury quality. The lighting is soft and diffused from the side, creating gentle shadows in the fabric folds that highlight its density and weight. The overall mood is minimalist and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7eq54RPlY4q62N12EZLvY21qil3UWP27iSo7o_pPUUcM3CxQfUZbMPapLIW2pLgOt1YUfcrSFL1m0c2FEe2vdyHgLovSPRa4GUxFrhOVMtSzhbTl88S6BzRa6sFNdwgUoAOEN45_VOaoXvtTvFhJMOwjh9iFQxUObGJAvMlTLTr5wh2MXjoXllJDdOp8Zedwl57il6O0DYB2zOOS7Mf20u0qc0h4Ub39dlNT3oi8SzeT7Nl77pWD43J5zE5GVVaL4jE1KhjChTaDm"/>
+<img alt="" class="w-full aspect-[3/4] object-cover mt-xl" data-alt="A clean studio shot showing the internal construction of a premium oversized sweatshirt. Focus is on the neck ribbing and shoulder seams, demonstrating professional craftsmanship and double-stitching. The lighting is bright and industrial, emphasizing a clean professional luxury look with a neutral color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUe5HqYYIDmfh5UXhOEBVTLfPPd5o4JyCq7rohJk4O8IkqZwU3yUWsZPf5BaZpXvQYKJpWojv7NdC5bC14_SyYUjv5pW-z2urkWGMJSWrHKkEtVRecVNYujG8zw65v_hgwZC-EJz2zwMUE24tfItpidve1PjuIkIfCHWJzU__GiVqrKd9tYtwB_-YofLCOch5g9aZQ0IQ0GZdVVC5V1NZRZ4WRirpC1fWKJ5i0Z83EMFu1bKVO28ysv8hxrFB8HIz-IHw_tfksMqLX"/>
+</div>
+</div>
+</section>
+<!-- Fit Guide - Bento Grid Layout -->
+<section class="py-xl bg-surface-container-low px-margin-desktop">
+<div class="text-center mb-xl reveal-on-scroll">
+<h2 class="font-headline-lg text-headline-lg mb-xs">UNDERSTANDING THE SILHOUETTE</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A precise guide to our three core oversized expressions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Boxy Fit -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg flex flex-col items-center text-center reveal-on-scroll">
+<img alt="" class="w-full aspect-square object-cover mb-md grayscale" data-alt="A studio portrait of a model wearing a boxy-cut white t-shirt. The shirt features a sharp, straight hem and structured sleeves that stand out slightly. The lighting is high-key and minimalist, focusing on the architectural silhouette of the 'Boxy Fit'. The background is a clean light gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPkz0SSqqxUToLH4MPDxU8xNQqwElQccFi-fPR-2JVxS02rYTkO0xVMAUfHkujhMTtGonBY-Xuu3-UXl0TC9kRZVMdHEqtSdcTNw-vGBd7ur63noHgJEAEONGBCKmeUhmZYpsQhghKES5ophBS9C0FnSwuxur1GXrYYHB9UqLQE4P2kQAn2l6CjyLs_YwLf-i7BS75l7YUCYRHqrnalEf9qvRzCBGVjOUdJX49LtWoG1UV2cetvUhzkIRDHjYo_ExTyB4fWhUjxAvk"/>
+<h3 class="font-headline-md text-headline-md mb-sm">THE BOXY FIT</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Cropped length with an expanded chest. Designed to sit perfectly at the waistline without bunching.</p>
+<div class="bg-surface-container-low px-md py-xs font-label-sm text-label-sm rounded-full">STRUCTURED</div>
+</div>
+<!-- Dropped Shoulder -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg flex flex-col items-center text-center reveal-on-scroll">
+<img alt="" class="w-full aspect-square object-cover mb-md grayscale" data-alt="A side profile shot of a model wearing an oversized sand-colored hoodie highlighting the 'Dropped Shoulder' design. The shoulder seam falls significantly down the arm, creating a relaxed and soft silhouette. The lighting is warm and natural, suggesting professional luxury in an urban setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGj7mnlN0-XZZExSPXYi7WT2Naeq9a1q9IS52lTRu6QHJc9DpNQ7oW3iH6e__8r7UGn4OXnfUcYtBoJ7HtVKI7R-dAasiz93Gxexh_o0f1vN8nKejIjcAznzBhV5JIAi4HvvUn0pyW-l3LkeMrR0Q2k6rjv0-j0IVzZi1eThb6lgg8MVtC5-iMNJ7casvDAtUie6nrQifhv-mfeQq_xbw3qqs8ZqecOhFKqhyao2HyIaPxLcJuPC7vbeNC0JzTvmFQv55YM5vbqMtD"/>
+<h3 class="font-headline-md text-headline-md mb-sm">DROPPED SHOULDER</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Extended shoulder seams and elongated sleeves. Creates a relaxed, rounded profile from the collar down.</p>
+<div class="bg-surface-container-low px-md py-xs font-label-sm text-label-sm rounded-full">EFFORTLESS</div>
+</div>
+<!-- Relaxed -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg flex flex-col items-center text-center reveal-on-scroll">
+<img alt="" class="w-full aspect-square object-cover mb-md grayscale" data-alt="A model wearing a charcoal gray relaxed-fit crewneck sweatshirt. The silhouette is generous but maintains a professional line, draping softly over the body. The photography style is minimalist and clean, with soft shadows emphasizing the premium fabric weight. The background is a flat neutral tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnNy_WD9dVI8r4Uk6x8_mKedaLHPq9cA3-l-A2cKITbrjn3YavEsRGCZ8eKAGpolM9yoWQkFVAIK-9h7A7Kz0ZlwwXFszIy2to82vanUbZ8utBdyGjcWlTGerHLCT3gyfxaIdm6LEyt9rs8si6f7WD_6EPMytlvG47tCEfxT_05GaY10_PPKqiuURlCLxdVS_uGfkNzSChy8iCRnzlceMMZhbP4GKH2nWxkkUXWzihz6BcFdKqWm337CwpwlHTGD5PiUbleUBJJBqJ"/>
+<h3 class="font-headline-md text-headline-md mb-sm">RELAXED CLASSIC</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Uniformly oversized across all dimensions. Our most generous cut for maximum comfort and volume.</p>
+<div class="bg-surface-container-low px-md py-xs font-label-sm text-label-sm rounded-full">GENEROUS</div>
+</div>
+</div>
+</section>
+<!-- Editorial Lookbook - Asymmetric Layout -->
+<section class="py-xl">
+<div class="px-margin-desktop mb-lg flex justify-between items-end">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary block mb-xs">01 // Archive</span>
+<h2 class="font-headline-lg text-headline-lg">EDITORIAL LOOKBOOK</h2>
+</div>
+<button class="font-label-md text-label-md uppercase tracking-widest border-b border-primary pb-1">View All Frames</button>
+</div>
+<div class="grid grid-cols-12 gap-gutter px-margin-desktop">
+<div class="col-span-12 md:col-span-7 reveal-on-scroll">
+<div class="relative overflow-hidden group">
+<img alt="" class="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide cinematic editorial shot of three models walking through a modern concrete architectural space. They are wearing various oversized pieces from the Atelier collection in a monochrome palette. The lighting is dramatic and directional, creating long shadows. The style is professional luxury, emphasizing the movement of the oversized silhouettes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkVJvuEK_7jZaeb5d0XWt9iy49hSqKHullPBX01H2yfkjmPqqnJKhmsFliF6dgeK4gTwfVolFESL-byJ60TA9xvtRAwfwaE3PzYMQfMLgP1Eh1iEAyAvtU1oYkeqMPaDEtIDH4JjLshkT3EcEdOx1aU4czA-cSI2gQSfl-dFgkPQH35kmU0oaVtpjv4BiymRKKlF655ROWnCccWw238dp8pvTRL-ZDKNQ7vT6oD0GBQjYoRoAeSyCPVXrKTrD47VKXeZe2pyRZ9oT6"/>
+<div class="absolute bottom-md left-md text-on-primary">
+<span class="font-label-sm text-label-sm">FRAME 082</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 flex flex-col gap-gutter">
+<div class="reveal-on-scroll">
+<img alt="" class="w-full h-[288px] object-cover grayscale" data-alt="A vertical portrait of a model in a light gray oversized mock-neck top. The composition is off-center, leaning into a minimalist aesthetic. The lighting is soft and flat, emphasizing the clean lines and professional modern vibe of the Atelier brand. High-end fashion photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU6i6e19LuZlRIf32dv0IiakleZgrFOVZ1-dN6IFRlwkIFjt_Z5H1Flt-dEWjl8hoSa5lksZf6uyC99fR-wSwnqGBGSOQWhNqw45eGver6cALUSyJBxYi5a2oxNEbWr6Uklm9KR27B2CD6BY8KcXZcUfRiJ6Tjhq0yfJSUn4YYzmh-LbZPMNasemkQrdDyR6tKnlXvmLp2jsUK3ank0WRzKTLs104m_Str-ZwFpnH0tCZUl2SOeqMC-EbLZtwo73A2_IaAlTTClx03"/>
+</div>
+<div class="reveal-on-scroll">
+<img alt="" class="w-full h-[288px] object-cover" data-alt="Detail shot of black oversized trousers draped over a minimalist wooden chair. The heavy wool-blend fabric is highlighted by a single beam of light in a dark room. The image conveys quality, craftsmanship, and a professional luxury lifestyle. The color palette is strictly black and neutral wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-HEH9odOR6yPOBHhxDquJT6VtmcDm1fTClqvccAFMrQWMo4G54n5C1a-Qao9OcnIVq9X4gGNQ2-nfmHVQhcPRnPfwfzUiI23znwJJNfkWK9E5xL8h_SX_0UXynqlAv1DQyy6FuN3ceymJQKQmOGOTSuFCLgwh2UAn72VD47nqpyemU12FQTNpnmhX2uh7LeUQgC0kTXh_DB-BMFldengF4eNRZvQ2o4gXoa3zRZZAQDtoqTseLuUNy8R6jB35wer3yCkupIROVadB"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Styled by Creators Gallery -->
+<section class="py-xl bg-surface-container-highest">
+<div class="px-margin-desktop mb-lg text-center">
+<h2 class="font-headline-lg text-headline-lg">STYLED BY CREATORS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real perspectives from our global community.</p>
+</div>
+<div class="flex overflow-x-auto space-x-md px-margin-desktop horizontal-scroll-mask pb-md no-scrollbar">
+<!-- Creator Card 1 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-surface-container-lowest border border-outline-variant p-sm">
+<img alt="" class="w-full aspect-[4/5] object-cover mb-sm" data-alt="A lifestyle shot of a creative professional in a Tokyo setting wearing an oversized charcoal sweatshirt paired with wide-leg trousers. The look is effortless and sophisticated. The street lighting is soft and moody, reflecting a modern minimalist lifestyle. High resolution, professional grade photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Q18p0AsKsOUrDX8LB2iiPm7PWdSAPh8gVPBk1ruhW8yXAsAbBK4JEMr-ABBm1A_iOMcdf6GCpYHwUBQBbXOFJRKrVdWjEOOvtIr7caZT2lP3oH0g0TE80BTh-kzZTPxbi81YKUqVyuGyjLyspl63GU2bIv-UUr929yhwxavfjZ3hNd9o8a9y0Utj-2mkmEdkmTykRfvBh12Ja4YRPbA8rCrs53I7Atib2lL9PzNvWiEFKSBu963FSwOkWQJ0xw_TXdFyQ1tKyN_P"/>
+<div class="flex justify-between items-center px-xs">
+<div>
+<span class="font-label-md text-label-md block">@JULIAN_WORKS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tokyo, JP</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="north_east">north_east</span>
+</div>
+</div>
+<!-- Creator Card 2 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-surface-container-lowest border border-outline-variant p-sm">
+<img alt="" class="w-full aspect-[4/5] object-cover mb-sm" data-alt="A portrait of a creative director in Berlin wearing an oversized sand-colored hoodie in a brutalist architectural setting. The lighting is natural and bright, highlighting the clean lines of the garment. The overall mood is serious, professional, and luxury-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY8_V8HjBxMnqkV8eEnhhj9-T2PJFrGRv3TCQ91giNNK9U-HHMMN2dhhkvhDSyzF4vKvv9n9NcYzkrz5iFUN5Fpk-SbsJWBzx9aPckJaEhxj2GF5LiXiyAXldSrclYakwCVfwwQkgkd92WEI82vLBMgVg3xw-RtRFAh0dZL51Y6P9uBVjGgPBtYWbYREBROCv1h4s3Eeq2vdBzlHWj_B_tigzhUJ1lHrVRupN0t8GDCvkhE3M8JOBgrOLrl1EYXlZi3pUGPtG9h63D"/>
+<div class="flex justify-between items-center px-xs">
+<div>
+<span class="font-label-md text-label-md block">@STUDIO_SOPHIE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Berlin, DE</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="north_east">north_east</span>
+</div>
+</div>
+<!-- Creator Card 3 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-surface-container-lowest border border-outline-variant p-sm">
+<img alt="" class="w-full aspect-[4/5] object-cover mb-sm" data-alt="A male model in London wearing an oversized black wool coat over a boxy tee, leaning against a clean white gallery wall. The aesthetic is extremely minimalist and corporate modern. Soft diffused light eliminates harsh shadows. The palette is strictly monochrome." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8xKlveegvTiTFh47rouUI0NpnwQqzGilbcrcnF_3FDW8spw9i93dd_pc-_MWD62lGbMCA0fcSFGZ-uHf_hPn4qnZ7x9TXzJClopBLkRQ929PpATViMbndpOvOVmX3HbGZ-Yu8DQ-mqmGYz58EbiXkj6BO9l8vH2Eblw0t_SJbe4Wv8FKcRrLLmOgZmtWnk4EkJLjUUDmHU2t8MALyzDh13h7y5kxEKHzKr4bhA9Zi9QUc7oY9-60GRY4grNFmKbMtupmerhf0o-ge"/>
+<div class="flex justify-between items-center px-xs">
+<div>
+<span class="font-label-md text-label-md block">@MARCUS_LDN</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">London, UK</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="north_east">north_east</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-xl px-margin-desktop border-t border-outline-variant">
+<div class="max-w-3xl mx-auto text-center reveal-on-scroll">
+<h2 class="font-display-lg text-display-lg mb-md">STAY INFORMED</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Join our community for early access to limited collections and editorial insights.</p>
+<form class="flex flex-col md:flex-row gap-xs">
+<input class="flex-1 border border-outline-variant bg-surface-container-lowest px-md py-md focus:border-secondary focus:ring-0 transition-all outline-none" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary px-lg py-md font-label-md uppercase tracking-widest hover:opacity-90 transition-all" type="submit">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-md">ATELIER</div>
+<p class="text-on-surface-variant font-body-md max-w-xs mb-lg">A multidisciplinary studio exploring the boundaries of modern uniform design.</p>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-label-md uppercase mb-md">Collection</h4>
+<ul class="space-y-sm font-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Essentials</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Oversized</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Archived</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-label-md uppercase mb-md">Company</h4>
+<ul class="space-y-sm font-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 flex flex-col items-start md:items-end">
+<h4 class="font-label-md text-label-md uppercase mb-md">Connect</h4>
+<div class="flex space-x-md">
+<a class="font-label-md text-label-md hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="font-label-md text-label-md hover:text-secondary transition-colors" href="#">LinkedIn</a>
+<a class="font-label-md text-label-md hover:text-secondary transition-colors" href="#">X</a>
+</div>
+</div>
+<div class="col-span-12 mt-xl pt-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+<span class="font-body-md text-on-surface-variant">© 2024 ATELIER STUDIOS. ALL RIGHTS RESERVED.</span>
+<div class="flex space-x-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="language">language</span>
+<span class="font-label-md text-label-md">ENGLISH (US)</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Sticky Navbar logic
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'shadow-sm');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.add('bg-transparent');
+                nav.classList.remove('bg-white/90', 'shadow-sm');
+            }
+        });
+    </script>
+</body></html>

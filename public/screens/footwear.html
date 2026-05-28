@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Footwear Category</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-variant": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444748",
+                        "secondary-container": "#6c98ff",
+                        "on-secondary-fixed": "#001946",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-high": "#e9e8e7",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#dae2ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-container": "#838484",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "surface": "#fbf9f9",
+                        "surface-container-highest": "#e3e2e2",
+                        "secondary": "#2559bd",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#747878",
+                        "on-primary-container": "#858383",
+                        "on-secondary-fixed-variant": "#00419e",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-surface": "#303031",
+                        "tertiary-container": "#1a1c1c",
+                        "on-secondary-container": "#002f76",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#b1c5ff",
+                        "primary-fixed": "#e5e2e1",
+                        "primary": "#000000",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "background": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-on-surface": "#f2f0f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .scrolling-text {
+            animation: scroll 40s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary/20">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-outline-variant/30 transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-md mx-auto">
+<div class="flex items-center gap-gutter">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary" href="#">ATELIER</a>
+<nav class="hidden md:flex gap-md">
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary pb-1" href="#">Collections</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Editorial</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden lg:flex items-center border-b border-outline/30 pb-1">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-label-md text-label-md uppercase tracking-widest placeholder:text-outline-variant" placeholder="Search footwear..." type="text"/>
+</div>
+<button class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-xl">
+<!-- Hero Section -->
+<section class="relative h-[819px] w-full overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A cinematic, high-fashion shot of architectural black leather boots positioned on a minimalist concrete pedestal. The lighting is dramatic and side-lit, casting soft shadows that emphasize the premium leather texture. The scene is set in a vast, airy studio with a neutral grey color palette, reflecting a clean professional luxury aesthetic. The composition is asymmetrical and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcigQnzbaVAVV5NXLq6x4CcCOFYghWnbm7aTH51nfRoPLrNdDr6wmF2ZTAMmxAz5tsXDC73i6I0A3nuRCOImdZ6ZIPWrPRX4k2pJXFdSf0-lykLKygIPaihM13olgQuF6JSqkBKZKqNRsFN3nzphponiLKjnbxhvnKjBCmBbYNFGB5IEFd6aLuWkZVdzCq9K7n9s2LqyJ3QkDqq5d1yprGreFId24gKvRx__stnEZIfS6GTK34uwdvgEnC7FGAxyaKh0cdxUKJ1Q8X"/>
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="relative h-full flex flex-col justify-end px-margin-desktop pb-xl max-w-7xl mx-auto">
+<p class="font-label-md text-label-md uppercase tracking-[0.3em] text-white/80 mb-sm">Essence of Motion</p>
+<h1 class="font-display-lg text-display-lg text-white mb-md max-w-2xl leading-[1.1]">The Footwear Archetypes.</h1>
+<div class="flex gap-md">
+<button class="px-lg h-[48px] bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-widest hover:bg-secondary/90 transition-all">Explore Boots</button>
+<button class="px-lg h-[48px] border border-white text-white font-label-md text-label-md uppercase tracking-widest hover:bg-white/10 transition-all backdrop-blur-sm">Shop Loafers</button>
+</div>
+</div>
+</section>
+<!-- Product Filter & Grid -->
+<section class="px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg border-b border-outline-variant/30 pb-md gap-md">
+<div class="space-y-xs">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">The Collection</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">24 Items Filtered by Professional Formal</p>
+</div>
+<div class="flex gap-sm">
+<div class="flex items-center gap-xs px-sm py-xs bg-surface-container-low border border-outline-variant rounded-full text-label-sm font-label-sm cursor-pointer hover:bg-surface-variant transition-colors">
+                        All Styles <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<div class="flex items-center gap-xs px-sm py-xs bg-surface-container-low border border-outline-variant rounded-full text-label-sm font-label-sm cursor-pointer hover:bg-surface-variant transition-colors">
+                        Size <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<div class="flex items-center gap-xs px-sm py-xs bg-surface-container-low border border-outline-variant rounded-full text-label-sm font-label-sm cursor-pointer hover:bg-surface-variant transition-colors">
+                        Color <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bento Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Item -->
+<div class="md:col-span-8 group relative aspect-[4/3] bg-surface-container-low overflow-hidden reveal-on-scroll">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-detail, editorial close-up of a pair of hand-burnished brown leather Oxford shoes on a white minimalist background. The soft lighting highlights the intricate stitching and the deep grain of the Italian leather. The mood is calm, professional, and sophisticated, adhering to a minimalist light-mode palette with warm wood and leather accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5BSi0gMJZrvUgQM1c7KGjoDDJqoVRTqQguHmk2SGi026azoIjZhqqDOP7xUHOKJgSg010q2L_iJeIrWhRqvLwTx2NpElaBX--oJiLVqcl1S8woWZtIdoiBilRI12pCrhDKhDLoedOUNvWSvAlMs6KteQdU_uXLz9O-YZfAjxfQVkXaHhoJL7UAPRNA1OWPyzJcD3Wvw71YH8cj4I2r-gqwBntIL5lRlBJfyWojfRO1rgpirOzX_ZjU3YF7aI7E88Lv50jzNe14orS"/>
+<div class="absolute bottom-md left-md p-md bg-white/90 backdrop-blur-md border border-outline-variant w-[calc(100%-48px)]">
+<div class="flex justify-between items-center mb-xs">
+<h3 class="font-title-lg text-title-lg uppercase tracking-tight">The Heirloom Oxford</h3>
+<span class="font-label-md text-label-md">$495</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-md">Italian Calfskin • Blake Welded</p>
+<button class="w-full h-[40px] bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Quick Add</button>
+</div>
+</div>
+<!-- Vertical Items -->
+<div class="md:col-span-4 grid grid-rows-2 gap-gutter">
+<div class="group relative aspect-[3/4] bg-surface-container-low overflow-hidden reveal-on-scroll">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimalist overhead shot of a sleek black Chelsea boot against a stark white background. The image is clean and sharp, emphasizing the elastic side panel and the polished finish of the premium leather. High-key lighting ensures zero harsh shadows, maintaining a professional corporate aesthetic within a luxury fashion context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx_FXythMUnvomVJwmK3jj2pi1s-n1XI8Y47ZdnfxEM1NiR5xRxpJLxrmiifjq5hRiv3J_GhPhtxGN_pgvNUOjaa744C19jKTblIVU2k0RUrIQ4ioohcZW0X619ac5RnwOwKtyoeRPoZWVnl4IaEMEL8H6WXbPqr9inYxNJIWKHPs5qCE6iryZYPhXF7EkXO8fl4hbIlrLIDgxlNLUcl2tEfCD_--lJjd9fQjOeZXN2xrI4HXGlsZUeTFYyLr5YFrU8UvcQ5hjssGH"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-white px-md py-sm font-label-md text-label-md uppercase tracking-widest">View Details</span>
+</div>
+</div>
+<div class="group relative aspect-[3/4] bg-surface-container-low overflow-hidden reveal-on-scroll">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Detailed macro photograph focusing on the textured suede of a charcoal grey loafer. The shallow depth of field creates a bokeh effect on a minimalist light-grey background. The aesthetic is extremely high-end, focusing on material quality and artisanal craft, presented in a clean, professional, and modern light-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjlIfyTjx5xU_94KM1BBW8CliBfAqWix0P4f1xLcprUAOxj_d9_rHCLL4e20ZZ_T0kGw0cmupud1jZ9_G4pB8_Rb6Ac9SXUNCDTj2beO6xNr2pdCQzWSE_R02Urs8IIJ358ips-J9Nr1tepySEXiy4bGuAoY1bidOObu9MldQnXnGexc3PI0tbxRQAFesg2rw3CitFE-WjDl6i4TFzdd8k2mHPQFkPw9hWn1G-FN81HKmtmQjDoDKK0ECGCWJ2vi_wURAI9sYZWhef"/>
+<div class="absolute top-sm right-sm bg-white border border-outline-variant px-sm py-xs font-label-sm text-label-sm uppercase tracking-tighter">New Arrival</div>
+</div>
+</div>
+<!-- Standard Grid Items -->
+<div class="md:col-span-4 group reveal-on-scroll">
+<div class="aspect-[1/1] bg-surface-container-low mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of minimalist black leather loafers on a white marble surface. The lighting is diffused and soft, reflecting off the polished marble and leather. The overall scene is serene and luxurious, using a palette of white, grey, and deep black to convey corporate modern sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfjqT-huAz32gn6QY71wgLXBrhGZ91RbNvIlFK7yHgByNpmyEedvJ9jPnyiCc8XMuyNUMYnON86lHF2QtE9plHKNZP816LQ264MsJDfmh_m4ALvj27TSs3-jBfSBHOebEI3ZobdcifhqLkuYOv1enodyytwcbhoXEhd0Z9ZCdel2W39cSzvqUSHr4UXtdtNA_cfL2euG5-iZgNL0XL52KAvbV514xcXtjlXdgnZnb5n_aEsI8pp6h6k3PiQkNK-jZfxcs1Ue5v26MN"/>
+</div>
+<h4 class="font-label-md text-label-md uppercase mb-xs">Staccato Penny Loafer</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">$380</p>
+</div>
+<div class="md:col-span-4 group reveal-on-scroll">
+<div class="aspect-[1/1] bg-surface-container-low mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-angle view of rugged yet elegant tan leather boots on a light-colored wooden floor. The composition is balanced and clean, focusing on the quality of the leather and the sturdiness of the welt. The aesthetic is warm yet professional, fitting a high-scale e-commerce visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKUZsCPlg2AgQWQ4Btb3r66hZUvM3sRF84y-b-e1MfDSZrmIcL3m3YflSJK-eEfi78Qpo-Nc1uQMwaHI1q38QmDF0ed7imj86_QZxj91zqKubz0LS6ztq9bOvSaIjAM2tn8Eyu4XG5wqX0OdH4DWxgUsxtw3YC9KVk9tN0fyMt_0MsWERguGMmd5jXEo6edkOk1RwrGFsXsc4nRwI1RHaquWdZya34GmqidZpNcSdmDBwRuX0gZ_kuCaXwlDHNbyVzrk_9rHBcdQEd"/>
+</div>
+<h4 class="font-label-md text-label-md uppercase mb-xs">Nomad Commuter Boot</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">$425</p>
+</div>
+<div class="md:col-span-4 group reveal-on-scroll">
+<div class="aspect-[1/1] bg-surface-container-low mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a polished dark mahogany leather monk strap shoe. The metal buckle glints under bright, clean studio lighting. The setting is a minimalist gallery-style room with soft white walls, embodying an organized calm and effortless sophistication consistent with a premium fashion brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB47joJSauZjPXi8iqj-o8lf6-0z-_lebCFuL9A7oMPeNu4ZhArq4HaUmFfRzRc4mh-3qMQBT7vgf67PDWJ8RM0vB4vdZOfmX3FvFzNsjWv3StBJh_-4OcDmXl3c11aCnC24_3Nr3werT0TMO6GNNl1T5e33wre8rWezH-a2MF0X3GnKvxl21LnSmiv6OqY0eLT7k0fWlUeYG1--Vr6Kt5COFyBZHTj6sTNiuGrr2vzHm1qq78akIBJaqVxBEkZXwMRbhaDfKiTAiJU"/>
+</div>
+<h4 class="font-label-md text-label-md uppercase mb-xs">Estate Double Monk</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">$510</p>
+</div>
+</div>
+</section>
+<!-- Technical Breakdown (Architectural Layout) -->
+<section class="bg-surface-container-lowest py-xl">
+<div class="px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
+<div class="lg:col-span-5 space-y-md reveal-on-scroll">
+<h2 class="font-display-lg text-display-lg uppercase leading-tight">Engineered<br/>Elegance.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Every pair of ATELIER footwear undergoes a 128-step construction process, combining traditional hand-welting with modern ergonomic research.</p>
+<div class="space-y-sm">
+<div class="group border-b border-outline-variant pb-sm cursor-pointer">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-md text-label-md uppercase tracking-widest">01. Goodyear Welt</span>
+<span class="material-symbols-outlined text-secondary">add</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant hidden group-hover:block transition-all">A layer of cork between the insole and outsole creates a custom fit over time while allowing for endless resoling.</p>
+</div>
+<div class="group border-b border-outline-variant pb-sm cursor-pointer">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-md text-label-md uppercase tracking-widest">02. Italian Full-Grain</span>
+<span class="material-symbols-outlined text-secondary">add</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant hidden group-hover:block transition-all">Sourced from Gold-Rated tanneries in Tuscany, ensuring sustainable luxury and durability.</p>
+</div>
+<div class="group border-b border-outline-variant pb-sm cursor-pointer">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-md text-label-md uppercase tracking-widest">03. Ergonomic Shank</span>
+<span class="material-symbols-outlined text-secondary">add</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant hidden group-hover:block transition-all">A hidden steel or composite shank provides structural arch support for all-day comfort.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 relative reveal-on-scroll">
+<div class="aspect-square bg-surface-container overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A technical, blueprint-style photograph of a shoe being assembled by an artisan. The lighting is crisp and even, highlighting the tools of the trade—small hammers, needles, and fine leather strips—against a clean, light grey studio workbench. The mood is disciplined and architectural, conveying precision and high-quality craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBERD0Ku7xcmUyx1ZPNm3DxiqY4fEJs04k2GE8n_SUwtbtNooYFTboD46hUxM8Jc3JCrYpTqwWm8MMR3DKCZsJO843IVCFYWu9Kx6kMeRV6VClJsFkareAjDREXqX0ajGoAqgPknnBUDMst9c1P7VA4ZCE5zxPx4JmX6BiT6WkjvoqQRn4FgQHPYwNShPpxmClMFRCNYHkIItRT_BFmW6Bn9OhJkSpGwOul_rrOkbHLaxZQlcPRrV8_2UvtyJFEjDnp9bkzTvHje22R"/>
+</div>
+<div class="absolute -bottom-md -left-md p-md bg-secondary text-on-secondary max-w-xs shadow-xl">
+<p class="font-label-md text-label-md uppercase tracking-widest mb-xs">The Promise</p>
+<p class="font-body-md text-body-md italic">"A lifetime of wear, defined by a single week of breaking in."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Complete the Look (Styling Guide) -->
+<section class="px-margin-desktop py-xl max-w-7xl mx-auto overflow-hidden">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-lg text-headline-lg uppercase">Complete The Look</h3>
+<div class="flex gap-sm">
+<button class="p-xs border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined">west</span>
+</button>
+<button class="p-xs border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-md no-scrollbar">
+<!-- Look 1 -->
+<div class="min-w-[300px] md:min-w-[400px] space-y-md reveal-on-scroll">
+<div class="aspect-[2/3] bg-surface-container overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A fashion-forward, minimalist lifestyle shot of a professional model in a tailored charcoal grey suit paired with sleek black loafers. The setting is a bright, modern office with glass walls and clean lines. The high-key lighting creates a sense of effortless sophistication and organized calm, perfect for an editorial styling guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDptla8fxeIOe8iW-UgvragE8pBZ9O7HKt6s3n067qB4coTgh34UIYzMyc502aSJfg9OgovMpRmzwDFQSHPkmGBJvTpzx8CwoZN0kEy0d7kJoEF42VE11uVudT1SjkWfDvWDEBLPBSfrO5IPF92KY1iR6NMdZ5WrM2kEQYv4pVIGtHVr2jfg091dU2x7Zhu5q2N9X6CuHehG9wkKQSK9jDFIzELo8uqJLSrfGvxYSpRDfFfx0QeqRnTitdrlZeSJXT0Uc4_MXbiUcKe"/>
+<div class="absolute top-md right-md flex flex-col gap-xs">
+<div class="w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-md text-label-md uppercase tracking-widest text-secondary">Look 01</p>
+<h4 class="font-title-lg text-title-lg mb-xs">The Modern Executive</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Featuring our Staccato Loafers &amp; Signature Mohair Blazer.</p>
+</div>
+</div>
+<!-- Look 2 -->
+<div class="min-w-[300px] md:min-w-[400px] space-y-md reveal-on-scroll">
+<div class="aspect-[2/3] bg-surface-container overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="An editorial shot of a relaxed yet professional outfit featuring tan leather boots, pleated ivory trousers, and a lightweight beige knit. The lighting is warm and late-afternoon style, casting soft, long shadows in a minimalist outdoor courtyard. The palette is composed of neutrals and earth tones, embodying clean professional luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpocXmb3Vwwnvcqr_744xv-mDwttQt79jmCtm3elKftadTkkH5l5qtxREuM16qeCu77ycDy9HfBy1ONFUgp_kJLqdlwHBxkcHy2JfoRRVlOC7NEyRpG91Jqu7OV73JunR1ec9fsu392nJWDTupr_3t-6anjvFXVOr3kdJf4B3-LgTiamC1JIx4xGqoFwuKYXKG2vHZF7WeYF4XRlikyMAFv_zdeqMFAEPPmgSDrdZiRZSO3AIXzsMZ-_jeE9sa-ivzraAqYqRVmaYx"/>
+<div class="absolute top-md right-md flex flex-col gap-xs">
+<div class="w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-md text-label-md uppercase tracking-widest text-secondary">Look 02</p>
+<h4 class="font-title-lg text-title-lg mb-xs">Weekend Editorial</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Featuring our Nomad Boots &amp; Pleated Lounge Trousers.</p>
+</div>
+</div>
+<!-- Look 3 -->
+<div class="min-w-[300px] md:min-w-[400px] space-y-md reveal-on-scroll">
+<div class="aspect-[2/3] bg-surface-container overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A clean, minimalist portrait of a man in a structured navy coat and polished brown oxfords. He is standing against a textured white wall in bright, indirect daylight. The visual style isDisciplined and architectural, with a focus on the silhouette and material quality, perfectly suited for high-scale luxury e-commerce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpcmJh3MHa-umP8nLm04lkNRwFcWebZqHa-eqe9U_YIBsbOFVOMS2DsKv-jyEJ-pwKA85txeypCWyEbdkO8VW88rynp8yJUTBBWEAhoNbRB7Ft1pPC3TCOpRPj0-fZkaIXqMg0FgavwfBlAbgjXjkUFl387y-hwtzViZugZx6ZOlh81CAsfznLgkH2tdcPDs0z8Thx95QSsyDxPs9vlw6qUGHU1F3835Joswc6aoABaP5V9VFPsfjCBDwCLEw4SCrDiZAth1CQUpAm"/>
+<div class="absolute top-md right-md flex flex-col gap-xs">
+<div class="w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-md text-label-md uppercase tracking-widest text-secondary">Look 03</p>
+<h4 class="font-title-lg text-title-lg mb-xs">Transit Formal</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Featuring our Heirloom Oxfords &amp; Structured City Overcoat.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Editorial Marquee -->
+<section class="bg-primary text-on-primary py-lg overflow-hidden border-t border-outline/30">
+<div class="whitespace-nowrap flex scrolling-text">
+<span class="font-display-lg text-display-lg uppercase tracking-tighter mx-md">Artisanal Craftsmanship • Sustainable Leather • Timeless Silhouette • ATELIER Studios • Handcrafted in Italy • Goodyear Welted •</span>
+<span class="font-display-lg text-display-lg uppercase tracking-tighter mx-md">Artisanal Craftsmanship • Sustainable Leather • Timeless Silhouette • ATELIER Studios • Handcrafted in Italy • Goodyear Welted •</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="md:col-span-4 space-y-md">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">ATELIER</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Elevated essentials for the discerning modern professional. Focused on form, function, and longevity.</p>
+</div>
+<div class="md:col-span-2 space-y-sm">
+<h5 class="font-label-md text-label-md uppercase tracking-widest text-primary">Shop</h5>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">New Arrivals</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Footwear</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Accessories</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">The Archive</a></li>
+</ul>
+</div>
+<div class="md:col-span-2 space-y-sm">
+<h5 class="font-label-md text-label-md uppercase tracking-widest text-primary">Info</h5>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 space-y-md">
+<h5 class="font-label-md text-label-md uppercase tracking-widest text-primary">Newsletter</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Access early launches and seasonal editorial content.</p>
+<div class="flex border-b border-primary pb-xs focus-within:ring-2 focus-within:ring-secondary">
+<input class="bg-transparent border-none flex-grow focus:ring-0 px-0 py-xs text-body-md" placeholder="Email Address" type="email"/>
+<button class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-secondary transition-colors">Join</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant/30 text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 ATELIER STUDIOS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and Scroll Reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Sticky Header Logic
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white/95', 'shadow-sm');
+                    header.classList.remove('bg-transparent');
+                } else {
+                    header.classList.remove('bg-white/95', 'shadow-sm');
+                    header.classList.add('bg-transparent');
+                }
+            });
+        });
+    </script>
+</body></html>

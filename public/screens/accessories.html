@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Accessories Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#e3e2e2",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444748",
+                    "secondary-container": "#6c98ff",
+                    "on-secondary-fixed": "#001946",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary-container": "#838484",
+                    "on-background": "#1b1c1c",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f9",
+                    "surface-container-highest": "#e3e2e2",
+                    "secondary": "#2559bd",
+                    "primary-container": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#747878",
+                    "on-primary-container": "#858383",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "inverse-primary": "#c8c6c5",
+                    "inverse-surface": "#303031",
+                    "tertiary-container": "#1a1c1c",
+                    "on-secondary-container": "#002f76",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "primary-fixed": "#e5e2e1",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#fbf9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .mask-gradient {
+            mask-image: linear-gradient(to top, transparent, black 20%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md dark:bg-transparent border-b border-outline-variant/30 dark:border-outline/30 transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-md mx-auto">
+<div class="flex items-center gap-gutter">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary dark:text-on-primary" href="#">ATELIER</a>
+<div class="hidden md:flex gap-lg">
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-on-primary transition-colors hover:opacity-70" href="#">New Arrivals</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary dark:text-on-primary border-b border-primary dark:border-on-primary pb-1" href="#">Collections</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-on-primary transition-colors hover:opacity-70" href="#">Editorial</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-on-primary transition-colors hover:opacity-70" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity">shopping_bag</button>
+<button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity">person</button>
+<button class="md:hidden material-symbols-outlined text-primary">menu</button>
+</div>
+</div>
+</nav>
+<main class="pt-xl">
+<!-- Hero Header -->
+<header class="px-margin-desktop py-xl mt-lg">
+<div class="max-w-7xl mx-auto border-b border-outline-variant pb-md">
+<nav class="flex mb-sm gap-xs">
+<span class="font-label-sm text-label-sm text-outline">HOME</span>
+<span class="font-label-sm text-label-sm text-outline">/</span>
+<span class="font-label-sm text-label-sm text-primary">ACCESSORIES</span>
+</nav>
+<h1 class="font-display-lg text-display-lg uppercase mb-xs">The Modern Accoutrement</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A curated assembly of high-performance materials and disciplined craftsmanship. Explore our collection of architectural jewelry, technical leather goods, and refined essentials.</p>
+</div>
+</header>
+<!-- Filters & Sort -->
+<section class="sticky top-[80px] z-40 bg-background/80 backdrop-blur-sm border-b border-outline-variant">
+<div class="px-margin-desktop py-sm flex justify-between items-center max-w-7xl mx-auto">
+<div class="flex gap-sm overflow-x-auto no-scrollbar">
+<button class="px-md py-xs rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap">All Collections</button>
+<button class="px-md py-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant transition-colors">Leather</button>
+<button class="px-md py-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant transition-colors">Metal</button>
+<button class="px-md py-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant transition-colors">Tech-Fabrics</button>
+<button class="px-md py-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:bg-surface-variant transition-colors">Ceramics</button>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-outline hidden md:block">SORT BY</span>
+<select class="bg-transparent border-none font-label-md text-label-md focus:ring-0 cursor-pointer">
+<option>Newest</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Product Grid (Asymmetric) -->
+<section class="px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-end studio macro shot of a structured black calfskin leather briefcase with silver hardware, resting on a minimalist white stone pedestal. The lighting is crisp and architectural, emphasizing the grain of the premium leather. The overall aesthetic is professional, luxurious, and modern, utilizing a monochromatic palette with subtle grey shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4F_t9yhzO2I-W5-YkNCbHiBmV5yVUkIbxNXsFj7Vp3cjJG3pRkNp5-wHcr-H_F4kG1_C7Hj9xG8xb6ajJyqx_riueZf987OTH4i8wLJmvjoQTuKAaQAdNV3Y1NHJNUmioDux766dPxWYyp5aTvxeenWvfPzYA0BszPkGzRsq34xVm7eI3cjsZOFaQzlq2B9fiw2toyZpC73dq_dlIfUxu7CS2ABlf745MeATZSu5tVeTqGHzdUQ55lpXokIpJzoDqlYtHfBRTUjpy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-lg">
+<span class="text-on-primary font-label-md text-label-md tracking-widest uppercase mb-xs">Leather Series</span>
+<h3 class="text-on-primary font-headline-md text-headline-md mb-md">Atelier Weekender 01</h3>
+<button class="w-fit px-lg py-sm bg-white text-black font-label-md text-label-md uppercase hover:bg-secondary hover:text-white transition-colors">Explore Piece</button>
+</div>
+</div>
+<!-- Vertical Card -->
+<div class="md:col-span-4 group bg-white border border-outline-variant flex flex-col">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro close-up of a brushed sterling silver signet ring with a minimalist geometric engraving. The ring sits on a textured dark slate surface under cool-toned directional light that catches the metallic edges. The mood is sophisticated and masculine, highlighting the raw material quality of the jewelry piece in a professional studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-5E6Tx_9JjqPidCLM7RfIPvwU42XSn7gn36xyFlKgrefdpEl7NHOJRtB7XW4H7uCrI2RuymoWfTQtTiyva2_5JQCDAHYKZ9slGQZDUHCeIJe5AbgmutNsfkp6bERuxsyCh1C06FFHeqnDTlBTG5dRhwbyilfDcIGJ14n6z4AtEmZPCGQsu5jJGQvnURJf-WsuTEitHMCNJvUYceqMnCn5EtQ37qC1lygkn_u7wCQPGohe6G6ZnHFj1idPdh1kIwvFlXqifN5nsmfb"/>
+</div>
+<div class="p-md flex flex-col justify-between flex-grow">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase mb-xs">Jewelry / Metal</p>
+<h4 class="font-title-lg text-title-lg mb-xs">Void Signet Ring</h4>
+</div>
+<div class="flex justify-between items-end mt-lg">
+<span class="font-headline-md text-headline-md">$240.00</span>
+<button class="material-symbols-outlined p-sm bg-surface-container rounded-full hover:bg-secondary hover:text-white transition-colors">add</button>
+</div>
+</div>
+</div>
+<!-- Standard Grid Items -->
+<div class="md:col-span-4 group bg-white border border-outline-variant flex flex-col">
+<div class="aspect-square overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed macro shot of a sleek titanium-coated tech accessory, such as a high-end card wallet or phone case, featuring a matte finish and precise laser-etched branding. The setting is a clean, minimalist workspace with soft, neutral ambient lighting that reflects off the metallic surfaces. The color palette is composed of slate greys and professional blacks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGxvKEW5w7y8pgaWn0HtNE-RUalfnvVtjj1iol31TJ9XRgpWUTgp9IKrJM0tK3ZJpIjq9eGfHwIOBp70tpe4pFZTcaEroLhdCihE_JaYNvr9Z4M-uzGVYg-pRSQOFljksmOXl7UQuUgazpRq4baa0lHO_JI_kx2htemOJcKj8ciLaKH3QoNiyYFLjr1CajdwjbQQbzTA9kD_g5LPZpQPAUF1tSU_C7Af7bi4X5KWSAoF-6bhhEAiHaquxOsedXSJcMdDfxEWCjSjkl"/>
+<span class="absolute top-sm right-sm bg-secondary text-on-secondary px-sm py-xs font-label-md text-label-md uppercase">Limited</span>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-outline uppercase mb-xs">Tech / Carbon</p>
+<h4 class="font-title-lg text-title-lg mb-xs">Titanium Card Case</h4>
+<span class="font-body-md text-body-md">$185.00</span>
+</div>
+</div>
+<div class="md:col-span-4 group bg-white border border-outline-variant flex flex-col">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-fashion product photograph of a structured beige and tan crossbody bag made from eco-leather. The bag is shown from a three-quarter angle against a neutral cream background, illuminated by soft, diffused daylight. The stitching is prominent and precise, showcasing the professional craftsmanship and minimalist luxury aesthetic of the Atelier brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_6Oexx6RyLGIeciwVpiiezi3qEXhQsEZ2Ddp-RpsWmzPUspL18dl6hj7Ok1f8NTRt9n66L1GbGnYCJYkoqVAt70huplLzx-JakkbWfHnHIlNKcs5jVwy4ZGOfbhxCtjVEU9m5ycET36g4xAMd5v2d3VCiSW34DEhacjDzxkRafC000EecUwNMXubU4cuqLoCT6xiOI6DIrUJ8mS-rqi9MV-vfUpkNyB7e-r1sxj4KBmkUTj77hC_o3KBrM0tadZxiFIApGAfIVDpj"/>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-outline uppercase mb-xs">Bags / Leather</p>
+<h4 class="font-title-lg text-title-lg mb-xs">Nomad Crossbody</h4>
+<span class="font-body-md text-body-md">$410.00</span>
+</div>
+</div>
+<div class="md:col-span-4 group bg-white border border-outline-variant flex flex-col">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A studio macro shot of a black architectural ceramic cuff bracelet on a white textured surface. The lighting is high-contrast, creating deep shadows and bright highlights that emphasize the bracelet's geometric form and matte ceramic texture. The aesthetic is clean, professional, and art-inspired, using a strictly monochromatic black and white color scheme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZeaE1rqoBcSyjMQz-DTBWC9WJAJVoLpkGz7zLx2syrP-oxfICNPUjbfQLHfeDIRmCbwAmUn67sRxMI1Ko9AJZB3mfX9jvIpOh6HZ_p1AKVoT9AlqyTlO67SoyTHPB1GNNvGxoSJlVFzfM8g69QRnJ31sO7gKq7easd9NwN6kv2mXCP236SlLc_TDV1FsUI6wv_-L5zV7Ov2VljWwPoB9Yurl9bnOarL68lc8WmuBkTvzvYzOMDJFgIpJzfgPXOm0HXqIj8Z3lNI6B"/>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-outline uppercase mb-xs">Jewelry / Ceramic</p>
+<h4 class="font-title-lg text-title-lg mb-xs">Mono Ceramic Cuff</h4>
+<span class="font-body-md text-body-md">$120.00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Style With Guide -->
+<section class="bg-surface-container-low py-xl px-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-xl border-b border-outline pb-sm">Style With</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Guide Item 1 -->
+<div class="space-y-md">
+<div class="aspect-video bg-white overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A lifestyle fashion image showing a model from the chest down, wearing a crisp charcoal grey tailored coat. One hand is in the pocket while the other wears the Atelier Void Signet Ring, visible against the dark fabric. The setting is an urban, modern architectural background with cool shadows and professional high-end lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtrn3I_72EZtee_c-LnTJ09eLUHa3c745yckA_u8Hkx1tKdWmhKkEbTT_ZXaAUQo0r_GxawNU5fnbTBBo86tUd03BdxiNdoaGXd1rvYPBcHOLLbkPHlnkOdxRU9KUpJ9HqtMUPCJkWOk1yCUYXVAFz_4we6-Ae8V3CrA4Hy9mGua0sab1tnqRi7_10GY9K598r05q_ZQnbYZT_uvjBFfHDV0yJJri8DOqWJN9ZzcQvwz-h0brgjYch076Wccmn9EPy7NiY3NLQ5PGl"/>
+</div>
+<h3 class="font-headline-md text-headline-md">The Minimalist Look</h3>
+<p class="text-on-surface-variant font-body-md">Pair monochromatic silver jewelry with heavy wool textures. The contrast of cold metal against soft fibers creates an effortless professional silhouette.</p>
+<ul class="space-y-xs">
+<li class="flex items-center gap-xs font-label-md text-label-md uppercase text-outline">
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span> Overcoat 03
+                            </li>
+<li class="flex items-center gap-xs font-label-md text-label-md uppercase text-outline">
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span> Void Signet
+                            </li>
+</ul>
+</div>
+<!-- Guide Item 2 -->
+<div class="space-y-md">
+<div class="aspect-video bg-white overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A stylish flat lay photography set featuring the Atelier leather weekender bag, a pair of premium leather loafers, and a minimalist tech-fabric trench coat. The items are arranged neatly on a light oak floor, illuminated by soft natural light from a large side window. The mood is organized, luxurious, and prepared for professional travel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNoEq72yxbSQlJ-sVqAtref5NcH7EgCd1ikBpBe3S5_KK3vQUOkZCn1361S7VWCcCTA536V-Y0xhfKFSv2SFQOQT_o0bWVtXkuKcrnecPD83wcb6rGck2lJxxXmNdzsfdZRNSW5nC1CS2DCAd1Uy73kDYsjR-6c8xqovp_7dS3i2SAME7vQWpU2Z6je2Z9NH-hKMTaHkBKAs_j-VcWUMXYxZw0d100o9qyMiQNqt-siyq6A4rFEvMYAVtB00-QbtvQKxGDfab5-RdI"/>
+</div>
+<h3 class="font-headline-md text-headline-md">Technical Commuter</h3>
+<p class="text-on-surface-variant font-body-md">Balance functional tech-fabrics with the organic warmth of high-grain leather. Designed for the professional who moves between high-stakes environments.</p>
+<ul class="space-y-xs">
+<li class="flex items-center gap-xs font-label-md text-label-md uppercase text-outline">
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span> Weekender 01
+                            </li>
+<li class="flex items-center gap-xs font-label-md text-label-md uppercase text-outline">
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span> Tech Shell
+                            </li>
+</ul>
+</div>
+<!-- Guide Item 3 -->
+<div class="space-y-md">
+<div class="aspect-video bg-white overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A macro studio shot showing the detail of the Atelier Ceramic Cuff on a wrist, worn alongside a crisp white button-down shirt. The cuff's matte black finish pops against the bright white fabric. The background is a clean, neutral grey. The lighting is sophisticated, focusing on the texture of the ceramic and the weave of the cotton shirt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH89pY2TsIJfhf6yf9FXSGN83PTxOnYtxQ58xjSWQ-SqRb7_ivFwvG37dFLkm50jLfVioOXbmyn-JqJGc_8FZmOLc5ER48eZ1ELpPZjZS3ec5pyMjeZvtKHIjVrJHQRBAZ87nU-qKbxxD0nINoFOCVBhKbSv_WmGyqcbD9ND5QXG15G_DYXASV83TXqeXiW6y7gNwEqy9jkytjJktlf-qeLg0laISd0r8_S9TRL1sG8VOUg4KSDiL-p3EeeIBXPTE0G2yqBWIa11ye"/>
+</div>
+<h3 class="font-headline-md text-headline-md">Architectural Detail</h3>
+<p class="text-on-surface-variant font-body-md">Let the form take center stage. Wear ceramic and metal pieces against neutral, structured shirting to emphasize the geometric silhouette of the accessories.</p>
+<ul class="space-y-xs">
+<li class="flex items-center gap-xs font-label-md text-label-md uppercase text-outline">
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span> Cotton Shirt 01
+                            </li>
+<li class="flex items-center gap-xs font-label-md text-label-md uppercase text-outline">
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span> Ceramic Cuff
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Essential Bundles Cross-sell -->
+<section class="py-xl px-margin-desktop bg-white">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+<div>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Limited Availability</span>
+<h2 class="font-headline-lg text-headline-lg uppercase mt-xs">Essential Bundles</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Curated sets designed to work in harmony. Save 15% when purchasing as a bundle.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Bundle Card -->
+<div class="flex flex-col md:flex-row border border-outline-variant group">
+<div class="w-full md:w-1/2 aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional product flat lay featuring a black leather card holder, a matching leather keychain, and a minimalist black pen. The items are arranged on a dark grey concrete surface under a soft overhead light. The aesthetic is clean, masculine, and highly organized, reflecting the professional luxury brand of Atelier." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL-37d_IUyxIwHT-Jztrgp1J5W5_IfxJE7kbvsJF1gyxBsuk3vJht9EADvINpuWUlsucH5ujGrE6wmAwmz_4UPXo32ReZnCVjDF9-sy2gmqBJoKgTX5G4Wsy2VYqGckl82dB3JdiBqrNqOI0s3S_NAWmKEMLY-B0KeNrm4EaXiIx7PC7H1jv2Y0py_DhYGosTIHLnxZD23d048qgEFYJboeiPbY5XFU_aksPdD1tZD3M5VV-CJm7scZ7TMHdIPpYrs-tnrL4aV5eL5"/>
+</div>
+<div class="w-full md:w-1/2 p-lg flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">The Everyday Suite</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Includes: Card Case, Key Loop, and Tech Pouch in Obsidian Leather.</p>
+<ul class="space-y-xs border-t border-outline-variant pt-md">
+<li class="flex justify-between text-label-sm font-label-sm uppercase"><span>Leather Card Case</span><span>$85</span></li>
+<li class="flex justify-between text-label-sm font-label-sm uppercase"><span>Obsidian Key Loop</span><span>$45</span></li>
+<li class="flex justify-between text-label-sm font-label-sm uppercase"><span>Tech Pouch Small</span><span>$95</span></li>
+</ul>
+</div>
+<div class="mt-xl flex flex-col gap-sm">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm text-outline line-through">$225.00</span>
+<span class="font-headline-md text-headline-md">$190.00</span>
+</div>
+<button class="w-full py-sm bg-primary text-on-primary font-label-md text-label-md uppercase hover:bg-secondary transition-colors">Add Bundle</button>
+</div>
+</div>
+</div>
+<!-- Bundle Card 2 -->
+<div class="flex flex-col md:flex-row border border-outline-variant group">
+<div class="w-full md:w-1/2 aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A curated jewelry bundle featuring a silver necklace with a geometric pendant and a matching silver ring. The pieces are displayed on a white marble slab under bright, clean, high-key lighting. The reflections on the polished metal are crisp, showcasing the high-quality finish and minimalist design. The mood is elegant and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdumcTcETOVB5bwk6pzI6TS38HEZ5WEbl3YNxLxY4xs80vJJbGCCGcfh32riddxmq4VyqCpx5d2oiNsNbhQD-Iq_ouEOMdRQWfcem7y9i4SiKnRH4r6FeYjkH-MIOLGkq3mb6PKb93dBfnjKtudCD3oCv6ZV2n3Dn_WH2g9Bu2VAq9j6Nk8ToZcG9P7NOLPhV42Xhawye-ozmF4OljPssZcGC2_lBmNhybmeLfzobTKyue7UbzGq2j31lNHkI5HzHKhJaFAOxwzyhI"/>
+</div>
+<div class="w-full md:w-1/2 p-lg flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">The Silver Edit</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Includes: Void Ring and Linear Pendant in Brushed Sterling Silver.</p>
+<ul class="space-y-xs border-t border-outline-variant pt-md">
+<li class="flex justify-between text-label-sm font-label-sm uppercase"><span>Void Signet Ring</span><span>$240</span></li>
+<li class="flex justify-between text-label-sm font-label-sm uppercase"><span>Linear Pendant</span><span>$180</span></li>
+</ul>
+</div>
+<div class="mt-xl flex flex-col gap-sm">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm text-outline line-through">$420.00</span>
+<span class="font-headline-md text-headline-md">$355.00</span>
+</div>
+<button class="w-full py-sm bg-primary text-on-primary font-label-md text-label-md uppercase hover:bg-secondary transition-colors">Add Bundle</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community -->
+<section class="py-xl border-t border-outline-variant">
+<div class="px-margin-desktop max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-xl">
+<div class="md:w-1/2">
+<h2 class="font-display-lg text-display-lg uppercase mb-md">Atelier Dispatch</h2>
+<p class="text-on-surface-variant font-body-lg">Exclusive access to limited collection drops, material studies, and design editorial.</p>
+</div>
+<div class="md:w-1/2 w-full">
+<form class="flex flex-col gap-sm">
+<div class="flex border-b border-primary py-xs">
+<input class="flex-grow bg-transparent border-none font-label-md text-label-md focus:ring-0 px-0 placeholder:text-outline" placeholder="YOUR EMAIL ADDRESS" type="email"/>
+<button class="font-label-md text-label-md uppercase tracking-widest hover:text-secondary transition-colors" type="submit">Subscribe</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline">By subscribing, you agree to our Privacy Policy and Terms of Service.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-low w-full border-t border-outline-variant dark:border-outline mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary mb-md">ATELIER</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Disciplined design for the modern professional. Built on principles of structural integrity and aesthetic clarity.</p>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-label-md uppercase mb-md text-primary">Explore</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">New Arrivals</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Collections</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Editorial</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-md text-label-md uppercase mb-md text-primary">Information</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-md text-label-md uppercase mb-md text-primary">Contact</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mb-sm">Inquiries: studio@atelier.design</p>
+<div class="flex gap-md">
+<a class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity" href="#">public</a>
+<a class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity" href="#">alternate_email</a>
+</div>
+</div>
+<div class="md:col-span-12 border-t border-outline-variant pt-lg mt-lg flex flex-col md:flex-row justify-between items-center gap-md">
+<span class="font-body-md text-body-md text-on-surface-variant">© 2024 ATELIER STUDIOS. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-md">
+<span class="font-label-sm text-label-sm text-outline">LOC: BERLIN</span>
+<span class="font-label-sm text-label-sm text-outline">GMT+1</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for header blur and scroll state
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('bg-white/90', 'shadow-sm');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('bg-white/90', 'shadow-sm');
+                nav.classList.add('bg-transparent');
+            }
+        });
+
+        // Hover effect for product cards (subtle lift)
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Anime Capsule Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-fixed": "#e2e2e2",
+                "surface-variant": "#e3e2e2",
+                "primary-fixed-dim": "#c8c6c5",
+                "error": "#ba1a1a",
+                "on-surface-variant": "#444748",
+                "secondary-container": "#6c98ff",
+                "on-secondary-fixed": "#001946",
+                "surface-dim": "#dbdad9",
+                "surface-container-high": "#e9e8e7",
+                "on-surface": "#1b1c1c",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-tint": "#5f5e5e",
+                "secondary-fixed": "#dae2ff",
+                "on-primary": "#ffffff",
+                "surface-container-low": "#f5f3f3",
+                "surface-bright": "#fbf9f9",
+                "on-tertiary-container": "#838484",
+                "on-background": "#1b1c1c",
+                "surface-container": "#efeded",
+                "surface": "#fbf9f9",
+                "surface-container-highest": "#e3e2e2",
+                "secondary": "#2559bd",
+                "primary-container": "#1c1b1b",
+                "on-secondary": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-error-container": "#93000a",
+                "outline": "#747878",
+                "on-primary-container": "#858383",
+                "on-secondary-fixed-variant": "#00419e",
+                "inverse-primary": "#c8c6c5",
+                "inverse-surface": "#303031",
+                "tertiary-container": "#1a1c1c",
+                "on-secondary-container": "#002f76",
+                "on-tertiary-fixed": "#1a1c1c",
+                "outline-variant": "#c4c7c7",
+                "on-error": "#ffffff",
+                "secondary-fixed-dim": "#b1c5ff",
+                "primary-fixed": "#e5e2e1",
+                "primary": "#000000",
+                "on-tertiary-fixed-variant": "#454747",
+                "background": "#fbf9f9",
+                "surface-container-lowest": "#ffffff",
+                "tertiary": "#000000",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed": "#1c1b1b",
+                "on-primary-fixed-variant": "#474746",
+                "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "xl": "80px",
+                "sm": "12px",
+                "gutter": "24px",
+                "xs": "4px",
+                "md": "24px",
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                "lg": "48px",
+                "base": "8px"
+            },
+            "fontFamily": {
+                "display-lg": ["Hanken Grotesk"],
+                "body-md": ["Hanken Grotesk"],
+                "headline-md": ["Hanken Grotesk"],
+                "label-sm": ["Hanken Grotesk"],
+                "label-md": ["Hanken Grotesk"],
+                "headline-lg-mobile": ["Hanken Grotesk"],
+                "headline-lg": ["Hanken Grotesk"],
+                "body-lg": ["Hanken Grotesk"],
+                "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .cyber-glitch {
+            position: relative;
+        }
+        .cyber-glitch:hover::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+        }
+        .neon-accent {
+            box-shadow: 0 0 15px rgba(0, 71, 171, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container-high docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline transition-all duration-300 ease-in-out">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</span>
+<div class="hidden md:flex gap-md items-center">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1" href="#">Collections</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden lg:flex items-center border border-outline px-sm py-xs bg-surface-container-lowest">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-32 placeholder:text-outline" placeholder="Search Capsule" type="text"/>
+</div>
+<div class="flex gap-sm">
+<button class="hover:text-secondary transition-colors"><span class="material-symbols-outlined">person</span></button>
+<button class="hover:text-secondary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="hover:text-secondary transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-secondary text-on-secondary text-[8px] px-1 rounded-full">3</span>
+</button>
+</div>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+<!-- Hero Section: Editorial Cyberpunk Banner -->
+<section class="relative h-[716px] w-full overflow-hidden mb-xl">
+<div class="absolute inset-0 bg-primary-container">
+<img class="w-full h-full object-cover opacity-80 mix-blend-luminosity" data-alt="A cinematic fashion editorial shot featuring a model in futuristic streetwear, standing against a neon-drenched cityscape at dusk. The lighting is high-contrast with brilliant electric blue and magenta accents cutting through a clean, monochromatic environment. The aesthetic is sleek, corporate cyberpunk, emphasizing sharp silhouettes and technical fabrics in a luxury professional setting. Deep shadows and bright highlights create a sophisticated, dramatic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVJheDdKm491W-HEM6kMlKZj88DKDmXEFMfKnZTCuCnM0KARw8uSK791MO3u2kLaLHzl0kE_nf8ShuqfldI9GvOJkmuosFwDaF0lWm2y6pupDB9Axrcp9ghe0vMz6aDAmBgXs0h27g-WmutHHMgj12mOlOtSnS8Q4brdlqq-riDDzsX8cZ6FaiQ9-E9W6gjOI_lp6O0Ws-9Dj6PtkzxWJqApz00hhnGIw0yUMz5t2cGswtNJwhj_32VrEpJboSjjvwwk35pshfFKPh"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/90 to-transparent flex flex-col justify-center px-lg">
+<div class="max-w-xl space-y-md">
+<span class="font-label-md text-label-md text-secondary tracking-widest uppercase">Limited Edition Release</span>
+<h1 class="font-display-lg text-display-lg text-primary leading-none">THE NEON PROPHET<br/>CAPSULE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Where high-fashion architecture meets the rebellious spirit of Neo-Tokyo. Technical silhouettes reimagined through the lens of legendary animation.
+                    </p>
+<div class="flex gap-md pt-md">
+<button class="h-[48px] px-lg bg-primary text-on-primary font-label-md hover:bg-secondary transition-all">SHOP THE COLLECTION</button>
+<button class="h-[48px] px-lg border border-primary text-primary font-label-md hover:bg-surface-container transition-all">WATCH THE SHORT FILM</button>
+</div>
+</div>
+</div>
+<!-- Decorative UI Elements -->
+<div class="absolute top-md right-md text-right font-label-sm text-outline hidden lg:block">
+<p>COORD: 35.6895° N, 139.6917° E</p>
+<p>STATUS: SYSTEM_SYNCED</p>
+<p>VER: 2.0.24_ATELIER</p>
+</div>
+</section>
+<!-- Bento Grid: Featured Items with Easter Eggs -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group relative overflow-hidden border border-outline-variant bg-white">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A portrait of a person wearing a structured, high-collar techwear jacket in a pristine white color. The jacket features subtle, embossed kanji characters on the shoulder and hidden zipper details. The background is a minimalist concrete studio with sharp shadows. The lighting is soft but directed, highlighting the architectural quality of the garment and its premium textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv4vmZJSQjf9OY1RUGL9W3DMR7zTRcl01EpT-LmD0_fTdtS4oRKBPeQHjqW0dcw9CNw6EMiaozJ71nYsXPUxwUZGQw84VmgDmovhW6GZxDN5DAvoYWePhLhCyTYErhV_iwGpykJO5ZwOKFBVhjlZpDcD3lfYKpx4UcaVCs_O2SmumNgl_CUG8UBWG4_2F-xQ-Dm6_1ItK328p4QqsTG6mBioDIn2LxkChUknCRmeQUu-HDmGHrwjG8tAYGcczyOY9dQXGtdQiCFYnV"/>
+</div>
+<div class="p-md flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">PROJECT_01: "VOID" JACKET</h3>
+<p class="font-body-md text-on-surface-variant">Three-layer technical membrane with character-inspired lining.</p>
+<div class="mt-xs flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-[#0047AB] neon-accent"></span>
+<span class="font-label-sm text-label-sm text-secondary">HIDDEN DETAIL: Thermochromic print on inner cuff</span>
+</div>
+</div>
+<p class="font-title-lg text-title-lg text-primary">$495</p>
+</div>
+</div>
+<!-- Vertical Card -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 border border-outline-variant p-md flex flex-col justify-center items-center bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary scale-[2]" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+<div class="text-center mt-md">
+<p class="font-label-md text-label-md text-primary">EXCLUSIVE CONTENT</p>
+<p class="font-body-md text-on-surface-variant px-md">Scan your garment's 'Easter Egg' tag to unlock digital collectibles.</p>
+</div>
+</div>
+<div class="flex-1 group relative overflow-hidden border border-outline-variant bg-white">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A close-up shot of a leather accessory with intricate geometric engravings reminiscent of anime mecha designs. The leather is deep charcoal black, and the engravings are filled with a subtle electric blue lacquer. The shot is detailed and sharp, highlighting the premium craftsmanship and the fusion of traditional material with futuristic aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrRN60-FCNvLtoXBaqjKhw3WNpFuxakSoHdxgb8DgBiYmqJD1Gw2Cf2E0djfxffvMZQIdMYIoMOSiG7GH6FNsvZDY5owY0Faf8KhtN-ccufCl00GlrNu8P1yOqKoXN5ryTDWee0x27mU2Oc0n-lIWAEjAf_brKoNl_68Cf7_nJGtDxxTwvpoc4BMdxjHVqWBFGy0mgtuEq6e1P5nxHNloa49qksOxh21t7be8L1oFbhrinQpukWxxUuBiwV441jn71dXjz3o0eeYT0"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-white/90 backdrop-blur-sm border-t border-outline-variant">
+<h4 class="font-label-md text-label-md text-primary">TACTICAL_STRAP 01</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">$125</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Character Palette Selection -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-lg border-b border-outline-variant pb-md">
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">SHOP BY ARCHETYPE</h2>
+<div class="flex gap-sm">
+<span class="font-label-md text-label-md text-outline">FILTER: SYSTEM_02</span>
+<span class="material-symbols-outlined text-on-surface-variant">tune</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Palette Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#000000] mb-sm border border-outline relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+<div class="absolute bottom-2 left-2 px-sm py-xs bg-white text-primary font-label-md">THE ANTAGONIST</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Charcoal / Onyx / Crimson</p>
+</div>
+<!-- Palette Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#fbf9f9] mb-sm border border-outline relative overflow-hidden">
+<div class="absolute inset-0 border-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-2 left-2 px-sm py-xs bg-primary text-white font-label-md">THE PROTAGONIST</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Optical White / Cyan / Silver</p>
+</div>
+<!-- Palette Item 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#2559bd] mb-sm border border-outline relative overflow-hidden">
+<div class="absolute bottom-2 left-2 px-sm py-xs bg-white text-primary font-label-md">THE PILOT</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Royal Blue / Cobalt / Safety Orange</p>
+</div>
+<!-- Palette Item 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#1b1c1c] mb-sm border border-outline relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-white/20 font-display-lg opacity-10 group-hover:opacity-30 transition-opacity">機動</span>
+</div>
+<div class="absolute bottom-2 left-2 px-sm py-xs bg-white text-primary font-label-md">THE GHOST</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Phantom Gray / Acid Green</p>
+</div>
+</div>
+</section>
+<!-- Fan-Art Community Section (Editorial Asymmetric) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-center py-xl border-t border-outline-variant">
+<div class="lg:col-span-5 space-y-md">
+<h2 class="font-display-lg text-display-lg text-primary leading-none">COMMUNITY<br/>SYNDICATE</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Our canvas, your vision. Explore original fan-art commissions inspired by the ATELIER x ANIME collection. Join the movement and submit your digital manifestations.
+                </p>
+<div class="flex gap-md">
+<button class="h-[48px] px-lg bg-primary text-on-primary font-label-md hover:bg-secondary transition-all">VIEW GALLERY</button>
+<button class="h-[48px] px-lg border border-primary text-primary font-label-md flex items-center gap-xs">
+                        UPLOAD <span class="material-symbols-outlined">upload</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-md relative">
+<div class="space-y-md mt-lg">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden border border-outline-variant hover:border-secondary transition-colors cursor-zoom-in">
+<img class="w-full h-full object-cover" data-alt="Digital concept art showing a stylized character with cybernetic enhancements wearing an oversized ATELIER hoodie. The art style is a blend of traditional manga ink-wash and modern digital painting, with vibrant neon yellow splashes against a desaturated gray background. The overall mood is high-energy and creative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEuuXEHqGJly3jeyD3wW5bW60ormzdAAsaajUe3xu9cFDdCIuC9_YiuP1Dnm6n0srbVUsOXezcMQnpeuDYYotQjacaHblT8LabHik4TLH4lO4Q0UkzoT0PeAHw5QZkS8XW-HcT5a-OBKrO1PQjlgvFtqO7CL82AeAkDIWETTYuclC9NvArMdJPaOjDpx3NKn4gKNELJnstdfxxzECzlEJwcFDnP6vw6KQ8ZonPhx-MopmnAng8p2f9_6qucp2HXmtSSQVE1z_OGoVC"/>
+</div>
+<div class="p-sm bg-white border border-outline-variant">
+<p class="font-label-md text-label-md">ARTIST: @KIBO_ZERO</p>
+<p class="font-label-sm text-label-sm text-outline">TITLE: NEON REFLECTION</p>
+</div>
+</div>
+<div class="space-y-md">
+<div class="aspect-square bg-surface-container overflow-hidden border border-outline-variant hover:border-secondary transition-colors cursor-zoom-in">
+<img class="w-full h-full object-cover" data-alt="Vibrant abstract digital art inspired by mecha cockpit displays, featuring layers of UI elements, Japanese characters, and glowing circuitry. The color palette is a mix of deep blues, electric violets, and stark whites. The lighting is bioluminescent, giving the impression of a high-tech interface in a dark environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCp4XDGLM9jdAuQ8CJZ_WLuVTLSNZyWZDgOK831Atifyj5aIJOnDmhK7TU4ZWL_aKqexQ0Oy5Ntw0k6cACD_3Y_u94033T-EkkopAeJDye6DuKC3FdHbRVUxUh_FZV0H1A15O-vQVEDw4UDmYEmWFINvl4YcYT-_-eNWK1s2tX0KQcKTNShc3ciYK6OYmrvpApzZXGQ3R0mHLb7D3yKffdQ1dE71EvYlnUN0hnQbwVCkJ2oJOp3MOgkmMVve81KmxFbyifJ0npKiSs"/>
+</div>
+<div class="p-sm bg-white border border-outline-variant">
+<p class="font-label-md text-label-md">ARTIST: @DATA_DRIP</p>
+<p class="font-label-sm text-label-sm text-outline">TITLE: INTERFACE_09</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest full-width mt-xl border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="space-y-md">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">ATELIER</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Transcending the boundaries between digital subculture and luxury garment construction.</p>
+</div>
+<div class="flex flex-col gap-base">
+<span class="font-label-md text-label-md text-primary mb-xs">EXPLORE</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Brand Stories</a>
+</div>
+<div class="flex flex-col gap-base">
+<span class="font-label-md text-label-md text-primary mb-xs">SUPPORT</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Contact Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Size Guide</a>
+</div>
+<div class="flex flex-col gap-md">
+<span class="font-label-md text-label-md text-primary">COMMUNITY HUB</span>
+<div class="flex gap-sm">
+<button class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all"><span class="material-symbols-outlined" style="font-size: 20px;">share</span></button>
+<button class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all"><span class="material-symbols-outlined" style="font-size: 20px;">forum</span></button>
+<button class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all"><span class="material-symbols-outlined" style="font-size: 20px;">mail</span></button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 ATELIER. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for smooth header transparency
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+                header.style.backgroundColor = 'rgba(251, 249, 249, 0.95)';
+                header.style.backdropFilter = 'blur(8px)';
+            } else {
+                header.classList.remove('shadow-sm');
+                header.style.backgroundColor = '';
+                header.style.backdropFilter = '';
+            }
+        });
+
+        // Easter Egg Logic: Randomly highlight text on hover
+        document.querySelectorAll('.font-label-sm').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (Math.random() > 0.8) {
+                    el.classList.add('text-secondary');
+                    setTimeout(() => el.classList.remove('text-secondary'), 1000);
+                }
+            });
+        });
+    </script>
+</body></html>

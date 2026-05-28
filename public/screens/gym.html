@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Performance Gym &amp; Technical Sportswear</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-variant": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444748",
+                        "secondary-container": "#6c98ff",
+                        "on-secondary-fixed": "#001946",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-high": "#e9e8e7",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#dae2ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-container": "#838484",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "surface": "#fbf9f9",
+                        "surface-container-highest": "#e3e2e2",
+                        "secondary": "#0047AB",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#747878",
+                        "on-primary-container": "#858383",
+                        "on-secondary-fixed-variant": "#00419e",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-surface": "#303031",
+                        "tertiary-container": "#1a1c1c",
+                        "on-secondary-container": "#002f76",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#b1c5ff",
+                        "primary-fixed": "#e5e2e1",
+                        "primary": "#000000",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "background": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-on-surface": "#f2f0f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-lg": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 229, 229, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar -->
+<nav class="bg-surface border-b border-outline-variant docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary">ATELIER</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Collections</a>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors" data-icon="person">person</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors" data-icon="favorite">favorite</span>
+<div class="relative cursor-pointer group">
+<span class="material-symbols-outlined text-primary group-hover:text-secondary transition-colors" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full overflow-hidden flex items-center">
+<img alt="Performance Hero" class="absolute inset-0 w-full h-full object-cover" data-alt="A focused professional athlete performing a high-intensity dynamic movement in a concrete minimalist gym setting. The lighting is cold and cinematic, highlighting the moisture-wicking properties of the charcoal-colored technical fabric. The overall atmosphere is powerful and disciplined, reflecting a high-performance luxury aesthetic with deep shadows and sharp highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1CKyy0SsHYlPHDwlviYxQVqbMMtnQf1y1veDNIRBVgBlgZtBILgepswkI6Ppby76XZ6QHaVloxJ6JnIYx8sSCj9cp709C7FV89vx2nGGAOI-ncHGhLEbXoxLNYH6SzPJlc1NYLXe3wa1Q_FnTaEoAG56xCfkITaBySeFBvYJfF6Y6qEkyD-kaO38Tv6Uxwx6BMFUCCwdfHjfDUMLC9IRf1QpyEKfuH0LIWFKmCXvLt6Vvzu3wcvdJUcZUeoHYnahUFXzPlpaYEYrn"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+<div class="relative px-margin-desktop max-w-7xl mx-auto w-full">
+<div class="max-w-xl text-white">
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary-fixed mb-sm block">Engineered for Excellence</span>
+<h1 class="font-display-lg text-display-lg mb-md leading-tight">PRECISION<br/>PERFORMANCE</h1>
+<p class="font-body-lg text-body-lg mb-lg opacity-90">Experience the apex of technical sportswear. Designed for the elite, crafted for the movement.</p>
+<div class="flex gap-md">
+<button class="bg-secondary text-white px-lg py-sm font-label-md uppercase tracking-wider hover:bg-on-secondary-fixed-variant transition-all">Shop Performance</button>
+<button class="border border-white text-white px-lg py-sm font-label-md uppercase tracking-wider hover:bg-white hover:text-primary transition-all">The Tech Lab</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="py-lg px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-wrap justify-center gap-md">
+<button class="px-lg py-sm bg-primary text-white font-label-md rounded-full transition-all">All Disciplines</button>
+<button class="px-lg py-sm bg-surface-container border border-outline-variant font-label-md rounded-full hover:border-primary transition-all">Yoga &amp; Mobility</button>
+<button class="px-lg py-sm bg-surface-container border border-outline-variant font-label-md rounded-full hover:border-primary transition-all">HIIT &amp; Cardio</button>
+<button class="px-lg py-sm bg-surface-container border border-outline-variant font-label-md rounded-full hover:border-primary transition-all">Strength &amp; Power</button>
+<button class="px-lg py-sm bg-surface-container border border-outline-variant font-label-md rounded-full hover:border-primary transition-all">Recovery</button>
+</div>
+</section>
+<!-- Fabric Tech Visualization (Bento Grid) -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
+<div class="md:col-span-8 relative group overflow-hidden bg-surface-container">
+<img alt="Fabric Tech" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A microscopic, hyper-detailed close up of high-tech weaving pattern in a white synthetic fabric. Soft blue light emphasizes the 4-way stretch texture and moisture-wicking pores. The image feels sterile and high-tech, showcasing the architectural precision of the garment construction in a bright, modern light-mode studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcoURH97R1ChPF2VRgkvlV10yQAWEOvmfDSGdhwN4lRo8K0bgbvYlY4Q-bT8Qvv_bPA-iN7QRkv9w31lCSuX6MqpcvnlNNC5kPQ40hz_Pdure06HiGcAICuSST5-saGQ6-F00ZLm0qSWFLQl4tOJZI7j0yAaq20Uacq-icYgN5EEXaoyaQAl6a6eDxKrkosYw8kv-RrqZn4LgkkdriUq2AFK8lnOgF5Tr9zBFyolIKxpkGC99pU2qyC38fJ_RWeyVdU-KW1zCuNlAH"/>
+<div class="absolute bottom-0 left-0 p-lg glass-card m-md max-w-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">AERO-KNIT™ TECH</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Revolutionary moisture-management system that accelerates evaporation and maintains core temperature balance during peak exertion.</p>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 bg-surface-container border border-outline-variant p-lg flex flex-col justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-sm" data-icon="unfold_more">unfold_more</span>
+<h4 class="font-title-lg text-title-lg mb-xs">4-Way Stretch</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Unrestricted motion for complex maneuvers and high-mobility disciplines.</p>
+</div>
+<div class="flex-1 bg-primary text-white p-lg flex flex-col justify-center">
+<span class="material-symbols-outlined text-white text-4xl mb-sm" data-icon="air">air</span>
+<h4 class="font-title-lg text-title-lg mb-xs">Thermal Venting</h4>
+<p class="font-body-md text-body-md opacity-80">Strategic mesh placement for maximum breathability in high-heat zones.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Athlete Ambassador Profiles -->
+<section class="bg-surface-container-low py-xl px-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">THE AMBASSADORS</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Defining performance standards across the globe.</p>
+</div>
+<button class="text-secondary font-label-md uppercase tracking-wider flex items-center gap-xs group">
+                        View All Athletes <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Athlete 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-md">
+<img alt="Marcus Thorne" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A powerful male athlete leaning against a concrete wall in a minimalist industrial gym. He is wearing a black technical compression shirt and sleek joggers. The mood is serious and professional, with sharp directional lighting creating dramatic shadows and a high-fashion, athletic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ7k4kctyIbJoFuWHB33Turzcguvkn1DF583l7NRckzicSXf9zWVlTbX2UXm4BlJUNYpC69GlcBJbDmRn_IubEsgoFcvwJEcuzvx_WTMdaM16rHDnknu6BZ4lq2mMGCSuRtwHSPMB__m34AnB6RnZm5ZbFStq-siFQmw53XP1yHd-Ch83S62BLrhoPteTpkwUau4OOTsT69BPksFw8UmP1xbRVXhw7VR47YqXkQfka6HQKeVPUALBtqK-xbOMQm821WQlIUb6hmU9i"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary">MARCUS THORNE</h4>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Strength &amp; Conditioning</span>
+</div>
+<!-- Athlete 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-md">
+<img alt="Elena Vance" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A graceful female yoga instructor in a mid-movement pose, showcasing the flexibility of her white technical leggings. The setting is a bright, sun-drenched minimalist loft with warm wooden floors. The aesthetic is clean, peaceful, and professional, emphasizing comfort and range of motion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuqRdQxhKeHA5yUapotAX6prTg6F93I4wYT5522rMtgTeY0OsgD1EXu1A49n_BGOoLjcP_rgmADuALfgQyND5Vmue5EFyMZsQSxbd7srYUOgW9QoT0Ai6YlzwuCkUnHIkRQ4MrHr94MU9Z35dA-xnykALFxK4Pb58MGlHiZcPWEW7WIwiXW1eMLXlZ166QecnSa-4NoAqbAZxnxjTNF-WyrZO1fr4KlAv_jaS3Fd6vPeWA4NNx9aisMMWGIkpowcIC_0Y4dZlHdp2L"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary">ELENA VANCE</h4>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Yoga &amp; Mindfulness</span>
+</div>
+<!-- Athlete 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-md">
+<img alt="Jordan Reed" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A female track athlete in a starting block position, wearing a sleek navy blue bodysuit. The scene is a modern athletic stadium with clean architectural lines. High-contrast lighting highlights the sleekness of the technical fabric and the determination in her expression. Corporate modern luxury style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFTghQRYWwplK0aquD0tyVTk2vFUBBT5rLs0-wOwFq7KPmRm4muyr-gG_m6Q4CPp549jL05_H6_Zb0NKpeknq8_GJK6qlB1-Vu8dxSnhetzWz5SI1uEqWDZkwczQEJWdnLPwHGiV4ACL_OTYs6YFQKes4sb0ih3seLlirKUxd1t4qL8wRoEINKpHA1CKk0EfymrkWhLME8N6SrHk26J1Df80VpAimjeMwNeyzhzs9PPaZxr_xWZVpMGinoX8IlxSPSwjeZzkfFYtYJ"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary">JORDAN REED</h4>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Track &amp; Field</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gym to Street Styling Guide -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="w-full md:w-1/2">
+<h2 class="font-display-lg text-display-lg text-primary mb-md">GYM TO STREET</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Seamlessly transition from peak performance to urban mobility. Our technical fabrics are refined for the modern professional, bridging the gap between functional sportswear and contemporary luxury.</p>
+<ul class="space-y-md">
+<li class="flex items-start gap-md">
+<span class="font-headline-md text-headline-md text-secondary">01</span>
+<div>
+<h5 class="font-title-lg text-title-lg">Monochromatic Layering</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Pair our technical base layers with oversized tailored coats for a sophisticated athletic silhouette.</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<span class="font-headline-md text-headline-md text-secondary">02</span>
+<div>
+<h5 class="font-title-lg text-title-lg">Architectural Footwear</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">High-stability trainers that complement both gym attire and weekend casual wear.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="w-full md:w-1/2 relative h-[600px] overflow-hidden group">
+<img alt="Styling Guide" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A stylish man walking through a modern city intersection, wearing high-end performance joggers and a sleek technical windbreaker layered over a white tee. The city background is softly blurred, focusing on the high-quality textures of the clothing. Lighting is natural morning sun, giving a crisp, professional, and effortless 'Gym to Street' appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy-9CdPoDJjRmBPuc2Tlr5k7NZMtHROJNGDNUc4xEt7Ud3Yawf2vWumwMuda9UMRZEb05jQTiS-g6EzIv2L6P4msyvBAN3pagiRkx0dlqz53Dzb_ou-v4K2sQvaJvLJ7g63jyALefosDMeCf8Ug_tnZtY_fhcq_ZxYJh2FdXrYeDip2VqxywksUTXufxMaG74mwNWm1OK0wQAwyg7h8lnjA7HYuNjKYSVnrHvt_2YQeQPjKh4i_5JKyWqcwutZP-buS8MCORMTDEw-"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-white text-primary px-lg py-sm font-label-md uppercase tracking-widest shadow-xl">Shop The Look</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Carousel Preview -->
+<section class="py-xl bg-surface">
+<div class="px-margin-desktop max-w-7xl mx-auto overflow-hidden">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md">NEW ARRIVALS</h3>
+<div class="flex gap-sm">
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:border-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:border-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-lg no-scrollbar">
+<div class="min-w-[300px] flex-shrink-0 group cursor-pointer">
+<div class="bg-surface-container-low aspect-[4/5] mb-sm overflow-hidden relative">
+<img alt="Product 1" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Product shot of a minimalist navy technical t-shirt on a clean white background. Soft shadows and high-key lighting emphasize the smooth, moisture-wicking texture and premium seam detailing. The design is sleek and professional, fitting a high-performance fashion brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVyrnBQwvsUxVxo8QUbR9p3ODCAa0mShZ1Z_u-ClSOVMinWBluahjUuS8I4eCXSSw1oRM-SUBiKGKUa2ylBOI0srQibpQyyrZh7yfkyvN193beJlBH-hf9xaRQF7WjQ4vgJniSnrb3EUH7xxsHk6babkSb-rqgR2v_TmpTmuSnM0hbf8_jHJ7rKrlm73lkMJdXepV09DkzrEAP-wAGgPsggLfLvgwtQ70bSQ7r9EMlr4BOWpXZLylXjJEHB9WIWvVHrkn24uG1neAo"/>
+<button class="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<h5 class="font-title-lg text-title-lg">Apex Training Tee</h5>
+<p class="font-label-md text-label-md text-on-surface-variant">$85.00</p>
+</div>
+<div class="min-w-[300px] flex-shrink-0 group cursor-pointer">
+<div class="bg-surface-container-low aspect-[4/5] mb-sm overflow-hidden relative">
+<img alt="Product 2" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Studio product photography of charcoal gray compression shorts designed for high-intensity training. The lighting is crisp and cool, highlighting the reinforced stitching and anatomical fit. The composition is clean and modern, following a corporate professional luxury style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5YaDRaZzkHIV5eU01MbqnygcZ5CqMUNx-ZnWnKmr6mFj8BTtUZyuLVBMsCctIYZho8-HKJshaWHAype9MaPOz1lP7UHgtjUQ3akY1JkBrjXEv9653Tbu7YTycgOy7SZUAa-p0TA6ApPTwgVmK1B6ug0d28T48C0Lxjkjvx8_92XmW6wjTKKOhwhCFFquD47l2XiZhuq5i-zyh8mMudAi09hkkDs4aLsAZ_0RTm0FbSY2ZJbxiYFLWJsqcF6P6WjRyerLuAicYXPbb"/>
+<button class="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<h5 class="font-title-lg text-title-lg">Vortex Compression Shorts</h5>
+<p class="font-label-md text-label-md text-on-surface-variant">$65.00</p>
+</div>
+<div class="min-w-[300px] flex-shrink-0 group cursor-pointer">
+<div class="bg-surface-container-low aspect-[4/5] mb-sm overflow-hidden relative">
+<img alt="Product 3" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Detailed studio shot of a white technical hoodie with hidden zip pockets and matte finishes. The fabric looks incredibly soft yet durable. Lighting is bright and even, capturing the minimalist luxury feel of the garment. Clean light-mode aesthetic with subtle depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhdvacNJayieQaqdxkQ3NZ3UPZ6aJlpvHjcr3hvl-2u7xDht6MiuUOb1HYiEMz6-2IUZPR4j0ruXrxfjo3NDtGtpnj3A26MwrI9By-OZvjc0b5rcHbIVulY6C9_ZvhTnBREavpKEIfx4r2JVLhGrkkPzyMO0BSP8f6jnF1tHpsv0-ng0nWpQirpZ154eWL_mrHdxzYgxVwHygj7w4ZORbJr9bA5OwL83F0iL7qhn_q22N4luntrkut83Y1o6VoboQSmZ2XoziKjeL_"/>
+<button class="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<h5 class="font-title-lg text-title-lg">Prism Thermal Hoodie</h5>
+<p class="font-label-md text-label-md text-on-surface-variant">$145.00</p>
+</div>
+<div class="min-w-[300px] flex-shrink-0 group cursor-pointer">
+<div class="bg-surface-container-low aspect-[4/5] mb-sm overflow-hidden relative">
+<img alt="Product 4" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Product photography of high-performance black athletic shoes with carbon fiber detailing. The shoes are set against a minimalist gray background with sharp shadow work. The aesthetic is extremely professional, highlighting the technical engineering and luxury appeal of the footwear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9S_WbRQpzkzQQES89qZjQuoKoIchMI0n6DBrm1Tz815wHECAbzi270Ls4r5bTa4Vy9n9vvsxcP2Mh6TmBx0Q5UxK0U8jOSTFSLDHY6PQIzAZfMgNwo6t_bLBbb4TRVtZy_5XiZAFNxWNjy66kvzFw_zdI7qjk5r0QTU1Zv9esLkZzLBPK57IAwMzjHfH4GacHLgeot27f3pj6H-_q3pPuffG833Mp6rxPYKlSd3xN07Veyl5s9fxyWw-mX-y5_DvMpbWpr_lEKXUr"/>
+<button class="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<h5 class="font-title-lg text-title-lg">Velocity Elite Trainer</h5>
+<p class="font-label-md text-label-md text-on-surface-variant">$210.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="flex flex-col gap-md">
+<div class="font-headline-md text-headline-md font-bold text-primary">ATELIER</div>
+<p class="font-body-md text-body-md text-on-surface-variant">The intersection of elite human performance and architectural technical design. Crafted for the modern athlete.</p>
+</div>
+<div>
+<h6 class="font-label-md text-label-md text-primary mb-md uppercase tracking-wider">Company</h6>
+<ul class="flex flex-col gap-sm">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Shipping</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Brand Stories</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-md text-label-md text-primary mb-md uppercase tracking-wider">Connect</h6>
+<div class="flex gap-md">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="public">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="smart_display">smart_display</span>
+</div>
+</div>
+<div>
+<h6 class="font-label-md text-label-md text-primary mb-md uppercase tracking-wider">Newsletter</h6>
+<div class="flex flex-col gap-sm">
+<p class="font-body-md text-body-md text-on-surface-variant">Join for early access to performance launches.</p>
+<div class="flex border border-outline">
+<input class="bg-transparent border-none focus:ring-0 w-full px-sm py-2 font-body-md" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-white px-md py-2 uppercase font-label-md">Join</button>
+</div>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant text-center max-w-7xl mx-auto">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-80">© 2024 ATELIER. All rights reserved.</p>
+</div>
+</footer>
+<!-- FAB (Only on relevant screens) -->
+<div class="fixed bottom-lg right-lg z-40 hidden md:block">
+<button class="bg-secondary text-white w-14 h-14 flex items-center justify-center shadow-2xl rounded-full hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="chat_bubble" data-weight="fill">chat_bubble</span>
+</button>
+</div>
+<script>
+        // Micro-interaction for navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+
+        // Simple smooth scroll behavior for filter buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.innerText.includes('Discipline')) {
+                    // Logic for discipline filtering would go here
+                }
+            });
+        });
+    </script>
+</body></html>

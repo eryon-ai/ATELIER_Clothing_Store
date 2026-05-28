@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER x MARVEL | Hero-Inspired Technical Wear</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #e5e5e5 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .comic-frame-clip {
+            clip-path: polygon(0 0, 100% 2%, 98% 100%, 2% 98%);
+        }
+        .cinematic-shadow {
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom smooth scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#e2e2e2",
+                      "surface-variant": "#e3e2e2",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#444748",
+                      "secondary-container": "#6c98ff",
+                      "on-secondary-fixed": "#001946",
+                      "surface-dim": "#dbdad9",
+                      "surface-container-high": "#e9e8e7",
+                      "on-surface": "#1b1c1c",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-tint": "#5f5e5e",
+                      "secondary-fixed": "#dae2ff",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f5f3f3",
+                      "surface-bright": "#fbf9f9",
+                      "on-tertiary-container": "#838484",
+                      "on-background": "#1b1c1c",
+                      "surface-container": "#efeded",
+                      "surface": "#fbf9f9",
+                      "surface-container-highest": "#e3e2e2",
+                      "secondary": "#0047AB", /* Adjusted to match Brand Blue */
+                      "primary-container": "#1c1b1b",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "outline": "#747878",
+                      "on-primary-container": "#858383",
+                      "on-secondary-fixed-variant": "#00419e",
+                      "inverse-primary": "#c8c6c5",
+                      "inverse-surface": "#303031",
+                      "tertiary-container": "#1a1c1c",
+                      "on-secondary-container": "#002f76",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "outline-variant": "#c4c7c7",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#b1c5ff",
+                      "primary-fixed": "#e5e2e1",
+                      "primary": "#000000",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "background": "#fbf9f9",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#000000",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-primary-fixed-variant": "#474746",
+                      "inverse-on-surface": "#f2f0f0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "lg": "48px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "title-lg": ["Hanken Grotesk"]
+              },
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 transition-all duration-300 ease-in-out">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1 hover:text-secondary transition-colors duration-200" href="#">Collections</a>
+</div>
+<div class="flex items-center space-x-md">
+<span class="material-symbols-outlined text-primary dark:text-on-surface cursor-pointer hover:text-secondary transition-colors" data-icon="person">person</span>
+<span class="material-symbols-outlined text-primary dark:text-on-surface cursor-pointer hover:text-secondary transition-colors" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-primary dark:text-on-surface cursor-pointer hover:text-secondary transition-colors" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section: Cinematic Split -->
+<section class="relative h-[921px] flex items-center overflow-hidden border-b border-outline-variant">
+<div class="absolute inset-0 z-0 flex">
+<div class="w-1/2 h-full relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-90 scale-105 hover:scale-100 transition-transform duration-700" data-alt="A side-profile shot of a high-tech obsidian-colored tactical jacket featuring intricate modular webbing and carbon-fiber reinforcement. The setting is a sterile, bright white studio with cold surgical lighting that emphasizes the architectural seams of the garment. The mood is disciplined and professional, with a minimalist fashion editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFNX56uwKTW4UnQVonnekSM1ybNpKIKqpDhr-abPIl66vKOQVmOYXpkj7voKJS6Smek2nKZgUwacaw_j_0OX97n7JzwKKkMn3UyCmLdJIjiqV5uZZlx-lPOSs9Vr8Ttqav8sUNuUQB6ChXpfibXv9AQ56bS8nYih_W_nMwTOrGzH5tZcC0JVNkNAWOsrJAeUSkHQC7APVlCAV-wb6jw4RJbsCCZkPzslbF6JBSUXBrvZSTwsiA5YzXC_4K9OWQvwZHrEbJvvQdR4Q"/>
+</div>
+<div class="w-1/2 h-full relative overflow-hidden border-l border-outline-variant">
+<img class="w-full h-full object-cover opacity-90" data-alt="A close-up high-resolution shot of a glowing blue kinetic energy core embedded in the chest plate of a sleek, white performance-fabric athletic top. The lighting is crisp and modern, featuring sharp shadows and high-key highlights consistent with a luxury clean tech aesthetic. The visual style is inspired by modern cinematic superhero technology, rendered with extreme realism and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgbmb9GyfWdFQkbvNgCqRpWYs8S8DRubEe6p4y-xD-MxvAHDAzA-87Zxxdmit6IByeGs9ezXtothsNnelF4-js-yXZxaQmqmkGZdr5L9gbTz2MFDeSs_1ekanvx8IsAkKqqBzl02qAvRi9iUvbZMw8niCQtT9SFlSDzZDEPPQPHYbPBXP4Xp_8gy4eGsFeOCPkGoTfC__Q-hMOKTvndFQXz9zqjUbl7rUZo0mZVjpHx82ycBulYo1N4heZjKLXH1WuRJVRzX3FAljD"/>
+</div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-margin-desktop">
+<div class="max-w-2xl bg-white/90 backdrop-blur-md p-lg border border-outline-variant">
+<p class="font-label-md text-label-md text-secondary tracking-[0.2em] mb-sm">ATELIER X MARVEL</p>
+<h1 class="font-display-lg text-display-lg mb-md leading-tight">HEROIC ENGINEERING.<br/>REFINED PRECISION.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">
+                        Introducing a capsule collection that bridges high-performance techwear with the tactical specifications of the world's greatest heroes. 
+                    </p>
+<div class="flex gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm font-label-md text-label-md hover:bg-secondary transition-colors uppercase tracking-widest h-[48px]">Explore The Intel</button>
+<button class="border border-primary text-primary px-lg py-sm font-label-md text-label-md hover:bg-surface-variant transition-colors uppercase tracking-widest h-[48px]">Pre-Order Phase I</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Blueprint Section -->
+<section class="py-xl bg-surface blueprint-grid">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-xs">TECHNICAL SCHEMATICS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Deconstructing the Super-Soldier Tactical Suit V.2</p>
+</div>
+<div class="font-label-sm text-label-sm text-outline border-b border-outline pb-1 uppercase tracking-tighter">System Reference: #STARK-742</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Sketch Card 1 -->
+<div class="md:col-span-8 bg-white border border-outline-variant p-md relative overflow-hidden group">
+<div class="absolute top-4 right-4 text-secondary opacity-20 font-display-lg text-[120px] select-none pointer-events-none">01</div>
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="w-full md:w-1/2">
+<img class="w-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="A highly detailed architectural sketch of a tactical backpack, shown in a blueprint style with white lines on a light gray background. The sketch includes technical callouts with thin leaders pointing to modular attachment points, waterproof zippers, and reinforced polymer buckles. The aesthetic is clean and professional, resembling industrial design documentation for high-end gear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXfUhW9JMCQ4DG4_TQdMkAQzxMAMU5WSOrKIAvjAwBA4fM5kvWo6gQfLXdn_Tx_XqKqcBtONIjvuh5KQ5zTmjc-jkG5wGMAPsDvJVEOWLk4ReSIuW8EaD3ExkP8L5XwWgnd9GWdowJkD4AsP2mKGVyKxYcpK0iG1qlnd3cnWe1FmYI_dmRcbsxSkHs-Pq7g8JWrKmsJ3P6rfHay_IKLsoyJjTuJkH5vvD5nVl4ihycnnKsRZckTpDmbFsNFOVAyCx16bow6Bt_xJxu"/>
+</div>
+<div class="w-full md:w-1/2 space-y-md">
+<div class="space-y-sm">
+<h3 class="font-title-lg text-title-lg">VIBRANIUM-MESH OVERLAY</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Engineered with a proprietary synthetic mesh that mimics the energy-dispersing properties of advanced alloy weaves. Lightweight, breathable, and virtually indestructible under standard operating conditions.</p>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div class="border-l-2 border-secondary pl-sm py-1">
+<p class="font-label-sm text-label-sm text-outline">IMPACT RATING</p>
+<p class="font-label-md text-label-md">GRADE-A ALPHA</p>
+</div>
+<div class="border-l-2 border-secondary pl-sm py-1">
+<p class="font-label-sm text-label-sm text-outline">THERMAL FLUX</p>
+<p class="font-label-md text-label-md">ACTIVE COOLING</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Spec Module -->
+<div class="md:col-span-4 space-y-gutter">
+<div class="bg-primary text-on-primary p-md">
+<h4 class="font-label-md text-label-md mb-md border-b border-on-primary/20 pb-base uppercase tracking-widest">ACTIVE STATS</h4>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between text-label-sm font-label-sm mb-1">
+<span>DURABILITY</span>
+<span>98%</span>
+</div>
+<div class="h-[2px] bg-on-primary/10 w-full"><div class="h-full bg-secondary-container w-[98%]"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm font-label-sm mb-1">
+<span>MOBILITY</span>
+<span>92%</span>
+</div>
+<div class="h-[2px] bg-on-primary/10 w-full"><div class="h-full bg-secondary-container w-[92%]"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm font-label-sm mb-1">
+<span>STEALTH</span>
+<span>85%</span>
+</div>
+<div class="h-[2px] bg-on-primary/10 w-full"><div class="h-full bg-secondary-container w-[85%]"></div></div>
+</div>
+</div>
+</div>
+<div class="border border-outline-variant p-md bg-white">
+<h4 class="font-title-lg text-title-lg mb-sm">STARK CORE COMPATIBLE</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The interior lining features inductive charging pads designed to integrate with wearable biometric sensors and mobile interfaces.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cinematic Lookbook Bento Grid -->
+<section class="py-xl bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="text-center mb-xl">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.3em]">Field Report 001</span>
+<h2 class="font-display-lg text-display-lg mt-sm">OPERATIONAL LOOKBOOK</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 grid-rows-2 gap-md h-auto md:h-[900px]">
+<!-- Main Frame -->
+<div class="md:col-span-6 md:row-span-2 group relative overflow-hidden comic-frame-clip border border-primary">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A cinematic full-body shot of a model wearing a monochromatic white and silver hero-inspired tech suit. The model is captured in a dynamic, mid-action pose atop a rain-slicked modern rooftop at twilight. City lights are blurred in a high-end bokeh effect behind them. The lighting is cool-toned with sharp neon accents reflecting off the metallic suit components." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADk5PxuyqEsbraiKlR7-d9ZyWIur6TKwq6m0ha7zGj5dCyjc3-ZMdbcF5dbVvYBdNhiRTA_UQmTOlZUQdHhW8zokdbb1I_Jkayx-4WOzvHpSvWwLPo_I5qJOoZRdaImyOARIWfVOogyjW2L6onNEnXf7ci7a3qMVFRruA2gKOxIqigyITM8AQlJz-jQcTW2_02cfezVuBWjb-VCTIWyO5oyVlFcGpCdfcrZdhFV3qZQsWb_07z6Kl9MMpLN79tfd-CHofJqay2NXAs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-lg">
+<h3 class="font-headline-lg text-headline-lg text-on-primary mb-xs">THE AVENGING PARKA</h3>
+<p class="font-body-md text-body-md text-primary-fixed mb-md">All-weather deployment capability with modular heat shielding.</p>
+<span class="font-label-md text-label-md text-on-primary border border-on-primary self-start px-md py-1">VIEW ARSENAL</span>
+</div>
+</div>
+<!-- Secondary Frames -->
+<div class="md:col-span-6 md:row-span-1 grid grid-cols-2 gap-md">
+<div class="bg-white border border-outline-variant comic-frame-clip group overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A studio close-up of tactical footwear designed with a minimalist aesthetic, featuring magnetic buckle closures and a thick, architectural sole unit. The lighting is high-key and clean, emphasizing the matte black and glossy white textures of the boots. A professional, luxury product shot for a high-end fashion collaboration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2K4jUBT52QL2RFe8kjkSJuR6IYsg6daCtbZr0FVi0ad8I1ThUg1mc9N9y4aaudWo9OYmodn9WNE0XOigub7Dqdhf8I1MpJ6uGeKzdBimOQzRDLBm5AYC4MbOLku7lXdg6mv8F74-e3XP-_8CrStSF0-pCKBgKFM5TzcckVZ9hklgACGo4H8xC2Tkg5puFEqhxuWD2WvGUhU3hk6ZSu6jvGH5M9Smf7K7sH5K2bRDXYuTYRrBPM774DhOwuYB2FuZfGdunYbu7swcy"/>
+<div class="absolute bottom-4 left-4 bg-primary text-on-primary px-sm py-1 font-label-sm text-label-sm uppercase">Footwear 01</div>
+</div>
+<div class="bg-white border border-outline-variant comic-frame-clip group overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A medium shot of a utility vest featuring multiple layered pockets and transparent tech-pouch details. The garment is worn over a sleek charcoal hoodie. The background is a crisp, off-white minimalist studio space. The lighting is soft but directed, highlighting the depth and dimensionality of the tactical layers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACOkiNnrsXrHOSqgqmWmH44HNyZhhO-BTibZN9uuPMgccJ9Q7TIi9mdf0DrJziGC7x13BuGAdrYllqSwuvZzBTML1Glr_LW_UHSOSCV7JLoPO49wklFUBHK3L9YZamZZ4vu0M3W-aOrEC9nk4U4rFMOL3Ye38mD_za9PGSmvH3IgAOzuWAlyKYk9giFzLHebyrvLHvZf0yS1kJ6GaltFFDTGioFPUBACIrkOhSmA4JJzimpLpSXEEvaTWN1ExoVq_YS1MDDEJAVP7V"/>
+<div class="absolute bottom-4 left-4 bg-primary text-on-primary px-sm py-1 font-label-sm text-label-sm uppercase">Utility Gear</div>
+</div>
+</div>
+<!-- Tertiary Frame -->
+<div class="md:col-span-6 md:row-span-1 bg-surface-container-highest flex items-center justify-center p-xl relative border border-outline-variant">
+<div class="text-center z-10">
+<h3 class="font-headline-md text-headline-md mb-md">THE SPIDER-TECH JERSEY</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg max-w-sm mx-auto">
+                                Utilizing 3D-knitting technology to create a zero-seam, high-compression base layer with adaptive tension zones.
+                            </p>
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1 uppercase font-bold" href="#">Configure Your Fit</a>
+</div>
+<!-- Abstract Comic Dot Pattern Overlay -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#000 20%, transparent 20%); background-size: 10px 10px;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fit Guides Section -->
+<section class="py-xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<div class="lg:col-span-1">
+<h2 class="font-headline-lg text-headline-lg mb-md">PERSONA FIT GUIDES</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                            Each garment in the ATELIER x MARVEL collection is tailored to specific operational archetypes. Select your profile to see recommended sizing and layering configurations.
+                        </p>
+<div class="space-y-sm">
+<button class="fit-btn active flex items-center justify-between w-full p-md border border-primary bg-primary text-on-primary transition-all" onclick="switchFit('stealth')">
+<span class="font-label-md text-label-md uppercase tracking-widest">The Stealth Operative</span>
+<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+</button>
+<button class="fit-btn flex items-center justify-between w-full p-md border border-outline-variant hover:border-primary transition-all" onclick="switchFit('tank')">
+<span class="font-label-md text-label-md uppercase tracking-widest">The Frontline Tank</span>
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+</button>
+<button class="fit-btn flex items-center justify-between w-full p-md border border-outline-variant hover:border-primary transition-all" onclick="switchFit('scout')">
+<span class="font-label-md text-label-md uppercase tracking-widest">The Tactical Scout</span>
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-2 bg-surface-container border border-outline-variant p-lg flex flex-col md:flex-row gap-lg items-center relative overflow-hidden">
+<div class="w-full md:w-1/2 space-y-md z-10 transition-opacity duration-300" id="fit-content">
+<h3 class="font-display-lg text-display-lg leading-tight uppercase" id="fit-title">STEALTH<br/>OPERATIVE</h3>
+<div class="space-y-base">
+<p class="font-body-md text-body-md text-on-surface-variant" id="fit-desc">Optimized for low-profile movement. Features tapered silhouettes, matte-finish fabrics, and noise-dampening zippers.</p>
+<ul class="space-y-xs">
+<li class="flex items-center gap-sm font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 bg-secondary"></span> RECOMMENDED SIZE: TRUE TO SIZE
+                                    </li>
+<li class="flex items-center gap-sm font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 bg-secondary"></span> LAYERING: BASE + SHELL
+                                    </li>
+</ul>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm font-label-md text-label-md w-full md:w-auto h-[48px]">SHOP THE LOOK</button>
+</div>
+<div class="w-full md:w-1/2 z-10">
+<img class="w-full h-auto grayscale" data-alt="A professional studio photograph of a model in a dark charcoal technical base layer and tapered tactical trousers. The model is standing in a relaxed but alert posture. The lighting is moody and directional, casting long shadows that emphasize the athletic build. The style is clean, corporate modern with a focus on form and function." id="fit-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiCsT8x8g5hIiB8R1QnlgutCm0cHPwwS2J2oLEOvDpPNhhLfHoUSsbhcngLYEG2WYNcEteCQqTHr8np4BhGSrDanXG9fneBzMBsvNFHVIGTyobQ6NfofsM3Xc5MoUZVQvUOai6nM5xFh7hfc8ftMQch4mJS4gHR_TJP_atYuiulN3e4v39WlOcx5LxNRQY4GyvXqXXQU_66uSyXEDGxtjmbDgjRSHwrbG6mhy2GLhfqWHCiQ2ZJJp-_-JGsP56IJLHHyaocrkhFAg5"/>
+</div>
+<div class="absolute right-0 bottom-0 text-[200px] font-bold text-black/5 select-none leading-none -mb-8 -mr-8">S-01</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest full-width mt-xl border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="space-y-md">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">ATELIER</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Defined by precision. Driven by the extraordinary. The official collaboration of high-end techwear and heroic legacy.</p>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Collections</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">The Avengers Series</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">S.H.I.E.L.D. Tactical</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Wakanda Forever</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Information</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Shipping</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Brand Stories</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Join the Initiative</h4>
+<div class="flex">
+<input class="bg-white border border-outline-variant px-sm py-2 w-full focus:outline-none focus:border-secondary font-label-sm text-label-sm" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary text-on-primary px-md py-2 transition-opacity hover:opacity-80">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline">By subscribing, you agree to our Terms &amp; Privacy Policy.</p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop py-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-sm">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 ATELIER. All rights reserved.</p>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="public">public</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="lock">lock</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="contact_support">contact_support</span>
+</div>
+</div>
+</footer>
+<script>
+        const fitData = {
+            stealth: {
+                title: "STEALTH<br>OPERATIVE",
+                desc: "Optimized for low-profile movement. Features tapered silhouettes, matte-finish fabrics, and noise-dampening zippers. Ideal for high-mobility tasks in urban environments.",
+                image: "image-fit-1.jpg",
+                code: "S-01"
+            },
+            tank: {
+                title: "FRONTLINE<br>TANK",
+                desc: "Reinforced for maximum protection. Incorporates layered heavy-duty synthetics and trauma-reducing padding. Designed for cold environments and high-exposure deployment.",
+                image: "image-fit-2.jpg",
+                code: "T-88"
+            },
+            scout: {
+                title: "TACTICAL<br>SCOUT",
+                desc: "Balanced for speed and utility. Features expanded modular storage, rapid-access pockets, and ultra-lightweight water-resistant membranes for rapid transit operations.",
+                image: "image-fit-3.jpg",
+                code: "X-24"
+            }
+        };
+
+        function switchFit(type) {
+            const content = document.getElementById('fit-content');
+            const title = document.getElementById('fit-title');
+            const desc = document.getElementById('fit-desc');
+            const img = document.getElementById('fit-image');
+            const buttons = document.querySelectorAll('.fit-btn');
+
+            content.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                title.innerHTML = fitData[type].title;
+                desc.innerText = fitData[type].desc;
+                img.src = fitData[type].image;
+                
+                content.classList.remove('opacity-0');
+            }, 300);
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+                btn.classList.add('border-outline-variant');
+            });
+
+            event.currentTarget.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+            event.currentTarget.classList.remove('border-outline-variant');
+        }
+
+        // Simple scroll parallax for cinematic lookbook
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('section:first-of-type img');
+            if (hero) hero.style.transform = `scale(${1.05 + scrolled * 0.0001})`;
+        });
+    </script>
+</body></html>

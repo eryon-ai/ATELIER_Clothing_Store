@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Metropolis Oversized Parka | ATELIER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "surface": "#fbf9f9",
+                        "primary-container": "#1c1b1b",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-tertiary-container": "#838484",
+                        "tertiary-container": "#1a1c1c",
+                        "surface-container": "#efeded",
+                        "secondary-fixed": "#dae2ff",
+                        "surface-tint": "#5f5e5e",
+                        "background": "#fbf9f9",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#00419e",
+                        "on-secondary-container": "#002f76",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdad9",
+                        "on-primary-container": "#858383",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "inverse-surface": "#303031",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-bright": "#fbf9f9",
+                        "on-primary-fixed": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "secondary": "#2559bd",
+                        "primary": "#000000",
+                        "on-secondary-fixed": "#001946",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-highest": "#e3e2e2",
+                        "secondary-fixed-dim": "#b1c5ff",
+                        "on-primary": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "surface-variant": "#e3e2e2",
+                        "secondary-container": "#6c98ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "title-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-thumb { border: 1px solid #000; }
+        .transition-soft { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline docked full-width top-0 z-50 fixed w-full">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-md max-w-[1440px] mx-auto">
+<div class="flex items-center gap-lg">
+<a class="font-display-lg text-display-lg tracking-tighter uppercase text-primary dark:text-on-primary" href="#">ATELIER</a>
+<div class="hidden md:flex gap-md">
+<a class="text-on-surface-variant dark:text-outline font-medium font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="#">New Arrivals</a>
+<a class="text-primary dark:text-on-primary border-b-2 border-primary dark:border-on-primary pb-1 font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="#">Collections</a>
+<a class="text-on-surface-variant dark:text-outline font-medium font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="#">Designers</a>
+<a class="text-on-surface-variant dark:text-outline font-medium font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="#">Journal</a>
+<a class="text-on-surface-variant dark:text-outline font-medium font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-container transition-colors duration-200" href="#">Sale</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden lg:flex items-center bg-surface-container px-sm py-xs border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-label-md text-label-md w-40" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-sm">
+<button class="material-symbols-outlined text-primary dark:text-on-primary hover:text-secondary">favorite</button>
+<button class="material-symbols-outlined text-primary dark:text-on-primary hover:text-secondary">shopping_bag</button>
+<button class="material-symbols-outlined text-primary dark:text-on-primary hover:text-secondary">person</button>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-xl">
+<!-- Breadcrumbs -->
+<div class="px-margin-desktop py-md max-w-[1440px] mx-auto">
+<nav class="flex items-center gap-xs font-label-sm text-label-sm text-outline">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Outerwear</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-semibold">Metropolis Oversized Parka</span>
+</nav>
+</div>
+<!-- Product Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter px-margin-desktop max-w-[1440px] mx-auto pb-xl">
+<!-- Left Column: Gallery -->
+<div class="lg:col-span-7 flex flex-col md:flex-row gap-sm h-fit">
+<!-- Vertical Thumbnails -->
+<div class="order-2 md:order-1 flex md:flex-col gap-sm overflow-x-auto md:overflow-y-auto no-scrollbar md:w-20">
+<div class="min-w-[80px] h-20 md:w-20 md:h-24 bg-surface-variant active-thumb cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up detailed view of a premium black technical parka fabric, showcasing the subtle matte texture and precision reinforced stitching under soft directional studio lighting in a professional high-fashion context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtaeLKx0v7x52F26VIedOr71eeVRSrDJLfrm8CknaY8W7f8Pws26rlpaiI3B6C9r67Ue-u03oOalMTLsm7geluY_xHBW9EvU67VCy6fCLdGbk2uUJjsc_dO8vzG-bhZlSFg4pYb0vLyYnSs9DWy7UNP2sNWmVHwVMvEGoT9GvtdH8uh9G1MCE0s253XLj-P3kchMzN2KuQHMRZkS7RH26f2SEfo-VEAjduOyfnxZ5Ou2WvhKi3CWbNANmznXOoO-K06_suNqoUbrXv"/>
+</div>
+<div class="min-w-[80px] h-20 md:w-20 md:h-24 bg-surface-variant cursor-pointer overflow-hidden opacity-60 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A male model wearing an oversized obsidian black tech-wear parka in a professional minimalist studio setting, emphasizing the architectural silhouette and functional length against a crisp off-white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0_i62GFFpSSQOdNmHohjY0msSFMrLK5y2q_epQa7pSpTxxt-M4vzd_03I4lXCsDW7vw4u9j4QNsd5L2xe-c1YFNj7_vWQjcBhXHU9_9PnTun-9kYB4hzlwk6Hrp5jEXR6DnYx2YmYDF6HoT9NZXxYn7O_04No6Xo30Lsirew5vVp8Nmywgpd4jYWToOCmTPXzg5_rTP_KrxqC4Bulqvtj_1iOhzZGmd4aZCZDZxX_JDTpjzeHgTEopd7YBi9EoGAeSZoi_4hoagPJ"/>
+</div>
+<div class="min-w-[80px] h-20 md:w-20 md:h-24 bg-surface-variant cursor-pointer overflow-hidden opacity-60 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Side profile shot of a luxury black parka showing the deep structured hood and waterproof zipper details, illuminated by high-key architectural lighting to highlight the clean lines and premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_uQ5RdxPaXSrJ33B4WBAbI208wE8TwBO2FBwhyJMQBpZIjK8gWYokEZZ16NgQLVv-a4SEjAjTmHNzqDNxeqkhW4XPSOwfeaQIOlhzBfyy4PDCpLp9jgpuw-1-5SCwhF_5Xlz7FMYEf7CdqcYbzDUBUg4rj-zS1YrKImqzld37zj25qruJqH12reKUnfaEkEcyvpOQL71cOXojvivwMqSlXn1xq7X1hAQBk1rziYZc_6ygbbSzxgb3kr6TyQhaS1bM4mNKUp7BalKC"/>
+</div>
+</div>
+<!-- Main Image -->
+<div class="order-1 md:order-2 flex-1 aspect-[4/5] bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Full-length editorial shot of the Metropolis Oversized Parka in Obsidian Black, featuring a sleek technical silhouette with oversized proportions, captured in a bright minimalist gallery space with clean shadows." id="main-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMf3Getp2pkTUym_kgiGLGzy-8DhX63tL6Ep1BweJutdtwUog-tYaH__bAEFhdlHkMON9kxfhd4Hg8piEYLebjQKyfpFLrIJGvZeszjmkv6PXzxH5OU2CAA1Y6zLEplbLoTjAIO_K3QdDxFPz1qiGpPsYF4_o4cGWGFki32xzdzgdo-NvbQkr6rjqtXWpYMxfy4woJf-FNPTdpz8p0ctLxRLquu2P-M1gB3FRLIqUl4nKYpH6VD9LJto57ICfEjzzOxtPYW1HL-CuV"/>
+</div>
+</div>
+<!-- Right Column: Info Card -->
+<div class="lg:col-span-5 flex flex-col gap-md sticky top-xl h-fit">
+<div class="flex flex-col gap-xs">
+<span class="bg-primary px-sm py-[2px] text-on-primary font-label-sm text-label-sm w-fit uppercase tracking-wider">Limited Drop</span>
+<h1 class="font-display-lg text-[40px] leading-tight text-primary uppercase">Metropolis Oversized Parka</h1>
+<div class="flex items-center gap-sm">
+<p class="font-headline-md text-headline-md text-primary">$1,450.00</p>
+<span class="text-outline font-label-md text-label-md">Duties and taxes included</span>
+</div>
+</div>
+<div class="border-y border-outline-variant py-md flex flex-col gap-md">
+<!-- Color Selector -->
+<div class="flex flex-col gap-sm">
+<p class="font-label-md text-label-md text-primary">COLOR: <span class="text-outline uppercase" id="color-label">Obsidian Black</span></p>
+<div class="flex gap-sm">
+<button class="w-8 h-8 rounded-full bg-black border-2 border-primary ring-2 ring-transparent ring-offset-2 hover:ring-primary transition-all" onclick="document.getElementById('color-label').innerText = 'Obsidian Black'"></button>
+<button class="w-8 h-8 rounded-full bg-[#4A4E52] border-2 border-transparent hover:border-outline-variant transition-all" onclick="document.getElementById('color-label').innerText = 'Slate'"></button>
+<button class="w-8 h-8 rounded-full bg-[#2C3531] border-2 border-transparent hover:border-outline-variant transition-all" onclick="document.getElementById('color-label').innerText = 'Forest'"></button>
+</div>
+</div>
+<!-- Size Selector -->
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<p class="font-label-md text-label-md text-primary">SELECT SIZE</p>
+<button class="text-secondary font-label-sm text-label-sm underline underline-offset-4 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+                                Size recommendation
+                            </button>
+</div>
+<div class="grid grid-cols-4 gap-xs">
+<button class="h-12 border border-outline-variant font-label-md text-label-md hover:border-primary transition-colors">XS</button>
+<button class="h-12 border border-primary bg-primary text-on-primary font-label-md text-label-md">S</button>
+<button class="h-12 border border-outline-variant font-label-md text-label-md hover:border-primary transition-colors">M</button>
+<button class="h-12 border border-outline-variant font-label-md text-label-md hover:border-primary transition-colors">L</button>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm">
+<button class="w-full h-12 bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-widest hover:bg-on-secondary-fixed-variant transition-soft flex items-center justify-center gap-sm">
+                        Add to Bag
+                    </button>
+<button class="w-full h-12 border border-primary font-label-md text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-soft flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+                        Add to Wishlist
+                    </button>
+</div>
+<!-- Utilities -->
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-low p-md border border-outline-variant flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-primary">Delivery Checker</p>
+<div class="flex gap-xs mt-xs">
+<input class="bg-white border-outline-variant text-label-sm h-8 flex-1 focus:ring-secondary focus:border-secondary" placeholder="Enter Zip Code" type="text"/>
+<button class="px-sm h-8 bg-primary text-on-primary font-label-sm">Check</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between py-sm">
+<button class="flex items-center gap-sm text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">share</span>
+<span class="font-label-sm text-label-sm">Share this look</span>
+</button>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">chat_bubble</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">info</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fabric & Craft Section -->
+<section class="bg-primary text-on-primary py-xl">
+<div class="px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+<div class="flex flex-col gap-md">
+<h2 class="font-display-lg text-headline-lg uppercase tracking-tight">Fabric &amp; Craft</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-md">Engineered for the urban pioneer, the Metropolis Parka combines architectural silhouettes with extreme performance textiles.</p>
+<ul class="flex flex-col gap-sm">
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary-container">shield</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-primary">HYDRO-SHIELD MESH</h4>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Advanced triple-layer waterproof membrane that maintains breathability while repelling external moisture.</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary-container">thermostat</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-primary">THERMAL MODULATION</h4>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Internal lining that adapts to body temperature, ensuring comfort in climates from -10°C to 15°C.</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary-container">architecture</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-primary">REINFORCED STITCHING</h4>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Military-grade double-bonded seams for maximum durability and wind resistance.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity opacity-80" data-alt="Macrophotography of technical garment construction featuring laser-cut edges and waterproof heat-sealed zippers in a professional studio setting. The lighting is moody and dramatic, showcasing the sophisticated obsidian black material of the ATELIER parka collection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DFYWIHDT6znK6JdlyKFVISiWo9eeKS-e0PF624ve1lFaUz0f2hq23H6XwGO4RJxibqmgtwspbRvn4a1HysXRs3VfcOOGjHGwdmL0R_vC2KZUPd-fNi5Rf76m7VIwcvK07jlByGtK_NKsPIV7XqXx8o79TDlvUc3pw7G7KyTyP_Na1RM0PwznbEpBlsX1XE9DVPGXWw4eBWEwFimMKoy7KarPZFK-zxRFJSR4aZP80BMP_ZEFS7-0takXOum-yOLzBmR66HHXfKLq"/>
+</div>
+</div>
+</section>
+<!-- Lifestyle/Editorial Section -->
+<section class="py-xl">
+<div class="px-margin-desktop max-w-[1440px] mx-auto">
+<div class="relative w-full aspect-[21/9] bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Cinematic wide shot of a person walking through a misty, brutalist architectural environment wearing the Metropolis Parka. The mood is atmospheric and cool-toned, with high-contrast shadows emphasizing the garment's oversized silhouette against grey concrete structures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKPkfwkaqaPiURw6QXGUD3u7kv9BhpuFIkYDolTo1rTKAsSA-C3VY-EZDYSEgxgN5tKiygN9hqlxcLhw_mMPRNXZAqM0XxvYmtj5mSfWwIHios1Ke7Zl21GkTOpvLo2qspsGoLN3czbjXt4ZgibXUq1NM9F-DydywaIOLHMkNFqNdOhI7qoQlVIpb3-OeqUREDQ85DK_8CTjPwQhUCUtq9-56OwWHtIVNCtD2tBTdvRXT6SreDRCekHsgXkDYOXHskrOa3hOhu1ZMH"/>
+<div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+<button class="bg-white/90 backdrop-blur-sm px-lg py-sm font-label-md text-label-md uppercase tracking-widest hover:bg-white transition-soft">Watch the Film</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Complete The Look Carousel -->
+<section class="px-margin-desktop max-w-[1440px] mx-auto py-xl">
+<h3 class="font-headline-md text-headline-md text-primary uppercase mb-md">Complete the Look</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<!-- Related Item 1 -->
+<div class="flex flex-col gap-sm group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Premium black technical cargo trousers featuring multi-pocket design and tapered fit, displayed in a minimalist professional light-mode aesthetic studio with sharp focus and clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbLeyq_dJAut7IUOtiC_FZbHhvkI9CF4RLenYWg3M2MFrOlw-K-_ExDbeIwo49BPMpDhfle69Ep8lCT3kr8X0c8nVvYekszKDNE6hDNcXT5JLUgy2bcne5P24bUeKiEj4X2TLigNvdyKLWCqZW2jVHV3wsDD9YeZ9-I_zG_poU2C9WM6riZ1pekGCI8zi08KjN6aQwk3VneAlbDlU4MFnp5l1VFgsWtGyMaKnkTsYgHTlsR50a4KFOgjP4w0UYE2gNRJe_aiy_hx-8"/>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 py-sm font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity">Quick Add</button>
+</div>
+<div class="flex flex-col">
+<p class="font-label-md text-label-md text-primary uppercase">Modular Cargo Pants</p>
+<p class="font-body-md text-body-md text-outline">$480.00</p>
+</div>
+</div>
+<!-- Related Item 2 -->
+<div class="flex flex-col gap-sm group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury obsidian black leather chelsea boots with a chunky Vibram sole, shot with professional high-key lighting in a minimalist fashion studio to highlight the premium textures and high-end construction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxJ-vDXbddHkZSXFUeMSSzQ-G30ybTK2H18kChutZWgfUj5ZgxIQtN23ZfqYihH8kOMNLN0ZjFTQ-XYc3JUT9i5CHP_7zxSHgrkUlHCKtuhccExFbKcMHgEd6_XDXJxvCnGLl-din-C2cSeZ09bNdQQD-OD6JBVWz01uKYgkPWkzcWoxJd4QDs-2nD4XYMMTk-z6ZwVQz2w1vC9uBz5Ue_tgfWg0DDlFutOww7qBorezdDBL75xOUS6K6qabFAkCvs3iXZNV7mkh0t"/>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 py-sm font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity">Quick Add</button>
+</div>
+<div class="flex flex-col">
+<p class="font-label-md text-label-md text-primary uppercase">Apex Terrain Boot</p>
+<p class="font-body-md text-body-md text-outline">$890.00</p>
+</div>
+</div>
+<!-- Related Item 3 -->
+<div class="flex flex-col gap-sm group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="High-quality heavy cotton minimalist hoodie in slate grey, featuring an oversized fit and premium knit textures, presented in a bright, modern light-mode studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBByKesDk604AZppuEWS61sFD6fhdDrAaZhTY1-F9En65L3T6k4cfvh3SZ1_Ony-Y-vWS7q7Qy_vVv1doI73kyek1rA_ayqiXiI7DjK3bNfeKGtGZKafM-vZGQSyZpn_LTPQsy0tgOa6EyaldZGfwoQcZlejksqQ3nTsGgstzGYQUXHWfYQ54UKdPC_gJrBrCQubTECrZ9qjem-Bjyypz_I20mTV8LRsgzp3Qzd3YQF13V6ZVWGuySSTQPh_5tyu-ci9i7vhX_bHpHe"/>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 py-sm font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity">Quick Add</button>
+</div>
+<div class="flex flex-col">
+<p class="font-label-md text-label-md text-primary uppercase">Core Heavyweight Hoodie</p>
+<p class="font-body-md text-body-md text-outline">$220.00</p>
+</div>
+</div>
+<!-- Related Item 4 -->
+<div class="flex flex-col gap-sm group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist black crossbody technical bag with premium webbing and matte metal hardware, displayed against a clean light grey background with professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlwvOaYQBsK4ecS_QE8d1ICnO5jQ-0UDQJALtbbWiT_yfb6cGDWqzB0gIiLFDNEaa19qcRBJcSta_46CJVr4_88_OIUuJ5i4dPL3hUWs2sw6Ys8_ZZaQb6h2CeXVJFEhYqm6jNBoF5bam4zZXoWwSoMRP7lVlC59QD8wQCSBvN8NRrxZApdFtF8L5VpmjLu-RXFn73Jr8CO0yU-qCEjxTHcLMq3cAeArjfsJAMmzF8eA1BcBqY7Vw9ck4YLUWPG8Hjia_x0Cw_k3cc"/>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 py-sm font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity">Quick Add</button>
+</div>
+<div class="flex flex-col">
+<p class="font-label-md text-label-md text-primary uppercase">Transit Sling Bag</p>
+<p class="font-body-md text-body-md text-outline">$350.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Section -->
+<section class="bg-surface-container-low py-xl">
+<div class="px-margin-desktop max-w-[1440px] mx-auto flex flex-col gap-lg">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary uppercase">Shared by You</h3>
+<p class="font-label-md text-label-md text-outline">Tag your style with #ATELIER_DIGITAL</p>
+</div>
+<button class="font-label-md text-label-md text-primary underline underline-offset-4">View Gallery</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-sm">
+<div class="aspect-square bg-surface-variant overflow-hidden"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="User-generated fashion shot of the parka worn in an urban city street at dusk, featuring soft bokeh city lights and a stylish modern streetwear vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0XmKQREE04prir-pDaBXKaAt8a0kRKwItYlh4QjqArb2oVyuCBm4FjdoBGFYb7KN6ugcW9W5pFhfZhWeNAkAuXjk3D8aKmQUenOOoctTiZNXAyZEkDg-_0aqX4YJG5YuXtCaldbWNUJvh3m1T0CWmOrRptlGPu2ED34GEFmRD1yi5UYhQAHsjv6swZjI58melFNqKnlj3xpqQ5EcyPujBoKfOinkBjwEONWrrdwP0eJ6NLwqt5iOK32KHtqrCu_GOhGxEP_CmCOG7"/></div>
+<div class="aspect-square bg-surface-variant overflow-hidden"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="High-fashion street photography of a woman wearing an oversized technical coat against a minimal architectural wall, emphasizing the clean silhouette and premium black material." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlG-eefHv10PPOFfdYLbKHE6NPLND4VNRamveaOe0-wwHW_JDLu9NYEQJQr1xvSgH5N6iXoIp77EKUOLfKKgvjwT3q1Paex1OHexQdiQakDo6zmSOA5h5DR9oQyLM3-i3XlUyyRWDI1X2aQ0bdp9FzAFUVgKR8JzVoUWxikDs3Dq2Xnxd6VctckPx144ZNf5l-TixngPf5W6HPAeZpL0mCo2O6p74fEVJkVk8MTl_HJfK-3DvcUrTl5bVVoWyXHxcJmAayMXmRoXvF"/></div>
+<div class="aspect-square bg-surface-variant overflow-hidden"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Minimalist editorial portrait of a model in technical outerwear posing in a stark white studio with high-key lighting, focusing on the texture and modern feel of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZpneCq5b4YdRc6zqFcLCHZ5f1qZe2WvrkB-WrJLX5d82SfuiApC6yIGBo3n2g-SweLiGgQ4rzpHbvmKrLf_eqmUc_8cOZegk99Q7D-tJbMMzV9NWvz-qbqwauhwAhi_ElP1QWgaCYD7acUekZVx-skQUGJ99HTJnKi2QFtJ8AFguN6Obt56zLYoQ4F8LkwEFQCwfAGR6088LrGWTiKxAf1UopG4WbSwE8zJB_-TBvArxlikM7lCHw17vJzT6-V5kWWpwzcBHxGpjf"/></div>
+<div class="aspect-square bg-surface-variant overflow-hidden md:block hidden"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Atmospheric shot of fashion shoppers walking through a high-end minimalist boutique district, captured with a professional wide-angle lens and soft natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlhatyhEaGL46-Ev8D5s-J3zsAkVM79A2Q9wVjSFuLN03OKSjXMy_sd3bfqsVguScmxU7Eu3rgX0BuIsDLNy9tJEMSw36t-p2M2nq6pBTqv3pfIA4yAqsaXTMMUxKivUP6WzJYj0OUkn4gXDMyeD4H8LGwLo5sAcDamRV67GMDzUX3gGVgSukEz-e6K2Lb7L9_q9MyFRMtQLFnsPxY6wUu1aaAPHaBkHtvr7tk_e9pcj1i23fRa-If1GrTNcfQvmuxDYqDZIArzqbt"/></div>
+<div class="aspect-square bg-surface-variant overflow-hidden md:block hidden"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Detailed studio product shot of premium black technical accessories arranged on a clean white surface, showcasing the corporate modern minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDby0bENVwfrDvu2YyErKKvRoekF_tNKVxiYaq1dtM4JrT-hofVfWg7ZIBhyAEjvTWrCKxbvGBZ-eVUpI8ZYQ2_CrtQ2KDh9m8P7aC7epzLeXbsqXibAdCRonNCRi811gN04WS48FrWGiCItxs6fOEobY8yTPtteNLW-4ZWFpDy3Ru1AiDuqAftmxR8RbKaiACH5kKBwPiuNrFujOyHuZ_CyjHFqBbjDvhNbZ1MIsFAcDrzxFMFulR5UNFRhftMmTExa6x8N_zd4qm7"/></div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="px-margin-desktop max-w-[1440px] mx-auto py-xl grid grid-cols-1 md:grid-cols-12 gap-lg">
+<div class="md:col-span-4 flex flex-col gap-sm">
+<h3 class="font-headline-md text-headline-md text-primary uppercase">Customer Feedback</h3>
+<div class="flex items-center gap-sm">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-headline-md text-headline-md">4.9</span>
+</div>
+<p class="font-body-md text-body-md text-outline">Based on 128 reviews</p>
+<div class="mt-md flex flex-col gap-sm">
+<div class="p-md border border-outline-variant bg-white flex flex-col gap-xs">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<p class="font-label-md text-label-md text-primary">Quality Guarantee</p>
+<p class="font-body-md text-body-md text-outline">Each piece is inspected individually before shipment.</p>
+</div>
+<div class="p-md border border-outline-variant bg-white flex flex-col gap-xs">
+<span class="material-symbols-outlined text-secondary">replay</span>
+<p class="font-label-md text-label-md text-primary">Free Returns</p>
+<p class="font-body-md text-body-md text-outline">30-day effortless return policy globally.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 flex flex-col gap-md">
+<!-- Single Review -->
+<div class="border-b border-outline-variant pb-md">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-sm">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-md text-label-md uppercase">Marcus T.</span>
+<span class="bg-surface-container-high px-xs py-[1px] font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                Verified Purchase
+                            </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2 weeks ago</span>
+</div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-xs">Exceptional craftsmanship</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The attention to detail on the Metropolis Parka is outstanding. The oversized fit is exactly as described—modern but not overwhelming. It's surprisingly light for how warm it keeps me in London's winters.</p>
+</div>
+<!-- Single Review -->
+<div class="border-b border-outline-variant pb-md">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-sm">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-md text-label-md uppercase">Elena R.</span>
+<span class="bg-surface-container-high px-xs py-[1px] font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                Verified Purchase
+                            </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1 month ago</span>
+</div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-xs">The ultimate urban shell</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">A true investment piece. The hydro-shield mesh works perfectly in heavy rain. I've received so many compliments on the silhouette. ATELIER has really peaked with this collection.</p>
+</div>
+<button class="w-fit font-label-md text-label-md text-primary border-b border-primary pb-xs hover:text-secondary hover:border-secondary transition-colors">Read all 128 reviews</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-tertiary-container border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-margin-desktop py-xl max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-md">
+<p class="font-headline-md text-headline-md tracking-widest uppercase text-primary dark:text-on-primary">ATELIER</p>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline max-w-[200px]">Luxury tech-wear engineered for the modern urban environment.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-primary dark:text-on-primary uppercase mb-xs">Company</h5>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary underline-offset-4 hover:underline" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary underline-offset-4 hover:underline" href="#">Careers</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary underline-offset-4 hover:underline" href="#">Journal</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-primary dark:text-on-primary uppercase mb-xs">Support</h5>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary underline-offset-4 hover:underline" href="#">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary underline-offset-4 hover:underline" href="#">Size Guide</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary underline-offset-4 hover:underline" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-primary dark:text-on-primary uppercase mb-xs">Newsletter</h5>
+<div class="flex border-b border-outline">
+<input class="bg-transparent border-none focus:ring-0 w-full font-label-sm text-label-sm py-xs" placeholder="Email Address" type="email"/>
+<button class="material-symbols-outlined">arrow_forward</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline mt-xs">Join for early access to drops.</p>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-label-md text-label-md text-on-surface-variant dark:text-outline">© 2024 ATELIER. THE ART OF STREETWEAR. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline hover:text-primary" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for Gallery
+        const thumbnails = document.querySelectorAll('.active-thumb, .opacity-60');
+        const mainImg = document.getElementById('main-image');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                thumbnails.forEach(t => t.classList.remove('active-thumb', 'opacity-100'));
+                thumbnails.forEach(t => t.classList.add('opacity-60'));
+                thumb.classList.add('active-thumb', 'opacity-100');
+                thumb.classList.remove('opacity-60');
+                
+                const newSrc = thumb.querySelector('img').src;
+                mainImg.style.opacity = '0';
+                setTimeout(() => {
+                    mainImg.src = newSrc;
+                    mainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+
+        // Simple Fade for Main Image
+        mainImg.style.transition = 'opacity 0.3s ease-in-out';
+    </script>
+</body></html>

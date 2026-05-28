@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-variant": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444748",
+                        "secondary-container": "#6c98ff",
+                        "on-secondary-fixed": "#001946",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-high": "#e9e8e7",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#dae2ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-container": "#838484",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "surface": "#fbf9f9",
+                        "surface-container-highest": "#e3e2e2",
+                        "secondary": "#2559bd",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#747878",
+                        "on-primary-container": "#858383",
+                        "on-secondary-fixed-variant": "#00419e",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-surface": "#303031",
+                        "tertiary-container": "#1a1c1c",
+                        "on-secondary-container": "#002f76",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#b1c5ff",
+                        "primary-fixed": "#e5e2e1",
+                        "primary": "#000000",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "background": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-on-surface": "#f2f0f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #fbf9f9; }
+        .transition-opacity { transition: opacity 0.3s ease; }
+        .archival-gradient {
+            background: linear-gradient(to right, #000000 0%, #1a1a1a 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- TopNavBar -->
+<nav class="bg-surface border-b border-outline-variant docked full-width top-0 sticky z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-lg">
+<span class="font-display-lg text-display-lg tracking-tighter text-primary">ATELIER</span>
+<div class="hidden lg:flex items-center gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Collections</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center border border-outline-variant px-sm py-xs bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-48" placeholder="Search archive..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">person</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">favorite</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">shopping_bag</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-margin-desktop lg:px-margin-desktop py-lg">
+<!-- Archive Hero & Countdown -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-xl items-end">
+<div class="lg:col-span-8">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-sm block">Seasonal Transition</span>
+<h1 class="font-display-lg text-display-lg mb-md leading-none">THE ARCHIVE SALE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-lg">
+                    A curated selection of past-season archetypes and experimental prototypes. Disciplined designs, now available for a finite period as we transition our atelier.
+                </p>
+<div class="flex flex-wrap gap-md items-center">
+<div class="bg-primary text-on-primary px-lg py-md flex flex-col items-center min-w-[100px]">
+<span class="font-headline-lg text-headline-lg" id="days">02</span>
+<span class="font-label-sm text-label-sm opacity-70">DAYS</span>
+</div>
+<div class="bg-primary text-on-primary px-lg py-md flex flex-col items-center min-w-[100px]">
+<span class="font-headline-lg text-headline-lg" id="hours">14</span>
+<span class="font-label-sm text-label-sm opacity-70">HOURS</span>
+</div>
+<div class="bg-primary text-on-primary px-lg py-md flex flex-col items-center min-w-[100px]">
+<span class="font-headline-lg text-headline-lg" id="minutes">42</span>
+<span class="font-label-sm text-label-sm opacity-70">MINS</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 aspect-[4/5] relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, high-fashion editorial photograph of a minimalist concrete interior. A single structured black wool coat is draped over a brutalist chair. The lighting is high-contrast with sharp shadows, emphasizing the architectural silhouette and premium fabric texture. The overall mood is sophisticated, silent, and archival with a corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVs_GC6tkWbOsE9B2Zqv-QQnU_3wMgd0KFoerHtnJG7PyRzzcWEMvLQ_aOCl9WwlACXBE2jrWtYi-5h3Xw_rFwIVUS41SdhUnwi4uEu752gCqGebspgbiZhweuuH6HPEEab0Z56PYyLlOtFRrqSvsIUUb--0uvFTlsk1PfNG760cZTNZOF695x6kstJytx505vzhN-t_sgwWJISMePnep7d7T3eWeijn4HsK9a9TpwTdeN31Phbnt1WR2Zpb_Eooy9LDikANYrn3lK"/>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+</section>
+<!-- Filters & Tiered Pricing Visualizer -->
+<section class="border-y border-outline-variant py-md mb-xl">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-md">
+<div class="flex flex-wrap items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant mr-sm">FILTER BY INTENSITY:</span>
+<button class="px-md py-xs bg-primary text-on-primary font-label-md text-label-md">ALL ARCHIVE</button>
+<button class="px-md py-xs bg-surface-container-low text-on-surface-variant border border-outline-variant font-label-md text-label-md hover:border-primary transition-colors">-30%</button>
+<button class="px-md py-xs bg-surface-container-low text-on-surface-variant border border-outline-variant font-label-md text-label-md hover:border-primary transition-colors">-50%</button>
+<button class="px-md py-xs bg-surface-container-low text-on-surface-variant border border-outline-variant font-label-md text-label-md hover:border-primary transition-colors">-70%</button>
+</div>
+<div class="w-full lg:w-72">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-label-md text-label-md">LAST CHANCE SIZES</span>
+<span class="font-label-sm text-label-sm text-secondary">82 items left</span>
+</div>
+<div class="flex gap-1 h-2 bg-surface-container-highest">
+<div class="w-1/4 bg-primary"></div>
+<div class="w-1/4 bg-primary"></div>
+<div class="w-1/4 bg-primary/40"></div>
+<div class="w-1/4 bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Products -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<!-- Large Focus Item -->
+<div class="lg:col-span-2 lg:row-span-2 group">
+<div class="relative aspect-square overflow-hidden mb-sm">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional studio product shot of a high-end leather tote bag in deep obsidian black. The bag sits on a pristine white reflective surface against a soft grey background. Minimalist lighting highlights the grain of the premium leather and the subtle silver hardware. The composition is clean and architectural, following a luxury fashion catalog style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjboUe6JjTC2orSGmURQqJOcjYEmjKrGbH95Qk-xM_YoOkvQ_cWF1O8DJvihdNbkNZ96ZrPWjwK9_z1KxWf28dHw_mPv2xwTBTbvSlw5kE3_0Y-Hiy1GRHsXTTEKYxviIMJ8CXTxmWrq7BkCOC4xra6g8phNA6NrarQXVOIOD9NBCt-UZqJHafwqXD4QNcuizO-N9niVvbzvrZfs9lYUWmtyJHTwCXIhS3jLh-sTnQhuORyNpy9W8gE6IYjxloO7RuJmisvaN-P8Aa"/>
+<div class="absolute top-md left-md bg-white px-sm py-xs font-label-md text-label-md tracking-widest">-50% ARCHIVE</div>
+<div class="absolute bottom-0 left-0 right-0 p-md translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-white/90 backdrop-blur-sm border-t border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md">QUICK ADD</span>
+<div class="flex gap-sm">
+<button class="w-8 h-8 border border-outline hover:bg-primary hover:text-on-primary transition-colors text-[10px] flex items-center justify-center">S</button>
+<button class="w-8 h-8 border border-outline hover:bg-primary hover:text-on-primary transition-colors text-[10px] flex items-center justify-center">M</button>
+<button class="w-8 h-8 border border-outline hover:bg-primary hover:text-on-primary transition-colors text-[10px] flex items-center justify-center">L</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg">Structural Leather Tote</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Core Collection 01</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md line-through text-outline-variant">$890</p>
+<p class="font-headline-md text-headline-md text-secondary">$445</p>
+</div>
+</div>
+</div>
+<!-- Standard Card 1 -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden mb-sm border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up photograph of a tailored silk-blend shirt in a neutral charcoal grey. The garment is displayed on a minimalist invisible mannequin, emphasizing its clean lines and fluid drape. The studio lighting is soft and diffused, highlighting the subtle sheen of the fabric. Corporate modern style with a focus on textile quality and professional craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Ufam77Jpxv9cvmRPGoDWlSBGx_QrtOid1mSCqWUoABU0luq9SrJ0t-UUfu74iS90NSLxHEkwlnpfGQRLrOkq11Ezzg8ryk03VOyJNJ-USFbI412I6vTCWpAZbb3hvBGPjjuEeR3IQgmeK5nbwEFRZRol9t_oCLFCGKM3KJn7YibPB64CWyX9RPubmDqGFeAGGudA7FYI5T6sXmQ32jg613F29QoUlrAAqJY-hB3uYHaXJTITNHPimB5JPettQqZ8-J-VoF9xS7zR"/>
+<div class="absolute top-sm right-sm bg-error text-on-error px-sm py-xs font-label-sm text-label-sm">LAST CHANCE</div>
+</div>
+<h3 class="font-body-lg text-body-lg font-semibold">Silk Transition Shirt</h3>
+<div class="flex gap-md items-center mt-xs">
+<span class="font-body-md text-body-md text-secondary">$180</span>
+<span class="font-label-sm text-label-sm line-through text-outline-variant">$420</span>
+</div>
+</div>
+<!-- Standard Card 2 -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden mb-sm border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A studio shot of minimalist Italian leather loafers in a matte black finish. The shoes are arranged in a dynamic, architectural pose on a stack of grey books. The background is a flat, cool-toned white. The lighting is precise, casting thin, intentional shadows that define the shoe's sleek silhouette and premium construction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1eSTNIEuzufx0IPHvNyF8AuDQK1oF9F2txbGIskeKlVnzdHV5CbFfJjvVtCAFpMR8h6wS-n3HuZJSCRt445kR-jYJcGUynG_eWexhdsdRlm0L79NC4MKoEuRtDGba1kCTMHh6tE37BMRNWTfg40mur1Po4Wls9-u4dlSIC5PzAQkRIbvlNVcLjMrgmbkjndUyiHlxYyyPSQkkQah4B4VPXqO5ixt2Nvko7CvTh3Vj7v0iI5JUleXbQfHSXiIq9sNhNAvGbwP-6w27"/>
+</div>
+<h3 class="font-body-lg text-body-lg font-semibold">Archetype Loafer</h3>
+<div class="flex gap-md items-center mt-xs">
+<span class="font-body-md text-body-md text-secondary">$310</span>
+<span class="font-label-sm text-label-sm line-through text-outline-variant">$620</span>
+</div>
+</div>
+<!-- Standard Card 3 -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden mb-sm border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An editorial product photograph of a heavy-knit cashmere sweater in oatmeal beige. The sweater is folded neatly on a brutalist stone plinth. The environment is a clean, bright minimalist studio with soft natural light coming from the side. The texture of the knit is highly visible, conveying warmth and luxury within a disciplined design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa7Fb8y8EMM7n_DhQgwU5JAhi1CPPUGAQ9l3Df-Uj2n_B1v3d_IDZRhWwkEZcV3YdhuIh3JZJL3rcBvZpHeazBwKJeQByMj-t7G-8FQv2QW3I9lQeW-SSo8aLq1S-ot7VmULFdUZu6DnCO98fFgRyzXvwOYWjCmZS7YLVF2GEd2cvhJdzplK8xBtqgc4DDpmjrXc08BDG-gb2oQx8twXlL6PqcNliMB7rYUrydGfP2pJwZVG1AUvF4lOUwu98ET05VVYPqKZzKalXU"/>
+</div>
+<h3 class="font-body-lg text-body-lg font-semibold">Brutalist Cashmere Knit</h3>
+<div class="flex gap-md items-center mt-xs">
+<span class="font-body-md text-body-md text-secondary">$295</span>
+<span class="font-label-sm text-label-sm line-through text-outline-variant">$590</span>
+</div>
+</div>
+<!-- Standard Card 4 -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden mb-sm border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional fashion photograph of a structured wool blazer in a deep navy blue. The blazer features sharp lapels and a modern, boxy cut. It is hung on a sleek black metal rack against a white gallery wall. The lighting is crisp and bright, creating a clean, professional luxury look typical of high-end e-commerce archives." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9FVGeBBPQDHL_ZHXWKlF19stF70xwJ33snsEe1QJOJq1LdLzzK6yhNiYLesH9tZukwYuWV4rLg9pU3SQKeVpA5vlQP5_EKB-HcypTGCeKiFzM8g1-Sp0aTvHmGvzNwgXJeVTS5-AXVxFr9q5gCN2RX_ZEpdFy0-mhomlUiW1vcfNtu772vAP87USHf7tK8uHQhZqVOAgVgaZwYPQdOo4sDW6n1WaJHAqEiP0vWTiQ3UIZRMbGeYSVrOxznZ9r2B7UMJ6h0tc1EsmB"/>
+<div class="absolute bottom-sm left-sm bg-white/80 backdrop-blur px-sm py-xs font-label-sm text-label-sm">FINAL FEW: SIZE 48</div>
+</div>
+<h3 class="font-body-lg text-body-lg font-semibold">Modular Wool Blazer</h3>
+<div class="flex gap-md items-center mt-xs">
+<span class="font-body-md text-body-md text-secondary">$540</span>
+<span class="font-label-sm text-label-sm line-through text-outline-variant">$1,200</span>
+</div>
+</div>
+</section>
+<!-- Tiered Pricing Visual Section -->
+<section class="bg-surface-container-low p-lg mb-xl border border-outline-variant">
+<div class="max-w-3xl mx-auto text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg mb-sm">DISCIPLINED CLEARANCE</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Our archive follows a transparent pricing model. Discounts increase as inventory levels reach critical thresholds.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="flex flex-col items-center p-md bg-white border border-outline-variant">
+<span class="font-label-md text-label-md text-outline-variant mb-base">TIER 01</span>
+<span class="font-display-lg text-display-lg text-primary">-30%</span>
+<span class="font-body-md text-body-md text-center">Available Stock &gt; 20</span>
+</div>
+<div class="flex flex-col items-center p-md bg-white border-2 border-primary relative">
+<div class="absolute -top-3 bg-primary text-on-primary px-sm py-1 font-label-sm text-label-sm">CURRENT TIER</div>
+<span class="font-label-md text-label-md text-outline-variant mb-base">TIER 02</span>
+<span class="font-display-lg text-display-lg text-secondary">-50%</span>
+<span class="font-body-md text-body-md text-center">Available Stock 5 - 20</span>
+</div>
+<div class="flex flex-col items-center p-md bg-white border border-outline-variant opacity-50">
+<span class="font-label-md text-label-md text-outline-variant mb-base">TIER 03</span>
+<span class="font-display-lg text-display-lg text-error">-70%</span>
+<span class="font-body-md text-body-md text-center">Available Stock &lt; 5</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant full-width mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary">ATELIER</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[240px]">Architectural wardrobe essentials designed for longevity and manufactured with ethical precision.</p>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm font-semibold uppercase mb-xs tracking-wider">Assistance</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Contact Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Returns</a>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm font-semibold uppercase mb-xs tracking-wider">Brand</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Brand Stories</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Newsletter</span>
+<div class="flex border-b border-primary py-xs">
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full px-0" placeholder="Email address" type="email"/>
+<button class="material-symbols-outlined text-primary">arrow_forward</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline-variant">© 2024 ATELIER. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple countdown logic
+        function updateCountdown() {
+            const now = new Date();
+            const minutes = 59 - now.getMinutes();
+            const seconds = 59 - now.getSeconds();
+            
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            // Hours and days are static for this static UI demo, but could be dynamic
+        }
+        setInterval(updateCountdown, 1000);
+
+        // Hover effects for the product grid items
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.opacity = '0.9';
+                setTimeout(() => card.style.opacity = '1', 150);
+            });
+        });
+    </script>
+</body></html>

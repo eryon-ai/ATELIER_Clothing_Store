@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e3e2e2;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #000000;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+        .deep-aura {
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.03);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fbf9f9; }
+        ::-webkit-scrollbar-thumb { background: #dbdad9; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbf9f9",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e3e2e2",
+                        "on-primary-fixed-variant": "#474746",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-dim": "#dbdad9",
+                        "tertiary-container": "#1a1c1c",
+                        "secondary-fixed-dim": "#b1c5ff",
+                        "surface-variant": "#e3e2e2",
+                        "on-secondary-fixed-variant": "#00419e",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-low": "#f5f3f3",
+                        "secondary-container": "#6c98ff",
+                        "on-surface": "#1b1c1c",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-fixed": "#001946",
+                        "surface-bright": "#fbf9f9",
+                        "inverse-surface": "#303031",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-background": "#1b1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-container": "#002f76",
+                        "on-surface-variant": "#444748",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-container": "#838484",
+                        "surface-tint": "#5f5e5e",
+                        "secondary": "#2559bd",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-container": "#858383",
+                        "surface-container": "#efeded",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary": "#000000",
+                        "outline": "#747878",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "background": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-white/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-lg text-headline-lg tracking-tighter text-primary">ATELIER</span>
+<nav class="hidden md:flex gap-md items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">DROPS</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">COLLECTIONS</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">ARCHIVE</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">EDITORIAL</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="shopping_bag">shopping_bag</button>
+<button class="material-symbols-outlined text-primary" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</button>
+</div>
+</header>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] w-80 p-md border-r border-outline-variant bg-white sticky top-20">
+<div class="flex items-center gap-sm mb-lg p-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="User Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyUN3vvAI3mX0uKAYYiXCzI2FyFrcoRYldnsiN_CSvhMWFO5ZoRxmPhFCdWsgV_uPgtVB4pY1HMjQZI0LcTv7Wof8oQbEnMkvQvI1W42M9ey0RP3wusphJO_dbIq7UANKK-pzAMa0QPI9SY6gV8A0KS8yTvpKdvx3YqalhNTRCks5QAGJUt_PLFxvdXvP3O21qeOzMnyxmmpPstzZCv3D5aDvvwETdKkjJcbN7GZPPUAXNJgMerPAXhGeqxK_GDSgJ2nUnvARAGGZ4"/>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight">Marcus Atelier</h3>
+<p class="font-label-md text-label-md text-secondary">Vanguard Member</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<button class="flex items-center gap-sm p-md bg-surface-container-low text-primary rounded font-bold">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Overview</span>
+</button>
+<button class="flex items-center gap-sm p-md text-on-surface-variant hover:bg-surface-container-lowest hover:text-primary rounded transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md">Orders</span>
+</button>
+<button class="flex items-center gap-sm p-md text-on-surface-variant hover:bg-surface-container-lowest hover:text-primary rounded transition-all">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-body-md">Wishlist</span>
+</button>
+<button class="flex items-center gap-sm p-md text-on-surface-variant hover:bg-surface-container-lowest hover:text-primary rounded transition-all">
+<span class="material-symbols-outlined" data-icon="token">token</span>
+<span class="font-body-md">Atelier Coins</span>
+</button>
+<button class="flex items-center gap-sm p-md text-on-surface-variant hover:bg-surface-container-lowest hover:text-primary rounded transition-all">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-body-md">Addresses</span>
+</button>
+</nav>
+<button class="mt-auto py-md border border-primary text-primary font-label-md hover:bg-primary hover:text-white transition-all">
+            VIEW REWARDS
+        </button>
+</aside>
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-lg max-w-[1440px] mx-auto">
+<!-- Header -->
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-xs text-primary uppercase">Welcome back, Marcus.</h1>
+<p class="text-on-surface-variant font-body-lg">Your curated space for the latest drops and atelier exclusives.</p>
+</div>
+<!-- Bento Widgets -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+<!-- Wallet Card -->
+<div class="md:col-span-4 glass-card p-lg rounded deep-aura flex flex-col justify-between min-h-[240px]">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-on-surface-variant">WALLET BALANCE</span>
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<h2 class="font-display-lg text-[48px] md:text-[64px] text-primary">1,240</h2>
+<p class="font-label-md text-on-surface-variant mt-xs">ATELIER COINS</p>
+</div>
+<div class="mt-md">
+<p class="text-label-sm text-on-surface-variant/60">Next payout in 4 days</p>
+</div>
+</div>
+<!-- Membership Progress -->
+<div class="md:col-span-8 glass-card p-lg rounded deep-aura flex flex-col justify-between">
+<div class="flex justify-between items-center mb-md">
+<div>
+<span class="font-label-md text-on-surface-variant block mb-xs">MEMBERSHIP TIER</span>
+<h3 class="font-headline-md text-primary">VANGUARD ELITE</h3>
+</div>
+<div class="bg-primary text-white font-label-md px-sm py-xs rounded">92% TO PROPHET</div>
+</div>
+<div class="relative h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary transition-all duration-1000" style="width: 92%;"></div>
+</div>
+<div class="grid grid-cols-3 gap-md mt-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">LIFETIME SPEND</span>
+<span class="font-title-lg text-primary">$12,450</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">DROPS ACCESSED</span>
+<span class="font-title-lg text-primary">48</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">GLOBAL RANK</span>
+<span class="font-title-lg text-primary">#402</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tracking & Wishlist -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Active Order Tracking -->
+<div class="xl:col-span-2 glass-card rounded overflow-hidden deep-aura">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<h3 class="font-headline-md text-primary">ACTIVE SHIPMENT</h3>
+<span class="font-label-md text-secondary">#ORD-9921-X</span>
+</div>
+<div class="p-lg">
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="w-32 h-40 bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Product Image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASSiAHDE6MV4xDyZ7ie6y9NZ1C5fKrYzTCsy-NaKBxWr-2BQrERrvjGTvJrCBj3WLv3E5V4qCd9izBSj1GicRrwCp08SH1olRAlIWFdQXIBxM7KLOfPTecftcN0Xm1tEproYrG07am048BmHq8kMUADoZU2e4ws3YcLfObIJ0EtyUVCuaPvCpALPU7fBqTdgUfwATJiQ0RhsXSKSIkHQ4sd_3AH0i0q7DEoe08_QbTya5hlzUVHQ9rRBuo8sIv3P7SR-eLZTzigPoG"/>
+<div class="absolute top-2 right-2 bg-white/90 px-2 py-1 text-label-sm font-bold">x1</div>
+</div>
+<div class="flex-grow w-full">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h4 class="font-title-lg text-primary uppercase">Obsidian Moto Jacket</h4>
+<p class="text-on-surface-variant text-sm">Estimated Delivery: OCT 24, 2024</p>
+</div>
+<button class="bg-primary text-white font-label-md px-md py-2 hover:bg-secondary transition-colors">TRACK LIVE</button>
+</div>
+<!-- Stepper -->
+<div class="relative flex justify-between items-start mt-8">
+<div class="absolute top-2 left-0 w-full h-[2px] bg-surface-container-highest -z-10"></div>
+<div class="absolute top-2 left-0 h-[2px] bg-primary -z-10 transition-all duration-700" style="width: 66%;"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-4 h-4 rounded-full bg-primary"></div>
+<span class="font-label-sm text-primary">CONFIRMED</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-4 h-4 rounded-full bg-primary"></div>
+<span class="font-label-sm text-primary">PROCESS</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-4 h-4 rounded-full bg-primary"></div>
+<span class="font-label-sm text-primary">TRANSIT</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-4 h-4 rounded-full bg-surface-container-highest"></div>
+<span class="font-label-sm text-on-surface-variant">DELIVERY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Wishlist Quick View -->
+<div class="glass-card rounded p-lg deep-aura">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-primary">WISHLIST</h3>
+<a class="font-label-md text-secondary hover:underline" href="#">VIEW ALL</a>
+</div>
+<div class="space-y-md">
+<div class="flex items-center gap-md group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Wishlist Item" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGZIpBp9UNnAHa7SbIOJzX7stxioTVnkrJykCwQDiCkpr-gwMUHAkG7QsmwaFvvrki7pWsV0L1FzPDmsFFAsT91OXBjz8neRs0ycrAYko0Xu4D1XU2PM0iv_KURRQI-MO0-eRVAYT50M08cWfAeXGoXEgqZbV8qXssbTpJbO0ocp5GSOgHnb23YC8jkpeDrTXjtHeLOlw0JXFgb5GU7q2kjDYKnwK_lDo9ksj29Ay-zJ3m5eAj1xQjX4ibVy0K72sBVV0St5TiS8hI"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-md font-bold text-sm leading-tight text-primary">CHROME HOODIE</h4>
+<p class="text-on-surface-variant font-label-md mt-1">$240.00</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="add_shopping_cart">add_shopping_cart</button>
+</div>
+<div class="flex items-center gap-md group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Wishlist Item" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgVhNBrzd-wIqfMYTTcAUvClSoOf_Usu2Ghpq0UL27NZVcX7rSwXa8NR7spVXh-jc6U-gQ2gOKnF3e2KwWAyIaGKDMPcgQfKU17GsjGiJ2LMnOi1YwbIuOENJZIBSSBaLfwLuDlYzUs5hBx9O7SWuQ2HvnkNv-WmJvmE58g6ws-I_5AtJEbwvCpBYanjld_pZWXzzZxEzlzMp-NPNB0aA8qT5v-1_o8-pBkS1-SIuLsUr-v-or_IdnOYtE8UBlIheUG5rWtvRA8gal"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-body-md font-bold text-sm leading-tight text-primary">ARCHIVE TEE</h4>
+<div class="bg-surface-container-highest text-[10px] px-2 py-0.5 inline-block font-label-md text-on-surface-variant mt-1 uppercase">Sold Out</div>
+</div>
+<button class="material-symbols-outlined text-outline cursor-not-allowed" data-icon="notifications">notifications</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-white border-t border-outline-variant mt-xl">
+<div class="md:col-span-1">
+<span class="font-headline-lg text-headline-lg text-primary block mb-md">ATELIER</span>
+<p class="text-on-surface-variant text-sm max-w-xs">Defining the future of digital streetwear and exclusive high-fashion culture.</p>
+</div>
+<div>
+<h4 class="font-label-md text-primary mb-md">COMPANY</h4>
+<ul class="flex flex-col gap-sm">
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">SHIPPING</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">CAREERS</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-primary mb-md">CONNECT</h4>
+<ul class="flex flex-col gap-sm">
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">INSTAGRAM</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">DISCORD</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">TWITTER</a></li>
+</ul>
+</div>
+<div class="md:text-right">
+<p class="font-label-sm text-on-surface-variant uppercase">© 2024 Atelier Digital. All Rights Reserved.</p>
+<div class="mt-md flex md:justify-end gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="payments">payments</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="security">security</span>
+</div>
+</div>
+</footer>
+<script>
+    document.querySelectorAll('.glass-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+</script>
+</body></html>

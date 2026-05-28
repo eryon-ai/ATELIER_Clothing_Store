@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | High-End Streetwear &amp; Editorial Fashion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f5f3f3",
+                    "surface-variant": "#e3e2e2",
+                    "on-error": "#ffffff",
+                    "primary-container": "#1c1b1b",
+                    "surface-container-high": "#e9e8e7",
+                    "primary": "#000000",
+                    "secondary-container": "#6c98ff",
+                    "on-surface-variant": "#444748",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "surface-dim": "#dbdad9",
+                    "tertiary-container": "#1a1c1c",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "inverse-primary": "#c8c6c5",
+                    "secondary-fixed": "#dae2ff",
+                    "surface": "#fbf9f9",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1b1c1c",
+                    "secondary": "#2559bd",
+                    "outline-variant": "#c4c7c7",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-surface": "#303031",
+                    "background": "#fbf9f9",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "outline": "#747878",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-container": "#838484",
+                    "on-secondary-container": "#002f76",
+                    "surface-container-highest": "#e3e2e2",
+                    "surface-container": "#efeded",
+                    "on-primary-container": "#858383",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-secondary-fixed": "#001946"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes subtle-zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        .animate-zoom { animation: subtle-zoom 20s infinite alternate ease-in-out; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-white">
+<!-- 1. Top Announcement Bar -->
+<div class="bg-primary text-on-primary py-2 overflow-hidden whitespace-nowrap border-b border-outline-variant/10">
+<div class="flex animate-[marquee_30s_linear_infinite] items-center space-x-12">
+<span class="font-label-md text-label-md uppercase tracking-widest">Complimentary Express Shipping on Orders Over $250</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">•</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">ATELIER ARCHIVE: Up to 40% Off Selected Styles</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">•</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">New Drop: The Anime Capsule Series is Now Live</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">•</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Complimentary Express Shipping on Orders Over $250</span>
+</div>
+</div>
+<!-- 2. Sticky TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-outline-variant/30 transition-all duration-500 ease-in-out" id="mainNav">
+<div class="flex justify-between items-center w-full px-margin-desktop py-md mx-auto">
+<div class="flex items-center space-x-lg">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary" href="#">ATELIER</a>
+<div class="hidden md:flex space-x-md">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary pb-1" href="#">New Arrivals</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Collections</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Editorial</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center space-x-md">
+<div class="hidden lg:flex items-center border-b border-outline py-1">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm placeholder:text-outline/50 w-48" placeholder="Search..." type="text"/>
+</div>
+<button class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- 3. Animated Hero Banner -->
+<header class="relative h-screen w-full overflow-hidden flex items-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover animate-zoom" data-alt="A high-fashion cinematic portrait of a model in a brutalist urban setting wearing oversized avant-garde streetwear. The lighting is harsh and directional, creating deep shadows and high-contrast highlights that emphasize the industrial grey concrete textures. The overall aesthetic is professional, minimalist, and luxury editorial with a cool blue and silver color grading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dIBl4Cyrhj6_92lXDzBxtHBZQfMCy0KWx8PWbnnv8m5uJ9Pzglb2FNkupvZpBeBjTqzIYyRae70tSb4D_lKz1K6c1PB6Q8rFHAkIHTP3KqP1hNSxyg73ag5UwvoJTfJCEFDMXZa-YpQfZPJVroqm-_gQd5dDviDcqiGVw_kXX_z_ssuoL3s2SKOEh5sbAKrwXDEz0DzdT1JzvOvlLHYm3QMj6vOXabeyTqxCNzxXxWxhHkrw-1JZhl2g-n470w8zYF75a5xN3-Sy"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-4xl text-on-primary">
+<h1 class="font-display-lg text-display-lg mb-4 leading-none uppercase">The Architecture<br/>of Movement</h1>
+<p class="font-body-lg text-body-lg mb-lg max-w-xl opacity-90">Experience the intersection of technical precision and urban fluidity. Our Autumn/Winter collection redefines the modern silhouette.</p>
+<div class="flex space-x-md">
+<button class="h-[48px] px-lg bg-white text-primary font-label-md uppercase tracking-widest hover:bg-surface-variant transition-colors">Explore Collection</button>
+<button class="h-[48px] px-lg border border-white text-white font-label-md uppercase tracking-widest hover:bg-white/10 transition-colors">Watch Film</button>
+</div>
+</div>
+<div class="absolute bottom-md right-margin-desktop flex space-x-sm items-center">
+<span class="font-label-md text-white/50">01</span>
+<div class="w-12 h-[1px] bg-white/30"></div>
+<span class="font-label-md text-white/50">04</span>
+</div>
+</header>
+<!-- 4. Fullscreen Fashion Campaign Section -->
+<section class="py-xl px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="relative group overflow-hidden">
+<img class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up high-fidelity fashion photograph of a textured technical fabric jacket with intricate stitching details. The model's face is partially obscured by soft shadows, creating an aura of mystery and high-end luxury. The lighting is soft but meticulously placed to highlight the micro-textures of the luxury garment against a neutral off-white studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKv3h1uKLf5oHSfpov9oRhJjkKosKpUPFZ02Z1zTmeZRrFCQZKp3vZX7EBY5bVgxHFnjYp5DjADQklDrfiUmNL4iAyNidleV2GqZQmWDvOjNNUVqmABmf-1CnRT3HrmFWMjD7WuODBIiijXHQz8yPjAMEhzNwuBrvwNNeddTZ_f35rJLalIGWDu-Zhvpnf-GusgNGmA-BWtZjul-exhC6sxSOADjwaQfl0_g9Y2EIWY3J_XHYUpH1R5hHusYH5i8vTFvuDS-T5zU32"/>
+<div class="absolute bottom-md left-md p-md bg-white/80 backdrop-blur-sm border border-outline-variant/30">
+<p class="font-label-md text-primary uppercase">Chapter I: Texture</p>
+</div>
+</div>
+<div class="space-y-md">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase max-w-md">Precision Engineered for the Modern Pioneer</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">Every seam, every pocket, and every fabric choice in our Technical Series is scrutinized for performance without sacrificing the aesthetic integrity of high-fashion tailoring.</p>
+<a class="inline-flex items-center space-x-base font-label-md text-label-md uppercase tracking-widest border-b border-primary pb-1 group" href="#">
+<span>Discover Technical Series</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- 5. Shop by Category -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="px-margin-desktop mb-lg flex justify-between items-end">
+<div>
+<span class="font-label-md text-secondary uppercase tracking-widest block mb-2">Curated Selects</span>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Shop by Universe</h2>
+</div>
+</div>
+<div class="px-margin-desktop grid grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Category Item -->
+<a class="group relative aspect-[3/4] overflow-hidden" href="#">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="An elegant showcase of modern tailoring featuring a sharp charcoal grey blazer over a minimalist white shirt. The composition is clean and architectural, utilizing the 12-column grid aesthetic of high-end fashion magazines. Soft morning light enters from a side window, casting long, dramatic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBEk9eOt-eYkRsI4gnVq2m8TSiS0iwS8MZGjiF_e-J6o_ot1GFSzGIBN_hjAjnQzPUL8dfmH21k0BHLbp-_QWWxbf3gr2UGbMqULETbYxUBUcAOxjGhlcHjiv2V7LAMDThz9D9eoESECBB_-nBkNaUiifVQe_wZgftiTjV4kM8dxZbIvhdNm1b9qfMDcN0dQ33Qm9FORtwz15umMSox2prmrd0DR1IGKIz-HTkKjzMLrdoTHHbctG6Nif0tecAqK72LNArVYwq8nLq"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-md text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-display-lg text-[24px] uppercase font-bold">Tailoring</span>
+<span class="font-label-sm uppercase mt-2 border-b border-white">Shop Now</span>
+</div>
+<div class="absolute bottom-md left-md">
+<p class="font-label-md text-white uppercase tracking-widest group-hover:hidden">Tailoring</p>
+</div>
+</a>
+<!-- Category Item -->
+<a class="group relative aspect-[3/4] overflow-hidden" href="#">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="A collection of luxury cotton essentials including heavy-weight t-shirts and hoodies in neutral tones like bone, olive, and midnight black. The garments are meticulously folded and stacked in a minimalist boutique setting with warm wooden accents and soft, diffused overhead lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7-z1obfM9e0IUVqlwJnQk8onFzeRKbUFG7e3kpn2zZJg8BvdUoNDU7fii8bZG_vNkR3eKvpaJbwD8SoQiEOyls0EQcKtZD4jNDPZxzduBlKzbbcDmiH_BR83chl6jHNdN6GzGXKUBJzSdr7uAfS5z9VSBv1sq1G046obEbTKTPxGCRkJBJa2uw2jOcjrJ9s7rNHuffam2-r6hURPG8KbK6k2S2VwaA-rcasl4A1_nHZczYKWo--HJLu-fbh6b0qqktIOz-C5A3XnA"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-md text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-display-lg text-[24px] uppercase font-bold">Essentials</span>
+<span class="font-label-sm uppercase mt-2 border-b border-white">Shop Now</span>
+</div>
+<div class="absolute bottom-md left-md">
+<p class="font-label-md text-white uppercase tracking-widest group-hover:hidden">Essentials</p>
+</div>
+</a>
+<!-- Category Item -->
+<a class="group relative aspect-[3/4] overflow-hidden" href="#">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Premium leather accessories including a structured tote bag and a sleek wallet displayed on a polished marble plinth. The environment is a clean, bright gallery-style space with a high-key lighting setup that emphasizes the rich texture of the black pebbled leather and the subtle silver hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxm6IMAXb014NPZ41rXYgLPQZ5WmEQI7GUqCtj7gAZq2smMFUAVUlfW2_DTcbdsDqjTXCBbb9f7vqfA2sOUybwL9ZXV_DY817hi7CH3lIldyFhp0NrEmsoZNPCG_mftBjAKflnzwwIF5uvFIvN4sZuzlc3m8gLPjQAaQzSS4KrKMePyDR-FTl7kNXPi1fQNzL5LVfyQts0LrjmulELcJpVVJkqt5HV9x-lqbzen_rI1iEgXORguWOEV8KtY8HCJ6oMLdgOuswQj4Oy"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-md text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-display-lg text-[24px] uppercase font-bold">Accessories</span>
+<span class="font-label-sm uppercase mt-2 border-b border-white">Shop Now</span>
+</div>
+<div class="absolute bottom-md left-md">
+<p class="font-label-md text-white uppercase tracking-widest group-hover:hidden">Accessories</p>
+</div>
+</a>
+<!-- Category Item -->
+<a class="group relative aspect-[3/4] overflow-hidden" href="#">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="A pair of futuristic high-top sneakers with a bulky, sculptural sole and technical mesh panels. The shoes are floating in a minimalist white void with soft shadows beneath them, creating a clean, professional product photography aesthetic with sharp focus and balanced lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmMNP9MV8PNx1hnII5KjvacAVmYKW3hrbHJjo6dEk0ZKfM75ZQjJnnTuPSlurpfnFohmyJeXG8rl5pMT9XKFIgGXD1G1ZJtfqp-dMcaivtIfrkTLCPm9fBn5pskSzojHfW9os_bLNA-rKuOXSaqKpWGHF59NWlAy31GjW4IfPbfxwrNDMHQIPgbWPSdVMFNfHk6AehsxRAasR2tofMA_7rIoISekwRBRSELBnBrXgkBJJtNT4w9MZh4EqKuB230pB5r4Go4zx6vDlL"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-md text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-display-lg text-[24px] uppercase font-bold">Footwear</span>
+<span class="font-label-sm uppercase mt-2 border-b border-white">Shop Now</span>
+</div>
+<div class="absolute bottom-md left-md">
+<p class="font-label-md text-white uppercase tracking-widest group-hover:hidden">Footwear</p>
+</div>
+</a>
+</div>
+</section>
+<!-- 6. Trending Collections Carousel -->
+<section class="py-xl">
+<div class="px-margin-desktop mb-lg flex justify-between items-center">
+<h2 class="font-headline-lg text-headline-lg uppercase">Trending Now</h2>
+<div class="flex space-x-sm">
+<button class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex space-x-md overflow-x-auto hide-scrollbar px-margin-desktop">
+<!-- Product Card -->
+<div class="min-w-[300px] flex-shrink-0 group">
+<div class="relative overflow-hidden mb-sm border border-outline-variant/30">
+<img class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio product shot of a high-end streetwear parka in a deep navy blue, featuring waterproof zippers and an oversized hood. The lighting is crisp and uniform, showing the garment's structure clearly against a neutral grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1PpNCpkADhp2CRvxPbeyY9kROc-Ro7UwHMg0_fKmf3zdVtW83veagXDyO_YaHQ4WT0Jf2kYSJMp5mnzOEh9b5DjzelfjOOTqjYavyBlk71J9X6ALjXLHSKUPnlrJmmsOtB55B6MJwTQZGRmjlrPE8q60piDeSlmWMnfKkDhSDKfA2Lyfe_irhU3MYolvXeBqp7Z_uiObqYyktGhlDShq-95p-De5TaTlumM9BG8urP0Bha6QHnvsQQ8C8gPcs5wJVXuvqHCcfW8Eo"/>
+<button class="absolute bottom-0 w-full py-4 bg-primary text-white font-label-md uppercase translate-y-full group-hover:translate-y-0 transition-transform">Quick Add</button>
+<span class="absolute top-md right-md bg-secondary text-white px-2 py-1 font-label-sm uppercase">Limited</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-1 uppercase">Element Parka 01</h3>
+<p class="font-body-md text-on-surface-variant mb-2">Technical Shell / Deep Navy</p>
+<span class="font-body-lg text-primary">$495.00</span>
+</div>
+<!-- More product cards... -->
+<div class="min-w-[300px] flex-shrink-0 group">
+<div class="relative overflow-hidden mb-sm border border-outline-variant/30">
+<img class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist design of wide-leg tailored trousers in a premium wool blend. The color is a sophisticated earth tone. The lighting is soft and directional, highlighting the clean drape of the fabric and the precision of the pleats." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiw0Vb_NzaER39uc3a00rEe6FwmHBrtQQuoDw3T1yz-PsWhT0OKif9zs16vyXUAGsxOrmIM7Ka22RMt-FpT0zcjAV2dL-ontfkW3UcHHfIQtlDQ7dmFJP1zsaPaIFiUeLRWIfnyyMhqE6qEbh4OEXGOjXZkeUgfpiAHeYOjOyuWh8GGc8DR-P4wfjGx1W2AXpsZ-lX5kRc-HOeFOCwinBih5Zc_ZgwMY8noGpOtaT8W_A-gPgoYLhk2gCa2e37_YfRMBFOqOhOhdHL"/>
+<button class="absolute bottom-0 w-full py-4 bg-primary text-white font-label-md uppercase translate-y-full group-hover:translate-y-0 transition-transform">Quick Add</button>
+</div>
+<h3 class="font-title-lg text-title-lg mb-1 uppercase">Sculpted Trouser</h3>
+<p class="font-body-md text-on-surface-variant mb-2">Virgin Wool / Umber</p>
+<span class="font-body-lg text-primary">$320.00</span>
+</div>
+<div class="min-w-[300px] flex-shrink-0 group">
+<div class="relative overflow-hidden mb-sm border border-outline-variant/30">
+<img class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A heavyweight luxury hoodie in an off-white bone color, featuring a subtle embroidered logo on the chest. The photograph captures the soft, premium feel of the French Terry cotton with clean, bright studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMVu_2WAuoeEfxi_4-fD6OaDQm1MOKTiB-GqDICu7_F3KbdTiNPZAtRQuTH0nMRr824r-4ZJntx6RtOU8uYWZNS0L5pRgdmWVTqGuThw9SCczPbytttvIjQJAZBIlucXzRUdhql6QjD8aNOwT5wKT3MNpAgqXdBXcE6umGtAMYR1eScK_oZ3YPLT_POfrV07FJtfxPDiFnn21bPajN98TozLptRfhWYHQhtgnJ4iSvvrlO-fmtXOEDzYo8Mm280fzcryaI-99jPLks"/>
+<button class="absolute bottom-0 w-full py-4 bg-primary text-white font-label-md uppercase translate-y-full group-hover:translate-y-0 transition-transform">Quick Add</button>
+</div>
+<h3 class="font-title-lg text-title-lg mb-1 uppercase">Studio Hoodie</h3>
+<p class="font-body-md text-on-surface-variant mb-2">450GSM Cotton / Bone</p>
+<span class="font-body-lg text-primary">$185.00</span>
+</div>
+<div class="min-w-[300px] flex-shrink-0 group">
+<div class="relative overflow-hidden mb-sm border border-outline-variant/30">
+<img class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of sleek technical shorts in a matte black finish, designed for both performance and street style. Shot with a high-key lighting setup that accentuates the clean lines and modern utilitarian details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbsN-367beKIBRzKYNLSscJoH3CjZkhfefqyHlQM1kyMjxHd40Tf18I5s3e7eGyP9JtjzwF9R8qxFiUd6hjH_cnwKK6WGatAHKbBhEgNXAboUugkDY0aQJDkHfqEGU3MOZU4eD1OBAKsDovJGPLDCcp7aDszQSRb2Lf7Ss0XMXFwp4_wm5YX4VF-vf6xjzwnEJIblp4PS1BuMXIX03ZFREcc46qr2Q2FMuu3vmtEGMO0LetEtfaD-cU9gxAP_IuluO6XqBacMHZdsU"/>
+<button class="absolute bottom-0 w-full py-4 bg-primary text-white font-label-md uppercase translate-y-full group-hover:translate-y-0 transition-transform">Quick Add</button>
+</div>
+<h3 class="font-title-lg text-title-lg mb-1 uppercase">Cargo Short 02</h3>
+<p class="font-body-md text-on-surface-variant mb-2">Ripstop / Matte Black</p>
+<span class="font-body-lg text-primary">$210.00</span>
+</div>
+</div>
+</section>
+<!-- 7. Specialized Collection Grids -->
+<section class="py-xl px-margin-desktop bg-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Anime Collection (Bento Style Large) -->
+<div class="md:col-span-8 relative group overflow-hidden h-[600px] bg-primary">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" data-alt="A high-impact cinematic fashion shot inspired by neo-Tokyo aesthetics, featuring a model in a reflective tech-wear jacket with bold anime-inspired graphic prints. The setting is a dark, rainy urban street illuminated by glowing pink and blue neon signs. The visual style is sharp, vibrant, and futuristic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI1OLN4Ba2WvkplvU-j8V__rR1qXA2e1_aT0eqMG2Z7BTr2-Ib5rhkDIheaUrZ9YuoT5xU2cth8-xjO_0bPlx6ZE4ECryw8eMK-gBXB5ERlX8QAL65yeOWg7NxpEmI9ZFZieMHLBuTmvgNlzf4p-MFmgfr_hsREz2RWqMEaJtBkaVNZvXJ_sLEBsqlr9scr13Gr6RFz4t5Kfqzl1Gp4F3UzSTCfTzSVeu85SzjRzH0gBvz-oiKkJCIUAt9GO_xrMKnu8GO1w7ehyY_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-lg left-lg">
+<span class="font-label-md text-secondary-container uppercase tracking-widest block mb-2">New Drop</span>
+<h3 class="font-display-lg text-[40px] text-white uppercase mb-md">Anime Capsule V.2</h3>
+<p class="text-white/70 max-w-md mb-md font-body-lg">A limited series exploring the intersection of Japanese cyber-culture and high-end craftsmanship.</p>
+<button class="h-[48px] px-lg bg-white text-primary font-label-md uppercase tracking-widest hover:bg-secondary-container transition-colors">Shop Capsule</button>
+</div>
+</div>
+<!-- Oversized & Streetwear -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="relative group overflow-hidden h-full min-h-[288px] bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Model posing in a vastly oversized silhouette trench coat in a neutral beige color. The aesthetic is clean, avant-garde, and architectural. The image uses a minimalist composition with plenty of negative space and soft, even studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAztp6A71C2CLH2NUPortyuTSFYIzBzGzeYY0e3B8da2qoIAKVI5cg6AIhh6rMl7TkIOu_DUbNESR4GTkNqvqgYl7hNKGHoVoEHmaFeF0V6WwBBJp9k59n0QeEeZt-LHO8YRGvE9nqQ6iVg3SvHx8ZEA9BUCEfOS1Ib49Hloj8dhzy2cBkeDEb-i48LZjc8OtwByLnIPfLGxFtgzFb_zWPw1xF2c6GrNsjFb78WYfMVnzZzEynyIhq0WDsfm5NsTxJIFDsVMURVlme2"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+<div class="text-center p-md">
+<h4 class="font-headline-md text-white uppercase mb-2">Oversized</h4>
+<span class="font-label-sm text-white uppercase border-b border-white">Explore</span>
+</div>
+</div>
+</div>
+<div class="relative group overflow-hidden h-full min-h-[288px] bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close up of a model wearing layered streetwear including a heavy denim jacket and a graphic t-shirt. The vibe is raw and urban, with a slightly grainy film texture and natural daylight hitting the model from the side." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-SGjVysHFuE9TvaF5WFwSWF2Tv4ncn6UhJH2ry7ITAho9Jf_JDgov6O4utMYiatWW7kDq4Gdd8CIZVRbzGehGusp65DzXAaZqKLjOk7YI5OrXq25f24kAwOAG4u20hjZKY2Ym6BxBCQm2mOOOdLke4H62rHEHiuipTjqdHGqKjQ8TUzoj0kwNTt7ZtWxJJUj8F0FxBHW09iepTBeEzt6jodVrf3dwN6j7RF4ZUJuWEVrEek21f8DQQtpdEGmXaFF1MjQrmjLOuvs1"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+<div class="text-center p-md">
+<h4 class="font-headline-md text-white uppercase mb-2">Streetwear</h4>
+<span class="font-label-sm text-white uppercase border-b border-white">Explore</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Flash Sale Section with Countdown -->
+<section class="bg-primary text-on-primary py-lg overflow-hidden relative">
+<div class="px-margin-desktop flex flex-col md:flex-row items-center justify-between relative z-10">
+<div class="mb-md md:mb-0">
+<h2 class="font-display-lg text-[32px] uppercase mb-1">Archive Sale Ends Soon</h2>
+<p class="font-label-md tracking-widest text-secondary-container">UP TO 60% OFF SELECT ARCHIVE PIECES</p>
+</div>
+<div class="flex space-x-lg text-center">
+<div>
+<span class="font-display-lg block" id="hours">08</span>
+<span class="font-label-sm uppercase opacity-60">Hours</span>
+</div>
+<div class="font-display-lg">:</div>
+<div>
+<span class="font-display-lg block" id="minutes">45</span>
+<span class="font-label-sm uppercase opacity-60">Mins</span>
+</div>
+<div class="font-display-lg">:</div>
+<div>
+<span class="font-display-lg block" id="seconds">12</span>
+<span class="font-label-sm uppercase opacity-60">Secs</span>
+</div>
+</div>
+<button class="h-[48px] px-lg bg-white text-primary font-label-md uppercase tracking-widest hover:bg-secondary-container transition-colors mt-md md:mt-0">Shop The Archive</button>
+</div>
+<!-- Decorative subtle pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+</section>
+<!-- 10. Shop the Look Interactive Module -->
+<section class="py-xl px-margin-desktop">
+<div class="text-center mb-xl">
+<h2 class="font-display-lg text-display-lg uppercase mb-2">Lookbook 04</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Interactive silhouettes designed for the contemporary landscape. Hover to discover each piece.</p>
+</div>
+<div class="relative max-w-4xl mx-auto">
+<img class="w-full aspect-[2/3] object-cover" data-alt="A full-length editorial shot of a model in a multi-layered outfit consisting of a long coat, technical vest, wide-leg trousers, and sculptural sneakers. The model stands against a stark, high-contrast white background that emphasizes the complex silhouette. The lighting is clean and professional, typical of a luxury fashion brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtbLad43pPg6tvO07PfqugA4qrjDy8PRdlVbNdgpikB3Fwn1Xg-7XX1E-VYV0pBwfjTIppfxZVfSBbUM9k38rIqffuyqGc6NfZNIAvXd90MInkhiIn1owve_CrwI69oYQQ3b9fXaJkEUDjYrNWCPMduUVUYqJ2V6sFu9IenM1ct22DdsomXyu3biY-d8hAqeZ0O3A7Le121heFS4zqrHh2IC71p49-7JwJcQWeeur2lFQQc7BoFQoLgd1UJICrj9immcSEqtrZBbCD"/>
+<!-- Hotspots -->
+<div class="absolute top-[20%] left-[45%] group">
+<button class="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center border border-white hover:scale-110 transition-transform">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<div class="absolute top-0 left-10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-white p-sm border border-outline shadow-sm">
+<p class="font-label-md uppercase">Structural Coat</p>
+<p class="font-body-md text-on-surface-variant">$840.00</p>
+</div>
+</div>
+<div class="absolute top-[45%] left-[55%] group">
+<button class="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center border border-white hover:scale-110 transition-transform">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<div class="absolute top-0 left-10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-white p-sm border border-outline shadow-sm">
+<p class="font-label-md uppercase">Modular Vest</p>
+<p class="font-body-md text-on-surface-variant">$390.00</p>
+</div>
+</div>
+<div class="absolute bottom-[20%] left-[50%] group">
+<button class="w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center border border-white hover:scale-110 transition-transform">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<div class="absolute top-0 left-10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-white p-sm border border-outline shadow-sm">
+<p class="font-label-md uppercase">Platform Runner</p>
+<p class="font-body-md text-on-surface-variant">$550.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 11. Video Campaign Section -->
+<section class="h-[716px] bg-black relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-60">
+<img class="w-full h-full object-cover" data-alt="A cinematic still from a fashion film featuring a model running through a misty, dark forest at dawn. The atmosphere is heavy with fog and cool blue tones. High-speed shutter effects create a sense of frantic, elegant motion. The visual style is inspired by modern cinematic thrillers and avant-garde short films." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6thw4u0wnu8jMOc5OlS-0WhZ93o9V2Tzdpl_TLn8VpvFo8XuYY8WzFQIauZ04-jE2hXlU63jOgHGcRAR_NnRXNBzZ7u5ThUiVtq1gRm_pp6wnROITQr7Z6W21IOBTZ-ToQF7qDdOPsDFoOt2m5EVBAqfG5jfXN2YoqeO9_3qzsT8L1uthpKL_Q0CMKsHbvIit9DKdFUudOR4Omy4vAQKPKOJ7SIN-K_xsuLdm6ro_nfmQQIfoSw3clvvjCpsRQ3hpNEmdiOhFdj9e"/>
+</div>
+<div class="relative z-10 text-center text-white">
+<button class="w-24 h-24 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors group mb-md">
+<span class="material-symbols-outlined text-[48px] fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<h2 class="font-display-lg text-display-lg uppercase tracking-widest">Atmosphere</h2>
+<p class="font-label-md uppercase tracking-[0.2em] opacity-70">Short Film by Atelier Studios</p>
+</div>
+</section>
+<!-- 12. Interactive Scrolling Editorial -->
+<section class="py-xl">
+<div class="px-margin-desktop space-y-xl">
+<div class="flex flex-col md:flex-row gap-gutter items-center">
+<div class="md:w-1/2">
+<img class="w-full aspect-square object-cover grayscale" data-alt="Editorial fashion photograph of a model leaning against a vintage concrete wall. The model is wearing a layered outfit with varying textures of wool and silk. The lighting is harsh midday sun, creating high-contrast shadows and highlights that accentuate the fabric's drape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApNp02DAU3w_jCPNbn6nh_OWroZCyUUh2HtdYxEo8voSYJTK0b9uzVocvEjGYzt1F5pSoReo4BXlu5iE9XwmXI1cCB0m_qXNMea1tCnKUiOilp4YDGrjY62D0Pt6I2eG85ssjkxFumnM9s1BAFCJsmuFuMyP1RArNRPu8tOAT5Aek3KpFdtTIEyRIiGEdOiuMBEFuAt_L5zL3USBuZRqEPduShguDyA6rJTuWwHhtBunwp4nYu6Jkeod-G0Fh8s4Lx639uITcaCOIn"/>
+</div>
+<div class="md:w-1/2 max-w-md">
+<span class="font-label-sm text-secondary uppercase tracking-[0.3em] mb-4 block">Editorial 012</span>
+<h3 class="font-display-lg text-display-lg uppercase mb-md">Monolith</h3>
+<p class="font-body-lg text-on-surface-variant">An exploration of stillness in a chaotic environment. We look at how clothing acts as a personal fortress against the external world.</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row-reverse gap-gutter items-center">
+<div class="md:w-1/2">
+<img class="w-full aspect-[3/2] object-cover" data-alt="A high-fashion shot of two models interacting in a minimalist white studio. Their outfits are monochromatic black and white, creating a graphic, almost abstract visual composition. The focus is on the geometric lines of the clothing and the interplay of shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABiGf0LFPgXgvI_GgriqBkHdyhqhQZo3FjuUTqU_o3D5WwETTLa8TZzr2wrIV1HITR2NOX_tBRxTD_OgW0Zgz8DegFzKkCGaWpJgFB2EgHlF4t6Oo-rBdxGwjRiVC_u137DXyaGSR7UEZch3qEOJbSdnOBWDiEUr4WfXV6KD_4D6qo6MxVdAWrZHKOZtf7WxPAWQ5Ol7I5of_dZr2fybtuomgsIJCM4YtjVfyD8MEnhAfhwyPnaJfNsYdCYGBeIhUkFuhjcF54yYU0"/>
+</div>
+<div class="md:w-1/2 max-w-md">
+<span class="font-label-sm text-secondary uppercase tracking-[0.3em] mb-4 block">Editorial 013</span>
+<h3 class="font-display-lg text-display-lg uppercase mb-md">Duality</h3>
+<p class="font-body-lg text-on-surface-variant">The contrast between the organic and the synthetic. This chapter highlights our commitment to sustainable sourcing within a high-tech framework.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 13. Community Outfit Gallery -->
+<section class="py-xl bg-surface-container-low overflow-hidden">
+<div class="px-margin-desktop mb-lg text-center">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-2">Seen in Atelier</h2>
+<p class="font-label-md text-on-surface-variant">TAG #ATELIERSTUDIOS TO BE FEATURED</p>
+</div>
+<div class="flex space-x-md animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]">
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="User-generated style photo featuring a model in an urban alley wearing an oversized Atelier hoodie and sneakers. Real-world urban lighting and candid pose." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOBw7KWK7746hkLsyYfB9MywCwtmBWzy3y48LbJzWvJgKL1dUfequq154jqe89mKxvXqndV5mW0aiGcJpQzQMBTvTSt4-jCJ_dFt4F7NYATpCgXyTDZhumySOzXwyVxZU_Yv8xBIVPpofXpr4wsZhL2JZ5i_-AWokEBVINpxtdkmJVeutjzd1hs8edi4tjAVRJZoQb0I5-HHt1lRr7y4m4UUunz0vsNyoBDJ0U7L8kV8st5RztY3YONQet1yoj3qV54pp5OKt-a9fC"/>
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="Fashion influencer posing in a bright loft wearing Atelier tailored trousers and a minimalist top. High-key natural lighting and a clean, sophisticated vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc7yrVmYxqXHEqBAuHdDLuMn-gComc29oS8WZXQfrKrspifMH2I4cI5lDR8-uX7p0ifwOw9m0XLOccdW5fNxTLf_URUXnLywGoBekaa2VzBwS2VczyH-eNmUF_rSqnn7aPnHYDbE2YSNZzCdzs_Gg51ZI-87wualZhxYySPzLvsJ_nl7s-H1MDVCmL5A7606vBooP8MNaQyB3QnfMZ1_07gsneX6ET9q2N3wL0IFTk_R_yFr9q6WU6nztm0oRzTpw5o0ePjbnBXdBa"/>
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="Close up street style photo of Atelier accessories including a leather bag and silver jewelry on a busy city sidewalk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw0ClFpzzI9bSd24-Fau1OeoSX9YhayZW1tYua-BKObGfT3Wda8BrGGrQwQKjgl8YMVIfXHy3MhIaLgURB3WfVHv0uY_Fko_g__xeBNilwkhE9rGuaCBzYCdH1vLxQ7Dhq_zZXt0SxUvbkIoxSA4EijcsMxBRZSHL-nwgoTy4Oa4OElr7dmMHjrFRAFcUQDIjccbtYKAcfAidX8zaIRSLB94ukZTY2Lf7EqxSvYNQ7XHKw_uART01nCAuLb6kxYMAXacwi-DuCOGmO"/>
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="Model posing in a subway station wearing a full tech-wear outfit from the Atelier Technical Series. Moody, artificial underground lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcuMcYrDcyzsP-SCt-1R5wcJ7_SHPkoWsQrflhWjuhjOplp4j6UtMpCWgLaJLnKdMtKIdM_7FO23h7Sd1HfzgwIIHu2SzKP_WQmCbVE-Rfc9_SnL57nSrFGNoILKY4CIIY1QnpJa3lC6o8iuZ9tGTXjjk2TDvZBkbT9q1jET6wzN4YoYr5GybmKE27ivf5DDvdPhk20q966kg8FRcXdwojcm9_8wS5uHVIu0IJyNCpEI_Wsp7KDzFO_ZB8q2ZlqGipx4SbKo1D-M3V"/>
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="Minimalist mirror selfie of a customer wearing an Atelier blazer in a professional creative studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4ejVU4FKRaT2r08LeAO2ljKo3jg4HyfLEgWULfu1nXb1BoBHjmMaPqm1R_LjbYfQAEE_ESRy0RZSI5j6fHdrXe_W7f1q0Jgd8AvI03UO72D7_DKn7--CqBxR1LwYCjIbcVez2DmVQMoM5HxuxIMSFbKs30XcJjupoiiqN75IAkTVSxM6-Q8bjn0u-8Lv2MiKx78MLje9j_KnQvVOnhhk4I5cxvJ1oMOUL0jnii3BvDfB4pZp4mxiT5ZFkU_WQzm1-SvQLHoU1DBlj"/>
+<!-- Repeat for loop -->
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="User-generated style photo featuring a model in an urban alley wearing an oversized Atelier hoodie and sneakers. Real-world urban lighting and candid pose." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGRs5ozZn-yIFEYbUDeSfPmJL1y7rc2bTVKDNSm1hnzpyfRSk2Z0Lmn4rD6lY4Rr9w6LsG6aHp5neCMdn9jH3keCxEdfhkGEp0iaFZmH0yk3Vh2K1cqzqv4oEeU_GDqO3dhoJ95J60_xNmlhdNnVxxcNHR_cISF6-VBwKXmp92zgVM5TmwomAkUHMbfhNv37ehgcVl4CG3zEBXWcKbtvWuaAIo3LCIYGG_HTU4PGI1yRRP8ipCoFFK7h39SpwZGSCXgt1cp8XZFlNu"/>
+<img class="h-[400px] w-auto aspect-[3/4] object-cover border border-outline-variant/30" data-alt="Fashion influencer posing in a bright loft wearing Atelier tailored trousers and a minimalist top. High-key natural lighting and a clean, sophisticated vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgoUe-KQR3J1REcfvWay4Xn_h6Avy4t2VHLqtLzUg7jKK7JqYVvLAf4nxCi7gDlpLyJ7XlpO5wr6A5bfN-JvYbsqeRGzI2FP6m-vkygp1A2_SP-OGv0BQbI9go99WL4jBCO7aRFsU8uzc5DPRZtqj6OaB-sIcUBMwvRHvuUNUphaFwCZMO7Ed_WmWonq_4eNQLFws8bv8xtQAYx0_Pl6uENpWTOBlRyIinzT8FCWAJmn3AGnGZAq-FAFaotX4IFHgSWMZ7nSSbeQND"/>
+</div>
+</section>
+<!-- 14. Mobile App Promotion -->
+<section class="py-xl px-margin-desktop bg-white">
+<div class="bg-primary text-on-primary p-lg grid grid-cols-1 md:grid-cols-2 gap-lg items-center rounded-lg">
+<div>
+<h2 class="font-display-lg text-[32px] uppercase mb-md">Elevate Your Experience</h2>
+<p class="font-body-lg text-white/70 mb-lg">Download the ATELIER App for exclusive early access to drops, app-only archive pieces, and a personalized styling feed.</p>
+<div class="flex items-center space-x-md">
+<img class="w-32 h-32 bg-white p-2" data-alt="A placeholder for a minimalist QR code used for mobile app downloads, displayed in a clean, white square with black patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASpg2zJCFAxmNgNfgFTWfuoKBVf8NsGzxYziEz97k788oqfYOqBagRvAgU27tv5BViaidlGX3E3N5jZKzLPYfvu9G5Z0VrWVYmJ775_EnnBIT9w3xmN6CcNrXgpfgo2gfeAR1wjzfHs_6BnhRXDdXaH_aevL8pkGnqfgRHi_U_d60NMnLcTZ7y3IhXwVwx_CjPi8CwUnzz-eANv7motDKrfycgl4zvtjIguQp9OxOOS1dyOITvloxLzhyYeWFbe2pWMulglmr-wbus"/>
+<div>
+<p class="font-label-md uppercase mb-2">Scan to download</p>
+<div class="flex space-x-sm">
+<button class="bg-white/10 hover:bg-white/20 p-2 rounded transition-colors">
+<span class="material-symbols-outlined text-[24px]">ios</span>
+</button>
+<button class="bg-white/10 hover:bg-white/20 p-2 rounded transition-colors">
+<span class="material-symbols-outlined text-[24px]">android</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="relative flex justify-center">
+<img class="w-2/3 object-contain drop-shadow-2xl" data-alt="A high-end smartphone mockup displaying the Atelier mobile app interface. The UI is minimalist with high-fidelity product imagery, clean typography, and a sophisticated dark-mode aesthetic. The phone is floating against a soft, blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkNWlPtOcHX45B8tTNsDathyzluHJvFKbAc2jMilMtuewSwx9dX9qs1VGk4-5hZOacf4TuH_buJX0cZvhOVzznEjF3lzFi65HA1EBodYvJULAFyM4dkPmzlqaQPHr2crSn4wEjaD1tmbV1urhKn9MNkvJ1FkleSYGA0AxfaQeM3EGOKqmo-e3Dq3rnmgOjSFJmXc2h_HjVfCLnhYqC43nk9hYT8Z3p-QBWYD44Wm5gfxbxJgww5OfPFeQxDZKrspT6QbrMHkKg-7A-"/>
+</div>
+</div>
+</section>
+<!-- 15. Premium Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-xl max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div class="md:col-span-4 space-y-md">
+<a class="font-headline-md text-headline-md font-bold text-primary uppercase" href="#">ATELIER</a>
+<p class="font-body-md text-on-surface-variant max-w-xs">A global design house exploring the boundaries between ready-to-wear and sculptural form.</p>
+<div class="flex space-x-md">
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">movie</span></a>
+</div>
+</div>
+<!-- Links Columns -->
+<div class="md:col-span-2 space-y-sm">
+<h4 class="font-label-md uppercase text-primary">Service</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Size Guide</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Care Guide</a></li>
+</ul>
+</div>
+<div class="md:col-span-2 space-y-sm">
+<h4 class="font-label-md uppercase text-primary">Company</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<!-- Newsletter Column -->
+<div class="md:col-span-4 space-y-md">
+<h4 class="font-label-md uppercase text-primary">The Atelier Journal</h4>
+<p class="font-body-md text-on-surface-variant">Sign up for early access and editorial stories.</p>
+<form class="flex border-b border-primary pb-2 focus-within:ring-2 focus-within:ring-secondary ring-offset-2">
+<input class="bg-transparent border-none focus:ring-0 w-full font-label-sm placeholder:text-outline uppercase tracking-widest" placeholder="Email Address" type="email"/>
+<button class="material-symbols-outlined text-primary" type="submit">arrow_forward</button>
+</form>
+</div>
+</div>
+<!-- Bottom Footer -->
+<div class="px-margin-desktop py-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center bg-surface-container">
+<p class="font-label-sm text-on-surface-variant uppercase">© 2024 ATELIER STUDIOS. ALL RIGHTS RESERVED.</p>
+<div class="flex space-x-md mt-md md:mt-0">
+<span class="font-label-sm text-on-surface-variant uppercase">Visa</span>
+<span class="font-label-sm text-on-surface-variant uppercase">Mastercard</span>
+<span class="font-label-sm text-on-surface-variant uppercase">Amex</span>
+<span class="font-label-sm text-on-surface-variant uppercase">Paypal</span>
+</div>
+</div>
+</footer>
+<script>
+        // Transparent to solid nav on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-sm');
+                nav.classList.remove('bg-transparent', 'backdrop-blur-md');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-sm');
+                nav.classList.add('bg-transparent', 'backdrop-blur-md');
+            }
+        });
+
+        // Simple Countdown Logic
+        function updateCountdown() {
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            let h = parseInt(hoursEl.innerText);
+            let m = parseInt(minutesEl.innerText);
+            let s = parseInt(secondsEl.innerText);
+            
+            if (s > 0) s--;
+            else {
+                s = 59;
+                if (m > 0) m--;
+                else {
+                    m = 59;
+                    if (h > 0) h--;
+                }
+            }
+            
+            hoursEl.innerText = h.toString().padStart(2, '0');
+            minutesEl.innerText = m.toString().padStart(2, '0');
+            secondsEl.innerText = s.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+    </script>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</body></html>

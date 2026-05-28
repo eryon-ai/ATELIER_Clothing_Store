@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | The Premium Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#e3e2e2",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444748",
+                    "secondary-container": "#6c98ff",
+                    "on-secondary-fixed": "#001946",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary-container": "#838484",
+                    "on-background": "#1b1c1c",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f9",
+                    "surface-container-highest": "#e3e2e2",
+                    "secondary": "#0047AB",
+                    "primary-container": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#747878",
+                    "on-primary-container": "#858383",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "inverse-primary": "#c8c6c5",
+                    "inverse-surface": "#303031",
+                    "tertiary-container": "#1a1c1c",
+                    "on-secondary-container": "#002f76",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "primary-fixed": "#e5e2e1",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#fbf9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .reveal-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal-on-scroll.active { opacity: 1; transform: translateY(0); }
+        .parallax-bg { background-attachment: fixed; background-position: center; background-size: cover; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</span>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1 transition-colors duration-200" href="#">Collections</a>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer">person</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">favorite</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_bag</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-[819px] flex items-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 opacity-60">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-fashion wide shot of a minimalist atelier studio. Soft morning light streams through floor-to-ceiling windows, illuminating a lone marble table draped in exquisite charcoal silk. The atmosphere is sophisticated and serene, utilizing a palette of deep blacks, neutral greys, and pure whites. The lighting is high-key yet moody, emphasizing the luxurious textures of the fabric in a premium light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8m-zDfRmrO6yf-5tlmjBPbfWsPqR_0SvwpIrx71_81PV7BCG7TRxZLj3qItPLCSx8ouwtlva0b1iTVQI_3otb9rA35CrKC5ZCoKzi3G4tcIy0L6hyfoVA0W2kD_vWz157oE7v8umVJPIFoPXRn2ZnpAtB1VN_GefawChZgtLtCiASimBW03SRlWJDDXJztqYZUGgkeb8tv8G7zZ0a8pJR5_uKlShxbDi1922t6hKZI6E3JRRFeHwsWJnqrjf8uo3Z78Xekaheoomh"/>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-7xl mx-auto w-full">
+<div class="max-w-2xl">
+<span class="font-label-md text-label-md text-on-primary-container tracking-[0.2em] mb-sm block">SPRING 2024</span>
+<h1 class="font-display-lg text-display-lg text-on-primary mb-md leading-tight">The Art of Pure Materials</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-lg max-w-lg opacity-90">
+                    A curated collection honoring the raw beauty of Silk, Cashmere, and Italian Leather. Engineered for the modern professional.
+                </p>
+<div class="flex gap-md">
+<button class="bg-secondary text-on-secondary px-lg py-sm font-label-md uppercase tracking-wider hover:opacity-90 transition-opacity">Explore Collection</button>
+<button class="border border-on-primary text-on-primary px-lg py-sm font-label-md uppercase tracking-wider hover:bg-on-primary hover:text-primary transition-all">Watch Process</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Material Spotlight (Asymmetric Layout) -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 reveal-on-scroll">
+<span class="font-label-md text-label-md text-secondary tracking-widest mb-sm block">01 / FIBERS</span>
+<h2 class="font-headline-lg text-headline-lg mb-md">Loro Piana Cashmere</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed">
+                    Sourced from the mountainous regions of Inner Mongolia, our cashmere fibers are meticulously hand-sorted for diameter and length, ensuring a garment that is as durable as it is impossibly soft.
+                </p>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-sm font-label-md text-label-md"><span class="material-symbols-outlined text-secondary">check_circle</span> 14.5-micron ultra-fine fiber</li>
+<li class="flex items-center gap-sm font-label-md text-label-md"><span class="material-symbols-outlined text-secondary">check_circle</span> Traceable sustainable sourcing</li>
+<li class="flex items-center gap-sm font-label-md text-label-md"><span class="material-symbols-outlined text-secondary">check_circle</span> Hand-finished seams in Tuscany</li>
+</ul>
+<a class="font-label-md text-label-md border-b border-primary pb-xs hover:text-secondary hover:border-secondary transition-all" href="#">TECHNICAL SPECIFICATIONS</a>
+</div>
+<div class="col-span-12 md:col-span-7 flex justify-end reveal-on-scroll">
+<div class="relative w-full aspect-[4/5] bg-surface-container overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover" data-alt="Close-up macro photography of high-quality cream-colored cashmere knitwear. The focus is on the intricate, soft texture of the fibers, showing the delicate weave and airy volume. The lighting is soft and diffused, creating a clean, professional luxury aesthetic. The color palette is minimal, focusing on tonal whites and subtle warm shadows, evoking a sense of calm and tactile excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmbc0soT6quj06jct_QUq3da-WcPEYdhCCMfw9ADS1Ac1pVWP2CNRhsP0pEF404WBEULu07lgZLGE0NmVkVECixDgV1KcKUz_4ZbVrqiWzH4mMntgMa8lgz55s0s-ACxAB4ke26ZYEAqkGMDUL8Ian-El18FB4tO_FbWQlvN-FARjqw5J-3x1m3uI3oxsZqx5za_XLgyyEqJ-xCZgOVnPL8P9s6nPmCTK2bD3UK359cHShpk8L5hzzW9hXVPqx3AkEOAHnGgcAvkJr"/>
+</div>
+</div>
+</div>
+</section>
+<!-- The Atelier Process (Bento Grid) -->
+<section class="bg-surface-container-low py-xl px-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg mb-sm">The Atelier Process</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Witness the transition from raw material to masterpiece through our four-stage archival methodology.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter h-auto md:h-[600px]">
+<!-- Step 1 -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-primary rounded-lg border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="An artistic high-angle photograph of an artisan's hands carefully tracing a pattern onto a large piece of premium cognac-colored leather. The setting is a bright, sun-drenched workshop with specialized leatherworking tools neatly arranged in the background. The lighting is crisp and modern, highlighting the grain of the leather and the precision of the craftsman's movement. The overall aesthetic is one of clean, corporate luxury and professional mastery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcpiTR947rKvSxqvgp-0j1X8gDedM-1YM7H5dE8wwyepjc_QUxoi0Xff3S2tcKBxP114kjwlYD8o8j0JLS72H8sjMuvFC-9DVnOhR8UZw2FgySe6TU7ecX3l7T35RgsnPhbJAggZD5OBS2iYecEeW_pbVCTRaSaanIPJ_njE2uz6vKeLmoh5Je8ssDlwfgeNnBHtnLT3edZIFBD8UI_kGzkSLW7SHis4vyPYCVPKneZpbdoYZAhBDt6C5YEBP2gE8hUPs8FzKgtsF1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-lg text-on-primary">
+<span class="font-label-sm text-label-sm uppercase tracking-widest mb-xs">Module 01</span>
+<h3 class="font-headline-md text-headline-md">The Pattern Cut</h3>
+<p class="font-body-md text-body-md opacity-80 mt-sm">Laser-precision mapping meets traditional hand-cutting techniques for zero-waste production.</p>
+<span class="material-symbols-outlined mt-md text-display-lg opacity-40">play_circle</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="md:col-span-2 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-lg border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A focused close-up of a high-end industrial sewing machine stitching a garment made of fine white silk. The thread is perfectly aligned, and the lighting is bright and architectural, emphasizing the precision of the mechanical process. The scene is set in a minimalist studio environment with a cool, professional tone. The color palette is dominated by whites and metallic silvers, projecting a sense of high-tech craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK0Rjix_FQ20sGcBxuvljgveDestuZzt4ve-E_euCIrvNJPzhaimX0KqniR-LBggbZrOFs2O2xOc7jCzs_2u5wyRr4netmEi0cxTUXe8ZBVH3IoeLNtcQ9z1zDGwEApfa--sxB5B2LZC9EJtvWLOCV5xCelOC6NTGk_jpCr_gyrPWOjVPjSY8hhKCXzl1JvKuLw9fszZxdlexOku-CpMywBdccslOhfB9-WAj_gUhkUZjKIQ0LfYFT5jLk2qgkP73iGGHeUdnE48UB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex flex-col justify-end p-md text-on-primary">
+<h3 class="font-title-lg text-title-lg">Precision Assembly</h3>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-xs">Module 02</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container-highest rounded-lg border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist photograph of several high-end metal hardware components for luggage, including zippers and buckles, arranged neatly on a grey felt surface. The lighting is sharp and technical, reflecting off the polished surfaces of the hardware. The aesthetic is clean, professional, and sophisticated, focusing on the luxury details that define quality. The color palette is monochromatic with metallic accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLClUpo24kJkK7q35eValQDGbl3kBaq1b7ryxBGNduq-seAFZBiLULvbEMMeNLjNQ4ANpYGJ7xbKoUxARoft89sTz1X0vLIKVs5Z36xkuh6RNX1E5pJr4FunPVFwPBmdsi_cfM0_2Jlg2q2kaJBPMoJLM4rAZyJnZaNLaLmLpj0Ecrsa03dlDhD39EN7MAZ2i63YzZKWjcjKoJ10bd_4URmfm7x-PIXxaMqvD8Nf-9VKRY0ojp_2z-FCulr636GaK3A4IY94_tbuPj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent flex flex-col justify-end p-sm text-on-primary">
+<h3 class="font-label-md text-label-md">Hardware Casting</h3>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-lg border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700" data-alt="A high-key, professional fashion shot of a finished garment being carefully steamed by a technician. The garment is a structured grey blazer made from fine wool. The environment is a pristine, minimalist atelier with bright, soft lighting. The steam creates a subtle, ethereal effect against the clean lines of the clothing. The overall mood is one of finality, care, and premium quality assurance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4HOjvebHVi-6bowZ3lruqy8vMBwsNZ0SDxMIwunSfuv2I0LLV9uFvqvhW3m5NzhG4ZQIE-PQOkLdESbUXGEH1NhMrRwbeVV9Cz6AawaFzONDRS-K1uvuAoYl7v8pM0rbKRy4KPfxoW3-vQBVHFTXkJlrIdHQFpOGRdZvJCfcIZrxiq-2BFn_KkgTmEIq_2LnoLizev1djzoopY71xQHtlP_TA1J9NkVWNaPFgm9FqZOsBNthnfpMEDRRWRXdScEMIybkL4EQIISx7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent flex flex-col justify-end p-sm text-on-primary">
+<h3 class="font-label-md text-label-md">Final Calibration</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Artisan Profiles -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-md">
+<div class="max-w-xl">
+<span class="font-label-md text-label-md text-secondary tracking-widest mb-sm block">THE HANDS BEHIND</span>
+<h2 class="font-headline-lg text-headline-lg">Masters of the Craft</h2>
+</div>
+<a class="font-label-md text-label-md uppercase tracking-wider flex items-center gap-xs" href="#">View All Artisans <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Artisan 1 -->
+<div class="reveal-on-scroll">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden mb-md border border-outline-variant">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A dignified portrait of a senior master artisan in a clean, modern workshop. He is wearing a simple navy work apron over a white shirt, looking directly into the camera with a look of experienced pride. The background features rolls of fine fabrics and high-end tools. The lighting is soft and professional, emphasizing the character of his face and the orderly nature of his environment. The aesthetic is sophisticated and authentic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV7T_Z3dqJty8bhWWhleo-bOi08_hXCR7O47nTBB5pC6FVvWmBClxNlSKMnFzJ57rV6FlT5kVOOeZl5MmRHmN0sGgSUC0oZ8pALcDUXzljhi4q3akNgn963TgtaVjsGxilFNz0BlvMbUTrF4tTTC4AcfWJ_W2fBVL9MLhznoVeJMysJbkZyE3gRwxtrGqSFPk0VAElrlsB-3OPpebrttDy0JvlkBT4a_6iKhYuCThwpJOlJLWd-O9d6F2HLe-2G7YxpMOqSW40MHZ9"/>
+</div>
+<h4 class="font-title-lg text-title-lg mb-xs">Marco Valenti</h4>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-sm">Master Tanner, Florence</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Overseeing our leather procurement for over 25 years, Marco ensures every hide meets the Atelier standard for grain and density.</p>
+</div>
+<!-- Artisan 2 -->
+<div class="reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden mb-md border border-outline-variant">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A focused portrait of a young female artisan working with delicate silk fabrics. She is in a bright, minimalist studio, surrounded by bolts of white and ivory cloth. The lighting is high-key and serene, highlighting the soft textures of the silk and her careful handling of the material. The overall feeling is one of calm, professional luxury and contemporary craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHqjjclLEKqkgtshg65K-HsQi3hi8ryyOLvEyo4lH47K7J2wvWkNpa_QnS3Mb5FYGhueAmM0QIin0BpyREoHOwoYIcC6qetGq6OJ21KT21lFRGK3yHeJm4WIm8pbFPgA8YHwXwo8l1VTbJx_KES7JB-RE00hXaBtSwwt0lQDhCR8klSLKg1RzzVYFfW7fQiW_5a_QVm2yjCNFewXLLtOvppdyyBsA30KP39lUhDRFKpOt3Sp04YmYyeSEYMNSc0ChdU-XPgBYElS2f"/>
+</div>
+<h4 class="font-title-lg text-title-lg mb-xs">Elena Sjöberg</h4>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-sm">Textile Engineer, Stockholm</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Specializing in organic silk weaves, Elena bridges the gap between traditional aesthetics and modern technical performance.</p>
+</div>
+<!-- Artisan 3 -->
+<div class="reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden mb-md border border-outline-variant">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A black and white portrait of a middle-aged male craftsman specializing in bespoke tailoring. He is adjusting a suit on a mannequin in a sophisticated, minimalist boutique. The lighting creates subtle highlights on the fine wool fabric, emphasizing the perfect drape and construction. The aesthetic is clean, authoritative, and deeply rooted in the traditions of professional luxury fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBV5IilLX150zMi6qHEQAoyHIhutrPtjffNQmrMJZqqAm5y9MXYs5VjGxjiCQ-h7RNVAYzedv7Nz3Wb_MD3IcJM5HV4jIXEwHNRnS87kcGJb-5OewkJodU0sIeKZ3qPFJJuDfty5FixqrAvMICwQqHlReYYjyB4RsC2PVGh2v0Z_NexD2Tr4nuI_nnZGbeqWiDm-rODlelqXpMAqAnexw40EfKYKr2eL_GJKmZxbmwgVktKBVGGk3fgwfWmST75f-nVqmCUUwPSIv6"/>
+</div>
+<h4 class="font-title-lg text-title-lg mb-xs">Julian Hsieh</h4>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-sm">Bespoke Tailor, London</p>
+<p class="font-body-md text-body-md text-on-surface-variant">With a background in architectural design, Julian approaches garment construction as a form of wearable structural art.</p>
+</div>
+</div>
+</section>
+<!-- Concierge Service CTA (Minimalist Glassmorphism Style) -->
+<section class="py-xl bg-surface relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-secondary-fixed/10 -skew-x-12 transform translate-x-1/4"></div>
+<div class="px-margin-desktop max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-lg">
+<div class="md:w-1/2">
+<div class="p-lg bg-surface/80 backdrop-blur-md border border-outline-variant rounded-lg">
+<span class="font-label-md text-label-md text-secondary tracking-widest mb-sm block">ATELIER CONCIERGE</span>
+<h2 class="font-display-lg text-display-lg mb-md">Personalized For Your Lifestyle</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+                        Access our bespoke tailoring services, private collection previews, and personal style consultations with our master curators.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm font-label-md uppercase tracking-wider hover:bg-secondary transition-all">Request Appointment</button>
+<button class="flex items-center gap-sm font-label-md text-label-md text-primary py-sm border-b border-transparent hover:border-primary transition-all">CHAT WITH AN ADVISOR <span class="material-symbols-outlined">forum</span></button>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 hidden md:block">
+<div class="grid grid-cols-2 gap-sm">
+<img class="rounded-lg border border-outline-variant" data-alt="Close up of a premium tan leather sneaker, focused on the artisan stitching and high-quality material finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA84PmsOlM8EI8zLenYugwm8SBH8wxQjZmzaeSdspSisFk5qOpQPbi2Hku8DRCibmn-5_5ncSCKHhSXKwrJit2QwrT-Xe0rX3RTyYvEQ6u0dtB_N4nXjziYamDuxoNmbNrLrtl1G1110gQevEG5KSnHl2rAffBbkyF-gW2RAJUkxeWOVN5JeuNvz-a0vRcIZUCnKiFnmLtc_wxqJc05uvR_qWe9B5WRRGc64ZbqQQW0yV5PpVoc8oSvjoX_rSH-F1Glniwg7UrxZokY"/>
+<img class="rounded-lg mt-lg border border-outline-variant" data-alt="A collection of luxury accessories including a leather cardholder and a silk scarf laid out on a marble surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyhLuMIXI-XaTGQnyLzVaCvqB4jJMfamRhzevIXxgurtzX4jMXCFxnEc6QGVur8pVVX29hZSLFAReI8nHzpTANAtsneDVUyngC4FR5H759BnOriZ3y4EqACdvDUe8DzaYZs_KvMk_MhGL842cfdM8t4eqTyWfGPbe_Xb9UzMVRm8l_lPCcZnu4k4WsjcZWRlucRu6_kargOCCFyjiGyn3VWVdeZS3TIHGz6imrN8BLwHoXpVlfAKjTyiLonS-LUWJEWoBzKMcws3wJ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline full-width mt-xl transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface mb-md block">ATELIER</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant opacity-80 leading-relaxed">
+                    Elevating the modern wardrobe through uncompromising material science and artisan heritage.
+                </p>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest mb-xs">Collections</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">The Silk Series</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Italian Leather Goods</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Virgin Wool Coats</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Limited Archival</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest mb-xs">Support</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Contact Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary underline transition-all" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest mb-xs">Newsletter</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-sm">Receive archival access and material reports.</p>
+<div class="flex border-b border-primary py-xs">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md" placeholder="email@address.com" type="email"/>
+<button class="material-symbols-outlined">east</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md max-w-7xl mx-auto border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant">© 2024 ATELIER. All rights reserved.</span>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">language</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">EN / USD</span>
+</div>
+</div>
+</footer>
+<script>
+        // Reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Navigation transparency on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('py-base', 'py-xs');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('py-xs', 'py-base');
+            }
+        });
+    </script>
+</body></html>

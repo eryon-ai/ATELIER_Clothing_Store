@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Winter &amp; Tech-Wear</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-variant": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444748",
+                        "secondary-container": "#6c98ff",
+                        "on-secondary-fixed": "#001946",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-high": "#e9e8e7",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#dae2ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-container": "#838484",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "surface": "#fbf9f9",
+                        "surface-container-highest": "#e3e2e2",
+                        "secondary": "#0047AB",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#747878",
+                        "on-primary-container": "#858383",
+                        "on-secondary-fixed-variant": "#00419e",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-surface": "#303031",
+                        "tertiary-container": "#1a1c1c",
+                        "on-secondary-container": "#002f76",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#b1c5ff",
+                        "primary-fixed": "#e5e2e1",
+                        "primary": "#000000",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "background": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-on-surface": "#f2f0f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(229, 229, 229, 0.5); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .layer-hover:hover .layer-info { opacity: 1; transform: translateX(0); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</div>
+<nav class="hidden md:flex items-center space-x-gutter">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1" href="#">Collections</a>
+</nav>
+<div class="flex items-center space-x-md">
+<span class="material-symbols-outlined text-primary cursor-pointer">person</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">favorite</span>
+<div class="relative cursor-pointer">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full bg-primary overflow-hidden flex items-center">
+<img alt="Winter Tech-Wear Hero" class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="A high-fashion editorial photograph of a model wearing a heavy, modular white tech-wear parka in a stark, frozen arctic landscape. The lighting is cold, diffused daylight that emphasizes the sharp lines and complex textures of the insulated fabric. The scene is dominated by a monochrome palette of crisp whites, deep blacks, and industrial grays, creating a professional and minimalist luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpHHWFoul-X37zcXmjh-bWgZnWN-bC1bnwQ7F3pCS05-00Dtqcg7Z1rRIpXGYbRtTJ7SvDLxPjp_qNZNvTSPMLRi_JvwoHprg56UCTPdrqGFdkmxhMgvdehfpMouZH9su1LZaZtd8iibpnfrj08DWAIHRC-yx3BKjMw3MdAe2t7JdBWX-O1Y5_0WijrUernZeoPMBW6afspZ4pQ3zOCPUlBvtW3Ga8529c_FkVI1zKhtPzbbW0LV2nD7c28CWFy1pPjlgnhFHDjSQX"/>
+<div class="relative z-10 px-margin-desktop max-w-4xl">
+<div class="bg-secondary text-on-secondary px-sm py-xs inline-block font-label-md text-label-md mb-md">NEW ARRIVAL: SERIES 09</div>
+<h1 class="font-display-lg text-display-lg text-white mb-md leading-tight">ADVANCED THERMAL<br/>INSULATION SYSTEMS</h1>
+<p class="font-body-lg text-body-lg text-white/80 max-w-xl mb-lg">Precision engineered for extreme climates. ATELIER presents a collection where minimalist architecture meets high-performance winter protection.</p>
+<div class="flex gap-md">
+<button class="bg-secondary text-on-secondary px-lg py-md font-label-md text-label-md hover:bg-secondary/90 transition-all uppercase tracking-widest">Explore Series</button>
+<button class="border border-white text-white px-lg py-md font-label-md text-label-md hover:bg-white/10 transition-all uppercase tracking-widest">Watch Breakdown</button>
+</div>
+</div>
+</section>
+<!-- 3D Parka Breakdown Section -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
+<div class="lg:col-span-5">
+<div class="font-label-md text-label-md text-secondary mb-base">ARCHITECTURAL CONSTRUCTION</div>
+<h2 class="font-headline-lg text-headline-lg mb-md uppercase">The Modular<br/>Survival Parka</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">A multi-layered approach to heat retention. Each layer is independently functional, allowing for adaptation across varied thermal environments.</p>
+<div class="space-y-md">
+<div class="border-l-2 border-secondary pl-md py-base">
+<span class="font-label-md text-label-md text-secondary">01 OUTER SHELL</span>
+<p class="font-body-md text-body-md">High-density ripstop nylon with DWR finish. Windproof up to 120km/h.</p>
+</div>
+<div class="border-l-2 border-outline pl-md py-base opacity-50 hover:opacity-100 transition-opacity cursor-default">
+<span class="font-label-md text-label-md">02 THERMAL CORE</span>
+<p class="font-body-md text-body-md">850-fill-power RDS certified goose down cluster for maximum loft.</p>
+</div>
+<div class="border-l-2 border-outline pl-md py-base opacity-50 hover:opacity-100 transition-opacity cursor-default">
+<span class="font-label-md text-label-md">03 CONTACT LINING</span>
+<p class="font-body-md text-body-md">Breathable mesh and moisture-wicking synthetic silk for internal comfort.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 relative h-[600px] bg-surface-container-low flex items-center justify-center">
+<!-- Placeholder for the "3D" Visualization -->
+<div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+<img alt="Parka Layering" class="w-3/4 object-contain" data-alt="A studio product shot of a disassembled tech-wear jacket showing three distinct layers: a dark navy outer shell, a textured grey quilted insulation layer, and a light grey internal lining. The components are presented in an exploded view style against a clean, neutral white background. Sharp focus, professional lighting, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjcpZOX0Jx3xIKzZdmUoW3CKlgpHAgBi7F18Rq-pGSthVhkQml77PUtopZoFpxMzR9P2sZ3SNXDnt2nUo1LQB_BxTrtXigd8BpiO__MBQ5l-2eM-i9szBwAqteojYK0ER6BZHsuHXgxmJBIi-jNkHNI_jwa3GF5kLBy5ioynY3TTVAR-i8ilSeLuu-5cbtd0ThlFTM4lha1RPYKk-GLcwWQKwNMpUAAAgAPqdjwwhxmIW_zTa7NnrEFFcqTcOrNqbRnjSoCZZwA4xQ"/>
+<!-- Floating Data Points -->
+<div class="absolute top-[20%] right-[15%] glass-card p-sm rounded shadow-sm">
+<div class="font-label-sm text-label-sm text-secondary">AEROGEL SHIELDS</div>
+<div class="font-body-md text-body-md font-bold">Reinforced Shoulders</div>
+</div>
+<div class="absolute bottom-[30%] left-[10%] glass-card p-sm rounded shadow-sm">
+<div class="font-label-sm text-label-sm text-secondary">VENTILATION</div>
+<div class="font-body-md text-body-md font-bold">Laser-cut Zippers</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Temperature Rating Guide -->
+<section class="bg-primary text-white py-xl px-margin-desktop overflow-hidden">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-end justify-between gap-lg mb-xl">
+<div>
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight">Thermal Intelligence</h2>
+<p class="font-body-lg text-body-lg text-white/60 max-w-md">Precision-rated performance metrics for every condition on Earth.</p>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-md text-label-md">UNIT: CELSIUS</span>
+<div class="w-12 h-[1px] bg-white/20"></div>
+<span class="font-label-md text-label-md opacity-40">FAHRENHEIT</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-7xl mx-auto">
+<div class="border-t border-white/20 pt-md group cursor-pointer">
+<div class="text-secondary font-headline-lg text-headline-lg mb-sm group-hover:translate-x-2 transition-transform">0° / -10°</div>
+<div class="font-label-md text-label-md mb-base">CATEGORY: MODERATE</div>
+<p class="font-body-md text-body-md text-white/50">Optimized for urban winters. Breathable insulation for active transit.</p>
+</div>
+<div class="border-t border-white/20 pt-md group cursor-pointer">
+<div class="text-secondary font-headline-lg text-headline-lg mb-sm group-hover:translate-x-2 transition-transform">-10° / -20°</div>
+<div class="font-label-md text-label-md mb-base">CATEGORY: SUB-ZERO</div>
+<p class="font-body-md text-body-md text-white/50">Enhanced core warmth with wind-barrier technology. Heavy knits essential.</p>
+</div>
+<div class="border-t border-white group cursor-pointer">
+<div class="text-secondary font-headline-lg text-headline-lg mb-sm group-hover:translate-x-2 transition-transform">-20° / -35°</div>
+<div class="font-label-md text-label-md mb-base">CATEGORY: EXTREME</div>
+<p class="font-body-md text-body-md text-white/50">Double-layered parka systems and facial protection integration.</p>
+</div>
+<div class="border-t border-white/20 pt-md group cursor-pointer">
+<div class="text-secondary font-headline-lg text-headline-lg mb-sm group-hover:translate-x-2 transition-transform">-35° / -50°</div>
+<div class="font-label-md text-label-md mb-base">CATEGORY: POLAR</div>
+<p class="font-body-md text-body-md text-white/50">Total environmental isolation. Developed for expedition-grade survival.</p>
+</div>
+</div>
+</section>
+<!-- Cold Weather Survival Editorial -->
+<section class="py-xl">
+<div class="px-margin-desktop max-w-7xl mx-auto mb-lg">
+<div class="font-label-md text-label-md text-secondary">EDITORIAL VOL. 12</div>
+<h2 class="font-headline-lg text-headline-lg uppercase">Survivalism in the City</h2>
+</div>
+<div class="flex overflow-x-auto no-scrollbar snap-x gap-gutter px-margin-desktop">
+<div class="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] snap-start border border-outline-variant">
+<div class="h-[500px] overflow-hidden">
+<img alt="Urban Survival 1" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A portrait of a person in a heavy black knit turtleneck sweater standing in a snowy urban environment with tall, brutalist concrete buildings. The image has a high-contrast, professional editorial look with deep shadows and sharp details. Minimalist aesthetic with a focus on textures of wool and stone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPBe09Y-j9hGpRbyceQdnsCyDGPa5ZWsgyGaq7Y4hcZrkBEsN-Et_alxaqOoTV1LEP9yidH7T2opcqWDkh8DSAimQ_p0QuijSKzKleoNWdExvFALriclqLagzI9eRz9RpCaLB1fLHElJGMxHO8ocKkTq1ckSnLF68pWd7jDuc2QJiZGHaG6xoD-22AQeGJeZPoI1pUsnwj6XN7gJTJHtwJxQeIzlhXX51Iy9IY9knVq-YIaEzTNcOPEu4YzcEcz6_v-YNlevcoeDCe"/>
+</div>
+<div class="p-md bg-white">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Fabric focus</span>
+<h3 class="font-title-lg text-title-lg mt-base mb-md">The 1.2kg Merino Knit</h3>
+<a class="font-label-md text-label-md text-secondary border-b border-secondary" href="#">Read Story</a>
+</div>
+</div>
+<div class="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] snap-start border border-outline-variant">
+<div class="h-[500px] overflow-hidden">
+<img alt="Urban Survival 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Cinematic shot of tech-wear trousers with multiple utilitarian pockets and straps. The fabric is a high-tech matte black synthetic material. The setting is a cold, foggy harbor at dusk. Sharp professional photography, cool blue and black tones, focused on functional design details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSzOP3O230KiMDcVKSmDEESnnmnEMdozDJaJtPK_-IIVGjp7aS1uMVfxP_lPm26hO05j-9CMfhJEJMCckhsTZa6g-Eo_yqzazkdKtnOgGJ7lzkj4BG481fWxP81DMn9nrhQIAb6XI2WacOdNGKP56YVp_pBCQHzbylkhM-NxGgZIFKwOAxqrswjPSoqem9V2bgAnd3ourjVvpjtI5AWLf-iDr3Xtx5OUUhPg7phZYgzvMqVPRwmjsDvILxNL4EvCIB55dlunzzUyiK"/>
+</div>
+<div class="p-md bg-white">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Innovation</span>
+<h3 class="font-title-lg text-title-lg mt-base mb-md">Graphene Heat Mapping</h3>
+<a class="font-label-md text-label-md text-secondary border-b border-secondary" href="#">Read Story</a>
+</div>
+</div>
+<div class="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] snap-start border border-outline-variant">
+<div class="h-[500px] overflow-hidden">
+<img alt="Urban Survival 3" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A pair of heavy-duty black winter boots featuring technical lacing systems and thick lug soles. The background is a clean white studio with sharp shadows. The mood is powerful, sturdy, and high-end professional luxury fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxGplAxGIzkVhgQPTb_eJ3OU__Yxic7Ejs-c9cLRim8JF8zNpcyaWcgO3lPUDasEGv-suHt6_MMFQM19ulZ06ORlrvQ_jnb0hE4n9NPbK98qz_RAMgxaXARsLESckRBuYbdaXZy4mv2aGcfLGNzUUqrzghwZsUgM3yjhgSTpn7w9cDW3jSpPtgUvzf5MBbuQGYd2O0LLVf4RZFMOGdqPBK60XWSaWIUDP_pimtJofThZEzkVchceqL_Hd9gamQj_r6jiyv7-7Fgv-t"/>
+</div>
+<div class="p-md bg-white">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Performance</span>
+<h3 class="font-title-lg text-title-lg mt-base mb-md">Traction &amp; Shielding</h3>
+<a class="font-label-md text-label-md text-secondary border-b border-secondary" href="#">Read Story</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Grid: Heavy Knits and Outerwear -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-xl border-b border-outline-variant pb-md">
+<h2 class="font-headline-lg text-headline-lg uppercase">Curated Inventory</h2>
+<div class="flex gap-md font-label-md text-label-md">
+<button class="text-secondary underline underline-offset-4">Outerwear</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">Knits</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">Base Layers</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product 1 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container relative overflow-hidden mb-md">
+<img alt="Tech Parka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A product photograph of a heavy black technical winter parka on a minimalist white backdrop. The jacket has multiple zippers, a large hood, and a clean, architectural silhouette. Studio lighting, sharp focus, professional luxury e-commerce style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu7AISZZPCF2ifETT5dvZ15ZjY82hfvskdYUdCE6VvpnVqOSi-OqjrqzE5obhHGFqw2Wg9agxaCjSASWkQk7YBc5lvhxcaVap7kAfM6qKbwwvyWAL2QPN5DYv23PJgPQdIQOv6wqe9_HtHBIOKJ_6X2trNKnnL3As2MFdw6SPZ8XAYU-xdY6k5GwzyE1ZztKozBTBAQ13W7nfwUl8pYF6NaiVCgvMlVI2jglpmvNXtbJ9pkyNY_7hp-Jzw7eJaC7L9On5LzFMeDbK5"/>
+<div class="absolute top-md right-md bg-white/90 px-sm py-xs font-label-md text-label-md border border-outline-variant">
+                            NEW
+                        </div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-body-lg text-body-lg uppercase font-bold">Element-Shield Parka</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Matte Black / Ripstop</p>
+</div>
+<div class="font-title-lg text-title-lg">$1,250</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container relative overflow-hidden mb-md">
+<img alt="Heavy Knit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Detailed product shot of a thick, heavy-knit grey merino wool turtleneck sweater. The weave pattern is clearly visible and emphasizes high-quality craftsmanship. Soft light-mode aesthetic, professional fashion photography, clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxUe8E5aIys87NpEMLN2WJ1VvCR4Fo0wDUbFguasOZlD2du-QWPm751Sqcld-kd9OuWDkovFqAWEgWBXIjAm70yvNJivy1LWpuGAaEM9KfZGGhlj8lNsF0WLnyJzWE0JQ2Se9-tlHIQ8vAtQD373YnxFMtbkx6mCFNMO1-J1TJbF2Udmoy9LQeqAWteTs-tK6PKUwiLGxO6cwTsmfh-FuY7tn_eMrZkmLCGoSCZPIpqnCxDIK1RVfUgNik0kRgDvpwbXDHzPoSbeNG"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-body-lg text-body-lg uppercase font-bold">Brutalist Merino Knit</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Cloud Grey / 800g Wool</p>
+</div>
+<div class="font-title-lg text-title-lg">$420</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container relative overflow-hidden mb-md">
+<img alt="White Down Jacket" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Studio photo of a person wearing an ultra-insulated white down jacket with a futuristic high collar. The lighting is very bright and high-key, creating a clean and pristine look. Professional corporate modern luxury e-commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD29UC0M07UXvNGXJ3x4Rr2bnmyGC07tuWN0TQGH_Xmft0cRLTec03WacgQyX2gkBLgwRscnI_pIJrNUOXc7Sk0nk2b3QZWemnzNznaAj6AtvhewUuQxGkw_wyJibu2lkXgD2W5KLgJ1cs8u18OaFwBII9Cw9i6DqCloEGOBSF-OCUWrx9zO75sW78wKR0Tu3wiRYmVG_n8dNniTV8ZbmgI4J_euS14itRLNIm0F7jXHV8_HX7cmthDXUPN2BiKCcb03mmJD4_EItcv"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-body-lg text-body-lg uppercase font-bold">Arctic Expedition Core</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Pure White / 850 Fill</p>
+</div>
+<div class="font-title-lg text-title-lg">$890</div>
+</div>
+</div>
+</div>
+<div class="mt-lg flex justify-center">
+<button class="border border-primary px-xl py-md font-label-md text-label-md hover:bg-primary hover:text-white transition-all uppercase tracking-widest">View Entire Inventory</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest full-width mt-xl border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface mb-md">ATELIER</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">A luxury research studio focusing on the intersection of architecture, function, and textile innovation.</p>
+</div>
+<div class="space-y-base">
+<div class="font-label-md text-label-md text-primary dark:text-on-surface font-semibold mb-sm uppercase">Navigation</div>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Shipping</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Brand Stories</a></li>
+</ul>
+</div>
+<div class="space-y-base">
+<div class="font-label-md text-label-md text-primary dark:text-on-surface font-semibold mb-sm uppercase">Legal</div>
+<ul class="space-y-xs">
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<div class="font-label-md text-label-md text-primary dark:text-on-surface font-semibold mb-sm uppercase">Newsletter</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Join for exclusive early access to tech-drops.</p>
+<div class="flex border-b border-primary">
+<input class="bg-transparent border-none focus:ring-0 w-full font-label-md text-label-md px-0" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="material-symbols-outlined text-primary">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md max-w-7xl mx-auto border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 ATELIER. All rights reserved.</span>
+<div class="flex space-x-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-sm">public</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-sm">share</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for the nav and scrolling effects
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('header');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-xs', 'shadow-sm');
+                nav.classList.remove('py-base');
+            } else {
+                nav.classList.remove('py-xs', 'shadow-sm');
+                nav.classList.add('py-base');
+            }
+        });
+    </script>
+</body></html>

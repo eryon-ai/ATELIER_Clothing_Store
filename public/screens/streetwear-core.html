@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Streetwear Core Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#e2e2e2",
+                      "surface-variant": "#e3e2e2",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#444748",
+                      "secondary-container": "#6c98ff",
+                      "on-secondary-fixed": "#001946",
+                      "surface-dim": "#dbdad9",
+                      "surface-container-high": "#e9e8e7",
+                      "on-surface": "#1b1c1c",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-tint": "#5f5e5e",
+                      "secondary-fixed": "#dae2ff",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f5f3f3",
+                      "surface-bright": "#fbf9f9",
+                      "on-tertiary-container": "#838484",
+                      "on-background": "#1b1c1c",
+                      "surface-container": "#efeded",
+                      "surface": "#fbf9f9",
+                      "surface-container-highest": "#e3e2e2",
+                      "secondary": "#0047AB",
+                      "primary-container": "#1c1b1b",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "outline": "#747878",
+                      "on-primary-container": "#858383",
+                      "on-secondary-fixed-variant": "#00419e",
+                      "inverse-primary": "#c8c6c5",
+                      "inverse-surface": "#303031",
+                      "tertiary-container": "#1a1c1c",
+                      "on-secondary-container": "#002f76",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "outline-variant": "#c4c7c7",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#b1c5ff",
+                      "primary-fixed": "#e5e2e1",
+                      "primary": "#000000",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "background": "#fbf9f9",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#000000",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-primary-fixed-variant": "#474746",
+                      "inverse-on-surface": "#f2f0f0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "lg": "48px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "title-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .staggered-grid-item:nth-child(even) { margin-top: 48px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface transition-colors duration-300">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant docked full-width top-0 sticky z-50">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary">ATELIER</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Collections</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Footwear</a>
+</div>
+<div class="flex items-center space-x-md">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">person</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">favorite</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">shopping_bag</button>
+</div>
+</nav>
+</header>
+<main class="w-full">
+<!-- Hero: The Street to Studio Story -->
+<section class="relative h-[921px] flex items-center overflow-hidden bg-surface-container-highest">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-90" data-alt="A cinematic editorial fashion shot of a model walking through a minimalist concrete architectural space. The lighting is sharp, high-contrast morning light creating long dramatic shadows. The model wears an oversized heavy-weight black hoodie and structured joggers, embodying a professional yet raw urban aesthetic. The color palette is strictly monochrome with deep blacks and bright whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHGuZ6nOZiWRok-Wrc0ZidsXuNilrFi_2ePs6BHPEfmr8oNKwWE050ybRZckC-yMC4l9Bu9HdA7BsbYwvHl2qfy5LKr47_WMBeMQotLYx4-spntYo96EPI4pUe5OwzyP2VPJIcaUKQrgcOG5auDnFLzA7UECdIcK0Byb5Hojz4_bM0Ur-QOVFIEYMf543P-5y81AnLXwHH8oVCabgjCEK0ux93glhHGHycuZBKnEAbrt33ibW9RgEh9NntfADzyZVDDMAV9yYGvpn0"/>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-7xl mx-auto w-full">
+<div class="max-w-2xl bg-surface/80 backdrop-blur-md p-lg border border-outline-variant">
+<span class="font-label-md text-label-md text-secondary tracking-[0.2em] uppercase mb-sm block">Core Series 01</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-md leading-[1.1]">THE STREET TO STUDIO</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed">
+                        A dialogue between raw urban textures and the disciplined silence of the creative workspace. Our Core Collection redefined: heavy-weight fabrics, architectural silhouettes, and enduring utility.
+                    </p>
+<button class="bg-secondary text-on-primary px-lg py-sm font-label-md text-label-md h-[48px] uppercase tracking-wider hover:opacity-90 transition-opacity">
+                        Explore Collection
+                    </button>
+</div>
+</div>
+</section>
+<!-- Branding / Statement Section -->
+<section class="py-xl bg-surface">
+<div class="px-margin-desktop max-w-7xl mx-auto text-center">
+<div class="flex flex-col items-center">
+<div class="w-px h-24 bg-primary mb-lg"></div>
+<h2 class="font-display-lg text-[64px] tracking-tighter text-primary mb-sm">ATELIER.CORE</h2>
+<p class="font-label-md text-label-md text-outline uppercase tracking-[0.3em]">Precision Engineering / Urban Uniform</p>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Main Featured Item -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant mb-base">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up architectural detail of a heavy-weight charcoal grey streetwear hoodie. The fabric texture is dense and premium, showing fine knit details. The garment is presented in a high-fashion studio setting with clean, professional lighting and subtle soft-box reflections. The background is a seamless light grey, maintaining a corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL9ublrL5Domx9RtouSWFgtXGTqgd8s-pMlQmt-dbfdkaPcozvUjTAH0yMz2wshclbINe0DXn2q4Nr6G0O9-mgEPzldxbvNWquo2egg52ALI4wyuAr3pEZElDv4uJFvnapN0rhPV3GE94g7udHTcCILzhLP54k_lnwrL8r1hzdgEdLtGWklsDaFhWNnuM95TDAW3q-zzTOKoGxtzBsdoaQnq7gGVVXOyBKo9m4KYu_Eyw6QiSiP_HAv69X6Y7P-0Sv6vlQWl94kmgi"/>
+</div>
+<div class="flex justify-between items-start pt-base">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Heavy-Weight Studio Hoodie</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Available in Onyx, Slate, and Bone</p>
+</div>
+<span class="font-title-lg text-title-lg text-primary">$185</span>
+</div>
+</div>
+<!-- Secondary Items -->
+<div class="md:col-span-4 flex flex-col space-y-xl">
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden border border-outline-variant mb-base">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A pair of technical joggers in matte black displayed on a minimalist white pedestal. The lighting is clinical and bright, highlighting the structural seams and high-quality hardware. The mood is sophisticated and clean, echoing a luxury e-commerce catalog style with a focus on craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWBvhFAZ5uZO1jOdUL0GtExUB0T6-zi4IXlRN0f05yvrryYinPNbyVl5hlyu95hEkUhbdhj_Qbh3eQzL4WS9iT-szDw0oGGgcV1uhvbdDsaOVX9G-7TZQXZERi7_adj0LMFkrRuh2gXwaTvf0-GPifJVOzaabJ8ctm7vlBPjM_aLNr2s-GUjV9StchVNiYPiDvCAElWSFmniaCx1-DWjqXSnl_nPsYps1x-ms9y9E8vjAgMhohodogAs-UFOMWLytGB-MyrkiEJwbb"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-xs">Structured Utility Jogger</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">$145</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden border border-outline-variant mb-base">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A premium shell outerwear jacket in a muted stone color, photographed in a sharp, urban environment. The background shows blurred concrete pillars and industrial details. The lighting is cool-toned and professional, showcasing the water-resistant fabric and clean architectural lines of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFgxd_g1c0Pd7Y7myKLn6H-jv8xxVPwXWHmQBZVbY9429g1Q-6TtKfL71J77Z0x4LCIq-15rbexjKaQnEZE3pHQYAAbkYP1MhRlIKy5beUfi_9_arKHz-pdZarLZf3Gqt7wG4KkWUyeKQwT9Gl4lzpKej6Ij7kNc5nOc7dbq5gTlBX7OyV-gI0A7c9bDJSqDdICiIenp_FwlPtA7hGwdyv0flntyNHZ9gt7BTvFnuI0WNhfzG4Ham6Ozk1bW3LdJT9BL66jK6UV-Xp"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-xs">Urban Shell Outerwear</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">$320</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Photography Gallery: Bento Grid -->
+<section class="bg-surface-container-low py-xl overflow-hidden">
+<div class="px-margin-desktop max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-xs block">Seen in Atelier</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">COMMUNITY ARCHIVE</h2>
+</div>
+<a class="font-label-md text-label-md text-primary border-b border-primary hover:text-secondary hover:border-secondary transition-all pb-1" href="#">View Full Gallery</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-gutter">
+<div class="col-span-2 row-span-2 aspect-square relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-crosshair" data-alt="A high-contrast street style photograph of a woman wearing an oversized white Atelier sweatshirt against a brutalist concrete wall. The lighting is harsh midday sun, creating deep, sharp shadows. The mood is raw, authentic, and urban, captured with a professional 35mm lens feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7IbVV8way2kA2sK3-29XMGAKDz8FosHrdozGLNpIp1pwUzJLfBJh39uXzma2qO5y2ku4Xf0fETJHGgNF-M7eyHgR6yY1OJpicFKxTMakW69l_A_argOX5zUtcofqdknhQ5j7YCZjE_lGY-ZYVFYDDOFWoot-_oB2ncC4nK3RfVr20852rOOZ9JSZFxka-HyHszmz-g0swTj0T-31SloOKVoXE3S1UFLxIDWcGnWqRyEXojsc4PGsGlVuf_W8bRLzUg5cOW40l7yJy"/>
+<div class="absolute bottom-md left-md opacity-0 group-hover:opacity-100 transition-opacity bg-surface/90 backdrop-blur-sm p-sm border border-outline-variant">
+<p class="font-label-sm text-label-sm text-primary">@urban_minimalist / LONDON</p>
+</div>
+</div>
+<div class="aspect-square relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-crosshair" data-alt="A candid urban shot of a person leaning against a glass storefront reflecting city lights. They wear a dark Atelier cap and hoodie. The color palette is cool and desaturated, highlighting the clean professional luxury style of the brand in a real-world setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAJFsHBdd5AWMZN06DMID2Rv0zh558PtWRQui99XJ9lp535JtePN4YnK0Ecm-tzpTJA_wmeprTyOsQ-bqjKvrlxvqfbeDQ4q477fepG4Q0u0Tu6cwHbcvPWkBWrVj6on8fVk0tviTFZTgMC_q0mKQbepWaxbxR-WgkpQg5WLkpm8CDc-vJU4oo8jyZvHHvJJcCBhxsdRqL4SwO83IYgEEbJ2zvRJi9p2p2myWtgC4Sw173mof9wNtKsjAZEiyGWsZN1hiL9MA5K6By"/>
+</div>
+<div class="aspect-square relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-crosshair" data-alt="Macro detail of premium fabric textures on a person's shoulder as they walk through a modern subway station. The motion blur and sharp focus on the textile weave emphasize the 'Street to Studio' quality. The lighting is synthetic, fluorescent, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbjI7nvYZTAJIspmhwan1ZT7AdiglHuj02iwGNNUTfoGjl7199oMiSJbtkmAaU0VTbcu8xfn8-YuuSDDdLPs769muYBrBurUntpp3Lj2LSMBG3I_HaAO897ZLs5_c1Gdo-BrYCIkQVnaU68WQKHw6XUfcn7-0hlo512chRjBelLPmUK_4_agtRvVp8vPpsmLPiGDpQsqhMAB7kEI0dzvHZoRsoQdXmlyXXRwCsDTdkG4P2cSUmcm2UkmWS42hMWHlzv3rO9vhoOYcz"/>
+</div>
+<div class="col-span-2 aspect-[16/9] relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-crosshair" data-alt="A wide-angle editorial shot of three models walking in sync across a vast, empty white-tiled plaza. They are dressed in different pieces from the Core Collection. The composition is symmetrical and architectural, embodying the brand's organized calm and sophisticated urban vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBejieIcDoSVw345gSx4wNQu4ksNtxB9ROYDTodP9R2_6j_8nrKjWjqkbcb4g9gWwftK0Kpa0MvWwMeRbelbOwuqf5cO3GaxrI-BjFKQ3JEfwkOgoMIb1vSaNbRTmlwLGxbkMwx9BSGxnIonMzjO-BqqrUjyQ-DsKZw9kDaCop-8q6zy03bTx4CRmmRiebJvUgpdz1LzLE-ipT66a2G9Hm3ElZJSh9-8r_3_9AHmHjt1ZKI99nv0-mG9as1Ng85ChtiZhbrsBz8-ETf"/>
+<div class="absolute top-md right-md opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-on-primary p-sm font-label-md">
+                            COLLECTION 01
+                        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant full-width mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="flex flex-col space-y-md">
+<div class="font-headline-md text-headline-md font-bold text-primary">ATELIER</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[200px]">
+                    Functional precision for the modern creative professional. Designed in New York.
+                </p>
+</div>
+<div class="flex flex-col space-y-sm">
+<h5 class="font-label-md text-label-md text-primary font-semibold uppercase">Customer Care</h5>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary underline transition-all" href="#">Sustainability</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary underline transition-all" href="#">Shipping</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary underline transition-all" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col space-y-sm">
+<h5 class="font-label-md text-label-md text-primary font-semibold uppercase">The Brand</h5>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary underline transition-all" href="#">Brand Stories</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary underline transition-all" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col space-y-md">
+<h5 class="font-label-md text-label-md text-primary font-semibold uppercase">Newsletter</h5>
+<div class="flex border-b border-outline">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md py-xs" placeholder="Email address" type="email"/>
+<button class="material-symbols-outlined text-primary">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant max-w-7xl mx-auto">
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">© 2024 ATELIER. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('section img');
+            if(heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
+
+        // Interactive cursor effect for gallery
+        const images = document.querySelectorAll('.group img');
+        images.forEach(img => {
+            img.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = img.getBoundingClientRect();
+                const x = (e.clientX - left) / width * 100;
+                const y = (e.clientY - top) / height * 100;
+                img.style.transformOrigin = `${x}% ${y}%`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#e3e2e2",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444748",
+                    "secondary-container": "#6c98ff",
+                    "on-secondary-fixed": "#001946",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary-container": "#838484",
+                    "on-background": "#1b1c1c",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f9",
+                    "surface-container-highest": "#e3e2e2",
+                    "secondary": "#2559bd",
+                    "primary-container": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#747878",
+                    "on-primary-container": "#858383",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "inverse-primary": "#c8c6c5",
+                    "inverse-surface": "#303031",
+                    "tertiary-container": "#1a1c1c",
+                    "on-secondary-container": "#002f76",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "primary-fixed": "#e5e2e1",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#fbf9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .text-shadow-sm { text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        .transition-soft { transition: all 0.4s cubic-bezier(0.2, 0, 0, 1); }
+        .parallax-bg { background-attachment: fixed; background-position: center; background-size: cover; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg">
+<!-- Top Navigation Bar -->
+<header class="bg-surface dark:bg-surface-container-high docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline flat no shadows transition-all duration-300 ease-in-out">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Men</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Women</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Accessories</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Footwear</a>
+<a class="font-label-md text-label-md text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1 transition-colors duration-200" href="#">Collections</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-primary dark:text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined">person</span></button>
+<button class="p-xs text-primary dark:text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined">favorite</span></button>
+<button class="p-xs text-primary dark:text-on-surface hover:text-secondary transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[870px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A sun-drenched coastal landscape featuring a model in an airy cream-colored linen shirt standing against a backdrop of white-washed Mediterranean architecture and a shimmering turquoise sea. The lighting is bright and ethereal, capturing the essence of high-noon summer heat. The aesthetic is clean and luxurious, with a focus on natural textures and a soft, warm color palette of sand, bone, and ocean blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2x6jdFYG8MfOE96XMhIh-QBUVmExv4GtMIgHK49Uj6Wapmlj1Fb0Z8BihykNVejviJx6t18910rX06TZqS2_vCSi8Qw7m7AqDu16iKQYapH3R-zFceNyfapLm_ZqbtB5CFLOyNhWgYhXShFS3Vi7vCG6tXuSWU7mDHvzYIc3S5hIUKuXcQGtbAfYlX14QcUqqirDs_oYYx2r42gxOguco7b_cds9rJC7a9cpBYGlz1BcLerefh4EtO0A1aZGzNdhZq6CZVJxr4E9v"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-7xl mx-auto w-full">
+<div class="max-w-2xl">
+<span class="font-label-md text-label-md text-primary tracking-[0.2em] mb-sm block">EST. 2024</span>
+<h1 class="font-display-lg text-display-lg mb-md leading-none">THE SUMMER EDIT: LINEN ETHEREAL</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">Breezy silhouettes crafted for the wandering soul. Discover our curated selection of ultra-fine linen and effortless resort wear.</p>
+<div class="flex gap-md">
+<button class="bg-primary text-on-primary h-[48px] px-lg font-label-md text-label-md hover:opacity-90 transition-soft flex items-center">SHOP THE COLLECTION</button>
+<button class="border border-primary text-primary h-[48px] px-lg font-label-md text-label-md hover:bg-surface-variant transition-soft flex items-center">EXPLORE LOOKBOOK</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Spotlight: Resort Wear -->
+<section class="py-xl px-margin-desktop max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg">Resort Wear</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Elevated essentials for the coastal escape.</p>
+</div>
+<a class="font-label-md text-label-md border-b border-primary pb-1" href="#">VIEW ALL</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-sm relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up vertical shot of a woman wearing a flowing, wide-leg linen jumpsuit in a soft terracotta shade, walking through a sunlit palm garden. The fabric creates elegant movements and soft shadows. The overall mood is sophisticated and peaceful, utilizing a palette of earth tones and bright, natural sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFMLjht8lQUfQtuQmiPytv9fTE9Yl_LCiga88b3FeqYnupQ2stZSK5aXxSp_Ri5S7cARrEKYyPQDeFEwBYUyIGrWcRoNLyCPa6xFPhR_gDjnfvMd2TwulGs8UIH2azOY2CPapoqzyetwvl7xIPmfpXlAqTQNQ6sttd1B1d-u_KTxu5eNr42cZowqsPEIe4hN0We7Be9oc2PNsiNOeDBtN2sS7voeWGPOWGIJv2Gcq7-BnNSs4jVn2lwGTRsidKbf-fbUzvjXCfpko8"/>
+<button class="absolute bottom-md left-1/2 -translate-x-1/2 bg-surface/90 text-primary py-sm px-lg font-label-md text-label-md opacity-0 group-hover:opacity-100 transition-soft">QUICK ADD</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg mb-xs">Aurelia Linen Jumpsuit</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Terracotta</p>
+</div>
+<span class="font-label-md text-label-md">$245</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-sm relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist studio photograph of a man’s tailored linen shirt in crisp optic white, displayed with effortless luxury. The light is soft and directional, highlighting the natural weave and texture of the fabric. The image communicates a professional yet relaxed aesthetic, perfect for high-end summer fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrBgG8wTazYtPX7Xs18CqfqNI0D2QvxuQoURfLkienRzECR6hX8-i6NtEKUljWH3VcGUJFwZzIogFvyBjyItsLxcaXrf9moK5Z4m1LJTkvNz4EopF8GB3z4t0OFtM6CMC1XeBmyvJ26VNmBBqEtF-pwr_J5--AxsJtO3dDt3nuOsLmAzJOABOJQkbHLgruUwEprbGuweZEAqMhsR-JXth-2tO63xLnQtgKu41HRivGJyHh1ZO-AyGtcPBOsKl5ZhqINVQGfBYt5icz"/>
+<button class="absolute bottom-md left-1/2 -translate-x-1/2 bg-surface/90 text-primary py-sm px-lg font-label-md text-label-md opacity-0 group-hover:opacity-100 transition-soft">QUICK ADD</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg mb-xs">Riviera Classic Shirt</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Optic White</p>
+</div>
+<span class="font-label-md text-label-md">$180</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-sm relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Detail of a silk-linen blend dress in a soft sand color, draped elegantly over a minimalist wooden chair in a bright, airy room with soft shadows of palm leaves. The lighting is clean and professional, focusing on the high-quality craftsmanship and delicate material of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCApCn4ObXo9MRkoLAYeC1AGUmgvW7JdRgdPnHQ9Z8ZN5Agc0vouqlpig_4_ED2p6EdqfUF6Nt1ZMVSXOJqFBjVpNDx17w0_aoJLm-PjYqGIDZPEvKKOoGfF6PIChKKZ0nLuX1OObxB2aHE3KHOTTVzu7RpI3ZGHN2ot8U5f1DJPOxwH7IOVDiDmUGUp_IGZJ9DZaJr-nuf4IwJ-jHlCrUPKwRTlQ-2V069eOTt87th4qqlV9D1D8ROGpqLCwYVvWDyEENrhWlMaG18"/>
+<button class="absolute bottom-md left-1/2 -translate-x-1/2 bg-surface/90 text-primary py-sm px-lg font-label-md text-label-md opacity-0 group-hover:opacity-100 transition-soft">QUICK ADD</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg mb-xs">Isla Drape Dress</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Sand</p>
+</div>
+<span class="font-label-md text-label-md">$310</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Travel Essentials Packing List (Asymmetric Bento) -->
+<section class="bg-surface-container-low py-xl">
+<div class="px-margin-desktop max-w-7xl mx-auto">
+<div class="mb-lg text-center">
+<h2 class="font-headline-lg text-headline-lg">Travel Essentials</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Curated sets for the intentional traveler.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-sm h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-surface border border-outline-variant p-lg flex flex-col justify-between group overflow-hidden relative">
+<div class="relative z-10">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-xs block">Volume I</span>
+<h3 class="font-headline-md text-headline-md mb-md">The Weekend Getaway</h3>
+<ul class="space-y-sm">
+<li class="flex items-center gap-xs font-body-md text-body-md"><span class="material-symbols-outlined text-[18px]">check</span> Signature Linen Shirt</li>
+<li class="flex items-center gap-xs font-body-md text-body-md"><span class="material-symbols-outlined text-[18px]">check</span> Drawstring Shorts</li>
+<li class="flex items-center gap-xs font-body-md text-body-md"><span class="material-symbols-outlined text-[18px]">check</span> Leather Travel Tote</li>
+<li class="flex items-center gap-xs font-body-md text-body-md"><span class="material-symbols-outlined text-[18px]">check</span> UV-Protect Panama Hat</li>
+</ul>
+</div>
+<button class="relative z-10 w-fit border border-primary text-primary h-[40px] px-md font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-soft">SHOP FULL SET</button>
+<img class="absolute right-[-10%] bottom-[-10%] w-[60%] opacity-20 group-hover:opacity-40 transition-soft group-hover:scale-110" data-alt="Flat lay photography of luxury travel essentials including a folded linen shirt, a leather passport holder, high-end sunglasses, and a classic hat on a neutral stone surface. The lighting is crisp and modern, emphasizing the clean lines and premium materials of the ATELIER brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaezC15OBnVeNqetl-vRs17G8udJe3qr4uic-66HwWTPLhzrF2lYQyf3lv7gMMxaJzJFSC624usNZsad_cCzTQuHjQzpM6DkkeWA9998ZUUOFnHzNnJS4B1JbfjrHGhAtCrssSkaM0gTWOZa2GNjtCQG9wBFWsHOGP-nA9xzZ5p2H5_PVkQFcLGh0PodYH0jJH65Wg5ktqQrA-Mj2QvOabxA-B5D5bRF7AEGPmtzS4jGb4gTgAG0jcLpFvLISXSU9XUnhcm_kzIn0U"/>
+</div>
+<div class="md:col-span-2 bg-surface border border-outline-variant p-lg flex items-center justify-between group cursor-pointer overflow-hidden">
+<div class="max-w-[60%]">
+<h3 class="font-title-lg text-title-lg">Sun Protection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Handcrafted hats and biological SPF essentials.</p>
+</div>
+<div class="w-24 h-24 bg-surface-variant rounded-full flex items-center justify-center group-hover:bg-secondary-container transition-soft">
+<span class="material-symbols-outlined text-display-lg text-on-surface">light_mode</span>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-md flex flex-col justify-center text-center group cursor-pointer hover:border-secondary transition-soft">
+<span class="material-symbols-outlined text-secondary mb-sm">footprint</span>
+<h4 class="font-label-md text-label-md">Sandals</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Italian Leather</p>
+</div>
+<div class="bg-surface border border-outline-variant p-md flex flex-col justify-center text-center group cursor-pointer hover:border-secondary transition-soft">
+<span class="material-symbols-outlined text-secondary mb-sm">luggage</span>
+<h4 class="font-label-md text-label-md">Luggage</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hardshell Series</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Vacation Gallery -->
+<section class="py-xl overflow-hidden">
+<div class="px-margin-desktop max-w-7xl mx-auto mb-lg">
+<h2 class="font-headline-lg text-headline-lg">Atelier Abroad</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real moments, shared by our community.</p>
+</div>
+<div class="flex gap-sm animate-scroll whitespace-nowrap px-margin-desktop">
+<!-- Gallery Item 1 -->
+<div class="inline-block w-[300px] aspect-square flex-shrink-0 group relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A candid vacation photo of a woman in an ATELIER linen dress sitting at an outdoor cafe in Santorini. The background shows blue domes and the Aegean Sea under a bright sun. The image has a natural, warm film-grain aesthetic, celebrating the relaxed spirit of summer vacations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnOyhS-z--1oLRaFt4uDxdhNAYIp-QoTMWHAiMt48F4OJxfiyDgE27kM5X_lSWbQldxLFLFXsOYn9adXUDK-jZ3Osdr2pdCxhHPmPv-Sw_w-eQu9__BXF-ec6P_Hr_a7cdhgw00NDWG3mJPuC1ibl_zvFRvYu1vC8cVVUrrf63Wbca5vsZEb2qocQzO1aAmZLv74uDW2fLJgmxmsnzifUy0sP3H4SaE4tsG2KuOvr4y1uUTltPfvPC6eQxiNH00OyZcvCoNMiSK5XX"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-soft flex flex-col justify-center items-center text-on-primary">
+<span class="font-label-md text-label-md">@SOPHIE.W</span>
+<span class="font-label-sm text-label-sm">Santorini, GR</span>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="inline-block w-[300px] aspect-square flex-shrink-0 group relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A lifestyle photo of a man in ATELIER linen trousers walking along a pristine beach in the Maldives. High-key lighting highlights the soft, natural colors of the sand and water. The mood is tranquil and luxurious, focusing on effortless style in a tropical setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfM_ajneeSrEBMdh9reOPxiofPpLwe65ZTZeIn0dS1W1z6XK4zxFEmQioq4vwacuVwY7j64oOWx2dr2dX7cu1xd1WqwpGjcw0slmYi8irMXh0LL9nTBSozrZh9e4mvzxf64YrbfY-UBtTP2zCyF6lf49xECmO2bVgIs2Cs95Mz_EE3sMUcggT65EjiCCoC_kZnyYxpViQln3OsSkwTQ2tjafvHmvH01heUplMN8xjnF4zNEpoA2z0daArYCx_W7baKg3miDBgrR2Q3"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-soft flex flex-col justify-center items-center text-on-primary">
+<span class="font-label-md text-label-md">@MARC_OFFICIAL</span>
+<span class="font-label-sm text-label-sm">Maldives</span>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="inline-block w-[300px] aspect-square flex-shrink-0 group relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up detail of a guest at a summer garden party wearing an ATELIER silk scarf tied elegantly around their neck. The background is a soft blur of lush greenery and golden hour sunlight, creating a professional and refined editorial look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI906FAvQsNt8ssv4PhfPdRFj5R_B82Wy1OVqQtibVAptqJn9aA689zS9TcnrKODjURjtYt6usBTNMMmWj9b2Va51sYKGt9I2SPmokuczXaVg8xXvzW7GPJkNWRJuqvdLVwB-Np1eu1kqQw_w06kqyaUPcgy4678Ta3pmBGLfdEoUNMx8jmr2sPyo_52qxS6v4MOaOLOx5iT38ofa-JR55GWfay1t_yl5aRASCNxfp6Mn7mmS5okITwdjZktzXcNJ4cJyM_RSIyzxG"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-soft flex flex-col justify-center items-center text-on-primary">
+<span class="font-label-md text-label-md">@BELLA.LIFESTYLE</span>
+<span class="font-label-sm text-label-sm">Provence, FR</span>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="inline-block w-[300px] aspect-square flex-shrink-0 group relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide-angle landscape shot of a person standing on a cliff edge overlooking the Amalfi Coast, wearing an oversized white ATELIER shirt that catches the wind. The morning light is cool and crisp, emphasizing the vast scale of the sea and the purity of the clothing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsy_gqsmI7zqyWb2yz7z5TY1xlMIqHNsa1bBVMbxvEQS2UaIFUzFg8vsc6-LkqSMYv9tjpF_dqlYgzG7hA1QsXDS_5QrOmB99W0IO08EnfVTEeH1zLKvI754wkQHCsSY_M7GXNvtVEvujW-72xlH5_-JYx8ZDvJhSL8j7WxKwSeutRlLffUHAwVew90dOc2m7393JhRfvhA2y5d9oDlz6rTFpN45wNlnWTYBoUuMqlZLNY-8muxoPRvR1H_Z8HSERbwcgAp_QKR_dc"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-soft flex flex-col justify-center items-center text-on-primary">
+<span class="font-label-md text-label-md">@DAVID_TREK</span>
+<span class="font-label-sm text-label-sm">Amalfi, IT</span>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="inline-block w-[300px] aspect-square flex-shrink-0 group relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylish traveler wearing an ATELIER wide-brim straw hat and linen coordinated set leaning against a vintage car in the Balearic Islands. The lighting is warm and sun-drenched, creating a nostalgic, premium summer aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnY4lGX1WbjecugpNakunB8hICcT3lvVpcN3YW3DBdsRBZFKJSBXHOP4pYDab5dZ3FosRuboednVD2KVul8434zY7UnCpGzjCN3X6yIhQ5MhepDLGBetz3JTfEd6NwPTtYzx8hN7gJNL3t5NRTVDX0JqrgiTA1aMD-lDMxm5EbQoKXBp4eaAU2yPC1S2ooLT_yyBGGvDi_TsHG8W1F2QED_IW51FKcwJz2Mnp3TkEKcJiVRN9enfBuMty_WE2y7jkp9QnKnqKbQZXr"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-soft flex flex-col justify-center items-center text-on-primary">
+<span class="font-label-md text-label-md">@MARTA.TRAVELS</span>
+<span class="font-label-sm text-label-sm">Ibiza, ES</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Join -->
+<section class="py-xl bg-primary text-on-primary text-center">
+<div class="px-margin-desktop max-w-2xl mx-auto">
+<span class="font-label-md text-label-md tracking-widest mb-sm block">JOIN THE ATELIER</span>
+<h2 class="font-headline-lg text-headline-lg mb-md">Early Access to the High Summer Drop</h2>
+<p class="font-body-md text-body-md text-on-primary-container mb-lg opacity-80">Be the first to explore our upcoming silk-linen limited releases and receive curated travel guides monthly.</p>
+<div class="flex border border-on-primary-container p-xs max-w-md mx-auto">
+<input class="bg-transparent border-none focus:ring-0 flex-grow font-body-md text-on-primary placeholder:text-on-primary-container/50" placeholder="Email Address" type="email"/>
+<button class="bg-on-primary text-primary px-lg font-label-md text-label-md hover:bg-surface-variant transition-soft">SUBSCRIBE</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest full-width mt-xl border-t border-outline-variant dark:border-outline flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface mb-md">ATELIER</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">Defining modern luxury through meticulous craftsmanship and sustainable innovation since 2024.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md font-semibold text-primary mb-xs">SHOP</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">New Arrivals</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Summer Collection</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Resort Wear</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Accessories</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md font-semibold text-primary mb-xs">EXPLORE</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Brand Stories</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md font-semibold text-primary mb-xs">LEGAL</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Terms of Service</a>
+<div class="mt-md flex gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">public</span>
+<span class="material-symbols-outlined text-on-surface-variant">eco</span>
+<span class="material-symbols-outlined text-on-surface-variant">verified</span>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant dark:border-outline text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant">© 2024 ATELIER. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for the navigation and scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-base', 'bg-white/90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md');
+            }
+        });
+
+        // Gallery scroll logic
+        const scrollContainer = document.querySelector('.animate-scroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2; 
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body></html>

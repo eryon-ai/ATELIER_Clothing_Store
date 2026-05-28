@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATELIER | Limited Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#e3e2e2",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444748",
+                    "secondary-container": "#6c98ff",
+                    "on-secondary-fixed": "#001946",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary-container": "#838484",
+                    "on-background": "#1b1c1c",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f9",
+                    "surface-container-highest": "#e3e2e2",
+                    "secondary": "#2559bd",
+                    "primary-container": "#1c1b1b",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#747878",
+                    "on-primary-container": "#858383",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "inverse-primary": "#c8c6c5",
+                    "inverse-surface": "#303031",
+                    "tertiary-container": "#1a1c1c",
+                    "on-secondary-container": "#002f76",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "primary-fixed": "#e5e2e1",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#fbf9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474746",
+                    "inverse-on-surface": "#f2f0f0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .serial-text { writing-mode: vertical-rl; text-orientation: mixed; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container-high border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 flat no shadows">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-on-surface">ATELIER</span>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Men</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Women</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Accessories</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Footwear</a>
+<a class="text-primary dark:text-on-surface border-b-2 border-primary dark:border-secondary-container pb-1 font-label-md text-label-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Collections</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-base top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-base py-xs bg-surface-container border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-none focus:border-primary transition-all w-64" placeholder="Search Drop" type="text"/>
+</div>
+<button class="material-symbols-outlined text-primary hover:text-secondary p-xs transition-all" data-icon="person">person</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary p-xs transition-all" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary p-xs transition-all relative" data-icon="shopping_bag">
+                    shopping_bag
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero: The Core Identity -->
+<section class="relative h-[921px] flex items-center overflow-hidden bg-surface-container-low">
+<div class="grid grid-cols-12 w-full max-w-7xl mx-auto px-margin-desktop items-center z-10">
+<div class="col-span-12 lg:col-span-6">
+<span class="font-label-md text-label-md text-secondary tracking-[0.2em] mb-base block">LIMITED EDITION 01/24</span>
+<h1 class="font-display-lg text-display-lg mb-md leading-none">THE MONOLITH SERIES</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-md">
+                        An architectural exploration of form and silhouette. Only 100 units crafted globally. Each piece is individually numbered and hand-finished in our London atelier.
+                    </p>
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm font-label-md text-label-md tracking-wider hover:opacity-90 transition-opacity">
+                            SECURE EARLY ACCESS
+                        </button>
+<button class="border border-primary text-primary px-lg py-sm font-label-md text-label-md tracking-wider hover:bg-surface-container transition-colors">
+                            VIEW ARCHIVE
+                        </button>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-6 relative mt-xl lg:mt-0">
+<div class="aspect-[4/5] bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="A high-fashion professional editorial shot of a minimalist, structured wool coat in deep charcoal gray. The model is posed architecturally against a sterile white gallery wall with sharp, dramatic shadows creating high contrast. The lighting is cold and precise, emphasizing the luxurious texture of the fabric and the clean, straight lines of the silhouette. The overall mood is sophisticated, exclusive, and avant-garde." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2sdUDAYrWzYfvqEBbaMBXkuP_RcrlyrblD-wQBGkP3U4YwO-9_w0zmMJ05kvNqajhKo6eYB4nbT2eqpbi_ZcsbodT3XYCQ8Fc1DLDTpN8y_l2ThYdLPJzJLvprojBpYYGE1jJUQbxxsgeJqZDJy-igrb1BYL50IB1kJVRXnuxBUcqJ6Hf_qlxCQAl_f74dcXkCJnWrZcnkaQ_Pssmey_QvutKMmLsIVfAhXC_noU_ESqxU2gaKp1PXTHUdhhxdXYAdGsIzoLy_ZX6"/>
+</div>
+<div class="absolute -right-base top-1/2 -translate-y-1/2 bg-surface p-md border border-outline-variant shadow-sm hidden md:block">
+<span class="serial-text font-label-md text-label-md tracking-widest text-outline">SERIAL: AT-001/100</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-md text-center opacity-10 pointer-events-none select-none">
+<span class="font-display-lg text-[18vw] leading-none uppercase font-black">AUTHENTICITY</span>
+</div>
+</section>
+<!-- Drop Timer -->
+<section class="bg-primary text-on-primary py-lg">
+<div class="max-w-7xl mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md">
+<div>
+<h2 class="font-headline-md text-headline-md">NEXT DROP IN:</h2>
+<p class="font-body-md text-body-md opacity-70">Series 02: "Liquid Mercury" Capsule</p>
+</div>
+<div class="flex gap-lg">
+<div class="text-center">
+<span class="font-display-lg text-display-lg block" id="timer-days">02</span>
+<span class="font-label-sm text-label-sm opacity-60">DAYS</span>
+</div>
+<div class="text-center">
+<span class="font-display-lg text-display-lg block" id="timer-hours">14</span>
+<span class="font-label-sm text-label-sm opacity-60">HRS</span>
+</div>
+<div class="text-center">
+<span class="font-display-lg text-display-lg block" id="timer-mins">52</span>
+<span class="font-label-sm text-label-sm opacity-60">MINS</span>
+</div>
+<div class="text-center">
+<span class="font-display-lg text-display-lg block" id="timer-secs">08</span>
+<span class="font-label-sm text-label-sm opacity-60">SECS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: The Story -->
+<section class="py-xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="mb-lg">
+<span class="font-label-md text-label-md text-outline tracking-[0.2em]">02 / PHILOSOPHY</span>
+<h2 class="font-headline-lg text-headline-lg">THE STORY BEHIND THE DROP</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-gutter h-auto md:h-[800px]">
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-low border border-outline-variant p-lg flex flex-col justify-end relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" data-alt="A macro close-up of a premium tailoring process in a brightly lit, clean professional studio. A pair of silver shears rests on a bolt of high-end Italian silk with visible weave patterns. The atmosphere is quiet and focused, with soft natural light coming from a high window, highlighting the dust particles in the air and the meticulous attention to craft. Minimalist tools are arranged with geometric precision on a white wooden table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO5sNnblO7g1KQoDnEd-s38rNffLqUrJQ91r7oWVYC0G6xPk1-gn_cSBAC23V1p2opqEo6ZZe-i45yzpbKRrl1jFotN03-fXfFNx_By6w-WTonoV9H604-4FxBcsvZUnIFyBDMXYuHGgoE10gfE_DCwRsnMBuBPhDnm4gwlJYy0bXWKMgaW90MvYdWKQ5NPPPQ6DieBcda8RtjiS-XYDxFfqjJJpjfyHqvhMz5aNYbUG_YKmlh9Xm5-x8VvVb85LLZxteZmQZ-pnNE"/>
+<div class="relative z-10">
+<h3 class="font-title-lg text-title-lg mb-sm">MATERIAL INTEGRITY</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">We sourced single-origin wool from the Biella region, ensuring every thread meets the uncompromising standards of the Atelier. Sustainability isn't a feature; it's the foundation.</p>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-2 bg-surface-container-highest border border-outline-variant overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" data-alt="A vertical editorial photograph of a model in a minimal streetwear-inspired ensemble, standing in a large, industrial concrete space with soft morning light. The color palette is restricted to shades of beige, cream, and stone. The composition emphasizes the verticality of the space and the structural elegance of the clothing. The image is clean, airy, and evokes a sense of high-end, contemporary luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALkkWO8VvqV5JWZcHhgGUaq2BcS8O5Vm2tl2rQUxwKoRYemWBUnKzwIiHbOwMtjpuLAFGKna-V-eJJXI-Db60y6bLcxA2frGyIKl9jQCfstPNavXT2104KXxLHwg9HhfQEjKD8jsRiJbNDLgJAfXKZ8-cvIPmVYWFiaeFsEHd57F3Ig_x4PDB4ucy6SVqLj7UFi73bgCJPnYNIFBWQFY3PyhF4HSksGtHQag-h8OjOOfGFS3SdV1XPD5gxmiT9vGnxEyJZ21aU7ddn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-lg text-on-primary">
+<span class="font-label-sm text-label-sm mb-xs uppercase tracking-widest">Craftsmanship</span>
+<h3 class="font-headline-md text-headline-md">HAND-FINISHED DETAILS</h3>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 bg-surface border border-outline p-lg">
+<div class="w-12 h-12 bg-primary flex items-center justify-center text-on-primary mb-md">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-sm">SERIALIZED EXCLUSIVITY</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Each item features a unique laser-etched serial number on an internal titanium plate, linked to a digital certificate of authenticity.</p>
+</div>
+<div class="md:col-span-1 md:row-span-1 bg-secondary text-on-secondary p-lg flex flex-col justify-between">
+<h3 class="font-headline-md text-headline-md">MEMBER BENEFITS</h3>
+<ul class="font-label-md text-label-md space-y-sm">
+<li class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span> 24H PRE-ACCESS</li>
+<li class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span> BESPOKE FITTING SERVICE</li>
+<li class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span> LIFETIME CARE PROGRAM</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Highlight: Serial Focus -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-outline-variant"></div>
+<img class="w-full aspect-square object-cover grayscale shadow-lg" data-alt="A highly detailed close-up shot of a small, discreet titanium serial plate sewn into the lining of a luxury garment. The plate is laser-engraved with the numbers '001/100' in a clean, modern sans-serif typeface. The surrounding fabric is a rich, navy blue heavy silk with a visible, high-quality grain. The lighting is dramatic and focused, creating a sense of preciousness and industrial precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTO5G_3YUZ4nOoT2LGxfsnhMzEXIarKLcV_frKlO7fqL76IiRMs5rP_bTOSyHdF9lZ8DanuNSJrdX2HXOCxHvOl0y1g0mpsvOyRhQl8LhVWdF1BoHdsKoZ-qk4NUiNFEQtLLtENfjTFMbycyE_-99QfwkNPrfg9jIELwETu-FGPWWQt3pJR-dVaOJEXyPDmqVCHF8v9rT7BNGtCcLXGj1_4IVLGNggyOXHFKkRb7DpCPOiveXNhtWTDSjF11fJjyR662orMv4XWyk"/>
+</div>
+<div>
+<span class="font-label-md text-label-md text-secondary tracking-widest mb-base block">INDIVIDUAL NUMBERING</span>
+<h2 class="font-headline-lg text-headline-lg mb-md">YOUR PIECE, YOUR STORY</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+                        The 'Monolith' collection is limited to exactly one hundred iterations of each design. Unlike mass production, we believe your garment should be as unique as your professional footprint. 
+                    </p>
+<div class="p-md bg-surface border-l-4 border-primary">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md">CURRENT AVAILABILITY</span>
+<span class="font-label-md text-label-md text-error">CRITICAL: 14 UNITS LEFT</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1">
+<div class="bg-primary h-full w-[86%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Member Early Access -->
+<section class="py-xl bg-surface border-y border-outline-variant">
+<div class="max-w-3xl mx-auto px-margin-mobile text-center">
+<span class="material-symbols-outlined text-[48px] text-primary mb-md" data-icon="lock">lock</span>
+<h2 class="font-headline-lg text-headline-lg mb-md uppercase tracking-tighter">MEMBER-ONLY ACCESS</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+                    Join the ATELIER circle for priority invitations to limited drops, exclusive colorways, and archival pre-sales. Entry is by approval only.
+                </p>
+<form class="space-y-md">
+<div class="relative">
+<input class="w-full border-b border-outline-variant py-md px-base focus:border-primary outline-none transition-all font-body-md text-body-md bg-transparent" placeholder="Professional Email Address" type="email"/>
+</div>
+<button class="w-full bg-primary text-on-primary py-md font-label-md text-label-md tracking-[0.2em] hover:bg-on-surface-variant transition-colors" type="submit">
+                        REQUEST ACCESS
+                    </button>
+</form>
+<p class="mt-md font-label-sm text-label-sm text-outline">By requesting access, you agree to our Privacy Policy and exclusive membership terms.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest full-width mt-xl border-t border-outline-variant dark:border-outline flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">ATELIER</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">The future of professional luxury. Discipline in design, excellence in execution.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">COLLECTION</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Sustainability</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Shipping</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Brand Stories</a>
+</nav>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">LEGAL</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Terms of Service</a>
+</nav>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">CONTACT</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Contact Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed underline transition-all opacity-100 hover:opacity-80" href="#">Concierge</a>
+</nav>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop py-md border-t border-outline-variant flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">© 2024 ATELIER. All rights reserved.</span>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" data-icon="currency_exchange">currency_exchange</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the timer
+        function updateTimer() {
+            const now = new Date();
+            const target = new Date();
+            target.setDate(now.getDate() + 2); // Hardcoded offset for demo
+            
+            const diff = target - now;
+            
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('timer-days').innerText = String(d).padStart(2, '0');
+            document.getElementById('timer-hours').innerText = String(h).padStart(2, '0');
+            document.getElementById('timer-mins').innerText = String(m).padStart(2, '0');
+            document.getElementById('timer-secs').innerText = String(s).padStart(2, '0');
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>
