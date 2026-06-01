@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -10,12 +11,18 @@ export default function Footer() {
     if (email) {
       setSubscribed(true)
       setEmail('')
+      toast.success('Welcome to the ATELIER circle.')
     }
   }
 
+  const showComingSoon = (e, feature) => {
+    e.preventDefault()
+    toast(`${feature} coming soon`, { icon: '⏳' })
+  }
+
   return (
-    <footer className="bg-surface-container-lowest border-t border-outline-variant mt-xl">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-xl max-w-8xl mx-auto">
+    <footer className="bg-surface-container-lowest border-t border-outline-variant mt-xl pb-[90px] md:pb-0">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-lg md:py-xl max-w-8xl mx-auto">
         {/* Brand */}
         <div className="md:col-span-4">
           <Link to="/" className="font-headline-md text-headline-md font-bold text-primary mb-6 block tracking-tighter">
@@ -25,13 +32,13 @@ export default function Footer() {
             Crafting a new paradigm of luxury through disciplined design and architectural silhouettes.
           </p>
           <div className="flex gap-md">
-            <a href="#" aria-label="Instagram" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="#" onClick={(e) => showComingSoon(e, 'Instagram')} aria-label="Instagram" className="text-on-surface-variant hover:text-primary transition-colors">
               <span className="material-symbols-outlined">camera</span>
             </a>
-            <a href="#" aria-label="Website" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="#" onClick={(e) => showComingSoon(e, 'Website')} aria-label="Website" className="text-on-surface-variant hover:text-primary transition-colors">
               <span className="material-symbols-outlined">public</span>
             </a>
-            <a href="#" aria-label="Video" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="#" onClick={(e) => showComingSoon(e, 'Video')} aria-label="Video" className="text-on-surface-variant hover:text-primary transition-colors">
               <span className="material-symbols-outlined">video_library</span>
             </a>
           </div>
@@ -45,7 +52,6 @@ export default function Footer() {
               { label: 'New Arrivals', href: '/collections/new-arrivals' },
               { label: 'Collections', href: '/products' },
               { label: 'Editorial', href: '/editorial' },
-              { label: 'Sizing Guide', href: '#' },
             ].map(l => (
               <li key={l.label}>
                 <Link to={l.href} className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors">
@@ -61,15 +67,15 @@ export default function Footer() {
           <h4 className="font-label-md text-label-md uppercase text-primary mb-6">Company</h4>
           <ul className="space-y-4">
             {[
-              { label: 'Sustainability', href: '#' },
-              { label: 'Shipping & Returns', href: '#' },
-              { label: 'Privacy Policy', href: '#' },
-              { label: 'Terms of Service', href: '#' },
+              { label: 'Sustainability' },
+              { label: 'Shipping & Returns' },
+              { label: 'Privacy Policy' },
+              { label: 'Terms of Service' },
             ].map(l => (
               <li key={l.label}>
-                <Link to={l.href} className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors">
+                <a href="#" onClick={(e) => showComingSoon(e, l.label)} className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors">
                   {l.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -92,7 +98,7 @@ export default function Footer() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="Email Address"
-                className="bg-transparent border-none focus:ring-0 w-full py-2 font-body-md outline-none"
+                className="bg-transparent border-none focus:ring-0 w-full py-2 font-body-md text-[16px] md:text-body-md outline-none"
                 required
               />
               <button type="submit" className="font-label-md text-label-md uppercase tracking-widest px-4 hover:text-secondary transition-colors">
@@ -104,14 +110,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="px-margin-desktop py-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4 max-w-8xl mx-auto">
+      <div className="px-margin-mobile md:px-margin-desktop py-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4 max-w-8xl mx-auto text-center md:text-left">
         <p className="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase">
           © 2024 ATELIER STUDIOS. ALL RIGHTS RESERVED.
         </p>
         <div className="flex gap-md">
-          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Privacy</a>
-          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Terms</a>
-          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Cookies</a>
+          <a href="#" onClick={(e) => showComingSoon(e, 'Privacy Policy')} className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Privacy</a>
+          <a href="#" onClick={(e) => showComingSoon(e, 'Terms of Service')} className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Terms</a>
+          <a href="#" onClick={(e) => showComingSoon(e, 'Cookie Policy')} className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Cookies</a>
         </div>
       </div>
     </footer>

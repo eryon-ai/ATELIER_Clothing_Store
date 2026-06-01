@@ -3,7 +3,7 @@
 //  480+ Products across all collections — fully curated names & images
 // ─────────────────────────────────────────────────────────────────
 
-// High-quality product images (AI Generated + Unsplash)
+// High-quality product images (Local Assets)
 const IMGS = {
   outerwear:  '/images/outerwear.png',
   knitwear:   '/images/knitwear.png',
@@ -11,31 +11,17 @@ const IMGS = {
   accessories:'/images/accessories.png',
   bottoms:    '/images/bottoms.png',
   tops:       '/images/tops.png',
-  parkaWeb:   'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
-  blazerWeb:  'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
-  jacketWeb:  'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80',
-  coatWeb:    'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=800&q=80',
-  hoodieWeb:  'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80',
-  bootsWeb:   'https://images.unsplash.com/photo-1608228068998-573556d11a4b?auto=format&fit=crop&w=800&q=80',
-  rigWeb:     'https://images.unsplash.com/photo-1550246140-5119ae4790b8?auto=format&fit=crop&w=800&q=80',
-  watchWeb:   'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80',
-  glassesWeb: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80',
-  pantsWeb:   'https://images.unsplash.com/photo-1617331720188-7501a3511eb0?auto=format&fit=crop&w=800&q=80',
-  sneakerWeb: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80',
-  teeWeb:     'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80',
-  glassesWeb2:'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
-  hoodieWeb2: 'https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=800&q=80',
 }
 
 // Images grouped by category — ensures correct images per product type
 const CAT_IMGS = {
-  outerwear:   [IMGS.outerwear, IMGS.parkaWeb, IMGS.blazerWeb, IMGS.jacketWeb, IMGS.coatWeb],
-  knitwear:    [IMGS.knitwear, IMGS.hoodieWeb, IMGS.hoodieWeb2],
-  footwear:    [IMGS.bootsWeb, IMGS.sneakerWeb],
-  sneakers:    [IMGS.sneakers, IMGS.sneakerWeb],
-  accessories: [IMGS.accessories, IMGS.rigWeb, IMGS.watchWeb, IMGS.glassesWeb, IMGS.glassesWeb2],
-  bottoms:     [IMGS.bottoms, IMGS.pantsWeb],
-  tops:        [IMGS.tops, IMGS.teeWeb],
+  outerwear:   [IMGS.outerwear],
+  knitwear:    [IMGS.knitwear],
+  footwear:    [IMGS.sneakers],
+  sneakers:    [IMGS.sneakers],
+  accessories: [IMGS.accessories],
+  bottoms:     [IMGS.bottoms],
+  tops:        [IMGS.tops],
 }
 
 // Curated product name pools for each category — no generic names
@@ -154,20 +140,40 @@ const COLLECTIONS = [
 ]
 
 // Helper: create a product
-const p = (id, slug, name, category, collection, price, comparePrice, img, colors, sizes, desc, features = [], rating = 4.5, reviewCount = 48, isNew = false, isLimited = false) => ({
-  id, slug, name, category, collection, price,
-  comparePrice: comparePrice || null,
-  discount: comparePrice ? Math.round(((comparePrice - price) / comparePrice) * 100) : null,
-  images: [img],
-  colors: colors || [{ name: 'Obsidian Black', value: '#000000' }],
-  sizes: sizes || ['XS', 'S', 'M', 'L', 'XL'],
-  description: desc || DESCRIPTIONS[category] || 'Premium ATELIER piece.',
-  features: features || FEATURES[category] || [],
-  rating, reviewCount, isNew, isLimited,
-  inStock: true,
-  badge: isLimited ? 'LIMITED' : isNew ? 'NEW' : comparePrice ? 'SALE' : null,
-  tags: [category, collection].filter(Boolean),
-})
+const p = (id, slug, name, category, collection, price, comparePrice, img, colors, sizes, desc, features = [], rating = 4.5, reviewCount = 48, isNew = false, isLimited = false) => {
+  const lifecycle = Math.random() > 0.8 ? 'Draft' : (Math.random() > 0.9 ? 'Archived' : 'Active')
+  const revenue = Math.floor(Math.random() * 50000)
+  return {
+    id, slug, name, category, collection, price,
+    comparePrice: comparePrice || null,
+    discount: comparePrice ? Math.round(((comparePrice - price) / comparePrice) * 100) : null,
+    images: [img],
+    colors: colors || [{ name: 'Obsidian Black', value: '#000000' }],
+    sizes: sizes || ['XS', 'S', 'M', 'L', 'XL'],
+    description: desc || DESCRIPTIONS[category] || 'Premium ATELIER piece.',
+    features: features || FEATURES[category] || [],
+    rating, reviewCount, isNew, isLimited,
+    inStock: true,
+    badge: isLimited ? 'LIMITED' : isNew ? 'NEW' : comparePrice ? 'SALE' : null,
+    tags: [category, collection, isNew ? 'new-in' : ''].filter(Boolean),
+    lifecycleStatus: lifecycle,
+    publishDate: lifecycle === 'Draft' ? '2026-07-01' : null,
+    inventoryCount: Math.floor(Math.random() * 200),
+    analytics: {
+      revenueYTD: revenue,
+      views: Math.floor(revenue / (price * 0.05)), // Rough mock for views
+      conversionRate: (Math.random() * 4 + 1).toFixed(1), // 1.0 to 5.0%
+      performanceScore: Math.floor(Math.random() * 40) + 60 // 60 to 100
+    },
+    seoScore: Math.floor(Math.random() * 30) + 70, // 70 to 100
+    variants: (sizes || ['S', 'M', 'L']).map(size => ({
+      sku: `${slug.toUpperCase()}-${size}`,
+      title: size,
+      inventory: Math.floor(Math.random() * 50),
+      priceOffset: 0
+    }))
+  }
+}
 
 let _idCounter = 1
 const generateProducts = () => {

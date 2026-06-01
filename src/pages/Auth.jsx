@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 import useAuthStore from '../store/useAuthStore'
 import toast from 'react-hot-toast'
 
@@ -7,15 +10,30 @@ const TOAST_STYLE = {
   style: { background: '#000', color: '#fff', fontFamily: 'Hanken Grotesk', fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' },
 }
 
+const loginSchema = z.object({
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
+})
+
+const signupSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
+})
+
+const forgotPasswordSchema = z.object({
+  email: z.string().email('Invalid email address'),
+})
+
 export function LoginPage() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(loginSchema)
+  })
   const { login, isLoading } = useAuthStore()
   const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const result = await login(email, password)
+  const onSubmit = async (data) => {
+    const result = await login(data.email, data.password)
     if (result.success) {
       toast.success('Welcome back', TOAST_STYLE)
       navigate('/dashboard')
@@ -30,17 +48,19 @@ export function LoginPage() {
       subtitle="Access your ATELIER account."
       footer={<>No account? <Link to="/auth/signup" className="text-secondary underline">Create one</Link></>}
     >
-      <form onSubmit={handleSubmit} className="flex flex-col gap-gutter">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-gutter">
         <label className="flex flex-col gap-xs">
           <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Email</span>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="input-ghost" required placeholder="you@example.com" />
+          <input type="email" {...register('email')} className={`input-ghost ${errors.email ? 'border-error' : ''}`} placeholder="you@example.com" />
+          {errors.email && <span className="text-xs text-error mt-1">{errors.email.message}</span>}
         </label>
         <label className="flex flex-col gap-xs">
           <div className="flex justify-between">
             <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Password</span>
             <Link to="/auth/forgot-password" className="font-label-sm text-label-sm text-secondary hover:underline">Forgot?</Link>
           </div>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="input-ghost" required placeholder="••••••••" />
+          <input type="password" {...register('password')} className={`input-ghost ${errors.password ? 'border-error' : ''}`} placeholder="••••••••" />
+          {errors.password && <span className="text-xs text-error mt-1">{errors.password.message}</span>}
         </label>
         <button type="submit" disabled={isLoading} className="btn-primary w-full flex items-center justify-center gap-sm">
           {isLoading ? 'Signing in...' : 'Sign In'}
@@ -51,15 +71,14 @@ export function LoginPage() {
 }
 
 export function SignupPage() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(signupSchema)
+  })
   const { signup, isLoading } = useAuthStore()
   const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const result = await signup(name, email, password)
+  const onSubmit = async (data) => {
+    const result = await signup(data.name, data.email, data.password)
     if (result.success) {
       toast.success('Account created. Welcome to ATELIER!', TOAST_STYLE)
       navigate('/dashboard')
@@ -74,17 +93,22 @@ export function SignupPage() {
       subtitle="Join the ATELIER circle."
       footer={<>Already a member? <Link to="/auth/login" className="text-secondary underline">Sign in</Link></>}
     >
-      <form onSubmit={handleSubmit} className="flex flex-col gap-gutter">
-        {[
-          { label: 'Full Name', type: 'text', val: name, setVal: setName, placeholder: 'Your name' },
-          { label: 'Email', type: 'email', val: email, setVal: setEmail, placeholder: 'you@example.com' },
-          { label: 'Password', type: 'password', val: password, setVal: setPassword, placeholder: '••••••••' },
-        ].map(f => (
-          <label key={f.label} className="flex flex-col gap-xs">
-            <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">{f.label}</span>
-            <input type={f.type} value={f.val} onChange={e => f.setVal(e.target.value)} className="input-ghost" required placeholder={f.placeholder} />
-          </label>
-        ))}
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-gutter">
+        <label className="flex flex-col gap-xs">
+          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Full Name</span>
+          <input type="text" {...register('name')} className={`input-ghost ${errors.name ? 'border-error' : ''}`} placeholder="Your name" />
+          {errors.name && <span className="text-xs text-error mt-1">{errors.name.message}</span>}
+        </label>
+        <label className="flex flex-col gap-xs">
+          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Email</span>
+          <input type="email" {...register('email')} className={`input-ghost ${errors.email ? 'border-error' : ''}`} placeholder="you@example.com" />
+          {errors.email && <span className="text-xs text-error mt-1">{errors.email.message}</span>}
+        </label>
+        <label className="flex flex-col gap-xs">
+          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Password</span>
+          <input type="password" {...register('password')} className={`input-ghost ${errors.password ? 'border-error' : ''}`} placeholder="••••••••" />
+          {errors.password && <span className="text-xs text-error mt-1">{errors.password.message}</span>}
+        </label>
         <button type="submit" disabled={isLoading} className="btn-primary w-full">
           {isLoading ? 'Creating account...' : 'Create Account'}
         </button>
@@ -94,11 +118,12 @@ export function SignupPage() {
 }
 
 export function ForgotPasswordPage() {
-  const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
+  const { register, handleSubmit, getValues, formState: { errors } } = useForm({
+    resolver: zodResolver(forgotPasswordSchema)
+  })
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const onSubmit = (data) => {
     setSent(true)
   }
 
@@ -111,13 +136,14 @@ export function ForgotPasswordPage() {
       {sent ? (
         <div className="text-center py-md">
           <span className="material-symbols-outlined icon-xl text-secondary block mb-md">mark_email_read</span>
-          <p className="font-body-md text-on-surface-variant">Check your inbox. A reset link was sent to <strong>{email}</strong>.</p>
+          <p className="font-body-md text-on-surface-variant">Check your inbox. A reset link was sent to <strong>{getValues('email')}</strong>.</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-gutter">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-gutter">
           <label className="flex flex-col gap-xs">
             <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Email</span>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="input-ghost" required placeholder="you@example.com" />
+            <input type="email" {...register('email')} className={`input-ghost ${errors.email ? 'border-error' : ''}`} placeholder="you@example.com" />
+            {errors.email && <span className="text-xs text-error mt-1">{errors.email.message}</span>}
           </label>
           <button type="submit" className="btn-primary w-full">Send Reset Link</button>
         </form>
@@ -147,7 +173,7 @@ function AuthLayout({ title, subtitle, footer, children }) {
       </div>
 
       {/* Right Form */}
-      <div className="flex flex-col items-center justify-center px-margin-desktop py-xl">
+      <div className="flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-lg md:py-xl">
         <div className="w-full max-w-md">
           <Link to="/" className="font-display text-headline-md font-bold text-primary tracking-tighter mb-xl block md:hidden">ATELIER</Link>
           <h1 className="font-headline-lg text-headline-lg text-primary uppercase mb-2">{title}</h1>

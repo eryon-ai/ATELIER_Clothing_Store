@@ -151,3 +151,25 @@ export const PAYMENT_METHODS = [
   { id: 'apple', label: 'Apple Pay', icon: 'apple' },
   { id: 'google', label: 'Google Pay', icon: 'g_mobiledata' },
 ]
+
+// ── Admin Constants ───────────────────────────────────────────────
+export const ADMIN_SIDEBAR_ITEMS = [
+  { id: 'overview', icon: 'dashboard', label: 'Overview' },
+  { id: 'products', icon: 'inventory_2', label: 'Products' },
+  { id: 'orders', icon: 'receipt_long', label: 'Orders' },
+  { id: 'customers', icon: 'group', label: 'Customers' },
+  { id: 'analytics', icon: 'bar_chart', label: 'Analytics' },
+  { id: 'marketing', icon: 'campaign', label: 'Marketing' },
+  { id: 'storefront', icon: 'web', label: 'Storefront' },
+  { id: 'inventory', icon: 'warehouse', label: 'Inventory' },
+  { id: 'support', icon: 'support_agent', label: 'Support' },
+  { id: 'financials', icon: 'account_balance', label: 'Financials' },
+  { id: 'settings', icon: 'settings', label: 'Settings' },
+]
+
+export const ADMIN_STATUS_COLORS = {
+  Processing: 'bg-blue-100 text-blue-700',
+  Shipped: 'bg-amber-100 text-amber-700',
+  Delivered: 'bg-emerald-100 text-emerald-700',
+  Cancelled: 'bg-red-100 text-red-700',
+}

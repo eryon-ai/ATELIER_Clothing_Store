@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const SCREENS = [
   { path: '/', label: 'Home — Highly Detailed', file: 'home-detailed.html', tag: 'DARK' },
@@ -129,6 +130,11 @@ export default function Sidebar({ isOpen, onToggle }) {
       </nav>
     </>
   )
+}
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func.isRequired
 }
 
 export { SCREENS }

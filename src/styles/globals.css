@@ -1,6 +1,7 @@
 /* ── Google Fonts ─────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -127,8 +128,7 @@
   /* Ghost input (bottom border only, from Stitch) */
   .input-ghost {
     @apply w-full bg-transparent border-b border-outline focus:border-primary 
-           transition-all py-3 outline-none;
-    font-size: 12px;
+           transition-all py-3 outline-none text-[16px] md:text-[12px];
     font-weight: 600;
     letter-spacing: 0.05em;
   }
@@ -219,4 +219,87 @@
   padding: 12px 24px;
   border-radius: 4px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+/* ── Page Transitions ───────────────────────────────────────────── */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.page-transition-exit {
+  opacity: 1;
+}
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* ── Serif Display ───────────────────────────────────────────────── */
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ── Luxury Badge (quiet, monochrome) ───────────────────────────── */
+.badge-quiet {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: #1b1c1c;
+  color: #ffffff;
+}
+.badge-quiet.sale {
+  background: transparent;
+  color: #1b1c1c;
+  border: 1px solid #1b1c1c;
+}
+.badge-quiet.new {
+  background: transparent;
+  color: #747878;
+  border: 1px solid #c4c7c7;
+}
+
+/* ── Hover Image Crossfade ──────────────────────────────────────── */
+.img-crossfade-hover .img-hover {
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.img-crossfade-hover:hover .img-hover {
+  opacity: 1;
+}
+.img-crossfade-hover .img-primary {
+  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.img-crossfade-hover:hover .img-primary {
+  opacity: 0;
+}
+
+/* ── Editorial text reveal ──────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.animate-fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.animate-fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.animate-fade-up-delay-3 { animation-delay: 0.35s; opacity: 0; }
+
+/* ── Marquee text ───────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
 }

@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import useCartStore from '../store/useCartStore'
-import { PRODUCTS } from '../mock/products'
+import { api } from '../services/api'
 import { formatPrice } from '../utils'
 import { COUPON_CODES } from '../constants'
 import toast from 'react-hot-toast'
@@ -30,6 +30,11 @@ export default function CartPage() {
   const tax = getTax()
   const total = getTotal()
   const count = getItemCount()
+
+  const [suggested, setSuggested] = useState([])
+  useEffect(() => {
+    api.getProducts().then(res => setSuggested(res.slice(0, 4)))
+  }, [])
 
   const handleApplyCoupon = () => {
     const result = applyCoupon(couponCode)
@@ -65,7 +70,7 @@ export default function CartPage() {
   return (
     <div className="pt-20 min-h-screen">
       {/* Free Shipping Progress */}
-      <div className="w-full bg-surface-container-low px-margin-desktop py-4 flex flex-col items-center border-b border-outline-variant/30">
+      <div className="w-full bg-surface-container-low px-margin-mobile md:px-margin-desktop py-4 flex flex-col items-center border-b border-outline-variant/30">
         <div className="w-full max-w-4xl">
           <div className="flex justify-between items-end mb-2">
             <p className="font-label-md text-[10px] text-primary uppercase">
@@ -81,7 +86,7 @@ export default function CartPage() {
 
       {/* Step Indicator */}
       {step > 0 && (
-        <div className="px-margin-desktop py-md border-b border-outline-variant max-w-8xl mx-auto">
+        <div className="px-margin-mobile md:px-margin-desktop py-md border-b border-outline-variant max-w-8xl mx-auto overflow-x-auto hide-scrollbar">
           <div className="flex items-center gap-sm">
             {STEPS.map((s, i) => (
               <div key={s} className="flex items-center gap-sm">
@@ -96,7 +101,7 @@ export default function CartPage() {
         </div>
       )}
 
-      <section className="px-margin-mobile md:px-margin-desktop py-xl grid grid-cols-1 lg:grid-cols-12 gap-gutter max-w-8xl mx-auto">
+      <section className="px-margin-mobile md:px-margin-desktop py-lg md:py-xl grid grid-cols-1 lg:grid-cols-12 gap-gutter max-w-8xl mx-auto">
         {/* Left Column */}
         <div className="lg:col-span-8">
           {/* ── STEP 0: Cart Items ────────────────────────────────── */}
@@ -130,7 +135,7 @@ export default function CartPage() {
                           <p className="font-headline-md text-headline-md">{formatPrice(item.product.price * item.quantity)}</p>
                         </div>
                         <div className="flex justify-between items-center">
-                          <div className="flex items-center border border-outline rounded-full px-4 py-2 gap-6">
+                          <div className="flex items-center border border-outline rounded-full px-2 py-1 gap-4 md:px-4 md:py-2 md:gap-6">
                             <button onClick={() => updateQuantity(item.key, item.quantity - 1)} className="hover:text-primary transition-colors">
                               <span className="material-symbols-outlined icon-sm">remove</span>
                             </button>
@@ -211,7 +216,7 @@ export default function CartPage() {
                 <span className="material-symbols-outlined icon-sm group-hover:-translate-x-1 transition-transform">arrow_back</span> Back to Address
               </button>
               <h2 className="font-headline-md text-headline-md uppercase mb-lg">Payment Method</h2>
-              <div className="grid grid-cols-3 gap-md mb-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-sm md:gap-md mb-lg">
                 {[
                   { id: 'card', label: 'Credit Card', icon: 'credit_card' },
                   { id: 'upi', label: 'UPI / Razorpay', icon: 'payments' },
@@ -316,11 +321,11 @@ export default function CartPage() {
       </section>
 
       {/* Recommendations */}
-      <section className="px-margin-desktop py-xl bg-surface-container-low border-t border-outline-variant">
+      <section className="px-margin-mobile md:px-margin-desktop py-lg md:py-xl bg-surface-container-low border-t border-outline-variant">
         <div className="max-w-8xl mx-auto">
           <h2 className="font-headline-lg text-headline-lg mb-lg uppercase">Recommended For You</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
-            {PRODUCTS.slice(0, 4).map(p => (
+            {suggested.map(p => (
               <Link key={p.id} to={`/products/${p.slug}`} className="group cursor-pointer">
                 <div className="relative overflow-hidden aspect-[3/4] bg-surface-container mb-sm">
                   <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />

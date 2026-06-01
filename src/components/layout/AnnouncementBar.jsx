@@ -19,10 +19,10 @@ export default function AnnouncementBar() {
   }, [])
 
   return (
-    <div className="bg-primary text-on-primary py-2 px-margin-desktop text-center overflow-hidden">
+    <div className="bg-primary text-on-primary py-2 px-margin-mobile md:px-margin-desktop text-center overflow-hidden">
       <p
         key={idx}
-        className="font-label-md text-label-md tracking-[0.2em] uppercase whitespace-nowrap animate-fade-in"
+        className="font-label-md text-[10px] md:text-label-md tracking-[0.2em] uppercase whitespace-nowrap animate-fade-in"
       >
         {MESSAGES[idx]}
       </p>

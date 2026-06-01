@@ -1,16 +1,21 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/product/ProductCard'
-import { PRODUCTS } from '../mock/products'
+import { api } from '../services/api'
 import { SORT_OPTIONS } from '../constants'
 
 export default function ProductsPage() {
   const [searchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
   const [sort, setSort] = useState('featured')
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    api.getProducts().then(setProducts)
+  }, [])
 
   const filtered = useMemo(() => {
-    let list = [...PRODUCTS]
+    let list = [...products]
     if (query) {
       const q = query.toLowerCase()
       list = list.filter(p =>
@@ -30,8 +35,8 @@ export default function ProductsPage() {
   }, [query, sort])
 
   return (
-    <div className="pt-20 px-margin-desktop py-xl max-w-8xl mx-auto">
-      <div className="flex justify-between items-end mb-lg">
+    <div className="pt-20 px-margin-mobile md:px-margin-desktop py-lg md:py-xl max-w-8xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-md md:gap-0 mb-lg">
         <div>
           {query ? (
             <h1 className="font-headline-lg text-headline-lg text-primary">

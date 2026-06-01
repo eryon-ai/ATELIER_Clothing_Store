@@ -10,6 +10,7 @@ const TABS = [
   { icon: 'category', label: 'Shop', href: '/products' },
   { icon: 'favorite', label: 'Wishlist', href: '/wishlist' },
   { icon: 'person', label: 'Account', href: '/dashboard' },
+  { icon: 'admin_panel_settings', label: 'Admin', href: '/admin' },
 ]
 
 export default function MobileNav() {

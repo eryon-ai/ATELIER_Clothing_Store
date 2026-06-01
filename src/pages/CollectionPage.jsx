@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProductCard from '../components/product/ProductCard'
-import { PRODUCTS, getProductsByCategory, getProductsByCollection, getBestSellers, getNewArrivals, getLimitedProducts, getSaleProducts, getTrending } from '../mock/products'
+import { api } from '../services/api'
 import { SORT_OPTIONS, CLOTHING_SIZES, PRODUCT_COLORS } from '../constants'
 import { cn } from '../utils'
 
@@ -29,19 +29,21 @@ const COLLECTION_META = {
   festival: { title: 'Festival Edit', desc: 'Statement pieces for the front row.' },
 }
 
-function getProducts(slug) {
+async function getProducts(slug) {
   switch (slug) {
-    case 'new-arrivals': return getNewArrivals()
-    case 'best-sellers': return getBestSellers()
-    case 'trending': return getTrending()
-    case 'limited': return getLimitedProducts()
-    case 'sale': return getSaleProducts()
-    case 'women': return PRODUCTS.filter(p => p.category === 'tops' || p.tags?.includes('women'))
-    case 'men': return PRODUCTS.filter(p => p.category === 'bottoms' || p.tags?.includes('men') || p.collection === 'men')
-    case 'accessories': return getProductsByCategory('accessories')
-    case 'footwear': return getProductsByCategory('footwear')
-    case 'sneakers': return getProductsByCategory('sneakers')
-    default: return PRODUCTS.filter(p => p.collection === slug || p.category === slug || p.tags?.includes(slug))
+    case 'new-arrivals': return api.getNewArrivals()
+    case 'best-sellers': return api.getBestSellers()
+    case 'trending': return api.getTrending()
+    case 'limited': return api.getLimitedProducts()
+    case 'sale': return api.getSaleProducts()
+    case 'accessories': return api.getProductsByCategory('accessories')
+    case 'footwear': return api.getProductsByCategory('footwear')
+    case 'sneakers': return api.getProductsByCategory('sneakers')
+    default:
+      const all = await api.getProducts()
+      if (slug === 'women') return all.filter(p => p.category === 'tops' || p.tags?.includes('women'))
+      if (slug === 'men') return all.filter(p => p.category === 'bottoms' || p.tags?.includes('men') || p.collection === 'men')
+      return all.filter(p => p.collection === slug || p.category === slug || p.tags?.includes(slug))
   }
 }
 
@@ -50,6 +52,11 @@ export default function CollectionPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [filterOpen, setFilterOpen] = useState(true)
   const [view, setView] = useState('grid')
+  const [baseProducts, setBaseProducts] = useState([])
+
+  useEffect(() => {
+    getProducts(slug).then(setBaseProducts)
+  }, [slug])
 
   // URL-synced filter state (Phase 22)
   const sort = searchParams.get('sort') || 'featured'
@@ -83,10 +90,9 @@ export default function CollectionPage() {
   const setSort = (val) => updateParam('sort', val)
 
   const meta = COLLECTION_META[slug] || { title: (slug || 'Collection').replace(/-/g, ' ').toUpperCase(), desc: '' }
-  const rawProducts = useMemo(() => getProducts(slug || 'all'), [slug])
 
   const sortedFiltered = useMemo(() => {
-    let list = [...rawProducts]
+    let list = [...baseProducts]
     if (selectedSizes.length > 0) list = list.filter(p => p.sizes?.some(s => selectedSizes.includes(s)))
     if (selectedColors.length > 0) list = list.filter(p => p.colors?.some(c => selectedColors.includes(c.name)))
 
@@ -98,20 +104,25 @@ export default function CollectionPage() {
       case 'top-rated': return list.sort((a, b) => b.rating - a.rating)
       default: return list
     }
-  }, [rawProducts, sort, selectedSizes, selectedColors])
+  }, [baseProducts, sort, selectedSizes, selectedColors])
 
-  const displayProducts = sortedFiltered.length > 0 ? sortedFiltered : PRODUCTS.slice(0, 12)
+  const [allProducts, setAllProducts] = useState([])
+  useEffect(() => {
+    api.getProducts().then(setAllProducts)
+  }, [])
+
+  const displayProducts = sortedFiltered.length > 0 ? sortedFiltered : allProducts.slice(0, 12)
 
   return (
     <div className="pt-20">
       {/* Collection Header */}
-      <div className="px-margin-desktop py-xl max-w-8xl mx-auto border-b border-outline-variant">
-        <nav className="flex items-center gap-xs font-label-sm text-label-sm text-outline mb-4">
+      <div className="px-margin-mobile md:px-margin-desktop py-lg md:py-xl max-w-8xl mx-auto border-b border-outline-variant">
+        <nav className="flex flex-wrap items-center gap-xs font-label-sm text-label-sm text-outline mb-4">
           <Link to="/" className="hover:text-primary">Home</Link>
           <span className="material-symbols-outlined icon-sm">chevron_right</span>
           <span className="text-primary">{meta.title}</span>
         </nav>
-        <div className="flex justify-between items-end">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-md md:gap-0">
           <div>
             <h1 className="font-display text-display-lg text-primary uppercase">{meta.title}</h1>
             {meta.desc && <p className="font-body-md text-body-md text-on-surface-variant mt-2">{meta.desc}</p>}
@@ -183,7 +194,7 @@ export default function CollectionPage() {
         </AnimatePresence>
 
         {/* Product Grid */}
-        <div className="flex-1 px-margin-desktop py-lg min-w-0">
+        <div className="flex-1 px-margin-mobile md:px-margin-desktop py-lg min-w-0">
           {/* Sort bar */}
           <div className="flex justify-between items-center mb-lg">
             <button

@@ -1,18 +1,27 @@
+import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import useCartStore from '../../store/useCartStore'
 import useWishlistStore from '../../store/useWishlistStore'
 import { formatPrice, cn } from '../../utils'
 import toast from 'react-hot-toast'
+import PropTypes from 'prop-types'
 
 export default function ProductCard({ product, className, index = 0 }) {
   const [isLoading, setIsLoading] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
+  const [imgError, setImgError] = useState(false)
   const [hovering, setHovering] = useState(false)
+  const imgRef = useRef(null)
   const addItem = useCartStore(s => s.addItem)
   const toggleItem = useWishlistStore(s => s.toggleItem)
   const isWishlisted = useWishlistStore(s => s.isWishlisted(product.id))
+
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setImgLoaded(true)
+    }
+  }, [])
 
   const handleQuickAdd = async (e) => {
     e.preventDefault()
@@ -44,9 +53,9 @@ export default function ProductCard({ product, className, index = 0 }) {
       className={cn('group', className)}
     >
       <Link to={`/products/${product.slug}`} className="block">
-        {/* ── Image Container ───────────────────────────────────── */}
+        {/* ── Image Container ─────────────────────────────────────────── */}
         <div
-          className="relative aspect-[3/4] overflow-hidden bg-[#F5F4F2] mb-3"
+          className="relative aspect-[3/4] overflow-hidden bg-[#F5F4F2] mb-3 img-crossfade-hover"
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
         >
@@ -57,16 +66,27 @@ export default function ProductCard({ product, className, index = 0 }) {
 
           {/* Main Image */}
           <img
+            ref={imgRef}
             src={product.images[0]}
             alt={product.name}
             onLoad={() => setImgLoaded(true)}
+            onError={() => { setImgLoaded(true); setImgError(true); }}
             className={cn(
-              'w-full h-full object-cover transition-all duration-700',
-              hovering ? 'scale-[1.06]' : 'scale-100',
+              'img-primary absolute inset-0 w-full h-full object-cover',
               imgLoaded ? 'opacity-100' : 'opacity-0'
             )}
             loading="lazy"
           />
+
+          {/* Lifestyle / hover image (crossfades in) */}
+          {product.images[1] && (
+            <img
+              src={product.images[1]}
+              alt={`${product.name} — styled`}
+              className="img-hover absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+          )}
 
           {/* Overlay gradient on hover */}
           <motion.div
@@ -75,22 +95,17 @@ export default function ProductCard({ product, className, index = 0 }) {
             className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"
           />
 
-          {/* Badge */}
+          {/* Badge — quiet/monochrome */}
           {product.badge && (
-            <motion.span
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
+            <span
               className={cn(
-                'absolute top-3 left-3 text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest z-10',
-                product.badge === 'LIMITED' ? 'bg-primary text-white' :
-                product.badge === 'NEW' ? 'bg-[#2559bd] text-white' :
-                product.badge === 'SALE' ? 'bg-red-500 text-white' :
-                'bg-primary text-white'
+                'badge-quiet absolute top-3 left-3 z-10',
+                product.badge === 'SALE' ? 'sale' :
+                product.badge === 'NEW' ? 'new' : ''
               )}
             >
-              {product.badge}
-            </motion.span>
+              {product.badge === 'LIMITED' ? 'Limited' : product.badge}
+            </span>
           )}
 
           {/* Wishlist Button */}
@@ -225,4 +240,23 @@ export default function ProductCard({ product, className, index = 0 }) {
       </Link>
     </motion.div>
   )
+}
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    comparePrice: PropTypes.number,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    badge: PropTypes.string,
+    sizes: PropTypes.arrayOf(PropTypes.string),
+    colors: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.string
+    }))
+  }).isRequired,
+  className: PropTypes.string,
+  index: PropTypes.number
 }

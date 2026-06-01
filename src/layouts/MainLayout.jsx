@@ -19,7 +19,7 @@ export default function MainLayout() {
     <div className="min-h-screen flex flex-col">
       <AnnouncementBar />
       <Navbar />
-      <main className="flex-1 relative">
+      <main className="flex-1 relative pb-[60px] md:pb-0">
         <Outlet />
       </main>
       <Footer />

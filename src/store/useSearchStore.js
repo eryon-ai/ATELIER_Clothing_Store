@@ -1,6 +1,5 @@
 import { create } from 'zustand'
-import { PRODUCTS as ALL_PRODUCTS } from '../mock/products'
-
+import { api } from '../services/api'
 
 const useSearchStore = create((set, get) => ({
   query: '',
@@ -25,8 +24,9 @@ const useSearchStore = create((set, get) => ({
     }
   },
 
-  search: (query) => {
+  search: async (query) => {
     const q = query.toLowerCase()
+    const ALL_PRODUCTS = await api.getProducts()
     const results = ALL_PRODUCTS.filter(p =>
       p.name.toLowerCase().includes(q) ||
       p.category.toLowerCase().includes(q) ||

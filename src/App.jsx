@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { Suspense, lazy } from 'react'
 import { AnimatePresence } from 'framer-motion'
@@ -18,6 +18,17 @@ const CollectionPage    = lazy(() => import('./pages/CollectionPage'))
 const ProductsPage      = lazy(() => import('./pages/Products'))
 const Dashboard         = lazy(() => import('./pages/Dashboard'))
 const AdminPage         = lazy(() => import('./pages/Admin'))
+const AdminOverview     = lazy(() => import('./components/admin/AdminOverview'))
+const AdminProducts     = lazy(() => import('./components/admin/AdminProducts'))
+const AdminOrders       = lazy(() => import('./components/admin/AdminOrders'))
+const AdminCustomers    = lazy(() => import('./components/admin/AdminCustomers'))
+const AdminAnalytics    = lazy(() => import('./components/admin/AdminAnalytics'))
+const AdminMarketing    = lazy(() => import('./components/admin/AdminMarketing'))
+const AdminStorefront   = lazy(() => import('./components/admin/AdminStorefront'))
+const AdminInventory    = lazy(() => import('./components/admin/AdminInventory'))
+const AdminSupport      = lazy(() => import('./components/admin/AdminSupport'))
+const AdminFinancials   = lazy(() => import('./components/admin/AdminFinancials'))
+const AdminSettings     = lazy(() => import('./components/admin/AdminSettings'))
 const LoginPage         = lazy(() => import('./pages/Auth').then(m => ({ default: m.LoginPage })))
 const SignupPage        = lazy(() => import('./pages/Auth').then(m => ({ default: m.SignupPage })))
 const ForgotPage        = lazy(() => import('./pages/Auth').then(m => ({ default: m.ForgotPasswordPage })))
@@ -51,32 +62,47 @@ function P({ children }) {
 
 // ── Animated route container ─────────────────────────────────────────
 function AnimatedRoutes() {
+  const location = useLocation()
   return (
-    <Routes>
-      {/* Auth — no main layout */}
-      <Route path="/auth/login"           element={<P><LoginPage /></P>} />
-      <Route path="/auth/signup"          element={<P><SignupPage /></P>} />
-      <Route path="/auth/forgot-password" element={<P><ForgotPage /></P>} />
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Auth — no main layout */}
+        <Route path="/auth/login"           element={<P><LoginPage /></P>} />
+        <Route path="/auth/signup"          element={<P><SignupPage /></P>} />
+        <Route path="/auth/forgot-password" element={<P><ForgotPage /></P>} />
 
-      {/* Admin — full-screen, no main layout */}
-      <Route path="/admin"  element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
-      <Route path="/admin/*" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
+        {/* Admin — full-screen, no main layout */}
+        <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>}>
+          <Route index element={<Navigate to="overview" replace />} />
+          <Route path="overview" element={<Suspense fallback={<PageLoader />}><AdminOverview /></Suspense>} />
+          <Route path="products" element={<Suspense fallback={<PageLoader />}><AdminProducts /></Suspense>} />
+          <Route path="orders" element={<Suspense fallback={<PageLoader />}><AdminOrders /></Suspense>} />
+          <Route path="customers" element={<Suspense fallback={<PageLoader />}><AdminCustomers /></Suspense>} />
+          <Route path="analytics" element={<Suspense fallback={<PageLoader />}><AdminAnalytics /></Suspense>} />
+          <Route path="marketing" element={<Suspense fallback={<PageLoader />}><AdminMarketing /></Suspense>} />
+          <Route path="storefront" element={<Suspense fallback={<PageLoader />}><AdminStorefront /></Suspense>} />
+          <Route path="inventory" element={<Suspense fallback={<PageLoader />}><AdminInventory /></Suspense>} />
+          <Route path="support" element={<Suspense fallback={<PageLoader />}><AdminSupport /></Suspense>} />
+          <Route path="financials" element={<Suspense fallback={<PageLoader />}><AdminFinancials /></Suspense>} />
+          <Route path="settings" element={<Suspense fallback={<PageLoader />}><AdminSettings /></Suspense>} />
+        </Route>
 
-      {/* Main store layout */}
-      <Route element={<MainLayout />}>
-        <Route index                      element={<P><HomePage /></P>} />
-        <Route path="/products"           element={<P><ProductsPage /></P>} />
-        <Route path="/products/:slug"     element={<P><ProductDetail /></P>} />
-        <Route path="/collections/:slug"  element={<P><CollectionPage /></P>} />
-        <Route path="/cart"               element={<P><CartPage /></P>} />
-        <Route path="/checkout"           element={<P><CartPage /></P>} />
-        <Route path="/wishlist"           element={<P><WishlistPage /></P>} />
-        <Route path="/dashboard"          element={<P><Dashboard /></P>} />
-        <Route path="/dashboard/:tab"     element={<P><Dashboard /></P>} />
-        <Route path="/editorial"          element={<P><CollectionPage /></P>} />
-        <Route path="*"                   element={<P><NotFound /></P>} />
-      </Route>
-    </Routes>
+        {/* Main store layout */}
+        <Route element={<MainLayout />}>
+          <Route index                      element={<P><HomePage /></P>} />
+          <Route path="/products"           element={<P><ProductsPage /></P>} />
+          <Route path="/products/:slug"     element={<P><ProductDetail /></P>} />
+          <Route path="/collections/:slug"  element={<P><CollectionPage /></P>} />
+          <Route path="/cart"               element={<P><CartPage /></P>} />
+          <Route path="/checkout"           element={<P><CartPage /></P>} />
+          <Route path="/wishlist"           element={<P><WishlistPage /></P>} />
+          <Route path="/dashboard"          element={<P><Dashboard /></P>} />
+          <Route path="/dashboard/:tab"     element={<P><Dashboard /></P>} />
+          <Route path="/editorial"          element={<P><CollectionPage /></P>} />
+          <Route path="*"                   element={<P><NotFound /></P>} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
   )
 }
 
@@ -100,6 +126,7 @@ export default function App() {
         }}
       />
       <AnimatedRoutes />
+      <AdminDemoBanner />
     </BrowserRouter>
   )
 }
@@ -114,5 +141,20 @@ function NotFound() {
         Return Home
       </a>
     </div>
+  )
+}
+
+function AdminDemoBanner() {
+  const location = useLocation()
+  if (location.pathname.startsWith('/admin')) return null
+  
+  return (
+    <a 
+      href="http://localhost:5173/admin"
+      className="fixed bottom-6 right-6 z-50 bg-red-600 text-white px-6 py-3 font-bold uppercase tracking-widest text-xs shadow-[0_10px_30px_rgba(220,38,38,0.4)] hover:bg-red-700 transition-colors flex items-center gap-2 animate-bounce rounded-sm border-2 border-white"
+    >
+      <span className="material-symbols-outlined text-lg">admin_panel_settings</span>
+      Admin Panel Demo
+    </a>
   )
 }

@@ -1,16 +1,9 @@
-import { useState } from 'react'
-import { Link, NavLink, useNavigate, Outlet } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, NavLink, useNavigate, Outlet, useParams } from 'react-router-dom'
 import useAuthStore from '../store/useAuthStore'
 import useWishlistStore from '../store/useWishlistStore'
 import { formatPrice } from '../utils'
-import { PRODUCTS } from '../mock/products'
-
-// Mock order data
-const MOCK_ORDERS = [
-  { id: 'ATL-2024-001', date: '2024-05-12', status: 'Delivered', total: 1700, items: [PRODUCTS[0], PRODUCTS[6]] },
-  { id: 'ATL-2024-002', date: '2024-04-28', status: 'In Transit', total: 850, items: [PRODUCTS[2]] },
-  { id: 'ATL-2024-003', date: '2024-03-15', status: 'Delivered', total: 495, items: [PRODUCTS[1]] },
-]
+import { api } from '../services/api'
 
 const SIDEBAR = [
   { label: 'Overview', href: '/dashboard', icon: 'dashboard' },
@@ -24,10 +17,22 @@ export default function Dashboard() {
   const { user, logout } = useAuthStore()
   const wishCount = useWishlistStore(s => s.getCount())
   const navigate = useNavigate()
+  const { tab } = useParams()
+  const [orders, setOrders] = useState([])
+
+  useEffect(() => {
+    api.getProducts().then(PRODUCTS => {
+      setOrders([
+        { id: 'ATL-2024-001', date: '2024-05-12', status: 'Delivered', total: 1700, items: [PRODUCTS[0], PRODUCTS[6]] },
+        { id: 'ATL-2024-002', date: '2024-04-28', status: 'In Transit', total: 850, items: [PRODUCTS[2]] },
+        { id: 'ATL-2024-003', date: '2024-03-15', status: 'Delivered', total: 495, items: [PRODUCTS[1]] },
+      ])
+    })
+  }, [])
 
   if (!user) {
     return (
-      <div className="pt-32 text-center px-margin-desktop">
+      <div className="pt-32 text-center px-margin-mobile md:px-margin-desktop">
         <h2 className="font-headline-md text-primary mb-4">You need to sign in</h2>
         <Link to="/auth/login" className="btn-primary inline-block">Sign In</Link>
       </div>
@@ -40,7 +45,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="pt-20 min-h-screen grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-lg max-w-8xl mx-auto">
+    <div className="pt-20 min-h-screen grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-lg max-w-8xl mx-auto">
       {/* Sidebar */}
       <aside className="md:col-span-3">
         <div className="sticky top-24">
@@ -86,10 +91,67 @@ export default function Dashboard() {
         </div>
       </aside>
 
-      {/* Main Content */}
+    {/* Main Content */}
       <main className="md:col-span-9">
-        <DashboardHome user={user} orders={MOCK_ORDERS} />
+        {tab === 'orders' ? (
+          <OrdersView orders={orders} />
+        ) : (
+          <DashboardHome user={user} orders={orders} />
+        )}
       </main>
+    </div>
+  )
+}
+
+function OrdersView({ orders }) {
+  if (orders.length === 0) return <div>Loading orders...</div>
+
+  return (
+    <div className="space-y-md">
+      {/* Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+        {[
+          { icon: 'local_shipping', label: 'Total Orders', value: orders.length },
+          { icon: 'favorite', label: 'Saved Items', value: useWishlistStore.getState().getCount() },
+          { icon: 'stars', label: 'Reward Points', value: '0 pts' },
+        ].map(stat => (
+          <div key={stat.label} className="glass-panel p-md flex flex-col gap-xs">
+            <span className="material-symbols-outlined text-secondary">{stat.icon}</span>
+            <p className="font-headline-md text-headline-md text-primary">{stat.value}</p>
+            <p className="font-label-sm text-label-sm text-on-surface-variant uppercase">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Recent Orders */}
+      <div>
+        <h2 className="font-headline-md text-headline-md uppercase mb-md">Recent Orders</h2>
+        <div className="space-y-md">
+          {orders.map(order => (
+            <div key={order.id} className="glass-panel p-md">
+              <div className="flex justify-between items-start mb-sm">
+                <div>
+                  <p className="font-label-md text-label-md uppercase">{order.id}</p>
+                  <p className="font-body-md text-on-surface-variant">{order.date}</p>
+                </div>
+                <div className="text-right">
+                  <span className={`inline-block px-sm py-xs font-label-sm text-label-sm uppercase ${
+                    order.status === 'Delivered' ? 'bg-surface-container text-secondary' : 'bg-surface-container-high text-on-surface-variant'
+                  }`}>{order.status}</span>
+                  <p className="font-label-md text-label-md mt-1">{formatPrice(order.total)}</p>
+                </div>
+              </div>
+              <div className="flex gap-xs">
+                {order.items.map((item, i) => (
+                  <div key={i} className="w-12 h-14 bg-surface-container overflow-hidden">
+                    <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
@@ -97,7 +159,6 @@ export default function Dashboard() {
 function DashboardHome({ user, orders }) {
   return (
     <div className="space-y-lg">
-      {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
         {[
           { icon: 'local_shipping', label: 'Total Orders', value: orders.length },
@@ -113,7 +174,6 @@ function DashboardHome({ user, orders }) {
         ))}
       </div>
 
-      {/* Recent Orders */}
       <div>
         <h2 className="font-headline-md text-headline-md uppercase mb-md">Recent Orders</h2>
         <div className="space-y-sm">

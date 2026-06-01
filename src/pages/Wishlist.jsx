@@ -19,7 +19,7 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="pt-24 pb-xl px-margin-desktop max-w-8xl mx-auto min-h-screen">
+    <div className="pt-24 pb-lg md:pb-xl px-margin-mobile md:px-margin-desktop max-w-8xl mx-auto min-h-screen">
       <div className="flex justify-between items-end mb-lg">
         <div>
           <h1 className="font-headline-lg text-headline-lg text-primary uppercase">
@@ -36,7 +36,7 @@ export default function WishlistPage() {
       </div>
 
       {items.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-[20vh] gap-lg text-center">
+        <div className="flex flex-col items-center justify-center py-[20vh] gap-md md:gap-lg text-center">
           <span className="material-symbols-outlined icon-xl text-outline-variant">favorite</span>
           <div>
             <h2 className="font-headline-md text-primary mb-2">Your wishlist is empty</h2>
