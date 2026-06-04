@@ -10,7 +10,7 @@ const COLLECTION_META = {
   'new-arrivals': { title: 'New Arrivals', desc: 'The latest drops from the ATELIER studio.' },
   'best-sellers': { title: 'Best Sellers', desc: 'Our most loved pieces, as chosen by the community.' },
   trending: { title: 'Trending Now', desc: 'What the zeitgeist is reaching for.' },
-  limited: { title: 'Limited Edition', desc: 'Once it\'s gone, it\'s gone. Numbered, certified, permanent.' },
+  limited: { title: 'Limited Edition', desc: "Once it's gone, it's gone. Numbered, certified, permanent." },
   sale: { title: 'Archive Sale', desc: 'Past seasons, permanent aesthetics.' },
   premium: { title: 'Premium Edit', desc: 'The pinnacle of the ATELIER craft.' },
   women: { title: "Women's", desc: 'Structured silhouettes, feminine power.' },
@@ -58,7 +58,7 @@ export default function CollectionPage() {
     getProducts(slug).then(setBaseProducts)
   }, [slug])
 
-  // URL-synced filter state (Phase 22)
+  // URL-synced filter state
   const sort = searchParams.get('sort') || 'featured'
   const selectedSizes = searchParams.getAll('size')
   const selectedColors = searchParams.getAll('color')
@@ -114,50 +114,66 @@ export default function CollectionPage() {
   const displayProducts = sortedFiltered.length > 0 ? sortedFiltered : allProducts.slice(0, 12)
 
   return (
-    <div className="pt-20">
+    <div className="pt-[88px] min-h-screen bg-[#F5F5F5]">
       {/* Collection Header */}
-      <div className="px-margin-mobile md:px-margin-desktop py-lg md:py-xl max-w-8xl mx-auto border-b border-outline-variant">
-        <nav className="flex flex-wrap items-center gap-xs font-label-sm text-label-sm text-outline mb-4">
-          <Link to="/" className="hover:text-primary">Home</Link>
-          <span className="material-symbols-outlined icon-sm">chevron_right</span>
-          <span className="text-primary">{meta.title}</span>
+      <div className="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-[11px] text-[#999999] mb-4">
+          <Link to="/" className="hover:text-[#111111] transition-colors">Home</Link>
+          <span>/</span>
+          <span className="text-[#111111] font-medium">{meta.title}</span>
         </nav>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-md md:gap-0">
+
+        {/* Title area */}
+        <div
+          className="bg-white px-8 py-10 mb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4"
+          style={{ borderRadius: 24 }}
+        >
           <div>
-            <h1 className="font-display text-display-lg text-primary uppercase">{meta.title}</h1>
-            {meta.desc && <p className="font-body-md text-body-md text-on-surface-variant mt-2">{meta.desc}</p>}
+            <h1 className="font-semibold text-[32px] md:text-[40px] text-[#111111] tracking-tight leading-tight">{meta.title}</h1>
+            {meta.desc && <p className="text-[13px] text-[#666666] mt-2 max-w-lg">{meta.desc}</p>}
           </div>
-          <p className="font-label-md text-label-md text-on-surface-variant uppercase">{displayProducts.length} products</p>
+          <p className="text-[12px] font-semibold text-[#999999] uppercase tracking-wide">{displayProducts.length} Products</p>
         </div>
       </div>
 
-      <div className="flex max-w-8xl mx-auto">
+      <div className="flex max-w-[1440px] mx-auto px-4 md:px-8 pb-16 gap-6">
         {/* Filter Sidebar */}
         <AnimatePresence>
           {filterOpen && (
             <motion.aside
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 256, opacity: 1 }}
+              animate={{ width: 240, opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="flex-shrink-0 border-r border-outline-variant overflow-hidden hidden md:block"
+              transition={{ duration: 0.22 }}
+              className="flex-shrink-0 overflow-hidden hidden md:block"
             >
-              <div className="w-64 px-md py-lg">
-                <div className="flex justify-between items-center mb-lg">
-                  <h3 className="font-label-md text-label-md uppercase">Filters</h3>
-                  <button onClick={clearFilters} className="font-label-sm text-outline hover:text-primary uppercase text-xs">Clear all</button>
+              <div
+                className="w-60 bg-white p-6 sticky top-[88px]"
+                style={{ borderRadius: 24 }}
+              >
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-[12px] font-bold uppercase tracking-[0.12em] text-[#111111]">Filters</h3>
+                  <button onClick={clearFilters} className="text-[11px] font-semibold text-[#999999] hover:text-[#111111] transition-colors uppercase tracking-wide">
+                    Clear all
+                  </button>
                 </div>
 
                 {/* Size Filter */}
-                <div className="mb-lg">
-                  <h4 className="font-label-md text-label-md uppercase mb-md text-xs font-bold tracking-widest">Size</h4>
-                  <div className="grid grid-cols-3 gap-xs">
+                <div className="mb-6">
+                  <h4 className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#111111] mb-3">Size</h4>
+                  <div className="grid grid-cols-3 gap-1.5">
                     {CLOTHING_SIZES.map(size => (
                       <motion.button
                         key={size}
                         whileTap={{ scale: 0.94 }}
                         onClick={() => toggleSize(size)}
-                        className={`h-10 border text-center text-xs font-semibold uppercase tracking-wide transition-all ${selectedSizes.includes(size) ? 'bg-primary text-on-primary border-primary' : 'border-outline-variant hover:border-primary'}`}
+                        className={`h-9 text-center text-[11px] font-semibold uppercase tracking-wide transition-all duration-200
+                          ${selectedSizes.includes(size)
+                            ? 'bg-[#111111] text-white'
+                            : 'bg-[#F5F5F5] text-[#666666] hover:bg-[#EAEAEA] hover:text-[#111111]'
+                          }`}
+                        style={{ borderRadius: 8 }}
                       >
                         {size}
                       </motion.button>
@@ -166,8 +182,8 @@ export default function CollectionPage() {
                 </div>
 
                 {/* Color Filter */}
-                <div className="mb-lg">
-                  <h4 className="font-label-md text-label-md uppercase mb-md text-xs font-bold tracking-widest">Color</h4>
+                <div className="mb-4">
+                  <h4 className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#111111] mb-3">Color</h4>
                   <div className="flex flex-wrap gap-2">
                     {PRODUCT_COLORS.map(color => (
                       <motion.button
@@ -175,16 +191,19 @@ export default function CollectionPage() {
                         whileTap={{ scale: 0.9 }}
                         onClick={() => toggleColor(color.name)}
                         title={color.name}
-                        className={`w-7 h-7 rounded-full border-2 transition-all ring-2 ring-offset-1 ${selectedColors.includes(color.name) ? 'ring-primary border-primary' : 'ring-transparent border-transparent hover:border-outline-variant'}`}
+                        className={`w-7 h-7 rounded-full border-2 transition-all ring-2 ring-offset-1
+                          ${selectedColors.includes(color.name)
+                            ? 'ring-[#111111] border-[#111111]'
+                            : 'ring-transparent border-transparent hover:border-[#CCCCCC]'
+                          }`}
                         style={{ background: color.value }}
                       />
                     ))}
                   </div>
                 </div>
 
-                {/* URL hint */}
                 {(selectedSizes.length > 0 || selectedColors.length > 0) && (
-                  <p className="text-[10px] text-on-surface-variant/60 mt-4">
+                  <p className="text-[10px] text-[#999999] mt-4">
                     Filters synced to URL — share this link!
                   </p>
                 )}
@@ -194,26 +213,39 @@ export default function CollectionPage() {
         </AnimatePresence>
 
         {/* Product Grid */}
-        <div className="flex-1 px-margin-mobile md:px-margin-desktop py-lg min-w-0">
-          {/* Sort bar */}
-          <div className="flex justify-between items-center mb-lg">
+        <div className="flex-1 min-w-0">
+          {/* Sort & Filter Controls */}
+          <div
+            className="bg-white px-5 py-3 mb-5 flex justify-between items-center"
+            style={{ borderRadius: 16 }}
+          >
             <button
               onClick={() => setFilterOpen(o => !o)}
-              className="hidden md:flex items-center gap-sm font-label-md text-label-md uppercase hover:text-primary transition-colors text-xs font-semibold"
+              className="hidden md:flex items-center gap-2 text-[12px] font-semibold text-[#666666] hover:text-[#111111] transition-colors uppercase tracking-wide"
             >
-              <span className="material-symbols-outlined icon-sm">tune</span>
-              {filterOpen ? 'Hide' : 'Filter'}
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>tune</span>
+              {filterOpen ? 'Hide Filters' : 'Show Filters'}
             </button>
 
-            <div className="flex items-center gap-md ml-auto">
-              <div className="flex gap-xs">
-                <button onClick={() => setView('grid')} className={`material-symbols-outlined icon-sm ${view === 'grid' ? 'text-primary' : 'text-outline-variant'}`}>grid_view</button>
-                <button onClick={() => setView('list')} className={`material-symbols-outlined icon-sm ${view === 'list' ? 'text-primary' : 'text-outline-variant'}`}>view_list</button>
+            <div className="flex items-center gap-3 ml-auto">
+              <div className="flex gap-1">
+                <button
+                  onClick={() => setView('grid')}
+                  className={`p-1.5 rounded-lg transition-colors ${view === 'grid' ? 'bg-[#111111] text-white' : 'text-[#999999] hover:text-[#111111]'}`}
+                >
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>grid_view</span>
+                </button>
+                <button
+                  onClick={() => setView('list')}
+                  className={`p-1.5 rounded-lg transition-colors ${view === 'list' ? 'bg-[#111111] text-white' : 'text-[#999999] hover:text-[#111111]'}`}
+                >
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>view_list</span>
+                </button>
               </div>
               <select
                 value={sort}
                 onChange={e => setSort(e.target.value)}
-                className="bg-transparent border-b border-primary font-label-md text-label-md uppercase outline-none cursor-pointer py-1 px-2 text-xs"
+                className="bg-[#F5F5F5] border-0 rounded-full text-[12px] font-semibold text-[#111111] px-4 py-2 outline-none cursor-pointer"
               >
                 {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
               </select>
@@ -227,16 +259,26 @@ export default function CollectionPage() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="flex flex-wrap gap-xs mb-md overflow-hidden"
+                className="flex flex-wrap gap-2 mb-4 overflow-hidden"
               >
                 {selectedSizes.map(s => (
-                  <button key={s} onClick={() => toggleSize(s)} className="flex items-center gap-xs font-label-sm text-label-sm border border-primary px-sm py-xs hover:bg-primary hover:text-on-primary transition-all text-xs">
-                    {s} <span className="material-symbols-outlined icon-sm">close</span>
+                  <button
+                    key={s}
+                    onClick={() => toggleSize(s)}
+                    className="flex items-center gap-1.5 bg-[#111111] text-white text-[11px] font-semibold px-3 py-1.5 hover:opacity-80 transition-opacity"
+                    style={{ borderRadius: 9999 }}
+                  >
+                    {s} <span className="material-symbols-outlined" style={{ fontSize: 12 }}>close</span>
                   </button>
                 ))}
                 {selectedColors.map(c => (
-                  <button key={c} onClick={() => toggleColor(c)} className="flex items-center gap-xs font-label-sm text-label-sm border border-primary px-sm py-xs hover:bg-primary hover:text-on-primary transition-all text-xs">
-                    {c} <span className="material-symbols-outlined icon-sm">close</span>
+                  <button
+                    key={c}
+                    onClick={() => toggleColor(c)}
+                    className="flex items-center gap-1.5 bg-[#111111] text-white text-[11px] font-semibold px-3 py-1.5 hover:opacity-80 transition-opacity"
+                    style={{ borderRadius: 9999 }}
+                  >
+                    {c} <span className="material-symbols-outlined" style={{ fontSize: 12 }}>close</span>
                   </button>
                 ))}
               </motion.div>
@@ -245,7 +287,7 @@ export default function CollectionPage() {
 
           <motion.div
             layout
-            className={cn('grid gap-gutter', view === 'list' ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-3')}
+            className={cn('grid gap-4', view === 'list' ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-3')}
           >
             <AnimatePresence>
               {displayProducts.map((p, i) => (

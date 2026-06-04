@@ -7,10 +7,10 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      // ── Stitch Design System Color Tokens ──────────────────────────────
+      // ── Design System Color Tokens ─────────────────────────────────────
       colors: {
         // Core
-        primary: "#000000",
+        primary: "#111111",
         "on-primary": "#ffffff",
         "primary-container": "#1c1b1b",
         "on-primary-container": "#858383",
@@ -38,27 +38,29 @@ export default {
         "on-tertiary-fixed": "#1a1c1c",
         "on-tertiary-fixed-variant": "#454747",
 
-        // Surface
-        background: "#fbf9f9",
-        "on-background": "#1b1c1c",
-        surface: "#fbf9f9",
-        "on-surface": "#1b1c1c",
-        "surface-dim": "#dbdad9",
-        "surface-bright": "#fbf9f9",
-        "surface-container": "#efeded",
-        "surface-container-low": "#f5f3f3",
-        "surface-container-lowest": "#ffffff",
-        "surface-container-high": "#e9e8e7",
-        "surface-container-highest": "#e3e2e2",
-        "surface-variant": "#e3e2e2",
-        "on-surface-variant": "#444748",
+        // Surface — warm light palette per reference image
+        background: "#F5F5F5",
+        "on-background": "#111111",
+        surface: "#FFFFFF",
+        "on-surface": "#111111",
+        "surface-warm": "#F0E6DA",
+        "surface-muted": "#EDE5E2",
+        "surface-dim": "#e8e8e8",
+        "surface-bright": "#FFFFFF",
+        "surface-container": "#EEEEEE",
+        "surface-container-low": "#F7F7F7",
+        "surface-container-lowest": "#FFFFFF",
+        "surface-container-high": "#E5E5E5",
+        "surface-container-highest": "#DEDEDE",
+        "surface-variant": "#F0E6DA",
+        "on-surface-variant": "#666666",
         "surface-tint": "#5f5e5e",
         "inverse-surface": "#303031",
         "inverse-on-surface": "#f2f0f0",
 
         // Outline
-        outline: "#747878",
-        "outline-variant": "#c4c7c7",
+        outline: "#999999",
+        "outline-variant": "#EAEAEA",
 
         // Error
         error: "#ba1a1a",
@@ -66,19 +68,19 @@ export default {
         "error-container": "#ffdad6",
         "on-error-container": "#93000a",
 
-        // Brand accent (Electric Orange for dark mode Stitch pages)
-        accent: "#ff4d00",
-        "accent-dim": "#ff7a3d",
+        // Brand accent — warm sand tones from reference
+        accent: "#E8DDD0",
+        "accent-dim": "#D4C4B0",
       },
 
-      // ── Stitch Typography System ────────────────────────────────────────
+      // ── Typography System ────────────────────────────────────────────────
       fontFamily: {
-        sans: ["Hanken Grotesk", "system-ui", "sans-serif"],
-        display: ["Hanken Grotesk", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Inter", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       fontSize: {
-        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
         "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
         "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
         "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
@@ -89,7 +91,7 @@ export default {
         "label-sm": ["11px", { lineHeight: "14px", fontWeight: "500" }],
       },
 
-      // ── Stitch Spacing System ────────────────────────────────────────────
+      // ── Spacing System ──────────────────────────────────────────────────
       spacing: {
         xs: "4px",
         sm: "12px",
@@ -99,17 +101,32 @@ export default {
         lg: "48px",
         xl: "80px",
         "margin-mobile": "16px",
-        "margin-desktop": "64px",
+        "margin-desktop": "40px",
       },
 
-      // ── Stitch Border Radius ─────────────────────────────────────────────
+      // ── Border Radius — Reference Design (rounded everywhere) ──────────
       borderRadius: {
-        DEFAULT: "0.125rem",
-        sm: "0.125rem",
-        lg: "0.25rem",
-        xl: "0.5rem",
-        "2xl": "1rem",
-        full: "0.75rem",
+        DEFAULT: "24px",
+        none: "0px",
+        sm: "8px",
+        md: "16px",
+        lg: "24px",
+        xl: "32px",
+        "2xl": "48px",
+        full: "9999px",
+        card: "24px",
+        hero: "32px",
+        pill: "9999px",
+        input: "9999px",
+        btn: "9999px",
+      },
+
+      // ── Shadows — subtle luxury ─────────────────────────────────────────
+      boxShadow: {
+        luxury: "0 4px 20px rgba(0,0,0,0.05)",
+        card: "0 2px 16px rgba(0,0,0,0.06)",
+        hover: "0 8px 32px rgba(0,0,0,0.10)",
+        navbar: "0 4px 24px rgba(0,0,0,0.08)",
       },
 
       // ── Animations ─────────────────────────────────────────────────────
@@ -157,12 +174,12 @@ export default {
         shimmer: "shimmer 2s linear infinite",
       },
 
-      // ── Max Widths ────────────────────────────────────────────────────────
+      // ── Max Widths ──────────────────────────────────────────────────────
       maxWidth: {
         "8xl": "1440px",
       },
 
-      // ── Backdrop blur ────────────────────────────────────────────────────
+      // ── Backdrop blur ───────────────────────────────────────────────────
       backdropBlur: {
         xs: "2px",
       },

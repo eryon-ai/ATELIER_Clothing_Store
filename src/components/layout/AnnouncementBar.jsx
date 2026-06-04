@@ -1,30 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
-
-const MESSAGES = [
-  'Complimentary Worldwide Shipping on Orders Over $500',
-  'New Season Collections Now Live',
-  'Limited Edition Drops — First Come, First Served',
-  'Free Returns Within 30 Days',
-  'Join ATELIER Circle for Exclusive Early Access',
-]
+import { useAdminStore } from '../../store/useAdminStore'
 
 export default function AnnouncementBar() {
-  const [idx, setIdx] = useState(0)
+  const cms = useAdminStore(s => s.storefrontCMS)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIdx(i => (i + 1) % MESSAGES.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
+  if (!cms?.announcement?.active) return null
 
   return (
-    <div className="bg-primary text-on-primary py-2 px-margin-mobile md:px-margin-desktop text-center overflow-hidden">
-      <p
-        key={idx}
-        className="font-label-md text-[10px] md:text-label-md tracking-[0.2em] uppercase whitespace-nowrap animate-fade-in"
-      >
-        {MESSAGES[idx]}
+    <div className="bg-[#111111] text-white py-2.5 px-4 text-center overflow-hidden h-[40px] flex items-center justify-center relative z-[60]">
+      <p className="text-[11px] font-medium tracking-wide whitespace-nowrap">
+        {cms.announcement.link ? (
+          <>
+            {cms.announcement.text.replace('Sign Up Now', '').trim()}{' '}
+            <a href={cms.announcement.link} className="underline font-semibold hover:opacity-80 transition-opacity">
+              Sign Up Now
+            </a>
+          </>
+        ) : (
+          cms.announcement.text
+        )}
       </p>
     </div>
   )

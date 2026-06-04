@@ -5,7 +5,7 @@ import { formatPrice } from '../utils'
 import toast from 'react-hot-toast'
 
 const TOAST_STYLE = {
-  style: { background: '#000', color: '#fff', fontFamily: 'Hanken Grotesk', fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' },
+  style: { background: '#111', color: '#fff', fontFamily: 'Inter', fontSize: '12px', borderRadius: '9999px' },
 }
 
 export default function WishlistPage() {
@@ -19,76 +19,95 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="pt-24 pb-lg md:pb-xl px-margin-mobile md:px-margin-desktop max-w-8xl mx-auto min-h-screen">
-      <div className="flex justify-between items-end mb-lg">
-        <div>
-          <h1 className="font-headline-lg text-headline-lg text-primary uppercase">
-            My Wishlist
-            {items.length > 0 && <span className="text-on-surface-variant font-light ml-4 text-headline-md">({items.length})</span>}
-          </h1>
-          <p className="font-body-md text-on-surface-variant mt-1">Save your future ATELIER pieces here.</p>
-        </div>
-        {items.length > 0 && (
-          <button onClick={clearWishlist} className="font-label-md text-label-md uppercase text-error hover:opacity-70 transition-opacity">
-            Clear All
-          </button>
-        )}
-      </div>
-
-      {items.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-[20vh] gap-md md:gap-lg text-center">
-          <span className="material-symbols-outlined icon-xl text-outline-variant">favorite</span>
+    <div className="pt-[88px] min-h-screen bg-[#F5F5F5]">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 py-8">
+        
+        {/* Header */}
+        <div className="flex justify-between items-end mb-6">
           <div>
-            <h2 className="font-headline-md text-primary mb-2">Your wishlist is empty</h2>
-            <p className="font-body-md text-on-surface-variant">Save pieces you love by hitting the ♡ on any product.</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#999999] mb-1">Saved</p>
+            <h1 className="text-[28px] md:text-[36px] font-semibold text-[#111111] tracking-tight">
+              My Wishlist
+              {items.length > 0 && <span className="text-[#999999] font-normal text-[22px] ml-3">({items.length})</span>}
+            </h1>
+            <p className="text-[13px] text-[#666666] mt-1">Save your future ATELIER pieces here.</p>
           </div>
-          <Link to="/products" className="btn-primary inline-block">Explore Collections</Link>
+          {items.length > 0 && (
+            <button
+              onClick={clearWishlist}
+              className="text-[12px] font-semibold text-red-500 hover:opacity-70 transition-opacity uppercase tracking-wide"
+            >
+              Clear All
+            </button>
+          )}
         </div>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
-          {items.map(product => (
-            <div key={product.id} className="group relative">
-              {/* Product Image */}
-              <Link to={`/products/${product.slug}`} className="block aspect-[3/4] bg-surface-container overflow-hidden mb-sm">
-                <img
-                  src={product.images[0]}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {product.badge && (
-                  <span className="absolute top-3 left-3 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 uppercase">
-                    {product.badge}
-                  </span>
-                )}
-              </Link>
 
-              {/* Info */}
-              <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">{product.category}</p>
-              <Link to={`/products/${product.slug}`}>
-                <h3 className="font-title-lg text-primary hover:text-secondary transition-colors">{product.name}</h3>
-              </Link>
-              <p className="font-body-md text-primary mb-sm">{formatPrice(product.price)}</p>
+        {items.length === 0 ? (
+          <div className="bg-white flex flex-col items-center justify-center py-24 gap-5 text-center" style={{ borderRadius: 32 }}>
+            <span className="material-symbols-outlined text-[#DDDDDD]" style={{ fontSize: 64 }}>favorite</span>
+            <div>
+              <h2 className="text-[22px] font-semibold text-[#111111] mb-2">Your wishlist is empty</h2>
+              <p className="text-[13px] text-[#666666]">Save pieces you love by hitting the ♡ on any product.</p>
+            </div>
+            <Link
+              to="/products"
+              className="inline-flex items-center justify-center bg-[#111111] text-white text-[12px] font-semibold px-8 py-3.5 hover:opacity-80 transition-opacity"
+              style={{ borderRadius: 9999 }}
+            >
+              Explore Collections
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {items.map(product => (
+              <div key={product.id} className="group">
+                {/* Product Image */}
+                <div className="relative overflow-hidden bg-[#F0EDE8] mb-3" style={{ borderRadius: 24, aspectRatio: '3/4' }}>
+                  <Link to={`/products/${product.slug}`} className="block w-full h-full">
+                    <img
+                      src={product.images[0]}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </Link>
+                  {product.badge && (
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[9px] font-bold uppercase tracking-wider bg-[#111111] text-white px-2.5 py-1" style={{ borderRadius: 9999 }}>
+                        {product.badge}
+                      </span>
+                    </div>
+                  )}
+                  {/* Remove button */}
+                  <button
+                    onClick={() => removeItem(product.id)}
+                    className="absolute top-3 right-3 w-8 h-8 bg-white/95 rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-50"
+                  >
+                    <span className="material-symbols-outlined text-[#999999] hover:text-red-500" style={{ fontSize: 15 }}>close</span>
+                  </button>
+                </div>
 
-              {/* Actions */}
-              <div className="flex gap-xs">
+                {/* Info */}
+                <div className="px-0.5 mb-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#999999]">{product.category}</p>
+                  <Link to={`/products/${product.slug}`}>
+                    <h3 className="text-[14px] font-medium text-[#111111] hover:opacity-70 transition-opacity truncate">{product.name}</h3>
+                  </Link>
+                  <p className="text-[13px] font-semibold text-[#111111] mt-0.5">{formatPrice(product.price)}</p>
+                </div>
+
+                {/* Actions */}
                 <button
                   onClick={() => handleMoveToCart(product)}
-                  className="flex-1 bg-primary text-on-primary py-2 font-label-md text-label-md uppercase text-xs hover:bg-secondary transition-colors"
+                  className="w-full bg-[#111111] text-white py-2.5 text-[11px] font-semibold hover:opacity-80 transition-opacity uppercase tracking-wide"
+                  style={{ borderRadius: 9999 }}
                 >
                   Add to Cart
                 </button>
-                <button
-                  onClick={() => removeItem(product.id)}
-                  className="border border-outline-variant p-2 hover:border-error hover:text-error transition-colors"
-                  aria-label="Remove"
-                >
-                  <span className="material-symbols-outlined icon-sm">delete</span>
-                </button>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

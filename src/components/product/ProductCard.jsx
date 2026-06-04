@@ -30,38 +30,35 @@ export default function ProductCard({ product, className, index = 0 }) {
     await new Promise(r => setTimeout(r, 220))
     addItem(product, product.sizes[0], product.colors[0])
     setIsLoading(false)
-    toast.success(`${product.name} added`, {
-      style: { background: '#000', color: '#fff', fontFamily: 'Hanken Grotesk', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase' },
-    })
+    toast.success(`${product.name} added`)
   }
 
   const handleWishlist = (e) => {
     e.preventDefault()
     e.stopPropagation()
     const added = toggleItem(product)
-    toast.success(added ? '❤ Added to wishlist' : 'Removed from wishlist', {
-      style: { background: '#000', color: '#fff', fontFamily: 'Hanken Grotesk', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase' },
-    })
+    toast.success(added ? '❤ Added to wishlist' : 'Removed from wishlist')
   }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
+      transition={{ duration: 0.35, delay: (index % 4) * 0.07 }}
       className={cn('group', className)}
     >
       <Link to={`/products/${product.slug}`} className="block">
-        {/* ── Image Container ─────────────────────────────────────────── */}
+        {/* ── Image Container ───────────────────────────── */}
         <div
-          className="relative aspect-[3/4] overflow-hidden bg-[#F5F4F2] mb-3 img-crossfade-hover"
+          className="relative overflow-hidden bg-[#F0EDE8] mb-3 img-crossfade-hover"
+          style={{ borderRadius: 24, aspectRatio: '4/5' }}
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
         >
           {/* Skeleton */}
           {!imgLoaded && (
-            <div className="absolute inset-0 skeleton" />
+            <div className="absolute inset-0 skeleton" style={{ borderRadius: 24 }} />
           )}
 
           {/* Main Image */}
@@ -70,7 +67,7 @@ export default function ProductCard({ product, className, index = 0 }) {
             src={product.images[0]}
             alt={product.name}
             onLoad={() => setImgLoaded(true)}
-            onError={() => { setImgLoaded(true); setImgError(true); }}
+            onError={() => { setImgLoaded(true); setImgError(true) }}
             className={cn(
               'img-primary absolute inset-0 w-full h-full object-cover',
               imgLoaded ? 'opacity-100' : 'opacity-0'
@@ -78,7 +75,7 @@ export default function ProductCard({ product, className, index = 0 }) {
             loading="lazy"
           />
 
-          {/* Lifestyle / hover image (crossfades in) */}
+          {/* Hover image crossfade */}
           {product.images[1] && (
             <img
               src={product.images[1]}
@@ -88,57 +85,61 @@ export default function ProductCard({ product, className, index = 0 }) {
             />
           )}
 
-          {/* Overlay gradient on hover */}
+          {/* Subtle hover gradient */}
           <motion.div
             animate={{ opacity: hovering ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"
+            transition={{ duration: 0.25 }}
+            className="absolute inset-0 bg-gradient-to-t from-[#7f00ff]/30 via-[#00f2fe]/10 to-transparent pointer-events-none mix-blend-overlay"
+            style={{ borderRadius: 24 }}
           />
 
-          {/* Badge — quiet/monochrome */}
+          {/* Badge */}
           {product.badge && (
             <span
               className={cn(
                 'badge-quiet absolute top-3 left-3 z-10',
                 product.badge === 'SALE' ? 'sale' :
-                product.badge === 'NEW' ? 'new' : ''
+                product.badge === 'NEW' ? 'new' : 
+                product.badge === 'LIMITED' ? 'limited' : ''
               )}
             >
               {product.badge === 'LIMITED' ? 'Limited' : product.badge}
             </span>
           )}
 
-          {/* Wishlist Button */}
+          {/* Wishlist button */}
           <motion.button
             onClick={handleWishlist}
             whileTap={{ scale: 0.85 }}
-            animate={{ opacity: hovering || isWishlisted ? 1 : 0, y: hovering || isWishlisted ? 0 : -6 }}
+            animate={{ opacity: hovering || isWishlisted ? 1 : 0, y: hovering || isWishlisted ? 0 : -4 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:bg-white transition-colors z-10"
+            className="absolute top-3 right-3 w-8 h-8 bg-white/95 rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors z-10"
             aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
           >
             <span
-              className={cn('material-symbols-outlined text-lg', isWishlisted ? 'text-red-500' : 'text-primary')}
-              style={isWishlisted ? { fontVariationSettings: "'FILL' 1" } : {}}
+              className={cn('material-symbols-outlined transition-colors duration-300', isWishlisted ? 'text-[#ff007f]' : 'text-[#111111]')}
+              style={{ fontSize: 16, filter: isWishlisted ? 'drop-shadow(0 0 6px rgba(255,0,127,0.6))' : 'none', ...(isWishlisted ? { fontVariationSettings: "'FILL' 1" } : {}) }}
             >
               favorite
             </span>
           </motion.button>
 
-          {/* Quick Add Button */}
+          {/* Quick Add Button — pill at bottom */}
           <motion.button
             onClick={handleQuickAdd}
             disabled={isLoading}
-            animate={{ y: hovering ? 0 : 60, opacity: hovering ? 1 : 0 }}
-            transition={{ type: 'spring', damping: 22, stiffness: 300 }}
-            className="absolute bottom-0 left-0 right-0 bg-primary text-on-primary py-3 text-[11px] font-bold uppercase tracking-widest hover:bg-secondary transition-colors flex items-center justify-center gap-2 z-10"
+            animate={{ y: hovering ? 0 : 50, opacity: hovering ? 1 : 0 }}
+            transition={{ type: 'spring', damping: 24, stiffness: 280 }}
+            className="absolute bottom-3 left-3 right-3 bg-funky-gradient text-white py-2.5 text-[11px] font-semibold flex items-center justify-center gap-1.5 z-10 glow-funky hover:opacity-90"
+            style={{ borderRadius: 9999 }}
           >
             {isLoading ? (
               <>
                 <motion.span
                   animate={{ rotate: 360 }}
                   transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
-                  className="material-symbols-outlined text-sm"
+                  className="material-symbols-outlined"
+                  style={{ fontSize: 14 }}
                 >
                   progress_activity
                 </motion.span>
@@ -146,7 +147,7 @@ export default function ProductCard({ product, className, index = 0 }) {
               </>
             ) : (
               <>
-                <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 14 }}>add_shopping_cart</span>
                 Quick Add
               </>
             )}
@@ -155,7 +156,7 @@ export default function ProductCard({ product, className, index = 0 }) {
           {/* Color swatches on hover */}
           {product.colors && product.colors.length > 1 && (
             <motion.div
-              animate={{ opacity: hovering ? 1 : 0, y: hovering ? 0 : 6 }}
+              animate={{ opacity: hovering ? 1 : 0, y: hovering ? 0 : 4 }}
               transition={{ duration: 0.2 }}
               className="absolute bottom-14 left-3 flex gap-1.5 z-10"
             >
@@ -171,70 +172,37 @@ export default function ProductCard({ product, className, index = 0 }) {
           )}
         </div>
 
-        {/* ── Info Panel ───────────────────────────────────────── */}
-        <div className="space-y-1">
-          {/* Category + Rating row */}
+        {/* ── Info Panel ─────────────────────────────────── */}
+        <div className="px-1 space-y-1">
+          {/* Category label + Rating */}
           <div className="flex items-center justify-between">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#999999]">
               {product.category}
             </p>
             <div className="flex items-center gap-1">
-              <span className="text-amber-400 text-xs">★</span>
-              <span className="text-[10px] font-semibold text-on-surface-variant">
+              <span className="text-amber-400 text-[11px]">★</span>
+              <span className="text-[10px] font-semibold text-[#999999]">
                 {Number(product.rating).toFixed(1)}
               </span>
             </div>
           </div>
 
-          {/* Name */}
-          <h4 className="font-semibold text-sm text-primary leading-tight group-hover:opacity-70 transition-opacity">
+          {/* Product Name */}
+          <h4 className="font-medium text-[14px] text-[#111111] leading-snug group-hover:opacity-70 transition-opacity">
             {product.name}
           </h4>
 
-          {/* Description */}
-          {product.description && (
-            <p className="text-xs text-on-surface-variant line-clamp-1 leading-relaxed">
-              {product.description}
-            </p>
-          )}
-
-          {/* Price row */}
+          {/* Price */}
           <div className="flex items-center gap-2 pt-0.5">
-            <span className="font-bold text-sm text-primary">{formatPrice(product.price)}</span>
+            <span className="font-semibold text-[14px] text-[#111111]">{formatPrice(product.price)}</span>
             {product.comparePrice && (
-              <span className="text-xs text-outline line-through">{formatPrice(product.comparePrice)}</span>
+              <span className="text-[12px] text-[#999999] line-through">{formatPrice(product.comparePrice)}</span>
             )}
             {product.discount && (
-              <span className="text-[10px] font-bold text-red-500 bg-red-50 px-1.5 py-0.5">
+              <span className="text-[10px] font-bold text-white bg-[#ff007f] px-1.5 py-0.5 rounded-full glow-funky">
                 -{product.discount}%
               </span>
             )}
-          </div>
-
-          {/* Sizes available */}
-          <div className="flex items-center justify-between pt-1.5 border-t border-outline-variant/20">
-            <div className="flex gap-1">
-              {product.sizes?.slice(0, 4).map(size => (
-                <span key={size} className="text-[9px] font-semibold border border-outline-variant/40 px-1.5 py-0.5 text-on-surface-variant">
-                  {size}
-                </span>
-              ))}
-              {product.sizes?.length > 4 && (
-                <span className="text-[9px] text-on-surface-variant self-center">+{product.sizes.length - 4}</span>
-              )}
-            </div>
-            <div className="flex gap-1">
-              {product.colors?.slice(0, 3).map((c, i) => (
-                <span
-                  key={i}
-                  className="w-2.5 h-2.5 rounded-full border border-outline-variant/40"
-                  style={{ backgroundColor: c.value }}
-                />
-              ))}
-              {product.colors?.length > 3 && (
-                <span className="text-[9px] text-on-surface-variant self-center">+{product.colors.length - 3}</span>
-              )}
-            </div>
           </div>
         </div>
       </Link>

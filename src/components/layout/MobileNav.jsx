@@ -10,7 +10,6 @@ const TABS = [
   { icon: 'category', label: 'Shop', href: '/products' },
   { icon: 'favorite', label: 'Wishlist', href: '/wishlist' },
   { icon: 'person', label: 'Account', href: '/dashboard' },
-  { icon: 'admin_panel_settings', label: 'Admin', href: '/admin' },
 ]
 
 export default function MobileNav() {
@@ -29,11 +28,11 @@ export default function MobileNav() {
           return (
             <button
               key={tab.label}
-              className="flex flex-col items-center gap-0.5 px-4 py-1 text-on-surface-variant"
+              className="flex flex-col items-center gap-0.5 px-3 py-1 text-[#999999]"
               onClick={() => useSearchStore?.getState?.()?.openSearch?.()}
             >
-              <span className="material-symbols-outlined icon-md">{tab.icon}</span>
-              <span className="font-label-sm text-[10px] uppercase">{tab.label}</span>
+              <span className="material-symbols-outlined" style={{ fontSize: 22 }}>{tab.icon}</span>
+              <span className="text-[9px] font-semibold uppercase tracking-wide">{tab.label}</span>
             </button>
           )
         }
@@ -42,15 +41,17 @@ export default function MobileNav() {
           <Link
             key={tab.label}
             to={tab.href}
-            className={`flex flex-col items-center gap-0.5 px-4 py-1 relative transition-colors ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}
+            className={`flex flex-col items-center gap-0.5 px-3 py-1 relative transition-colors ${isActive ? 'text-[#111111]' : 'text-[#999999]'}`}
           >
-            <span className={`material-symbols-outlined icon-md ${isActive ? 'fill-1' : ''}`}
-              style={isActive ? { fontVariationSettings: "'FILL' 1" } : {}}>
+            <span
+              className="material-symbols-outlined"
+              style={{ fontSize: 22, ...(isActive ? { fontVariationSettings: "'FILL' 1" } : {}) }}
+            >
               {tab.icon}
             </span>
-            <span className="font-label-sm text-[10px] uppercase">{tab.label}</span>
+            <span className="text-[9px] font-semibold uppercase tracking-wide">{tab.label}</span>
             {count > 0 && (
-              <span className="absolute top-0 right-2 bg-secondary text-white text-[8px] w-3 h-3 flex items-center justify-center rounded-full">
+              <span className="absolute top-0 right-1 bg-[#111111] text-white text-[8px] w-3.5 h-3.5 flex items-center justify-center rounded-full font-bold">
                 {count}
               </span>
             )}

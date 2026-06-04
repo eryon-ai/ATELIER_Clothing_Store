@@ -2,16 +2,20 @@ import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
-export function StatCard({ icon, label, value, change, color }) {
+export function StatCard({ icon, label, value, change, color, iconColor }) {
+  // Fallback for older usages where iconColor wasn't provided, use standard text- color extraction if possible
+  // Otherwise, fallback to a safe default if parsing fails.
+  const parsedIconColor = iconColor || (color?.replace('bg-', 'text-') || 'text-primary')
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white border border-outline-variant/30 p-4 md:p-6 relative overflow-hidden group hover:shadow-lg transition-shadow"
+      className="admin-card p-4 md:p-6 relative overflow-hidden group"
     >
       <div className={`absolute top-0 right-0 w-24 h-24 ${color} opacity-5 rounded-bl-full`} />
       <div className={`w-10 h-10 ${color} bg-opacity-10 flex items-center justify-center mb-4`}>
-        <span className={`material-symbols-outlined text-xl ${color.replace('bg-', 'text-')}`}>{icon}</span>
+        <span className={`material-symbols-outlined text-xl ${parsedIconColor}`}>{icon}</span>
       </div>
       <p className="text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-1">{label}</p>
       <p className="text-3xl font-bold text-primary tracking-tight">{value}</p>
@@ -29,7 +33,8 @@ StatCard.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   change: PropTypes.number,
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
+  iconColor: PropTypes.string
 }
 
 import { useAdminStore } from '../../store/useAdminStore'
@@ -45,15 +50,15 @@ export default function AdminOverview() {
     <div className="space-y-8">
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard icon="payments" label="Total Revenue" value={`$${(stats.revenue).toLocaleString()}`} change={12.4} color="bg-emerald-500" />
-        <StatCard icon="receipt_long" label="Total Orders" value={stats.orders.toLocaleString()} change={8.1} color="bg-blue-500" />
-        <StatCard icon="group" label="Customers" value={stats.customers.toLocaleString()} change={5.3} color="bg-violet-500" />
-        <StatCard icon="percent" label="Conversion" value={`${stats.conversion}%`} change={-0.8} color="bg-amber-500" />
+        <StatCard icon="payments" label="Total Revenue" value={`$${(stats.revenue).toLocaleString()}`} change={12.4} color="bg-emerald-500" iconColor="text-emerald-500" />
+        <StatCard icon="receipt_long" label="Total Orders" value={stats.orders.toLocaleString()} change={8.1} color="bg-blue-500" iconColor="text-blue-500" />
+        <StatCard icon="group" label="Customers" value={stats.customers.toLocaleString()} change={5.3} color="bg-violet-500" iconColor="text-violet-500" />
+        <StatCard icon="percent" label="Conversion" value={`${stats.conversion}%`} change={-0.8} color="bg-amber-500" iconColor="text-amber-500" />
       </div>
 
       {/* Quick Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white border border-outline-variant/30 p-6 col-span-2">
+        <div className="admin-card p-6 col-span-2">
           <h3 className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">Recent Orders</h3>
           <div className="space-y-3">
             {recentOrders.map(o => (
@@ -72,7 +77,7 @@ export default function AdminOverview() {
         </div>
 
         <div className="space-y-4">
-          <div className="bg-white border border-outline-variant/30 p-6">
+          <div className="admin-card p-6">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Order Status</h3>
             {[
               { label: 'Delivered', count: delivered, color: 'bg-emerald-500' },
@@ -96,7 +101,7 @@ export default function AdminOverview() {
             ))}
           </div>
 
-          <div className="bg-primary text-on-primary p-6">
+          <div className="admin-card bg-primary text-on-primary p-6 border-none">
             <span className="material-symbols-outlined text-3xl mb-3 block opacity-80">storefront</span>
             <p className="text-xs uppercase tracking-widest opacity-70 mb-1">Store Status</p>
             <p className="font-bold text-lg">LIVE & ACTIVE</p>

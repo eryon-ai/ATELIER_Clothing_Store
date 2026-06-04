@@ -14,7 +14,8 @@ const productSchema = z.object({
   price: z.coerce.number().min(0.01, 'Price must be greater than 0'),
   comparePrice: z.coerce.number().nullable().optional(),
   description: z.string().optional(),
-  lifecycleStatus: z.string().optional()
+  lifecycleStatus: z.string().optional(),
+  badge: z.string().optional()
 })
 
 const ITEMS_PER_PAGE = 10
@@ -75,8 +76,12 @@ export default function AdminProducts() {
   }
 
   const handleBulkCollection = () => {
-    toast.success(`Assigned ${selectedIds.size} products to New Collection`)
-    setSelectedIds(new Set())
+    const collectionName = window.prompt('Enter collection name to assign:')
+    if (collectionName) {
+      bulkUpdateProducts(selectedIds, { collection: collectionName })
+      toast.success(`Assigned ${selectedIds.size} products to ${collectionName}`)
+      setSelectedIds(new Set())
+    }
   }
 
   const handleCompare = () => {
@@ -179,7 +184,7 @@ export default function AdminProducts() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-12 bg-surface-container overflow-hidden flex-shrink-0">
-                          <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover" />
+                          <img src={p.images?.[0]} alt={p.name} className="w-full h-full object-cover" />
                         </div>
                         <div>
                           <p className="font-semibold text-primary leading-tight">{p.name}</p>
@@ -323,7 +328,8 @@ function ProductEditorPanel({ productId, isNew, onClose }) {
       price: product?.price || '',
       comparePrice: product?.comparePrice || '',
       description: product?.description || '',
-      lifecycleStatus: product?.lifecycleStatus || 'Draft'
+      lifecycleStatus: product?.lifecycleStatus || 'Draft',
+      badge: product?.badge || 'None'
     }
   })
 
@@ -346,7 +352,8 @@ function ProductEditorPanel({ productId, isNew, onClose }) {
         lifecycleStatus: data.lifecycleStatus,
         inventoryCount: variants.reduce((sum, v) => sum + (v.inventory || 0), 0),
         variants,
-        tags
+        tags,
+        badge: data.badge === 'None' ? null : data.badge
       })
       toast.success('Product created!')
     } else {
@@ -358,7 +365,8 @@ function ProductEditorPanel({ productId, isNew, onClose }) {
         lifecycleStatus: data.lifecycleStatus,
         inventoryCount: variants.reduce((sum, v) => sum + (v.inventory || 0), 0),
         variants,
-        tags
+        tags,
+        badge: data.badge === 'None' ? null : data.badge
       })
       toast.success('Product updated!')
     }
@@ -430,12 +438,22 @@ function ProductEditorPanel({ productId, isNew, onClose }) {
             <form id="product-form" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2">
+                <div className="col-span-1">
                   <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Lifecycle Status</label>
                   <select {...register('lifecycleStatus')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary">
                     <option value="Active">Active</option>
                     <option value="Draft">Draft</option>
                     <option value="Archived">Archived</option>
+                  </select>
+                </div>
+
+                <div className="col-span-1">
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Product Badge</label>
+                  <select {...register('badge')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary">
+                    <option value="None">None</option>
+                    <option value="NEW">NEW</option>
+                    <option value="SALE">SALE</option>
+                    <option value="LIMITED">LIMITED</option>
                   </select>
                 </div>
 

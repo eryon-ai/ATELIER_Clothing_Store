@@ -25,14 +25,14 @@ export default function CartDrawer() {
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+        className="fixed inset-0 bg-white/40 z-40 backdrop-blur-md"
         onClick={closeCart}
       />
 
       {/* Drawer */}
-      <div className="fixed top-0 right-0 h-full w-full max-w-md bg-background z-50 flex flex-col shadow-2xl animate-slide-in-right">
+      <div className="fixed top-0 right-0 h-full w-full max-w-md bg-white/80 backdrop-blur-2xl border-l border-white/50 z-50 flex flex-col shadow-2xl animate-slide-in-right">
         {/* Header */}
-        <div className="flex justify-between items-center px-md py-md border-b border-outline-variant">
+        <div className="flex justify-between items-center px-md py-md border-b border-[#EAEAEA]">
           <div className="flex items-center gap-sm">
             <h2 className="font-headline-md text-headline-md uppercase">My Cart</h2>
             {getItemCount() > 0 && (
@@ -45,7 +45,7 @@ export default function CartDrawer() {
         </div>
 
         {/* Free Shipping Bar */}
-        <div className="px-md py-sm border-b border-outline-variant/50 bg-surface-container-low">
+        <div className="px-md py-sm border-b border-[#EAEAEA] bg-white/50">
           {amountToFreeShipping > 0 ? (
             <p className="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">
               {formatPrice(amountToFreeShipping)} away from free shipping
@@ -107,7 +107,7 @@ export default function CartDrawer() {
             <Link
               to="/cart"
               onClick={closeCart}
-              className="block w-full bg-primary text-on-primary text-center py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-colors"
+              className="btn-primary block w-full text-center"
             >
               Checkout — {formatPrice(subtotal)}
             </Link>
@@ -115,7 +115,7 @@ export default function CartDrawer() {
             <Link
               to="/products"
               onClick={closeCart}
-              className="block text-center font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+              className="block w-full text-center font-label-md text-label-md uppercase tracking-widest text-[#747878] hover:text-black transition-colors"
             >
               Continue Shopping
             </Link>

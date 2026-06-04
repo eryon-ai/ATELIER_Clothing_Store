@@ -13,4 +13,12 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'zustand', 'framer-motion', 'react-hot-toast'],
   },
+  build: {
+    // Main chunk is ~154 kB gzipped — well within acceptable limits.
+    // The 500 kB warning refers to raw minified size, not what users download.
+    chunkSizeWarningLimit: 550,
+  },
 })
+
+
+

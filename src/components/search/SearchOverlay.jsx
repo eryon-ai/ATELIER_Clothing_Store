@@ -72,7 +72,7 @@ export default function SearchOverlay() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={closeSearch}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70]"
           />
 
           {/* Panel */}
@@ -82,7 +82,7 @@ export default function SearchOverlay() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '-100%', opacity: 0 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed top-0 left-0 right-0 z-50 bg-white shadow-2xl max-h-[92vh] flex flex-col"
+            className="fixed top-0 left-0 right-0 z-[80] bg-white shadow-2xl max-h-[92vh] flex flex-col"
           >
             {/* ── Search Bar ─────────────────────────────────────── */}
             <div className="border-b border-outline-variant/30 bg-white">

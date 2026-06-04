@@ -1,17 +1,28 @@
 import { useState, useMemo, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 import { useAdminStore } from '../../store/useAdminStore'
 import { ADMIN_STATUS_COLORS } from '../../constants'
 import toast from 'react-hot-toast'
 
 const ITEMS_PER_PAGE = 10
 
+const orderSchema = z.object({
+  customer: z.string().min(2, 'Customer name required'),
+  email: z.string().email('Valid email required'),
+  product: z.string().min(2, 'Product name required'),
+  amount: z.coerce.number().min(0.01, 'Amount must be greater than 0'),
+})
+
 export default function AdminOrders() {
-  const { orders, bulkUpdateOrders } = useAdminStore()
+  const { orders, bulkUpdateOrders, addOrder } = useAdminStore()
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [selectedOrder, setSelectedOrder] = useState(null)
+  const [isCreatingOrder, setIsCreatingOrder] = useState(false)
   
   // Pagination & Selection
   const [currentPage, setCurrentPage] = useState(1)
@@ -49,8 +60,20 @@ export default function AdminOrders() {
 
   // --- Handlers ---
   const handleExport = useCallback(() => {
-    toast.success(`Exporting ${filtered.length} orders to CSV...`)
-  }, [filtered.length])
+    if (filtered.length === 0) return toast.error('No orders to export')
+    const headers = ['Order ID', 'Customer', 'Email', 'Product', 'Items', 'Amount', 'Status', 'Date']
+    const csvContent = [
+      headers.join(','),
+      ...filtered.map(o => `"${o.id}","${o.customer}","${o.email}","${o.product}",${o.items},${o.amount},"${o.status}","${o.date}"`)
+    ].join('\n')
+    
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    link.href = URL.createObjectURL(blob)
+    link.download = `orders_export_${new Date().toISOString().split('T')[0]}.csv`
+    link.click()
+    toast.success(`Exported ${filtered.length} orders`)
+  }, [filtered])
 
   const handleMoreFilters = () => {
     toast('Advanced filters require backend sync', { icon: '⚙️' })
@@ -64,9 +87,8 @@ export default function AdminOrders() {
   const handleBulkFulfill = () => {
     bulkUpdateOrders(selectedIds, { 
       status: 'Shipped', 
-      carrier: 'FedEx', 
-      trackingNumber: `FX${Math.floor(Math.random() * 10000000000)}` 
-    })
+      carrier: 'FedEx'
+    }, () => `FX${Math.floor(Math.random() * 10000000000)}`)
     toast.success(`${selectedIds.size} orders marked as Shipped`)
     setSelectedIds(new Set())
   }
@@ -106,6 +128,9 @@ export default function AdminOrders() {
           </button>
           <button onClick={handleExport} className="border border-outline-variant/50 bg-white px-4 py-2.5 text-sm font-semibold uppercase tracking-widest text-primary hover:bg-surface-variant/30 flex items-center gap-2">
             <span className="material-symbols-outlined icon-sm">download</span> Export
+          </button>
+          <button onClick={() => setIsCreatingOrder(true)} className="bg-primary text-on-primary px-4 py-2.5 text-sm font-semibold uppercase tracking-widest hover:bg-secondary transition-colors flex items-center gap-2">
+            <span className="material-symbols-outlined icon-sm">add</span> Create
           </button>
         </div>
       </div>
@@ -225,12 +250,19 @@ export default function AdminOrders() {
           />
         )}
       </AnimatePresence>
+
+      {/* Slide-out Create Order Panel */}
+      <AnimatePresence>
+        {isCreatingOrder && (
+          <OrderEditorPanel onClose={() => setIsCreatingOrder(false)} />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
 function OrderDetailsPanel({ orderId, onClose, STATUS_COLORS }) {
-  const { orders, updateOrder, addOrderNote } = useAdminStore()
+  const { orders, updateOrder, addOrderNote, deleteOrder } = useAdminStore()
   const [internalNote, setInternalNote] = useState('')
 
   // Get fresh order data from store so updates reflect instantly in the slide-out
@@ -275,6 +307,14 @@ function OrderDetailsPanel({ orderId, onClose, STATUS_COLORS }) {
     toast.success('Note added')
   }
 
+  const handleDelete = () => {
+    if (window.confirm('Are you sure you want to permanently delete this order?')) {
+      deleteOrder(order.id)
+      toast.success('Order deleted')
+      onClose()
+    }
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -303,7 +343,10 @@ function OrderDetailsPanel({ orderId, onClose, STATUS_COLORS }) {
             </div>
             <p className="text-xs text-on-surface-variant mt-1">{order.date} • {order.items} items</p>
           </div>
-          <button onClick={onClose} className="material-symbols-outlined text-outline hover:text-primary">close</button>
+          <div className="flex items-center gap-2">
+            <button onClick={handleDelete} className="material-symbols-outlined text-outline hover:text-red-500 transition-colors" title="Delete Order">delete</button>
+            <button onClick={onClose} className="material-symbols-outlined text-outline hover:text-primary transition-colors">close</button>
+          </div>
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
@@ -431,3 +474,88 @@ OrderDetailsPanel.propTypes = {
   onClose: PropTypes.func.isRequired,
   STATUS_COLORS: PropTypes.object.isRequired
 }
+
+function OrderEditorPanel({ onClose }) {
+  const { addOrder } = useAdminStore()
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(orderSchema)
+  })
+
+  const onSubmit = (data) => {
+    const newOrder = {
+      id: `PO-${new Date().getFullYear()}-${Math.floor(100 + Math.random() * 900)}`,
+      customer: data.customer,
+      email: data.email,
+      product: data.product,
+      amount: data.amount,
+      items: 1,
+      status: 'Processing',
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      timeline: [{ type: 'order', title: 'Order Placed (Manual)', time: 'Just now', user: 'Admin' }]
+    }
+    addOrder(newOrder)
+    toast.success('Manual order created!')
+    onClose()
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[60] bg-black/60 flex justify-end"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '100%' }}
+        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        onClick={e => e.stopPropagation()}
+        className="bg-surface-container-lowest w-full max-w-md h-full shadow-2xl flex flex-col"
+      >
+        <div className="flex items-center justify-between px-6 py-4 border-b border-outline-variant/30 bg-white">
+          <h2 className="font-bold text-lg uppercase tracking-widest text-primary">Create Manual Order</h2>
+          <button onClick={onClose} className="material-symbols-outlined text-outline hover:text-primary">close</button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-6 bg-white">
+          <form id="order-form" onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Customer Name</label>
+              <input {...register('customer')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary" />
+              {errors.customer && <p className="text-red-500 text-xs mt-1">{errors.customer.message}</p>}
+            </div>
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Email Address</label>
+              <input {...register('email')} type="email" className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary" />
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+            </div>
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Product Name</label>
+              <input {...register('product')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary" />
+              {errors.product && <p className="text-red-500 text-xs mt-1">{errors.product.message}</p>}
+            </div>
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Amount ($)</label>
+              <input {...register('amount')} type="number" step="0.01" className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary" />
+              {errors.amount && <p className="text-red-500 text-xs mt-1">{errors.amount.message}</p>}
+            </div>
+          </form>
+        </div>
+        
+        <div className="p-6 border-t border-outline-variant/30 bg-surface-container-lowest">
+          <button type="submit" form="order-form" className="w-full bg-primary text-on-primary py-3 text-xs font-bold uppercase tracking-widest hover:bg-secondary transition-colors">
+            Create Order
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+OrderEditorPanel.propTypes = {
+  onClose: PropTypes.func.isRequired
+}
+

@@ -1,8 +1,19 @@
 import { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 import { useAdminStore } from '../../store/useAdminStore'
 import toast from 'react-hot-toast'
+
+const customerSchema = z.object({
+  name: z.string().min(2, 'Name is required'),
+  email: z.string().email('Invalid email address'),
+  location: z.string().min(2, 'Location is required'),
+  channel: z.string().optional(),
+})
+
 
 const ITEMS_PER_PAGE = 10
 
@@ -39,6 +50,7 @@ export default function AdminCustomers() {
   const [segmentFilter, setSegmentFilter] = useState('all')
   const [sortBy, setSortBy] = useState('ltv')
   const [currentPage, setCurrentPage] = useState(1)
+  const [editingCustomer, setEditingCustomer] = useState(null)
 
   // BUG 3 FIX: reset page when filters/search change
   const handleSearch = (val) => { setSearch(val); setCurrentPage(1) }
@@ -149,6 +161,10 @@ export default function AdminCustomers() {
           <option value="retention">Sort: By Retention</option>
           <option value="health">Sort: By Health Score</option>
         </select>
+        <button onClick={() => setEditingCustomer({})} className="bg-primary text-on-primary px-6 py-2.5 text-xs font-semibold uppercase tracking-widest hover:bg-secondary transition-colors flex items-center gap-2">
+          <span className="material-symbols-outlined text-lg">add</span>
+          Add Customer
+        </button>
       </div>
 
       {/* Table */}
@@ -220,7 +236,17 @@ export default function AdminCustomers() {
       {/* CRM Profile Panel */}
       <AnimatePresence>
         {/* BUG 1 FIX: key={customer.email} so panel state resets when switching customers */}
-      {selectedCustomer && <CustomerProfilePanel key={selectedCustomer.email} customer={selectedCustomer} onClose={() => setSelectedEmail(null)} />}
+        {selectedCustomer && <CustomerProfilePanel key={selectedCustomer.email} customer={selectedCustomer} onClose={() => setSelectedEmail(null)} onEdit={() => setEditingCustomer(selectedCustomer)} />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {editingCustomer !== null && (
+          <CustomerEditorPanel 
+            customer={editingCustomer} 
+            isNew={!editingCustomer.email}
+            onClose={() => setEditingCustomer(null)} 
+          />
+        )}
       </AnimatePresence>
     </div>
   )
@@ -228,8 +254,8 @@ export default function AdminCustomers() {
 
 
 // ─── CRM Profile Panel ──────────────────────────────────────────────────────
-function CustomerProfilePanel({ customer, onClose }) {
-  const { addCustomerNote, updateCustomerTags, banCustomer } = useAdminStore()
+function CustomerProfilePanel({ customer, onClose, onEdit }) {
+  const { addCustomerNote, updateCustomerTags, banCustomer, deleteCustomer, addActivity } = useAdminStore()
   const [activeTab, setActiveTab] = useState('overview')
   const [noteInput, setNoteInput] = useState('')
   const [tagInput, setTagInput] = useState('')
@@ -258,7 +284,7 @@ function CustomerProfilePanel({ customer, onClose }) {
   }
 
   const handleRemoveTag = (tag) => {
-    updateCustomerTags(customer.email, customer.tags.filter(t => t !== tag))
+    updateCustomerTags(customer.email, (customer.tags || []).filter(t => t !== tag))
   }
 
   const handleBan = () => {
@@ -266,6 +292,27 @@ function CustomerProfilePanel({ customer, onClose }) {
     const willBan = !customer.banned
     banCustomer(customer.email)
     toast.success(willBan ? 'Customer banned.' : 'Customer unbanned.')
+  }
+
+  const handleDelete = () => {
+    if (window.confirm('Are you sure you want to completely delete this customer? This cannot be undone.')) {
+      deleteCustomer(customer.email)
+      toast.success('Customer deleted')
+      onClose()
+    }
+  }
+
+  const handleQuickAction = (type) => {
+    if (type === 'password') {
+      addActivity(`Password reset email sent to ${customer.email}.`)
+      toast.success('Password reset email sent!')
+    } else if (type === 'email') {
+      addActivity(`Marketing email sent to ${customer.email}.`)
+      toast.success(`Marketing email sent to ${customer.email}`)
+    } else if (type === 'coupon') {
+      addActivity(`Coupon LOYAL15 applied to ${customer.email}.`)
+      toast.success('Coupon LOYAL15 applied!')
+    }
   }
 
   const getAIInsight = () => {
@@ -306,7 +353,10 @@ function CustomerProfilePanel({ customer, onClose }) {
               <span className={`absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-2 border-white ${RISK_COLORS[customer.riskFlag]}`} />
             </div>
             <div className="flex-1 min-w-0">
-              <h2 className="font-bold text-xl text-primary truncate">{customer.name}</h2>
+              <h2 className="font-bold text-xl text-primary truncate flex items-center gap-2">
+                {customer.name}
+                <button onClick={onEdit} className="material-symbols-outlined text-[16px] text-outline hover:text-primary transition-colors">edit</button>
+              </h2>
               <p className="text-sm text-on-surface-variant">{customer.email}</p>
               <div className="flex items-center gap-2 mt-1.5">
                 <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${SEGMENT_COLORS[customer.segment]}`}>{customer.segment}</span>
@@ -314,7 +364,10 @@ function CustomerProfilePanel({ customer, onClose }) {
                 <span className="text-[10px] text-on-surface-variant">{customer.location}</span>
               </div>
             </div>
-            <button onClick={onClose} className="material-symbols-outlined text-outline hover:text-primary self-start">close</button>
+            <div className="flex items-center gap-2 self-start">
+              <button onClick={handleDelete} className="material-symbols-outlined text-outline hover:text-red-500 transition-colors" title="Delete Customer">delete</button>
+              <button onClick={onClose} className="material-symbols-outlined text-outline hover:text-primary transition-colors">close</button>
+            </div>
           </div>
         </div>
 
@@ -403,13 +456,13 @@ function CustomerProfilePanel({ customer, onClose }) {
               <div className="bg-white border border-outline-variant/30 p-4">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3">Quick Actions</h3>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => toast.success('Password reset email sent!')} className="flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border border-outline-variant/50 py-2.5 hover:bg-surface-variant/30 transition-colors">
+                  <button onClick={() => handleQuickAction('password')} className="flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border border-outline-variant/50 py-2.5 hover:bg-surface-variant/30 transition-colors">
                     <span className="material-symbols-outlined text-base">lock_reset</span> Reset Password
                   </button>
-                  <button onClick={() => toast.success(`Marketing email sent to ${customer.email}`)} className="flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border border-outline-variant/50 py-2.5 hover:bg-surface-variant/30 transition-colors">
+                  <button onClick={() => handleQuickAction('email')} className="flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border border-outline-variant/50 py-2.5 hover:bg-surface-variant/30 transition-colors">
                     <span className="material-symbols-outlined text-base">mail</span> Send Email
                   </button>
-                  <button onClick={() => toast.success('Coupon LOYAL15 applied!')} className="flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border border-outline-variant/50 py-2.5 hover:bg-surface-variant/30 transition-colors">
+                  <button onClick={() => handleQuickAction('coupon')} className="flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border border-outline-variant/50 py-2.5 hover:bg-surface-variant/30 transition-colors">
                     <span className="material-symbols-outlined text-base">local_offer</span> Apply Coupon
                   </button>
                   <button onClick={handleBan} className={`flex items-center gap-2 justify-center text-xs font-bold uppercase tracking-widest border py-2.5 transition-colors ${customer.banned ? 'border-emerald-500 text-emerald-600 hover:bg-emerald-50' : 'border-red-300 text-red-600 hover:bg-red-50'}`}>
@@ -491,13 +544,13 @@ function CustomerProfilePanel({ customer, onClose }) {
               <div className="bg-white border border-outline-variant/30 p-4">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3">Internal Notes</h3>
                 <div className="space-y-3 mb-4">
-                  {customer.notes.map((n, i) => (
+                  {(customer.notes || []).map((n, i) => (
                     <div key={i} className="bg-surface-container-lowest border border-outline-variant/30 p-3">
                       <p className="text-sm text-on-surface leading-relaxed">{n.text}</p>
                       <p className="text-[10px] text-on-surface-variant mt-2 font-semibold uppercase tracking-widest">{n.author} · {n.date}</p>
                     </div>
                   ))}
-                  {customer.notes.length === 0 && <p className="text-xs text-on-surface-variant">No notes yet.</p>}
+                  {(customer.notes || []).length === 0 && <p className="text-xs text-on-surface-variant">No notes yet.</p>}
                 </div>
                 <textarea value={noteInput} onChange={e => setNoteInput(e.target.value)} rows={3} placeholder="Write an internal note about this customer..." className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary resize-none mb-2" />
                 <button onClick={handleAddNote} className="bg-primary text-on-primary px-5 py-2 text-xs font-bold uppercase tracking-widest hover:bg-secondary transition-colors">Save Note</button>
@@ -510,7 +563,7 @@ function CustomerProfilePanel({ customer, onClose }) {
             <div className="bg-white border border-outline-variant/30 p-5">
               <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-5">Activity Timeline</h3>
               <div className="relative pl-6 border-l-2 border-outline-variant/30 space-y-6">
-                {customer.timeline.map((event, i) => (
+                {(customer.timeline || []).map((event, i) => (
                   <div key={i} className="relative">
                     <div className="absolute -left-[29px] w-7 h-7 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-sm">
                       <span className="material-symbols-outlined text-[14px]">{event.icon}</span>
@@ -533,4 +586,124 @@ function CustomerProfilePanel({ customer, onClose }) {
 CustomerProfilePanel.propTypes = {
   customer: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
 }
+
+// ─── Customer Editor Panel ──────────────────────────────────────────────────
+function CustomerEditorPanel({ customer, isNew, onClose }) {
+  const { addCustomer, updateCustomer } = useAdminStore()
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(customerSchema),
+    defaultValues: {
+      name: customer.name || '',
+      email: customer.email || '',
+      location: customer.location || '',
+      channel: customer.channel || 'Direct',
+    }
+  })
+
+  const onSubmit = (data) => {
+    if (isNew) {
+      addCustomer({
+        name: data.name,
+        email: data.email,
+        location: data.location,
+        channel: data.channel,
+        segment: 'New',
+        loyaltyPoints: 0,
+        retentionScore: 50,
+        healthScore: 50,
+        riskFlag: 'Low',
+        joinDate: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        tags: [],
+        notes: [],
+        timeline: [{ type: 'joined', icon: 'person_add', label: 'Account Created', detail: 'Created manually by admin', date: 'Just now' }],
+        banned: false
+      })
+      toast.success('Customer created successfully!')
+    } else {
+      updateCustomer(customer.email, {
+        name: data.name,
+        email: data.email,
+        location: data.location,
+        channel: data.channel
+      })
+      toast.success('Customer updated successfully!')
+    }
+    onClose()
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[60] bg-black/60 flex justify-end"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '100%' }}
+        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        onClick={e => e.stopPropagation()}
+        className="bg-surface-container-lowest w-full max-w-md h-full shadow-2xl flex flex-col"
+      >
+        <div className="flex items-center justify-between px-6 py-4 border-b border-outline-variant/30 bg-white">
+          <h2 className="font-bold text-lg uppercase tracking-widest text-primary">
+            {isNew ? 'New Customer' : 'Edit Customer'}
+          </h2>
+          <button onClick={onClose} className="material-symbols-outlined text-outline hover:text-primary">close</button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-6 bg-white">
+          <form id="customer-form" onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Name</label>
+              <input {...register('name')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary" />
+              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Email</label>
+              <input {...register('email')} disabled={!isNew} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary disabled:opacity-50 disabled:bg-surface-variant" />
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+              {!isNew && <p className="text-[10px] text-on-surface-variant mt-1">Email cannot be changed after creation.</p>}
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Location</label>
+              <input {...register('location')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary" />
+              {errors.location && <p className="text-red-500 text-xs mt-1">{errors.location.message}</p>}
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-on-surface-variant mb-2">Acquisition Channel</label>
+              <select {...register('channel')} className="w-full border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:border-primary">
+                <option value="Direct">Direct</option>
+                <option value="Organic">Organic</option>
+                <option value="Paid">Paid</option>
+                <option value="Referral">Referral</option>
+                <option value="Email">Email</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        
+        <div className="p-6 border-t border-outline-variant/30 bg-surface-container-lowest">
+          <button type="submit" form="customer-form" className="w-full bg-primary text-on-primary py-3 text-xs font-bold uppercase tracking-widest hover:bg-secondary transition-colors">
+            {isNew ? 'Create Customer' : 'Save Changes'}
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+CustomerEditorPanel.propTypes = {
+  customer: PropTypes.object.isRequired,
+  isNew: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired
+}
+

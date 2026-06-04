@@ -111,7 +111,7 @@ export default function ProductDetail() {
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
-                  className={`min-w-[80px] h-20 md:w-20 md:h-24 bg-surface-variant overflow-hidden cursor-pointer transition-opacity ${i === activeImg ? 'border border-primary opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                  className={`min-w-[80px] h-20 md:w-20 md:h-24 bg-surface-variant overflow-hidden cursor-pointer transition-all duration-300 ${i === activeImg ? 'border border-black shadow-md' : 'opacity-60 hover:opacity-100 hover-aura'}`}
                 >
                   <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
                 </button>
@@ -217,7 +217,7 @@ export default function ProductDetail() {
             <button
               onClick={handleAddToCart}
               disabled={addingToCart}
-              className="w-full h-12 bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-widest hover:bg-on-secondary-fixed-variant transition-all flex items-center justify-center gap-sm disabled:opacity-70"
+              className="w-full btn-primary h-12 flex items-center justify-center gap-sm disabled:opacity-70"
             >
               {addingToCart ? (
                 <>
@@ -228,7 +228,7 @@ export default function ProductDetail() {
             </button>
             <button
               onClick={handleWishlist}
-              className="w-full h-12 border border-primary font-label-md text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-all flex items-center justify-center gap-sm"
+              className="w-full btn-secondary h-12 flex items-center justify-center gap-sm"
             >
               <span
                 className="material-symbols-outlined text-[20px]"
@@ -374,14 +374,14 @@ export default function ProductDetail() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSizeDrawerOpen(false)}
-              className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+              className="fixed inset-0 bg-white/40 z-40 backdrop-blur-md"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.35 }}
-              className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 flex flex-col shadow-2xl"
+              className="fixed top-0 right-0 h-full w-full max-w-md bg-white/80 backdrop-blur-2xl z-50 flex flex-col shadow-2xl border-l border-white/50"
             >
               <div className="flex items-center justify-between px-8 py-6 border-b border-[#EAEAEA]">
                 <h2 className="font-editorial text-xl">Size Guide</h2>

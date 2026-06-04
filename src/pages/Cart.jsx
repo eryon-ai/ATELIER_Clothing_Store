@@ -7,7 +7,7 @@ import { COUPON_CODES } from '../constants'
 import toast from 'react-hot-toast'
 
 const TOAST_STYLE = {
-  style: { background: '#000', color: '#fff', fontFamily: 'Hanken Grotesk', fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' },
+  style: { background: '#111', color: '#fff', fontFamily: 'Inter', fontSize: '12px', borderRadius: '9999px' },
 }
 
 const STEPS = ['Cart', 'Address', 'Payment', 'Review']
@@ -47,19 +47,23 @@ export default function CartPage() {
     setOrderPlaced(true)
   }
 
-  // ── Success Screen ─────────────────────────────────────────────
+  // ── Success Screen ──────────────────────────────────────────────────────
   if (orderPlaced) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center p-xl max-w-lg">
-          <div className="w-24 h-24 bg-primary rounded-full mx-auto mb-lg flex items-center justify-center animate-fade-in">
-            <span className="material-symbols-outlined text-on-primary icon-xl" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
+      <div className="min-h-screen flex items-center justify-center bg-[#F5F5F5]">
+        <div className="bg-white text-center p-12 max-w-lg w-full mx-4" style={{ borderRadius: 32 }}>
+          <div className="w-20 h-20 bg-[#111111] rounded-full mx-auto mb-6 flex items-center justify-center animate-fade-in">
+            <span className="material-symbols-outlined text-white" style={{ fontSize: 36, fontVariationSettings: "'FILL' 1" }}>check</span>
           </div>
-          <h2 className="font-headline-lg text-headline-lg mb-sm uppercase">Order Confirmed</h2>
-          <p className="font-body-lg text-on-surface-variant mb-lg">
+          <h2 className="text-[26px] font-semibold text-[#111111] mb-3">Order Confirmed</h2>
+          <p className="text-[14px] text-[#666666] mb-8">
             Your ATELIER pieces are being prepared. Check your email for details.
           </p>
-          <Link to="/" className="font-label-md text-label-md text-primary uppercase tracking-widest border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center bg-[#111111] text-white text-[12px] font-semibold px-8 py-3.5 hover:opacity-80 transition-opacity"
+            style={{ borderRadius: 9999 }}
+          >
             Return to Home
           </Link>
         </div>
@@ -68,84 +72,111 @@ export default function CartPage() {
   }
 
   return (
-    <div className="pt-20 min-h-screen">
-      {/* Free Shipping Progress */}
-      <div className="w-full bg-surface-container-low px-margin-mobile md:px-margin-desktop py-4 flex flex-col items-center border-b border-outline-variant/30">
-        <div className="w-full max-w-4xl">
+    <div className="pt-[88px] min-h-screen bg-[#F5F5F5]">
+      {/* Free Shipping Progress Bar */}
+      <div className="px-4 md:px-8 py-4">
+        <div className="max-w-[1440px] mx-auto bg-white px-6 py-4" style={{ borderRadius: 16 }}>
           <div className="flex justify-between items-end mb-2">
-            <p className="font-label-md text-[10px] text-primary uppercase">
+            <p className="text-[11px] font-semibold text-[#111111] uppercase tracking-wide">
               {subtotal >= 500 ? '✓ You qualify for free shipping!' : `$${(500 - subtotal).toFixed(0)} away from free express shipping`}
             </p>
-            <p className="font-label-md text-[10px] text-on-surface-variant uppercase">ELIGIBLE REGIONS: GLOBAL</p>
+            <p className="text-[10px] text-[#999999] uppercase tracking-wide">ELIGIBLE REGIONS: GLOBAL</p>
           </div>
-          <div className="h-1 w-full bg-outline-variant rounded-full overflow-hidden">
-            <div className="h-full bg-primary transition-all duration-1000 ease-out" style={{ width: `${Math.min((subtotal / 500) * 100, 100)}%` }} />
+          <div className="h-1.5 w-full bg-[#F5F5F5] rounded-full overflow-hidden">
+            <div className="h-full bg-[#111111] transition-all duration-700 ease-out rounded-full" style={{ width: `${Math.min((subtotal / 500) * 100, 100)}%` }} />
           </div>
         </div>
       </div>
 
       {/* Step Indicator */}
       {step > 0 && (
-        <div className="px-margin-mobile md:px-margin-desktop py-md border-b border-outline-variant max-w-8xl mx-auto overflow-x-auto hide-scrollbar">
-          <div className="flex items-center gap-sm">
-            {STEPS.map((s, i) => (
-              <div key={s} className="flex items-center gap-sm">
-                <span className={`w-6 h-6 rounded-full flex items-center justify-center font-label-sm text-[10px] border ${i <= step ? 'bg-primary text-on-primary border-primary' : 'border-outline text-on-surface-variant'}`}>
-                  {i < step ? '✓' : i + 1}
-                </span>
-                <span className={`font-label-md text-label-md uppercase ${i === step ? 'text-primary' : 'text-on-surface-variant'}`}>{s}</span>
-                {i < STEPS.length - 1 && <span className="text-outline-variant mx-2">—</span>}
-              </div>
-            ))}
+        <div className="px-4 md:px-8 pb-4">
+          <div className="max-w-[1440px] mx-auto bg-white px-6 py-4 overflow-x-auto hide-scrollbar" style={{ borderRadius: 16 }}>
+            <div className="flex items-center gap-3">
+              {STEPS.map((s, i) => (
+                <div key={s} className="flex items-center gap-2">
+                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold
+                    ${i <= step ? 'bg-[#111111] text-white' : 'bg-[#F5F5F5] text-[#999999]'}`}
+                  >
+                    {i < step ? '✓' : i + 1}
+                  </span>
+                  <span className={`text-[12px] font-semibold uppercase tracking-wide
+                    ${i === step ? 'text-[#111111]' : 'text-[#999999]'}`}>{s}</span>
+                  {i < STEPS.length - 1 && <span className="text-[#EAEAEA] mx-1">—</span>}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
 
-      <section className="px-margin-mobile md:px-margin-desktop py-lg md:py-xl grid grid-cols-1 lg:grid-cols-12 gap-gutter max-w-8xl mx-auto">
+      <section className="px-4 md:px-8 pb-12 grid grid-cols-1 lg:grid-cols-12 gap-5 max-w-[1440px] mx-auto">
         {/* Left Column */}
-        <div className="lg:col-span-8">
-          {/* ── STEP 0: Cart Items ────────────────────────────────── */}
+        <div className="lg:col-span-8 space-y-4">
+
+          {/* ── STEP 0: Cart Items */}
           {step === 0 && (
-            <div>
-              <h1 className="font-headline-lg text-headline-lg mb-lg uppercase">
-                MY CART <span className="text-on-surface-variant font-light ml-4">({count})</span>
+            <div className="bg-white p-6 md:p-8" style={{ borderRadius: 24 }}>
+              <h1 className="text-[24px] font-semibold text-[#111111] mb-6 uppercase tracking-tight">
+                My Cart <span className="text-[#999999] font-normal text-[18px]">({count})</span>
               </h1>
 
               {items.length === 0 ? (
-                <div className="py-xl text-center">
-                  <span className="material-symbols-outlined icon-xl text-outline-variant">shopping_bag</span>
-                  <h3 className="font-headline-md text-primary mt-md mb-sm">Your bag is empty</h3>
-                  <Link to="/products" className="btn-primary inline-block">Shop Now</Link>
+                <div className="py-16 text-center">
+                  <span className="material-symbols-outlined text-[#CCCCCC]" style={{ fontSize: 56 }}>shopping_bag</span>
+                  <h3 className="text-[20px] font-semibold text-[#111111] mt-4 mb-2">Your bag is empty</h3>
+                  <p className="text-[13px] text-[#666666] mb-6">Discover something you love</p>
+                  <Link
+                    to="/products"
+                    className="inline-flex items-center justify-center bg-[#111111] text-white text-[12px] font-semibold px-8 py-3.5 hover:opacity-80 transition-opacity"
+                    style={{ borderRadius: 9999 }}
+                  >
+                    Shop Now
+                  </Link>
                 </div>
               ) : (
-                <div className="space-y-sm">
+                <div className="space-y-4">
                   {items.map(item => (
-                    <div key={item.key} className="flex gap-md p-md glass-panel group hover:border-primary/30 transition-colors">
-                      <Link to={`/products/${item.product.slug}`} className="w-32 h-40 bg-surface-container overflow-hidden">
+                    <div
+                      key={item.key}
+                      className="flex gap-4 p-4 bg-[#F9F9F9] group hover:bg-[#F5F5F5] transition-colors"
+                      style={{ borderRadius: 16 }}
+                    >
+                      <Link
+                        to={`/products/${item.product.slug}`}
+                        className="w-24 h-32 overflow-hidden flex-shrink-0"
+                        style={{ borderRadius: 12 }}
+                      >
                         <img src={item.product.images[0]} alt={item.product.name} className="w-full h-full object-cover" />
                       </Link>
-                      <div className="flex-1 flex flex-col justify-between py-xs">
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h3 className="font-headline-md text-headline-md uppercase">{item.product.name}</h3>
-                            <p className="font-label-md text-label-md text-on-surface-variant mt-1 uppercase">
+                      <div className="flex-1 flex flex-col justify-between py-1 min-w-0">
+                        <div className="flex justify-between items-start gap-2">
+                          <div className="min-w-0">
+                            <h3 className="font-semibold text-[14px] text-[#111111] uppercase truncate">{item.product.name}</h3>
+                            <p className="text-[11px] text-[#999999] mt-0.5 uppercase tracking-wide">
                               SIZE: {item.selectedSize} / {item.selectedColor?.name}
                             </p>
                           </div>
-                          <p className="font-headline-md text-headline-md">{formatPrice(item.product.price * item.quantity)}</p>
+                          <p className="font-semibold text-[14px] text-[#111111] flex-shrink-0">{formatPrice(item.product.price * item.quantity)}</p>
                         </div>
                         <div className="flex justify-between items-center">
-                          <div className="flex items-center border border-outline rounded-full px-2 py-1 gap-4 md:px-4 md:py-2 md:gap-6">
-                            <button onClick={() => updateQuantity(item.key, item.quantity - 1)} className="hover:text-primary transition-colors">
-                              <span className="material-symbols-outlined icon-sm">remove</span>
+                          <div
+                            className="flex items-center border border-[#EAEAEA] bg-white gap-3 px-3 py-1.5"
+                            style={{ borderRadius: 9999 }}
+                          >
+                            <button onClick={() => updateQuantity(item.key, item.quantity - 1)} className="text-[#666666] hover:text-[#111111] transition-colors">
+                              <span className="material-symbols-outlined" style={{ fontSize: 14 }}>remove</span>
                             </button>
-                            <span className="font-label-md text-body-lg">{item.quantity}</span>
-                            <button onClick={() => updateQuantity(item.key, item.quantity + 1)} className="hover:text-primary transition-colors">
-                              <span className="material-symbols-outlined icon-sm">add</span>
+                            <span className="text-[13px] font-semibold text-[#111111] min-w-[16px] text-center">{item.quantity}</span>
+                            <button onClick={() => updateQuantity(item.key, item.quantity + 1)} className="text-[#666666] hover:text-[#111111] transition-colors">
+                              <span className="material-symbols-outlined" style={{ fontSize: 14 }}>add</span>
                             </button>
                           </div>
-                          <button onClick={() => removeItem(item.key)} className="text-on-surface-variant hover:text-error transition-colors p-2">
-                            <span className="material-symbols-outlined">delete</span>
+                          <button
+                            onClick={() => removeItem(item.key)}
+                            className="text-[#CCCCCC] hover:text-red-500 transition-colors p-1.5"
+                          >
+                            <span className="material-symbols-outlined" style={{ fontSize: 18 }}>delete</span>
                           </button>
                         </div>
                       </div>
@@ -156,23 +187,29 @@ export default function CartPage() {
 
               {/* Coupon */}
               {items.length > 0 && (
-                <div className="mt-lg border border-outline-variant p-md">
-                  <h3 className="font-label-md text-label-md uppercase mb-sm">Promo Code</h3>
+                <div className="mt-6 p-5 bg-[#F9F9F9]" style={{ borderRadius: 16 }}>
+                  <h3 className="text-[12px] font-bold uppercase tracking-[0.1em] text-[#111111] mb-3">Promo Code</h3>
                   {coupon ? (
                     <div className="flex items-center justify-between">
-                      <span className="font-label-md text-secondary uppercase">{coupon.code} — {coupon.label}</span>
-                      <button onClick={removeCoupon} className="text-error font-label-sm uppercase">Remove</button>
+                      <span className="text-[13px] font-semibold text-[#111111] uppercase">{coupon.code} — {coupon.label}</span>
+                      <button onClick={removeCoupon} className="text-[12px] font-semibold text-red-500 hover:opacity-70 transition-opacity">Remove</button>
                     </div>
                   ) : (
-                    <div className="flex gap-sm">
+                    <div className="flex gap-2">
                       <input
                         value={couponCode}
                         onChange={e => setCouponCode(e.target.value.toUpperCase())}
                         placeholder="ENTER CODE"
-                        className="input-ghost flex-1 text-sm"
+                        className="flex-1 bg-white border border-[#EAEAEA] rounded-full px-4 py-2.5 text-[13px] font-semibold tracking-wide outline-none focus:border-[#111111] transition-colors"
                         onKeyDown={e => e.key === 'Enter' && handleApplyCoupon()}
                       />
-                      <button onClick={handleApplyCoupon} className="btn-primary text-sm">Apply</button>
+                      <button
+                        onClick={handleApplyCoupon}
+                        className="bg-[#111111] text-white text-[12px] font-semibold px-6 py-2.5 hover:opacity-80 transition-opacity whitespace-nowrap"
+                        style={{ borderRadius: 9999 }}
+                      >
+                        Apply
+                      </button>
                     </div>
                   )}
                 </div>
@@ -180,20 +217,21 @@ export default function CartPage() {
             </div>
           )}
 
-          {/* ── STEP 1: Address ───────────────────────────────────── */}
+          {/* ── STEP 1: Address */}
           {step === 1 && (
-            <div>
-              <button onClick={() => setStep(0)} className="flex items-center gap-1 font-label-md text-label-md uppercase hover:text-primary mb-lg group">
-                <span className="material-symbols-outlined icon-sm group-hover:-translate-x-1 transition-transform">arrow_back</span> Back to Cart
+            <div className="bg-white p-6 md:p-8" style={{ borderRadius: 24 }}>
+              <button onClick={() => setStep(0)} className="flex items-center gap-1.5 text-[12px] font-semibold text-[#666666] hover:text-[#111111] mb-6 group transition-colors uppercase tracking-wide">
+                <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style={{ fontSize: 16 }}>arrow_back</span>
+                Back to Cart
               </button>
-              <h2 className="font-headline-md text-headline-md uppercase mb-lg">Shipping Address</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+              <h2 className="text-[22px] font-semibold text-[#111111] uppercase mb-6">Shipping Address</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { key: 'name', placeholder: 'FULL NAME', type: 'text', span: false },
-                  { key: 'email', placeholder: 'EMAIL ADDRESS', type: 'email', span: false },
-                  { key: 'street', placeholder: 'STREET ADDRESS', type: 'text', span: true },
-                  { key: 'city', placeholder: 'CITY', type: 'text', span: false },
-                  { key: 'postal', placeholder: 'POSTAL CODE', type: 'text', span: false },
+                  { key: 'name', placeholder: 'Full Name', type: 'text', span: false },
+                  { key: 'email', placeholder: 'Email Address', type: 'email', span: false },
+                  { key: 'street', placeholder: 'Street Address', type: 'text', span: true },
+                  { key: 'city', placeholder: 'City', type: 'text', span: false },
+                  { key: 'postal', placeholder: 'Postal Code', type: 'text', span: false },
                 ].map(f => (
                   <div key={f.key} className={f.span ? 'md:col-span-2' : ''}>
                     <input
@@ -209,14 +247,15 @@ export default function CartPage() {
             </div>
           )}
 
-          {/* ── STEP 2: Payment ───────────────────────────────────── */}
+          {/* ── STEP 2: Payment */}
           {step === 2 && (
-            <div>
-              <button onClick={() => setStep(1)} className="flex items-center gap-1 font-label-md text-label-md uppercase hover:text-primary mb-lg group">
-                <span className="material-symbols-outlined icon-sm group-hover:-translate-x-1 transition-transform">arrow_back</span> Back to Address
+            <div className="bg-white p-6 md:p-8" style={{ borderRadius: 24 }}>
+              <button onClick={() => setStep(1)} className="flex items-center gap-1.5 text-[12px] font-semibold text-[#666666] hover:text-[#111111] mb-6 group transition-colors uppercase tracking-wide">
+                <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style={{ fontSize: 16 }}>arrow_back</span>
+                Back to Address
               </button>
-              <h2 className="font-headline-md text-headline-md uppercase mb-lg">Payment Method</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-sm md:gap-md mb-lg">
+              <h2 className="text-[22px] font-semibold text-[#111111] uppercase mb-6">Payment Method</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                 {[
                   { id: 'card', label: 'Credit Card', icon: 'credit_card' },
                   { id: 'upi', label: 'UPI / Razorpay', icon: 'payments' },
@@ -225,52 +264,55 @@ export default function CartPage() {
                   <button
                     key={m.id}
                     onClick={() => setPayMethod(m.id)}
-                    className={`flex flex-col items-center justify-center gap-sm p-lg glass-panel transition-all group border-2 ${payMethod === m.id ? 'border-primary' : 'border-transparent hover:border-outline-variant'}`}
+                    className={`flex flex-col items-center justify-center gap-2 p-5 border-2 transition-all group
+                      ${payMethod === m.id ? 'border-[#111111] bg-[#111111]/5' : 'border-[#EAEAEA] hover:border-[#CCCCCC] bg-[#F9F9F9]'}`}
+                    style={{ borderRadius: 16 }}
                   >
-                    <span className={`material-symbols-outlined icon-xl ${payMethod === m.id ? 'text-primary' : 'text-on-surface-variant'}`}>{m.icon}</span>
-                    <span className="font-label-md text-xs uppercase">{m.label}</span>
+                    <span className={`material-symbols-outlined ${payMethod === m.id ? 'text-[#111111]' : 'text-[#999999]'}`} style={{ fontSize: 28 }}>{m.icon}</span>
+                    <span className="text-[11px] font-semibold uppercase tracking-wide text-[#111111]">{m.label}</span>
                   </button>
                 ))}
               </div>
-              <div className="p-lg glass-panel space-y-md bg-surface-container-low">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="font-label-md text-xs text-on-surface-variant uppercase">Secure Encrypted Checkout</span>
-                  <span className="material-symbols-outlined text-outline">lock</span>
+              <div className="p-5 bg-[#F9F9F9] space-y-3" style={{ borderRadius: 16 }}>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[11px] font-semibold text-[#999999] uppercase tracking-wide">Secure Encrypted Checkout</span>
+                  <span className="material-symbols-outlined text-[#999999]" style={{ fontSize: 18 }}>lock</span>
                 </div>
-                <input placeholder="CARD NUMBER" className="input-ghost" />
-                <div className="grid grid-cols-2 gap-gutter">
+                <input placeholder="Card number" className="input-ghost" />
+                <div className="grid grid-cols-2 gap-3">
                   <input placeholder="MM/YY" className="input-ghost" />
                   <input placeholder="CVV" className="input-ghost" type="password" />
                 </div>
-                <input placeholder="CARDHOLDER NAME" className="input-ghost" />
+                <input placeholder="Cardholder name" className="input-ghost" />
               </div>
             </div>
           )}
 
-          {/* ── STEP 3: Review ────────────────────────────────────── */}
+          {/* ── STEP 3: Review */}
           {step === 3 && (
-            <div>
-              <button onClick={() => setStep(2)} className="flex items-center gap-1 font-label-md text-label-md uppercase hover:text-primary mb-lg group">
-                <span className="material-symbols-outlined icon-sm group-hover:-translate-x-1 transition-transform">arrow_back</span> Back to Payment
+            <div className="bg-white p-6 md:p-8" style={{ borderRadius: 24 }}>
+              <button onClick={() => setStep(2)} className="flex items-center gap-1.5 text-[12px] font-semibold text-[#666666] hover:text-[#111111] mb-6 group transition-colors uppercase tracking-wide">
+                <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style={{ fontSize: 16 }}>arrow_back</span>
+                Back to Payment
               </button>
-              <h2 className="font-headline-md text-headline-md uppercase mb-lg">Review Order</h2>
-              <div className="space-y-sm">
+              <h2 className="text-[22px] font-semibold text-[#111111] uppercase mb-6">Review Order</h2>
+              <div className="space-y-3">
                 {items.map(item => (
-                  <div key={item.key} className="flex gap-md items-center py-sm border-b border-outline-variant">
-                    <div className="w-16 h-20 bg-surface-container overflow-hidden">
+                  <div key={item.key} className="flex gap-3 items-center py-3 border-b border-[#EAEAEA]">
+                    <div className="w-14 h-18 overflow-hidden flex-shrink-0" style={{ borderRadius: 10 }}>
                       <img src={item.product.images[0]} alt={item.product.name} className="w-full h-full object-cover" />
                     </div>
-                    <div className="flex-1">
-                      <p className="font-label-md text-label-md uppercase">{item.product.name}</p>
-                      <p className="font-label-sm text-label-sm text-on-surface-variant uppercase">Size: {item.selectedSize} · Qty: {item.quantity}</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[13px] font-semibold text-[#111111] uppercase truncate">{item.product.name}</p>
+                      <p className="text-[11px] text-[#999999] uppercase tracking-wide">Size: {item.selectedSize} · Qty: {item.quantity}</p>
                     </div>
-                    <p className="font-label-md text-label-md">{formatPrice(item.product.price * item.quantity)}</p>
+                    <p className="text-[13px] font-semibold text-[#111111] flex-shrink-0">{formatPrice(item.product.price * item.quantity)}</p>
                   </div>
                 ))}
               </div>
-              <div className="mt-lg p-md bg-surface-container-low border border-outline-variant">
-                <p className="font-label-md text-label-md uppercase mb-sm">Shipping To:</p>
-                <p className="font-body-md text-on-surface-variant">{address.name}, {address.street}, {address.city} {address.postal}</p>
+              <div className="mt-4 p-4 bg-[#F9F9F9]" style={{ borderRadius: 12 }}>
+                <p className="text-[11px] font-bold uppercase tracking-wide text-[#111111] mb-1">Shipping To:</p>
+                <p className="text-[13px] text-[#666666]">{address.name}, {address.street}, {address.city} {address.postal}</p>
               </div>
             </div>
           )}
@@ -278,42 +320,44 @@ export default function CartPage() {
 
         {/* Right: Order Summary */}
         <aside className="lg:col-span-4">
-          <div className="sticky top-32 glass-panel p-lg deep-aura bg-surface">
-            <h2 className="font-headline-md text-headline-md mb-md uppercase tracking-tight">Order Summary</h2>
-            <div className="space-y-sm font-label-md text-sm border-b border-outline-variant pb-md mb-md">
-              <div className="flex justify-between"><span className="text-on-surface-variant">SUBTOTAL</span><span>{formatPrice(subtotal)}</span></div>
-              {discount > 0 && <div className="flex justify-between text-secondary"><span>DISCOUNT</span><span>-{formatPrice(discount)}</span></div>}
-              <div className="flex justify-between"><span className="text-on-surface-variant">TAX (GST/VAT)</span><span>{formatPrice(tax)}</span></div>
-              <div className="flex justify-between"><span className="text-on-surface-variant">SHIPPING</span><span className={shipping === 0 ? 'text-secondary font-bold' : ''}>{shipping === 0 ? 'FREE' : formatPrice(shipping)}</span></div>
+          <div className="sticky top-[96px] bg-white p-6 md:p-8" style={{ borderRadius: 24 }}>
+            <h2 className="text-[18px] font-semibold text-[#111111] mb-5 uppercase tracking-tight">Order Summary</h2>
+            <div className="space-y-3 text-[13px] border-b border-[#EAEAEA] pb-4 mb-4">
+              <div className="flex justify-between text-[#666666]"><span>Subtotal</span><span className="text-[#111111] font-medium">{formatPrice(subtotal)}</span></div>
+              {discount > 0 && <div className="flex justify-between text-green-600"><span>Discount</span><span>-{formatPrice(discount)}</span></div>}
+              <div className="flex justify-between text-[#666666]"><span>Tax (GST/VAT)</span><span className="text-[#111111] font-medium">{formatPrice(tax)}</span></div>
+              <div className="flex justify-between text-[#666666]"><span>Shipping</span><span className={shipping === 0 ? 'font-bold text-green-600' : 'text-[#111111] font-medium'}>{shipping === 0 ? 'FREE' : formatPrice(shipping)}</span></div>
             </div>
-            <div className="flex justify-between font-headline-md text-headline-md mb-lg">
-              <span>TOTAL</span><span>{formatPrice(total)}</span>
+            <div className="flex justify-between text-[17px] font-semibold text-[#111111] mb-6">
+              <span>Total</span><span>{formatPrice(total)}</span>
             </div>
 
             {items.length > 0 && (
               step < 3 ? (
                 <button
                   onClick={() => setStep(s => s + 1)}
-                  className="w-full bg-primary text-on-primary py-4 font-label-md text-label-md rounded-full hover:bg-secondary transition-all active:scale-[0.98] uppercase tracking-widest"
+                  className="w-full bg-[#111111] text-white py-4 text-[12px] font-semibold hover:opacity-80 transition-opacity uppercase tracking-wider"
+                  style={{ borderRadius: 9999 }}
                 >
                   {step === 0 ? 'Proceed to Checkout' : step === 1 ? 'Continue to Payment' : 'Review Order'}
                 </button>
               ) : (
                 <button
                   onClick={handlePlaceOrder}
-                  className="w-full bg-secondary text-on-secondary py-4 font-label-md text-label-md rounded-full hover:bg-on-secondary-fixed-variant transition-all active:scale-[0.98] uppercase tracking-widest"
+                  className="w-full bg-emerald-600 text-white py-4 text-[12px] font-semibold hover:bg-emerald-700 transition-colors uppercase tracking-wider"
+                  style={{ borderRadius: 9999 }}
                 >
                   Complete Payment
                 </button>
               )
             )}
 
-            <div className="mt-md space-y-sm">
-              <p className="font-label-md text-[10px] text-on-surface-variant text-center uppercase">Secure 256-bit SSL Payment</p>
-              <div className="flex justify-center gap-md text-outline opacity-40">
-                <span className="material-symbols-outlined text-sm">lock</span>
-                <span className="material-symbols-outlined text-sm">verified_user</span>
-                <span className="material-symbols-outlined text-sm">shield</span>
+            <div className="mt-4 text-center">
+              <p className="text-[10px] text-[#999999] uppercase tracking-wide mb-2">Secure 256-bit SSL Payment</p>
+              <div className="flex justify-center gap-4 text-[#CCCCCC]">
+                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>lock</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>verified_user</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>shield</span>
               </div>
             </div>
           </div>
@@ -321,18 +365,27 @@ export default function CartPage() {
       </section>
 
       {/* Recommendations */}
-      <section className="px-margin-mobile md:px-margin-desktop py-lg md:py-xl bg-surface-container-low border-t border-outline-variant">
-        <div className="max-w-8xl mx-auto">
-          <h2 className="font-headline-lg text-headline-lg mb-lg uppercase">Recommended For You</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+      <section className="px-4 md:px-8 pb-12">
+        <div className="max-w-[1440px] mx-auto">
+          <h2 className="text-[22px] font-semibold text-[#111111] mb-6 uppercase tracking-tight">Recommended For You</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {suggested.map(p => (
               <Link key={p.id} to={`/products/${p.slug}`} className="group cursor-pointer">
-                <div className="relative overflow-hidden aspect-[3/4] bg-surface-container mb-sm">
-                  <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  {p.badge && <div className="absolute bottom-4 left-4 bg-background px-3 py-1 font-label-md text-[10px] border border-outline-variant uppercase">{p.badge}</div>}
+                <div
+                  className="relative overflow-hidden bg-[#F0EDE8] mb-3"
+                  style={{ borderRadius: 20, aspectRatio: '3/4' }}
+                >
+                  <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  {p.badge && (
+                    <div className="absolute bottom-3 left-3">
+                      <span className="text-[10px] font-bold uppercase tracking-wide bg-white/95 text-[#111111] px-2 py-1" style={{ borderRadius: 9999 }}>
+                        {p.badge}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <h4 className="font-headline-md text-sm uppercase">{p.name}</h4>
-                <p className="font-label-md text-xs text-on-surface-variant">{formatPrice(p.price)}</p>
+                <h4 className="text-[13px] font-semibold text-[#111111] uppercase truncate">{p.name}</h4>
+                <p className="text-[12px] text-[#666666] mt-0.5">{formatPrice(p.price)}</p>
               </Link>
             ))}
           </div>

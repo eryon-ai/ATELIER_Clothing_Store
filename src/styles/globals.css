@@ -1,7 +1,6 @@
-/* ── Google Fonts ─────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+/* ── Google Fonts — Inter (Reference Design) ──────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,12 +18,10 @@
   }
 
   body {
-    @apply bg-background text-on-background font-sans antialiased;
-    font-family: 'Hanken Grotesk', system-ui, sans-serif;
-  }
-
-  ::selection {
-    @apply bg-secondary text-white;
+    @apply bg-background text-on-background antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
@@ -51,101 +48,116 @@
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: #fbf9f9; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: #c4c7c7; border-radius: 2px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #F5F5F5; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #CCCCCC; border-radius: 2px; }
 
 /* ── Component Utilities ────────────────────────────────────────── */
 @layer components {
-  /* Glass panel (from Stitch cart.html) */
+  /* Glass panel — warm light version */
   .glass-panel {
-    @apply bg-white border border-outline-variant;
+    @apply bg-white/80 backdrop-blur-xl border border-white/60 shadow-luxury rounded-lg;
+  }
+  
+  .glass-panel-heavy {
+    @apply bg-white/92 backdrop-blur-2xl border border-white/70 shadow-card rounded-lg;
   }
   
   /* Deep aura shadow */
   .deep-aura {
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.06), 0 10px 15px -5px rgba(0, 0, 0, 0.03);
+  }
+  
+  .hover-aura:hover {
+    box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.10), 0 8px 20px -6px rgba(0, 0, 0, 0.05);
   }
 
-  /* Stitch buttons */
+  /* ── Primary Pill Button (reference: black bg, white text, pill shape) */
   .btn-primary {
-    display: inline-block;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 24px 48px;
-    transition: all 200ms;
-    cursor: pointer;
-  }
-  .btn-primary:hover {
-    background-color: #2559bd;
-  }
-  .btn-primary:active {
-    transform: scale(0.98);
+    @apply relative overflow-hidden inline-flex items-center justify-center 
+           bg-[#111111] text-white text-[12px] font-semibold tracking-wide
+           px-6 py-3 rounded-full transition-all duration-300 ease-out
+           hover:opacity-90 active:scale-[0.97];
   }
 
+  /* ── Secondary Pill Button (white bg, black border/text, pill shape) */
   .btn-secondary {
-    display: inline-block;
-    border: 1px solid #000000;
-    color: #000000;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 24px 48px;
-    transition: all 200ms;
-    cursor: pointer;
-  }
-  .btn-secondary:hover {
-    background-color: #efeded;
+    @apply relative overflow-hidden inline-flex items-center justify-center
+           bg-white text-[#111111] border border-[#111111] text-[12px] font-semibold tracking-wide
+           px-6 py-3 rounded-full transition-all duration-300 ease-out
+           hover:bg-[#111111] hover:text-white active:scale-[0.97];
   }
 
+  /* ── Small pill button */
   .btn-pill {
-    display: inline-block;
-    background-color: #000000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111;
     color: #ffffff;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.1em;
     font-weight: 600;
-    text-transform: uppercase;
-    padding: 24px 48px;
-    border-radius: 0.75rem;
+    letter-spacing: 0.02em;
+    padding: 10px 20px;
+    border-radius: 9999px;
     transition: all 200ms;
     cursor: pointer;
   }
   .btn-pill:hover {
-    opacity: 0.9;
+    opacity: 0.88;
   }
   .btn-pill:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
   }
 
-  /* Ghost input (bottom border only, from Stitch) */
+  /* ── Ghost input — rounded pill */
   .input-ghost {
-    @apply w-full bg-transparent border-b border-outline focus:border-primary 
-           transition-all py-3 outline-none text-[16px] md:text-[12px];
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    @apply w-full bg-white border border-[#EAEAEA] rounded-full
+           focus:border-[#111111] focus:ring-0
+           transition-all px-4 py-3 outline-none text-[14px] text-[#111111];
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
   .input-ghost::placeholder {
-    color: rgba(68, 71, 72, 0.4);
+    color: #999999;
+    font-weight: 400;
   }
 
-  /* Section label */
+  /* ── Section label */
   .section-label {
     display: block;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.1em;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
     font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #2559bd;
+    color: #666666;
     margin-bottom: 8px;
+  }
+
+  /* ── Pill category tab (ALL / WOMAN / CHILDREN style) */
+  .pill-tab {
+    @apply inline-flex items-center justify-center px-5 py-2 rounded-full
+           text-[12px] font-semibold transition-all duration-200 cursor-pointer border;
+  }
+  .pill-tab.active {
+    @apply bg-[#111111] text-white border-[#111111];
+  }
+  .pill-tab.inactive {
+    @apply bg-white text-[#666666] border-[#EAEAEA] hover:border-[#111111] hover:text-[#111111];
+  }
+
+  /* ── Category label chip (inside image) */
+  .category-chip {
+    @apply inline-block text-[10px] font-semibold uppercase tracking-widest
+           bg-white/90 backdrop-blur-sm text-[#111111]
+           px-2 py-1 rounded-full;
+  }
+
+  /* ── Product card rounded container */
+  .product-card-img {
+    @apply relative overflow-hidden bg-[#F0EDE8] rounded-lg;
+    border-radius: 24px;
   }
 }
 
@@ -157,16 +169,12 @@
 
 @keyframes kenburns {
   0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
-}
-
-.step-transition {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  100% { transform: scale(1.06); }
 }
 
 /* ── Skeleton loader ────────────────────────────────────────────── */
 .skeleton {
-  background: linear-gradient(90deg, #efeded 25%, #e9e8e7 50%, #efeded 75%);
+  background: linear-gradient(90deg, #EEEEEE 25%, #E8E8E8 50%, #EEEEEE 75%);
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;
 }
@@ -178,12 +186,13 @@
 
 /* ── Cart drawer overlay ─────────────────────────────────────────── */
 .drawer-overlay {
-  @apply fixed inset-0 bg-black/50 z-40 backdrop-blur-sm;
+  @apply fixed inset-0 bg-black/20 z-40 backdrop-blur-sm;
 }
 
 .drawer {
-  @apply fixed top-0 right-0 h-full w-full max-w-md bg-background z-50 
-         flex flex-col shadow-2xl;
+  @apply fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 
+         flex flex-col shadow-hover;
+  border-radius: 24px 0 0 24px;
 }
 
 /* ── Page transitions ────────────────────────────────────────────── */
@@ -199,27 +208,35 @@
 
 /* ── Search overlay ──────────────────────────────────────────────── */
 .search-overlay {
-  @apply fixed inset-0 bg-background/95 backdrop-blur-xl z-50;
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 50;
 }
 
 /* ── Mobile bottom nav ───────────────────────────────────────────── */
 .mobile-nav {
-  @apply fixed bottom-0 left-0 right-0 bg-background border-t border-outline-variant
-         flex items-center justify-around py-2 z-40 md:hidden;
+  @apply fixed bottom-4 left-4 right-4 bg-white border border-[#EAEAEA]
+         flex items-center justify-around py-3 z-40 md:hidden;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
 }
 
 /* ── Toast ───────────────────────────────────────────────────────── */
 .toast {
-  background-color: #000;
+  background-color: #111111;
   color: #fff;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
+
 /* ── Page Transitions ───────────────────────────────────────────── */
 .page-transition-enter {
   opacity: 0;
@@ -228,69 +245,89 @@
 .page-transition-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 .page-transition-exit {
   opacity: 1;
 }
 .page-transition-exit-active {
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s ease;
 }
 
-/* ── Serif Display ───────────────────────────────────────────────── */
+/* ── Font editorial — keep for hero text */
 .font-editorial {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
 }
 
-/* ── Luxury Badge (quiet, monochrome) ───────────────────────────── */
+/* ── Funky Badges ───────────────────────────────────────────────── */
 .badge-quiet {
   display: inline-block;
+  font-family: 'Inter', sans-serif;
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 3px 8px;
-  background: #1b1c1c;
+  background: #111111;
   color: #ffffff;
+  border-radius: 9999px;
 }
 .badge-quiet.sale {
-  background: transparent;
-  color: #1b1c1c;
-  border: 1px solid #1b1c1c;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  color: #ffffff;
+  border: none;
 }
 .badge-quiet.new {
-  background: transparent;
-  color: #747878;
-  border: 1px solid #c4c7c7;
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: #ffffff;
+  border: none;
+}
+.badge-quiet.limited {
+  background: linear-gradient(90deg, #8a2be2, #4a00e0);
+  color: #ffffff;
+  border: none;
+}
+
+/* ── Funky Utility Classes ──────────────────────────────────────── */
+.gradient-text-funky {
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bg-funky-gradient {
+  background: linear-gradient(90deg, #ff007f, #7f00ff);
+}
+.glow-funky {
+  box-shadow: 0 0 20px rgba(127, 0, 255, 0.4);
+}
+.funky-nav-glow {
+  box-shadow: 0 4px 30px rgba(255, 0, 127, 0.15), 0 1px 3px rgba(0, 242, 254, 0.1);
+}
+.nav-link-funky {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.nav-link-funky:hover {
+  background: linear-gradient(90deg, rgba(255,0,127,0.1), rgba(0,242,254,0.1));
+  color: #7f00ff;
 }
 
 /* ── Hover Image Crossfade ──────────────────────────────────────── */
 .img-crossfade-hover .img-hover {
   opacity: 0;
-  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 .img-crossfade-hover:hover .img-hover {
   opacity: 1;
 }
 .img-crossfade-hover .img-primary {
-  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 .img-crossfade-hover:hover .img-primary {
   opacity: 0;
 }
-
-/* ── Editorial text reveal ──────────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-up {
-  animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-.animate-fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
-.animate-fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
-.animate-fade-up-delay-3 { animation-delay: 0.35s; opacity: 0; }
 
 /* ── Marquee text ───────────────────────────────────────────────── */
 @keyframes marquee {
@@ -298,8 +335,36 @@
   100% { transform: translateX(-50%); }
 }
 .animate-marquee {
-  animation: marquee 22s linear infinite;
+  animation: marquee 25s linear infinite;
   display: flex;
   white-space: nowrap;
   width: max-content;
+}
+
+/* ── Editorial text reveal ──────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.animate-fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.animate-fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.animate-fade-up-delay-3 { animation-delay: 0.35s; opacity: 0; }
+
+/* ── Gradient mask ──────────────────────────────────────────────── */
+.gradient-mask-edges {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* ── Promo card hover ────────────────────────────────────────────── */
+.promo-card {
+  @apply relative overflow-hidden transition-all duration-300;
+  border-radius: 24px;
+}
+.promo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.10);
 }
