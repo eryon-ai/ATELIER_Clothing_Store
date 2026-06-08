@@ -413,6 +413,83 @@ export const useAdminStore = create(persist(
     updateStorefront: (updates) => set(s => ({ storefront: { ...s.storefront, ...updates } })),
     updateStorefrontCMS: (updates) => set(s => ({ storefrontCMS: { ...s.storefrontCMS, ...updates } })),
     updateSettings: (updates) => set(s => ({ settings: { ...s.settings, ...updates } })),
+    
+    // --- Enterprise Settings Actions ---
+    addRole: (role) => set(s => {
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Created new role "${role.name}".` }
+      return { 
+        enterpriseSettings: { ...s.enterpriseSettings, roles: [...s.enterpriseSettings.roles, role] },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    deleteRole: (id) => set(s => {
+      const role = s.enterpriseSettings.roles.find(r => r.id === id)
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Deleted role "${role?.name}".` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, roles: s.enterpriseSettings.roles.filter(r => r.id !== id) },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    updateSecuritySettings: (updates) => set(s => {
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Updated security settings.` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, security: { ...s.enterpriseSettings.security, ...updates } },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    generateApiKey: (keyData) => set(s => {
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Generated API Key "${keyData.name}".` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, apiKeys: [keyData, ...s.enterpriseSettings.apiKeys] },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    deleteApiKey: (id) => set(s => {
+      const key = s.enterpriseSettings.apiKeys.find(k => k.id === id)
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Revoked API Key "${key?.name}".` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, apiKeys: s.enterpriseSettings.apiKeys.filter(k => k.id !== id) },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    addWebhook: (webhook) => set(s => {
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Added Webhook for ${webhook.url}.` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, webhooks: [webhook, ...s.enterpriseSettings.webhooks] },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    deleteWebhook: (id) => set(s => {
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Deleted Webhook.` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, webhooks: s.enterpriseSettings.webhooks.filter(w => w.id !== id) },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    toggleIntegration: (id) => set(s => {
+      const int = s.enterpriseSettings.integrations.find(i => i.id === id)
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `${int?.connected ? 'Revoked' : 'Connected'} integration: ${int?.name}.` }
+      return {
+        enterpriseSettings: {
+          ...s.enterpriseSettings,
+          integrations: s.enterpriseSettings.integrations.map(i => i.id === id ? { ...i, connected: !i.connected, lastSync: !i.connected ? 'Just now' : 'N/A' } : i)
+        },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
+    triggerBackup: () => set(s => {
+      const newBackup = {
+        id: `BK-${Date.now().toString().slice(-4)}`,
+        date: new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }),
+        size: `${(Math.random() * 2 + 3).toFixed(1)} GB`, // Mock size ~3-5GB
+        status: 'Completed'
+      }
+      const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `Triggered manual database backup.` }
+      return {
+        enterpriseSettings: { ...s.enterpriseSettings, backups: [newBackup, ...s.enterpriseSettings.backups] },
+        activities: [newActivity, ...s.activities].slice(0, 50)
+      }
+    }),
     addCampaign: (campaign) => set(s => {
       const newActivity = { id: crypto.randomUUID(), time: 'Just now', text: `New discount code "${campaign.id}" created.` }
       return { campaigns: [campaign, ...s.campaigns], activities: [newActivity, ...s.activities].slice(0, 50) }

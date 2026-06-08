@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAdminStore } from '../../store/useAdminStore'
+import toast from 'react-hot-toast'
 
 export default function AdminSettings() {
   const { settings: globalSettings, enterpriseSettings, updateSettings } = useAdminStore()
@@ -182,6 +183,27 @@ function GeneralTab({ localSettings, setLocalSettings, handleSave }) {
 }
 
 function RolesTab({ roles }) {
+  const { addRole, deleteRole } = useAdminStore()
+
+  const handleCreate = () => {
+    const name = window.prompt('Enter new role name:')
+    if (!name) return
+    addRole({
+      id: `R${Date.now()}`,
+      name,
+      permissions: ['Read Only'],
+      users: 0
+    })
+    toast.success('Role created successfully')
+  }
+
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this role?')) {
+      deleteRole(id)
+      toast.success('Role deleted')
+    }
+  }
+
   return (
     <div className="space-y-6">
       <div className="bg-white border border-outline-variant/30 flex flex-col">
@@ -190,7 +212,7 @@ function RolesTab({ roles }) {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Role Management</h2>
             <p className="text-[10px] text-on-surface-variant uppercase mt-1">Define granular access templates</p>
           </div>
-          <button className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
+          <button onClick={handleCreate} className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
             Create Role
           </button>
         </div>
@@ -219,7 +241,7 @@ function RolesTab({ roles }) {
                   </td>
                   <td className="p-4 text-center font-mono">{role.users}</td>
                   <td className="p-4 text-right">
-                    <button className="text-[10px] uppercase font-bold text-primary hover:underline">Edit</button>
+                    <button onClick={() => handleDelete(role.id)} className="text-[10px] uppercase font-bold text-red-600 hover:underline">Delete</button>
                   </td>
                 </tr>
               ))}
@@ -232,12 +254,24 @@ function RolesTab({ roles }) {
 }
 
 function SecurityTab({ security, auditLogs }) {
+  const { updateSecuritySettings } = useAdminStore()
+
+  const handleToggle2FA = () => {
+    updateSecuritySettings({ enforce2FA: !security.enforce2FA })
+    toast.success(`2FA Enforcement ${!security.enforce2FA ? 'Enabled' : 'Disabled'}`)
+  }
+
+  const handleBlur = (key, value) => {
+    updateSecuritySettings({ [key]: value })
+    toast.success('Security settings updated')
+  }
+
   return (
     <div className="space-y-6">
       <div className="bg-white border border-outline-variant/30 p-6">
         <h3 className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">Access Security</h3>
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between cursor-pointer" onClick={handleToggle2FA}>
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-primary block">Enforce 2FA</span>
               <span className="text-[10px] text-on-surface-variant uppercase">Require Two-Factor Auth for all admins</span>
@@ -248,11 +282,11 @@ function SecurityTab({ security, auditLogs }) {
           </div>
           <div>
             <label className="text-[10px] font-semibold uppercase tracking-widest text-on-surface-variant block mb-1">Session Timeout (Minutes)</label>
-            <input type="number" defaultValue={security.sessionTimeout} className="w-full border border-outline-variant/50 px-3 py-2.5 text-sm focus:outline-none focus:border-primary max-w-xs" />
+            <input type="number" defaultValue={security.sessionTimeout} onBlur={(e) => handleBlur('sessionTimeout', e.target.value)} className="w-full border border-outline-variant/50 px-3 py-2.5 text-sm focus:outline-none focus:border-primary max-w-xs" />
           </div>
           <div>
             <label className="text-[10px] font-semibold uppercase tracking-widest text-on-surface-variant block mb-1">Allowed IPs (CIDR)</label>
-            <input type="text" defaultValue={security.allowedIPs} className="w-full border border-outline-variant/50 px-3 py-2.5 text-sm focus:outline-none focus:border-primary max-w-xs font-mono" />
+            <input type="text" defaultValue={security.allowedIPs} onBlur={(e) => handleBlur('allowedIPs', e.target.value)} className="w-full border border-outline-variant/50 px-3 py-2.5 text-sm focus:outline-none focus:border-primary max-w-xs font-mono" />
           </div>
         </div>
       </div>
@@ -290,6 +324,49 @@ function SecurityTab({ security, auditLogs }) {
 }
 
 function DevelopersTab({ apiKeys, webhooks }) {
+  const { generateApiKey, deleteApiKey, addWebhook, deleteWebhook } = useAdminStore()
+
+  const handleGenerateKey = () => {
+    const name = window.prompt('Enter API Key name (e.g. Mobile App Sync):')
+    if (!name) return
+    generateApiKey({
+      id: `AK-${Date.now()}`,
+      name,
+      token: `sk_live_${Math.random().toString(36).substring(2, 10)}...${Math.random().toString(36).substring(2, 6)}`,
+      created: 'Just now',
+      lastUsed: 'Never',
+      permissions: 'Read/Write'
+    })
+    toast.success('API Key generated')
+  }
+
+  const handleDeleteKey = (id) => {
+    if (window.confirm('Revoke this API key immediately? This action cannot be undone.')) {
+      deleteApiKey(id)
+      toast.success('API Key revoked')
+    }
+  }
+
+  const handleAddWebhook = () => {
+    const url = window.prompt('Enter Webhook Payload URL:')
+    if (!url) return
+    addWebhook({
+      id: `WH-${Date.now()}`,
+      url,
+      events: ['all_events'],
+      status: 'Active',
+      successRate: '100%'
+    })
+    toast.success('Webhook added')
+  }
+
+  const handleDeleteWebhook = (id) => {
+    if (window.confirm('Delete this webhook?')) {
+      deleteWebhook(id)
+      toast.success('Webhook deleted')
+    }
+  }
+
   return (
     <div className="space-y-6">
       <div className="bg-white border border-outline-variant/30 flex flex-col">
@@ -298,7 +375,7 @@ function DevelopersTab({ apiKeys, webhooks }) {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">API Keys</h2>
             <p className="text-[10px] text-on-surface-variant uppercase mt-1">Manage headless authentication</p>
           </div>
-          <button className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
+          <button onClick={handleGenerateKey} className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
             Generate Key
           </button>
         </div>
@@ -309,7 +386,7 @@ function DevelopersTab({ apiKeys, webhooks }) {
                 <th className="p-4">Name</th>
                 <th className="p-4">Token (Masked)</th>
                 <th className="p-4">Permissions</th>
-                <th className="p-4 text-right">Last Used</th>
+                <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-outline-variant/20">
@@ -320,7 +397,9 @@ function DevelopersTab({ apiKeys, webhooks }) {
                   <td className="p-4">
                     <span className="text-[9px] font-bold uppercase tracking-widest bg-surface-variant px-2 py-1">{key.permissions}</span>
                   </td>
-                  <td className="p-4 text-right text-[10px] uppercase text-on-surface-variant">{key.lastUsed}</td>
+                  <td className="p-4 text-right">
+                    <button onClick={() => handleDeleteKey(key.id)} className="text-[10px] uppercase font-bold text-red-600 hover:underline">Revoke</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -334,7 +413,7 @@ function DevelopersTab({ apiKeys, webhooks }) {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Webhooks</h2>
             <p className="text-[10px] text-on-surface-variant uppercase mt-1">Real-time event streams</p>
           </div>
-          <button className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
+          <button onClick={handleAddWebhook} className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
             Add Webhook
           </button>
         </div>
@@ -345,7 +424,7 @@ function DevelopersTab({ apiKeys, webhooks }) {
                 <th className="p-4">Endpoint URL</th>
                 <th className="p-4">Events</th>
                 <th className="p-4">Status</th>
-                <th className="p-4 text-right">Delivery Rate</th>
+                <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-outline-variant/20">
@@ -362,7 +441,9 @@ function DevelopersTab({ apiKeys, webhooks }) {
                   <td className="p-4">
                     <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 bg-emerald-100 text-emerald-700">{wh.status}</span>
                   </td>
-                  <td className="p-4 text-right font-mono text-emerald-600 font-bold">{wh.successRate}</td>
+                  <td className="p-4 text-right">
+                    <button onClick={() => handleDeleteWebhook(wh.id)} className="text-[10px] uppercase font-bold text-red-600 hover:underline">Delete</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -374,6 +455,15 @@ function DevelopersTab({ apiKeys, webhooks }) {
 }
 
 function IntegrationsTab({ integrations }) {
+  const { toggleIntegration } = useAdminStore()
+
+  const handleToggle = (id, name, isConnected) => {
+    if (!isConnected || window.confirm(`Are you sure you want to revoke access for ${name}?`)) {
+      toggleIntegration(id)
+      toast.success(`${name} ${!isConnected ? 'connected' : 'revoked'}`)
+    }
+  }
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -392,7 +482,10 @@ function IntegrationsTab({ integrations }) {
               <span className="text-[10px] uppercase tracking-widest text-on-surface-variant">
                 {int.connected ? `Last Sync: ${int.lastSync}` : 'Requires Setup'}
               </span>
-              <button className={`text-[10px] font-bold uppercase tracking-widest ${int.connected ? 'text-red-600 hover:underline' : 'bg-primary text-white px-3 py-1.5'}`}>
+              <button 
+                onClick={() => handleToggle(int.id, int.name, int.connected)}
+                className={`text-[10px] font-bold uppercase tracking-widest ${int.connected ? 'text-red-600 hover:underline' : 'bg-primary text-white px-3 py-1.5'}`}
+              >
                 {int.connected ? 'Revoke' : 'Connect'}
               </button>
             </div>
@@ -404,6 +497,13 @@ function IntegrationsTab({ integrations }) {
 }
 
 function InfrastructureTab({ billing, backups }) {
+  const { triggerBackup } = useAdminStore()
+
+  const handleBackup = () => {
+    triggerBackup()
+    toast.success('Database backup initiated successfully')
+  }
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -447,7 +547,7 @@ function InfrastructureTab({ billing, backups }) {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Database Backups</h2>
             <p className="text-[10px] text-on-surface-variant uppercase mt-1">Automated daily snapshots</p>
           </div>
-          <button className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
+          <button onClick={handleBackup} className="text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-4 py-2 hover:bg-secondary">
             Manual Backup
           </button>
         </div>
