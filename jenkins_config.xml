@@ -1,0 +1,46 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job">
+  <actions/>
+  <description>Automated Pipeline for ATELIER Frontend Deployment</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps">
+    <script>pipeline {
+    agent any
+
+    tools {
+        nodejs &apos;NodeJS 22&apos;
+    }
+
+    stages {
+        stage(&apos;Checkout&apos;) {
+            steps {
+                // Checkout from the GitHub repository
+                git url: &apos;https://github.com/eryon-ai/ATELIER_Clothing_Store.git&apos;, branch: &apos;main&apos;
+            }
+        }
+
+        stage(&apos;Install Dependencies&apos;) {
+            steps {
+                sh &apos;npm install&apos;
+            }
+        }
+
+        stage(&apos;Build&apos;) {
+            steps {
+                sh &apos;npm run build&apos;
+            }
+        }
+        
+        stage(&apos;Simulate Deploy&apos;) {
+            steps {
+                echo &apos;Built dist/ successfully! In a real scenario, we would now push to AWS S3 or a web server.&apos;
+            }
+        }
+    }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
