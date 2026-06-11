@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate, Link } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { Suspense, lazy } from 'react'
 import { AnimatePresence } from 'framer-motion'
@@ -149,12 +149,12 @@ function AdminDemoBanner() {
   if (location.pathname.startsWith('/admin')) return null
   
   return (
-    <a 
-      href="http://localhost:5173/admin"
+    <Link 
+      to="/admin"
       className="fixed bottom-6 right-6 z-50 bg-red-600 text-white px-6 py-3 font-bold uppercase tracking-widest text-xs shadow-[0_10px_30px_rgba(220,38,38,0.4)] hover:bg-red-700 transition-colors flex items-center gap-2 animate-bounce rounded-sm border-2 border-white"
     >
       <span className="material-symbols-outlined text-lg">admin_panel_settings</span>
       Admin Panel Demo
-    </a>
+    </Link>
   )
 }
